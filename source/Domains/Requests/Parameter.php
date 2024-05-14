@@ -47,7 +47,7 @@ trait Parameter
     public function setParameter($parameter)
     {
         if (is_array($parameter)) {
-            $arr = array();
+            $arr = [];
             foreach ($parameter as $key => $parameterItem) {
                 if ($parameterItem instanceof \PagSeguro\Domains\Parameter) {
                     $arr[$key] = $parameterItem;

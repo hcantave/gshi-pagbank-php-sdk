@@ -43,7 +43,7 @@ trait Item
     public function setItems($items)
     {
         if (is_array($items)) {
-            $arr = array();
+            $arr = [];
             foreach ($items as $key => $item) {
                 if ($item instanceof \PagSeguro\Domains\Item) {
                     $arr[$key] = $item;
