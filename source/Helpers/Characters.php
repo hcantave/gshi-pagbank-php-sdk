@@ -29,7 +29,7 @@ class Characters
     /**
      *
      */
-    const PATTERN = "/[^a-z0-9]/";
+    public const PATTERN = "/[^a-z0-9]/";
 
     /**
      * @param $subject

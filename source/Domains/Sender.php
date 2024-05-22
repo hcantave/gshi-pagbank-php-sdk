@@ -133,7 +133,7 @@ class Sender
      * @param String $type
      * @param String $value
      */
-    public function addDocument($type, $value)
+    public function addDocument($type, $value): void
     {
         if ($type && $value) {
             if (count($this->documents) == 0) {

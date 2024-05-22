@@ -44,10 +44,9 @@ class Response extends \PagSeguro\Parsers\PreApproval\Search\Response
     }
 
     /**
-     * @param mixed $sender
      * @return Response
      */
-    public function setSender($sender)
+    public function setSender(mixed $sender)
     {
         $this->sender = $sender;
         return $this;

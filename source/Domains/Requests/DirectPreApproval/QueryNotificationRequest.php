@@ -35,18 +35,6 @@ class QueryNotificationRequest
 {
     use ParserTrait;
     /**
-     * @var int
-     */
-    public $page;
-    /**
-     * @var int
-     */
-    public $maxPageResults;
-    /**
-     * @var
-     */
-    public $interval;
-    /**
      * @var null
      */
     public $notificationCode;
@@ -60,14 +48,14 @@ class QueryNotificationRequest
      * @param null $notificationCode
      */
     public function __construct(
-        $page = 1,
-        $maxPageResults = 50,
-        $interval,
+        /**
+         * @var
+         */
+        public $interval,
+        public $page = 1,
+        public $maxPageResults = 50,
         $notificationCode = null
     ) {
-        $this->page = $page;
-        $this->maxPageResults = $maxPageResults;
-        $this->interval = $interval;
         $this->notificationCode = $notificationCode;
     }
 }

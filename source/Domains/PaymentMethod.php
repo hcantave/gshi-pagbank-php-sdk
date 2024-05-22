@@ -52,10 +52,9 @@ class PaymentMethod
     }
 
     /**
-     * @param mixed $group
      * @return PaymentMethod
      */
-    public function setGroup($group)
+    public function setGroup(mixed $group)
     {
         $this->group = $group;
         return $this;
@@ -70,10 +69,9 @@ class PaymentMethod
     }
 
     /**
-     * @param mixed $key
      * @return PaymentMethod
      */
-    public function setKey($key)
+    public function setKey(mixed $key)
     {
         $this->key = $key;
         return $this;
@@ -88,10 +86,9 @@ class PaymentMethod
     }
 
     /**
-     * @param mixed $value
      * @return PaymentMethod
      */
-    public function setValue($value)
+    public function setValue(mixed $value)
     {
         $this->value = $value;
         return $this;

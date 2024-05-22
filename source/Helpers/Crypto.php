@@ -27,8 +27,8 @@ namespace PagSeguro\Helpers;
 class Crypto
 {
     private static $list = [
-        "senderPhone" => array("phone", \PagSeguro\Enum\Mask::PHONE),
-        "senderCPF" => array("cpf", \PagSeguro\Enum\Mask::CPF)
+        "senderPhone" => ["phone", \PagSeguro\Enum\Mask::PHONE],
+        "senderCPF" => ["cpf", \PagSeguro\Enum\Mask::CPF]
     ];
 
     public static function encrypt($parameters)

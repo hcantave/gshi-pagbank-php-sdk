@@ -47,7 +47,7 @@ class ShippingAddressRequired
     /**
      * @param string $addressRequired
      */
-    public function setAddressRequired($addressRequired)
+    public function setAddressRequired($addressRequired): void
     {
         $this->addressRequired = $addressRequired;
     }

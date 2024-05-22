@@ -44,10 +44,10 @@ trait Parameter
         return $this->parameter;
     }
 
-    public function setParameter($parameter)
+    public function setParameter($parameter): void
     {
         if (is_array($parameter)) {
-            $arr = array();
+            $arr = [];
             foreach ($parameter as $key => $parameterItem) {
                 if ($parameterItem instanceof \PagSeguro\Domains\Parameter) {
                     $arr[$key] = $parameterItem;

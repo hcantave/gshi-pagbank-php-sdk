@@ -41,11 +41,10 @@ class Installment
 {
     /**
      * @param Credentials $credentials
-     * @param mixed $params
      * @return Pagseguro\Domains\Responses\Installments
      * @throws \Exception
      */
-    public static function create(Credentials $credentials, $params)
+    public static function create(Credentials $credentials, mixed $params)
     {
         Logger::info("Begin", ['service' => 'Installment']);
         try {
@@ -71,10 +70,9 @@ class Installment
     /**
      * Build the service request url
      * @param \PagSeguro\Resources\Connection\Data $connection
-     * @param mixed $params
      * @return string
      */
-    private static function request(Connection\Data $connection, $params)
+    private static function request(Connection\Data $connection, mixed $params)
     {
         return sprintf(
             "%s?%s%s%s%s",

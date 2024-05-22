@@ -43,7 +43,7 @@ trait Currency
     /**
      * @param $currency
      */
-    public function setCurrency($currency)
+    public function setCurrency($currency): void
     {
         $this->currency = $currency;
     }
@@ -59,7 +59,7 @@ trait Currency
     /**
      * @param $extraAmount
      */
-    public function setExtraAmount($extraAmount)
+    public function setExtraAmount($extraAmount): void
     {
         $this->extraAmount = $extraAmount;
     }

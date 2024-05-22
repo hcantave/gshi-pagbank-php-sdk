@@ -34,17 +34,12 @@ class Document
 {
 
     /**
-     * @var \PagSeguro\Domains\Document
-     */
-    private $holder;
-
-    /**
      * Document constructor.
      * @param $holder
+     * @param \PagSeguro\Domains\Document $holder
      */
-    public function __construct($holder)
+    public function __construct(private $holder)
     {
-        $this->holder = $holder;
     }
 
     /**

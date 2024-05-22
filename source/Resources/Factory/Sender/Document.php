@@ -34,17 +34,12 @@ class Document
 {
 
     /**
-     * @var \PagSeguro\Domains\Document
-     */
-    private $sender;
-
-    /**
      * Document constructor.
      * @param $sender
+     * @param \PagSeguro\Domains\Document $sender
      */
-    public function __construct($sender)
+    public function __construct(private $sender)
     {
-        $this->sender = $sender;
     }
 
     /**

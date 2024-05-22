@@ -14,12 +14,12 @@ class SenderTest extends TestCase
         $this->obj = new Sender();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(Sender::class, $this->obj);
     }
 
-    public function testRequiredParameters()
+    public function testRequiredParameters(): void
     {
         $this->assertObjectHasAttribute('name', $this->obj);
         $this->assertObjectHasAttribute('email', $this->obj);

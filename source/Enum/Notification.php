@@ -33,15 +33,15 @@ class Notification extends Enum
     /**
      *
      */
-    const TRANSACTION = 'transaction';
+    public const TRANSACTION = 'transaction';
 
     /**
      *
      */
-    const APPLICATION_AUTHORIZATION = 'applicationAuthorization';
+    public const APPLICATION_AUTHORIZATION = 'applicationAuthorization';
 
     /**
      *
      */
-    const PRE_APPROVAL = 'preApproval';
+    public const PRE_APPROVAL = 'preApproval';
 }

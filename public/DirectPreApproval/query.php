@@ -41,7 +41,7 @@ require_once "../../vendor/autoload.php";
  * @param $preApprovalRequest
  * @param $senderEmail
  */
-$queryPreApproval = new \PagSeguro\Domains\Requests\DirectPreApproval\Query(null, null, '2017-08-01', '2017-08-02');
+$queryPreApproval = new \PagSeguro\Domains\Requests\DirectPreApproval\Query('2017-08-01', null, null, '2017-08-02');
 
 try {
     $response = $queryPreApproval->register(

@@ -28,7 +28,7 @@ trait Reference
 {
     private $reference;
 
-    public function setReference($reference)
+    public function setReference($reference): void
     {
         $this->reference = $reference;
     }

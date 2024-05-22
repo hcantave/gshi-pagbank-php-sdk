@@ -52,10 +52,9 @@ class Permission
     }
 
     /**
-     * @param mixed $code
      * @return Permission
      */
-    public function setCode($code)
+    public function setCode(mixed $code)
     {
         $this->code = $code;
         return $this;
@@ -70,10 +69,9 @@ class Permission
     }
 
     /**
-     * @param mixed $lastUpdate
      * @return Permission
      */
-    public function setLastUpdate($lastUpdate)
+    public function setLastUpdate(mixed $lastUpdate)
     {
         $this->lastUpdate = $lastUpdate;
         return $this;
@@ -88,10 +86,9 @@ class Permission
     }
 
     /**
-     * @param mixed $status
      * @return Permission
      */
-    public function setStatus($status)
+    public function setStatus(mixed $status)
     {
         $this->status = $status;
         return $this;

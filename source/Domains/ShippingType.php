@@ -47,7 +47,7 @@ class ShippingType
     /**
      * @param string $type
      */
-    public function setType($type)
+    public function setType($type): void
     {
         $this->type = $type;
     }

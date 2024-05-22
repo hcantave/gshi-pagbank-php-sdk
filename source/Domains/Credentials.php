@@ -54,7 +54,7 @@ class Credentials
     /**
      * @param string $email
      */
-    public function setEmail($email)
+    public function setEmail($email): void
     {
         $this->email = $email;
     }
@@ -70,7 +70,7 @@ class Credentials
     /**
      * @param string $token
      */
-    public function setToken($token)
+    public function setToken($token): void
     {
         $this->token = $token;
     }
@@ -86,7 +86,7 @@ class Credentials
     /**
      * @param string $appId
      */
-    public function setAppId($appId)
+    public function setAppId($appId): void
     {
         $this->appId = $appId;
     }
@@ -102,7 +102,7 @@ class Credentials
     /**
      * @param string $appKey
      */
-    public function setAppKey($appKey)
+    public function setAppKey($appKey): void
     {
         $this->appKey = $appKey;
     }

@@ -33,25 +33,25 @@ class Mask extends Enum
     /**
      * Mask for CPF
      */
-    const CPF = "999.***.***-**";
+    public const CPF = "999.***.***-**";
 
     /**
      * Mask for RG
      */
-    const RG = "99.999.***-**";
+    public const RG = "99.999.***-**";
 
     /**
      * Mask for Birth Date
      */
-    const BIRTH_DATE = "**/**/9999";
+    public const BIRTH_DATE = "**/**/9999";
 
     /**
      * Mask for Phone
      */
-    const PHONE = "(**) 9999-****";
+    public const PHONE = "(**) 9999-****";
 
     /**
      * Mask for Mobile
      */
-    const MOBILE = "(**) 99999-****";
+    public const MOBILE = "(**) 99999-****";
 }

@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+use Rector\Config\RectorConfig;
+use Rector\Set\ValueObject\LevelSetList;
+use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector;
+
+return RectorConfig::configure() 
+    ->withPaths([
+        __DIR__ . '/public',
+        __DIR__ . '/source',
+        __DIR__ . '/tests',
+    ])
+    // uncomment to reach your current PHP version
+    ->withPhpSets(php80: true)
+    ->withImportNames(removeUnusedImports: true)
+    ->withRules([
+        AddVoidReturnTypeWhereNoReturnRector::class,
+    ]);
+
+    $rectorConfig->sets([LevelSetList::UP_TO_PHP_80]);

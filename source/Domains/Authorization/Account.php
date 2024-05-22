@@ -34,10 +34,6 @@ class Account
     /**
      * @var string
      */
-    private $email;
-    /**
-     * @var string
-     */
     private $type;
     /**
      * @var Seller
@@ -58,9 +54,8 @@ class Account
      * @param string $email
      * @param Seller | Company | Personal $type
      */
-    public function __construct($email, $type)
+    public function __construct(private $email, $type)
     {
-        $this->email = $email;
         if ($type instanceof Seller) {
             $this->type = 'SELLER';
             $this->seller = $type;

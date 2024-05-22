@@ -49,7 +49,7 @@ trait Mode
     /**
      * @param $mode
      */
-    public function setMode($mode)
+    public function setMode($mode): void
     {
         $this->mode = $mode;
     }

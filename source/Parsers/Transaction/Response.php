@@ -104,10 +104,9 @@ class Response
     }
 
     /**
-     * @param mixed $installmentCount
      * @return Response
      */
-    public function setInstallmentCount($installmentCount)
+    public function setInstallmentCount(mixed $installmentCount)
     {
         $this->installmentCount = $installmentCount;
         return $this;
@@ -122,10 +121,9 @@ class Response
     }
 
     /**
-     * @param mixed $code
      * @return Response
      */
-    public function setCode($code)
+    public function setCode(mixed $code)
     {
         $this->code = $code;
         return $this;
@@ -140,10 +138,9 @@ class Response
     }
 
     /**
-     * @param mixed $date
      * @return Response
      */
-    public function setDate($date)
+    public function setDate(mixed $date)
     {
         $this->date = $date;
         return $this;
@@ -158,10 +155,9 @@ class Response
     }
 
     /**
-     * @param mixed $lastEventDate
      * @return Response
      */
-    public function setLastEventDate($lastEventDate)
+    public function setLastEventDate(mixed $lastEventDate)
     {
         $this->lastEventDate = $lastEventDate;
         return $this;
@@ -176,10 +172,9 @@ class Response
     }
 
     /**
-     * @param mixed $reference
      * @return Response
      */
-    public function setReference($reference)
+    public function setReference(mixed $reference)
     {
         $this->reference = $reference;
         return $this;
@@ -194,10 +189,9 @@ class Response
     }
 
     /**
-     * @param mixed $status
      * @return Response
      */
-    public function setStatus($status)
+    public function setStatus(mixed $status)
     {
         $this->status = $status;
         return $this;
@@ -212,10 +206,9 @@ class Response
     }
 
     /**
-     * @param mixed $type
      * @return Response
      */
-    public function setType($type)
+    public function setType(mixed $type)
     {
         $this->type = $type;
         return $this;
@@ -230,7 +223,6 @@ class Response
     }
 
     /**
-     * @param mixed $installmentCount
      * @return Response
      */
     public function setPromoCode($promoCode)

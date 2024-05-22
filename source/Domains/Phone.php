@@ -37,14 +37,6 @@ class Phone
      * @var string
      */
     private $type;
-    /**
-     * @var integer
-     */
-    private $areaCode;
-    /**
-     * @var integer
-     */
-    private $number;
 
     /**
      * Phone constructor.
@@ -53,10 +45,8 @@ class Phone
      * @param null      $number
      * @param PhoneEnum $type
      */
-    public function __construct($areaCode = null, $number = null, $type = null)
+    public function __construct(private $areaCode = null, private $number = null, $type = null)
     {
-        $this->areaCode = $areaCode;
-        $this->number = $number;
         if ($type && $this->validateType($type)) {
             $this->type = $type;
         }

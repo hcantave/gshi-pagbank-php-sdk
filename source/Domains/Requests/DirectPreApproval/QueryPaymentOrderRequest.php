@@ -34,10 +34,6 @@ use PagSeguro\Domains\DirectPreApproval\Traits\ParserTrait;
 class QueryPaymentOrderRequest
 {
     use ParserTrait;
-    public $preApprovalCode;
-    public $status;
-    public $page;
-    public $maxPageResults;
 
     /**
      * QueryPaymentOrderRequest constructor.
@@ -47,11 +43,7 @@ class QueryPaymentOrderRequest
      * @param $page
      * @param $maxPageResults
      */
-    public function __construct($preApprovalCode, $status, $page = 1, $maxPageResults = 50)
+    public function __construct(public $preApprovalCode, public $status, public $page = 1, public $maxPageResults = 50)
     {
-        $this->preApprovalCode = $preApprovalCode;
-        $this->status = $status;
-        $this->page = $page;
-        $this->maxPageResults = $maxPageResults;
     }
 }

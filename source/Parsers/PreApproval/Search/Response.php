@@ -48,10 +48,9 @@ class Response
     }
 
     /**
-     * @param mixed $charge
      * @return Response
      */
-    public function setCharge($charge)
+    public function setCharge(mixed $charge)
     {
         $this->charge = $charge;
         return $this;
@@ -66,10 +65,9 @@ class Response
     }
 
     /**
-     * @param mixed $code
      * @return Response
      */
-    public function setCode($code)
+    public function setCode(mixed $code)
     {
         $this->code = $code;
         return $this;
@@ -84,10 +82,9 @@ class Response
     }
 
     /**
-     * @param mixed $date
      * @return Response
      */
-    public function setDate($date)
+    public function setDate(mixed $date)
     {
         $this->date = $date;
         return $this;
@@ -102,10 +99,9 @@ class Response
     }
 
     /**
-     * @param mixed $lastEventDate
      * @return Response
      */
-    public function setLastEventDate($lastEventDate)
+    public function setLastEventDate(mixed $lastEventDate)
     {
         $this->lastEventDate = $lastEventDate;
         return $this;
@@ -120,10 +116,9 @@ class Response
     }
 
     /**
-     * @param mixed $name
      * @return Response
      */
-    public function setName($name)
+    public function setName(mixed $name)
     {
         $this->name = $name;
         return $this;
@@ -138,10 +133,9 @@ class Response
     }
 
     /**
-     * @param mixed $reference
      * @return Response
      */
-    public function setReference($reference)
+    public function setReference(mixed $reference)
     {
         $this->reference = $reference;
         return $this;
@@ -156,10 +150,9 @@ class Response
     }
 
     /**
-     * @param mixed $status
      * @return Response
      */
-    public function setStatus($status)
+    public function setStatus(mixed $status)
     {
         $this->status = $status;
         return $this;
@@ -174,10 +167,9 @@ class Response
     }
 
     /**
-     * @param mixed $tracker
      * @return Response
      */
-    public function setTracker($tracker)
+    public function setTracker(mixed $tracker)
     {
         $this->tracker = $tracker;
         return $this;

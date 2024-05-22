@@ -44,7 +44,7 @@ trait Holder
     {
         $this->holder = InitializeObject::initialize(
             $this->holder,
-            '\PagSeguro\Domains\DirectPayment\CreditCard\Holder'
+            \PagSeguro\Domains\DirectPayment\CreditCard\Holder::class
         );
         return new \PagSeguro\Domains\Requests\Adapter\DirectPayment\Holder($this->holder);
     }

@@ -45,10 +45,9 @@ class ShippingCost
     }
 
     /**
-     * @param mixed $cost
      * @return ShippingCost
      */
-    public function setCost($cost)
+    public function setCost(mixed $cost)
     {
         $this->cost = $cost;
         return $this;

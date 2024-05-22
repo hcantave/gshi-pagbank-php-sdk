@@ -35,7 +35,6 @@ trait Ip
     }
 
     /**
-     * @param mixed $email
      * @return Customer
      */
     public function setIp($ip)

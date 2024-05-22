@@ -44,10 +44,9 @@ class Response
     }
 
     /**
-     * @param mixed $result
      * @return Response
      */
-    public function setResult($result)
+    public function setResult(mixed $result): void
     {
         $this->result = $result;
     }

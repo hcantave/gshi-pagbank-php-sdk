@@ -60,10 +60,9 @@ class Result
     }
 
     /**
-     * @param mixed $currentPage
      * @return Response
      */
-    public function setCurrentPage($currentPage)
+    public function setCurrentPage(mixed $currentPage)
     {
         $this->currentPage = $currentPage;
         return $this;
@@ -78,10 +77,9 @@ class Result
     }
 
     /**
-     * @param mixed $date
      * @return Response
      */
-    public function setDate($date)
+    public function setDate(mixed $date)
     {
         $this->date = $date;
         return $this;
@@ -96,10 +94,9 @@ class Result
     }
 
     /**
-     * @param mixed $resultsInThisPage
      * @return Response
      */
-    public function setResultsInThisPage($resultsInThisPage)
+    public function setResultsInThisPage(mixed $resultsInThisPage)
     {
         $this->resultsInThisPage = $resultsInThisPage;
         return $this;
@@ -114,10 +111,9 @@ class Result
     }
 
     /**
-     * @param mixed $totalPages
      * @return Response
      */
-    public function setTotalPages($totalPages)
+    public function setTotalPages(mixed $totalPages)
     {
         $this->totalPages = $totalPages;
         return $this;
@@ -132,10 +128,9 @@ class Result
     }
 
     /**
-     * @param mixed $preApprovals
      * @return Response
      */
-    public function setPreApprovals($preApprovals)
+    public function setPreApprovals(mixed $preApprovals)
     {
         if ($preApprovals) {
             if (is_object($preApprovals)) {
@@ -152,7 +147,7 @@ class Result
     /**
      * @param $preApproval
      */
-    private function addPreApproval($preApproval)
+    private function addPreApproval($preApproval): void
     {
         $response = new Response();
         $response->setName(current($preApproval->name))

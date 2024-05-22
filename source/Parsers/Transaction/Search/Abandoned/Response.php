@@ -44,10 +44,9 @@ class Response
     }
 
     /**
-     * @param mixed $currentPage
      * @return Response
      */
-    public function setCurrentPage($currentPage)
+    public function setCurrentPage(mixed $currentPage)
     {
         $this->currentPage = $currentPage;
         return $this;
@@ -62,10 +61,9 @@ class Response
     }
 
     /**
-     * @param mixed $date
      * @return Response
      */
-    public function setDate($date)
+    public function setDate(mixed $date)
     {
         $this->date = $date;
         return $this;
@@ -80,10 +78,9 @@ class Response
     }
 
     /**
-     * @param mixed $resultsInThisPage
      * @return Response
      */
-    public function setResultsInThisPage($resultsInThisPage)
+    public function setResultsInThisPage(mixed $resultsInThisPage)
     {
         $this->resultsInThisPage = $resultsInThisPage;
         return $this;
@@ -98,10 +95,9 @@ class Response
     }
 
     /**
-     * @param mixed $totalPages
      * @return Response
      */
-    public function setTotalPages($totalPages)
+    public function setTotalPages(mixed $totalPages)
     {
         $this->totalPages = $totalPages;
         return $this;
@@ -116,10 +112,9 @@ class Response
     }
 
     /**
-     * @param mixed $transactions
      * @return Response
      */
-    public function setTransactions($transactions)
+    public function setTransactions(mixed $transactions)
     {
         if ($transactions) {
             if (is_object($transactions)) {
@@ -136,7 +131,7 @@ class Response
     /**
      * @param $transaction
      */
-    private function addTransaction($transaction)
+    private function addTransaction($transaction): void
     {
         $response = new Transaction();
         $response->setDate(current($transaction->date))

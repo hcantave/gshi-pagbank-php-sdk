@@ -36,14 +36,6 @@ use PagSeguro\Domains\Phone;
 class Company
 {
     /**
-     * @var string
-     */
-    private $displayName = '';
-    /**
-     * @var \DateTime
-     */
-    private $websiteURL = null;
-    /**
      * @var array
      */
     private $documents = [];
@@ -51,14 +43,6 @@ class Company
      * @var array
      */
     private $phones = [];
-    /**
-     * @var Address
-     */
-    private $address = null;
-    /**
-     * @var Partner
-     */
-    private $partner;
 
     /**
      * Person constructor.
@@ -71,23 +55,19 @@ class Company
      * @param Partner $partner
      */
     public function __construct(
-        $displayName = null,
-        $websiteURL = null,
+        private $displayName = null,
+        private $websiteURL = null,
         Document $document = null,
         Phone $phone = null,
-        Address $address = null,
-        Partner $partner = null
+        private ?\PagSeguro\Domains\Address $address = null,
+        private ?\PagSeguro\Domains\Authorization\Partner $partner = null
     ) {
-        $this->displayName = $displayName;
-        $this->websiteURL = $websiteURL;
         if (isset($document)) {
             $this->addDocuments($document);
         }
         if (isset($phone)) {
             $this->addPhones($phone);
         }
-        $this->address = $address;
-        $this->partner = $partner;
     }
 
     /**

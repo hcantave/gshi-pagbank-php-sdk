@@ -36,10 +36,6 @@ use PagSeguro\Domains\Phone;
 class Seller
 {
     /**
-     * @var string
-     */
-    private $name = '';
-    /**
      * @var \DateTime
      */
     private $birthDate = null;
@@ -51,10 +47,6 @@ class Seller
      * @var array
      */
     private $phones = [];
-    /**
-     * @var Address
-     */
-    private $address = null;
 
     /**
      * Person constructor.
@@ -66,13 +58,12 @@ class Seller
      * @param Address $address
      */
     public function __construct(
-        $name = null,
+        private $name = null,
         \DateTime $birthDate = null,
         Document $document = null,
         Phone $phone = null,
-        Address $address = null
+        private ?\PagSeguro\Domains\Address $address = null
     ) {
-        $this->name = $name;
         $this->birthDate = date('Y-m-d', $birthDate->getTimestamp());
         if (isset($document)) {
             $this->addDocuments($document);
@@ -80,7 +71,6 @@ class Seller
         if (isset($phone)) {
             $this->addPhones($phone);
         }
-        $this->address = $address;
     }
 
     /**

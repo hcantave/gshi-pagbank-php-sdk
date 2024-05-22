@@ -52,10 +52,9 @@ class Application
     }
 
     /**
-     * @param mixed $id
      * @return Application
      */
-    public function setId($id)
+    public function setId(mixed $id)
     {
         $this->id = $id;
         return $this;
@@ -70,10 +69,9 @@ class Application
     }
 
     /**
-     * @param mixed $name
      * @return Application
      */
-    public function setName($name)
+    public function setName(mixed $name)
     {
         $this->name = $name;
         return $this;
@@ -88,10 +86,9 @@ class Application
     }
 
     /**
-     * @param mixed $role
      * @return Application
      */
-    public function setRole($role)
+    public function setRole(mixed $role)
     {
         $this->role = $role;
         return $this;

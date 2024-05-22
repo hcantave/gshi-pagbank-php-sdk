@@ -43,10 +43,7 @@ class Account
         return $this->publicKey;
     }
 
-    /**
-     * @param mixed $publicKey
-     */
-    public function setPublicKey($publicKey)
+    public function setPublicKey(mixed $publicKey): void
     {
         $this->publicKey = $publicKey;
     }

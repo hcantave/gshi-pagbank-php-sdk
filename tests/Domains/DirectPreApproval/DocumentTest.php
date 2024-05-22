@@ -14,12 +14,12 @@ class DocumentTest extends TestCase
         $this->obj = new Document();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(Document::class, $this->obj);
     }
 
-    public function testRequiredParameters()
+    public function testRequiredParameters(): void
     {
         $this->assertObjectHasAttribute('type', $this->obj);
         $this->assertObjectHasAttribute('value', $this->obj);

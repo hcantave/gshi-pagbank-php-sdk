@@ -78,19 +78,12 @@ trait Metadata
     {
         $value = StringFormat::formatString($value, 100, '');
 
-        switch ($key) {
-            case self::getKeyByDescription('CPF do passageiro'):
-                return StringFormat::getOnlyNumbers($value);
-                break;
-            case self::getKeyByDescription('Tempo no jogo em dias'):
-                return StringFormat::getOnlyNumbers($value);
-                break;
-            case self::getKeyByDescription('Celular de recarga'):
-                return StringFormat::getOnlyNumbers($value);
-                break;
-            default:
-                return $value;
-        }
+        return match ($key) {
+            self::getKeyByDescription('CPF do passageiro') => StringFormat::getOnlyNumbers($value),
+            self::getKeyByDescription('Tempo no jogo em dias') => StringFormat::getOnlyNumbers($value),
+            self::getKeyByDescription('Celular de recarga') => StringFormat::getOnlyNumbers($value),
+            default => $value,
+        };
     }
 
     /**

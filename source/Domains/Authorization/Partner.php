@@ -35,10 +35,6 @@ use PagSeguro\Domains\Phone;
 class Partner
 {
     /**
-     * @var string
-     */
-    private $name = '';
-    /**
      * @var \DateTime
      */
     private $birthDate;
@@ -60,12 +56,11 @@ class Partner
      * @param Phone $phone
      */
     public function __construct(
-        $name = null,
+        private $name = null,
         \DateTime $birthDate = null,
         Document $document = null,
         Phone $phone = null
     ) {
-        $this->name = $name;
         $this->birthDate = date('Y-m-d', $birthDate->getTimestamp());
         if (isset($document)) {
             $this->addDocuments($document);

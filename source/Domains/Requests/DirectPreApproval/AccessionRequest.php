@@ -65,7 +65,7 @@ class AccessionRequest
     /**
      * @param $plan
      */
-    public function setPlan($plan)
+    public function setPlan($plan): void
     {
         $this->plan = $plan;
     }
@@ -73,7 +73,7 @@ class AccessionRequest
     /**
      * @param $reference
      */
-    public function setReference($reference)
+    public function setReference($reference): void
     {
         $this->reference = $reference;
     }

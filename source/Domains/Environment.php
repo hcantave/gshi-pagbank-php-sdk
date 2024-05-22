@@ -42,7 +42,7 @@ class Environment
     /**
      * @param string $environment
      */
-    public function setEnvironment($environment)
+    public function setEnvironment($environment): void
     {
         $this->environment = $environment;
     }

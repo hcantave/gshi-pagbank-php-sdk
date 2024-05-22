@@ -14,7 +14,7 @@ class CreditCardTest extends TestCase
         $this->obj = new CreditCard();
     }
 
-    public function testRequiredParameters()
+    public function testRequiredParameters(): void
     {
         $this->assertObjectHasAttribute('token', $this->obj);
         $this->assertObjectHasAttribute('holder', $this->obj);

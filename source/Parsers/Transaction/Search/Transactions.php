@@ -34,10 +34,9 @@ abstract class Transactions
     }
 
     /**
-     * @param mixed $code
      * @return Transactions
      */
-    public function setCode($code)
+    public function setCode(mixed $code)
     {
         $this->code = $code;
         return $this;
@@ -52,10 +51,9 @@ abstract class Transactions
     }
 
     /**
-     * @param mixed $date
      * @return Transactions
      */
-    public function setDate($date)
+    public function setDate(mixed $date)
     {
         $this->date = $date;
         return $this;
@@ -70,10 +68,9 @@ abstract class Transactions
     }
 
     /**
-     * @param mixed $reference
      * @return Transactions
      */
-    public function setReference($reference)
+    public function setReference(mixed $reference)
     {
         $this->reference = $reference;
         return $this;
@@ -88,10 +85,9 @@ abstract class Transactions
     }
 
     /**
-     * @param mixed $type
      * @return Transactions
      */
-    public function setType($type)
+    public function setType(mixed $type)
     {
         $this->type = $type;
         return $this;

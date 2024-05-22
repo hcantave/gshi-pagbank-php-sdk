@@ -26,6 +26,6 @@ namespace PagSeguro\Enum\Subscription;
 
 class Period
 {
-    const WEEKLY = 'WEEKLY';
-    const MONTHLY = 'MONTHLY';
+    public const WEEKLY = 'WEEKLY';
+    public const MONTHLY = 'MONTHLY';
 }

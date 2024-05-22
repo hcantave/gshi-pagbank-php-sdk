@@ -26,7 +26,7 @@ namespace PagSeguro\Helpers;
 
 class Validate
 {
-    final public static function cUrl()
+    final public static function cUrl(): void
     {
         if (!function_exists('curl_init')) {
             throw new \Exception(
@@ -36,7 +36,7 @@ class Validate
         }
     }
 
-    final public static function simpleXml()
+    final public static function simpleXml(): void
     {
         if (!extension_loaded('simplexml')) {
             throw new \Exception(

@@ -43,7 +43,7 @@ trait PreApproval
      */
     public function setPreApproval()
     {
-        $this->preApproval = InitializeObject::initialize($this->preApproval, '\PagSeguro\Domains\PreApproval');
+        $this->preApproval = InitializeObject::initialize($this->preApproval, \PagSeguro\Domains\PreApproval::class);
         return $this->preApproval;
     }
 }

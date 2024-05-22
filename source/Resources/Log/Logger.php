@@ -34,7 +34,7 @@ use PagSeguro\Enum\Log\Level;
  */
 class Logger implements LoggerInterface
 {
-    const DEFAULT_FILE = "PagSeguro.Log";
+    public const DEFAULT_FILE = "PagSeguro.Log";
 
     /**
      * System is unusable.
@@ -43,7 +43,7 @@ class Logger implements LoggerInterface
      * @return void|null
      * @throws \Exception
      */
-    public static function emergency($message, array $context = array())
+    public static function emergency($message, array $context = []): void
     {
         self::log(Level::EMERGENCY, $message, $context);
     }
@@ -63,7 +63,7 @@ class Logger implements LoggerInterface
      * @return void|null
      * @throws \Exception
      */
-    public static function alert($message, array $context = array())
+    public static function alert($message, array $context = []): void
     {
         self::log(Level::ALERT, $message, $context);
     }
@@ -73,7 +73,7 @@ class Logger implements LoggerInterface
      *
      * Example: Application component unavailable, unexpected exception.
      */
-    public static function critical($message, array $context = array())
+    public static function critical($message, array $context = []): void
     {
         self::log(Level::CRITICAL, $message, $context);
     }
@@ -82,7 +82,7 @@ class Logger implements LoggerInterface
      * Runtime errors that do not require immediate action but should typically
      * be logged and monitored.
      */
-    public static function error($message, array $context = array())
+    public static function error($message, array $context = []): void
     {
         self::log(Level::ERROR, $message, $context);
     }
@@ -93,7 +93,7 @@ class Logger implements LoggerInterface
      * Example: Use of deprecated APIs, poor use of an API, undesirable things
      * that are not necessarily wrong.
      */
-    public static function warning($message, array $context = array())
+    public static function warning($message, array $context = []): void
     {
         self::log(Level::WARNING, $message, $context);
     }
@@ -105,7 +105,7 @@ class Logger implements LoggerInterface
      * @return void|null
      * @throws \Exception
      */
-    public static function notice($message, array $context = array())
+    public static function notice($message, array $context = []): void
     {
         self::log(Level::NOTICE, $message, $context);
     }
@@ -119,7 +119,7 @@ class Logger implements LoggerInterface
      * @return void|null
      * @throws \Exception
      */
-    public static function info($message, array $context = array())
+    public static function info($message, array $context = []): void
     {
         self::log(Level::INFO, $message, $context);
     }
@@ -131,7 +131,7 @@ class Logger implements LoggerInterface
      * @return void|null
      * @throws \Exception
      */
-    public static function debug($message, array $context = array())
+    public static function debug($message, array $context = []): void
     {
         self::log(Level::DEBUG, $message, $context);
     }
@@ -143,7 +143,7 @@ class Logger implements LoggerInterface
      * @return bool
      * @throws \Exception
      */
-    public static function log($level, $message, array $context = array())
+    public static function log($level, $message, array $context = [])
     {
 
         if (!self::active()) {
@@ -165,7 +165,7 @@ class Logger implements LoggerInterface
      * @return string
      * @throws \Exception
      */
-    private static function message($level, $message, array $context = array())
+    private static function message($level, $message, array $context = [])
     {
 
         $dateTime = new \DateTime('NOW');
@@ -183,7 +183,7 @@ class Logger implements LoggerInterface
      * @param $file
      * @param $message
      */
-    private static function write($file, $message)
+    private static function write($file, $message): void
     {
         file_put_contents($file, $message, FILE_APPEND | LOCK_EX);
     }

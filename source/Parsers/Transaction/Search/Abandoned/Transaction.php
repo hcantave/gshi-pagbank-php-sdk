@@ -51,10 +51,9 @@ class Transaction extends Transactions
     }
 
     /**
-     * @param mixed $grossAmount
      * @return Transaction
      */
-    public function setGrossAmount($grossAmount)
+    public function setGrossAmount(mixed $grossAmount)
     {
         $this->grossAmount = $grossAmount;
         return $this;
@@ -69,10 +68,9 @@ class Transaction extends Transactions
     }
 
     /**
-     * @param mixed $recoveryCode
      * @return Transaction
      */
-    public function setRecoveryCode($recoveryCode)
+    public function setRecoveryCode(mixed $recoveryCode)
     {
         $this->recoveryCode = $recoveryCode;
         return $this;

@@ -37,7 +37,7 @@ trait ReceiverEmail
         return $this->receiverEmail;
     }
 
-    public function setReceiverEmail($receiverEmail)
+    public function setReceiverEmail($receiverEmail): void
     {
         $this->receiverEmail = $receiverEmail;
     }

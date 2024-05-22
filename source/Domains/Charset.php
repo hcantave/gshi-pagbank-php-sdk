@@ -42,7 +42,7 @@ class Charset
     /**
      * @param $encoding
      */
-    public function setEncoding($encoding)
+    public function setEncoding($encoding): void
     {
         $this->encoding = $encoding;
     }

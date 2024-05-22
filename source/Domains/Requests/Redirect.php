@@ -35,7 +35,7 @@ trait Redirect
         return $this->rUrl;
     }
 
-    public function setUrl($url)
+    public function setUrl($url): void
     {
         $this->rUrl = $url;
     }

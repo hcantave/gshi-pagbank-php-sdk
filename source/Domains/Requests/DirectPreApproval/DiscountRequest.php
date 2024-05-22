@@ -48,7 +48,7 @@ class DiscountRequest
     /**
      * @param $type
      */
-    public function setType($type)
+    public function setType($type): void
     {
         $this->type = $type;
     }
@@ -56,7 +56,7 @@ class DiscountRequest
     /**
      * @param $value
      */
-    public function setValue($value)
+    public function setValue($value): void
     {
         $this->value = $value;
     }
@@ -64,7 +64,7 @@ class DiscountRequest
     /**
      * @param $preApprovalCode
      */
-    public function setPreApprovalCode($preApprovalCode)
+    public function setPreApprovalCode($preApprovalCode): void
     {
         $this->preApprovalCode = $preApprovalCode;
     }

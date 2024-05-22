@@ -28,7 +28,7 @@ use PagSeguro\Helpers\InitializeObject;
 
 trait PaymentMethod
 {
-    private $paymentMethod = array();
+    private $paymentMethod = [];
     
     public function addPaymentMethod()
     {
@@ -40,10 +40,10 @@ trait PaymentMethod
         return $this->paymentMethod;
     }
 
-    public function setPaymentMethod($paymentMethod)
+    public function setPaymentMethod($paymentMethod): void
     {
         if (is_array($paymentMethod)) {
-            $arr = array();
+            $arr = [];
             foreach ($paymentMethod as $key => $method) {
                 if ($method instanceof \PagSeguro\Domains\PaymentMethod) {
                     $arr[$key] = $method;

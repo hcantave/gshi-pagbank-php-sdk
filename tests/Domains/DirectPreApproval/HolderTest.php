@@ -14,12 +14,12 @@ class HolderTest extends TestCase
         $this->obj = new Holder();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(Holder::class, $this->obj);
     }
 
-    public function testRequiredParameters()
+    public function testRequiredParameters(): void
     {
         $this->assertObjectHasAttribute('name', $this->obj);
         $this->assertObjectHasAttribute('birthDate', $this->obj);

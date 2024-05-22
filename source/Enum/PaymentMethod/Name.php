@@ -33,140 +33,140 @@ class Name
     /**
      * Débito Bradesco
      */
-    const DEBITO_BRADESCO = "DEBITO_BRADESCO";
+    public const DEBITO_BRADESCO = "DEBITO_BRADESCO";
 
     /**
      * Débito Itaú
      */
-    const DEBITO_ITAU = "DEBITO_ITAU";
+    public const DEBITO_ITAU = "DEBITO_ITAU";
 
     /**
      * Débito Unibanco
      */
-    const DEBITO_UNIBANCO = "DEBITO_UNIBANCO";
+    public const DEBITO_UNIBANCO = "DEBITO_UNIBANCO";
 
     /**
      * Débito Banco do Brasil
      */
-    const DEBITO_BANCO_BRASIL = "DEBITO_BANCO_BRASIL";
+    public const DEBITO_BANCO_BRASIL = "DEBITO_BANCO_BRASIL";
 
     /**
      * Débito Barisul
      */
-    const DEBITO_BANRISUL = "DEBITO_BANRISUL";
+    public const DEBITO_BANRISUL = "DEBITO_BANRISUL";
 
     /**
      * Boleto
      */
-    const BOLETO = "BOLETO";
+    public const BOLETO = "BOLETO";
 
     /**
      * Bandeira Visa
      */
-    const VISA = "VISA";
+    public const VISA = "VISA";
 
     /**
      * Bandeira Mastercard
      */
-    const MASTERCARD = "MASTERCARD";
+    public const MASTERCARD = "MASTERCARD";
 
     /**
      * Bandeira Amex
      */
-    const AMEX = "AMEX";
+    public const AMEX = "AMEX";
 
     /**
      * Bandeira Diners
      */
-    const DINERS = "DINERS";
+    public const DINERS = "DINERS";
 
     /**
      * Bandeira Hipercard
      */
-    const HIPERCARD = "HIPERCARD";
+    public const HIPERCARD = "HIPERCARD";
 
     /**
      * Bandeira Aura
      */
-    const AURA = "AURA";
+    public const AURA = "AURA";
 
     /**
      * Bandeira Elo
      */
-    const ELO = "ELO";
+    public const ELO = "ELO";
 
     /**
      * Bandeira PlenoCard
      */
-    const PLENOCARD = "PLENOCARD";
+    public const PLENOCARD = "PLENOCARD";
 
     /**
      * Bandeira Bandeira PersonalCard
      */
-    const PERSONALCARD = "PERSONALCARD";
+    public const PERSONALCARD = "PERSONALCARD";
 
     /**
      * Bandeira JCB
      */
-    const JCB = "JCB";
+    public const JCB = "JCB";
 
     /**
      * Bandeira Discover
      */
-    const DISCOVER = "DISCOVER";
+    public const DISCOVER = "DISCOVER";
 
     /**
      * Bandeira BrasilCard
      */
-    const BRASILCARD = "BRASILCARD";
+    public const BRASILCARD = "BRASILCARD";
 
     /**
      * Bandeira FortBrasil
      */
-    const FORTBRASIL = "FORTBRASIL";
+    public const FORTBRASIL = "FORTBRASIL";
 
     /**
      * Bandeira CardBAN
      */
-    const CARDBAN = "CARDBAN";
+    public const CARDBAN = "CARDBAN";
 
     /**
      * Bandeira ValeCard
      */
-    const VALECARD = "VALECARD";
+    public const VALECARD = "VALECARD";
 
     /**
      * Bandeira Cabal
      */
-    const CABAL = "CABAL";
+    public const CABAL = "CABAL";
 
     /**
      * Bandeira MAIS
      */
-    const MAIS = "MAIS";
+    public const MAIS = "MAIS";
 
     /**
      * Bandeira Avista
      */
-    const AVISTA = "AVISTA";
+    public const AVISTA = "AVISTA";
 
     /**
      * Bandeira Grandcard
      */
-    const GRANDCARD = "GRANDCARD";
+    public const GRANDCARD = "GRANDCARD";
 
     /**
      * Bandeira Sorocred
      */
-    const SOROCRED = "SOROCRED";
+    public const SOROCRED = "SOROCRED";
 
     /**
      * Bandeira BaneseCard
      */
-    const BANESECARD = "BANESECARD";
+    public const BANESECARD = "BANESECARD";
 
     /**
      * Bandeira UpBrasil
      */
-    const UPBRASIL = "UPBRASIL";
+    public const UPBRASIL = "UPBRASIL";
 }

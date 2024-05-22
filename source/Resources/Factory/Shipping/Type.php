@@ -34,16 +34,11 @@ class Type
 {
 
     /**
-     * @var \PagSeguro\Domains\Shipping
-     */
-    private $shipping;
-
-    /**
      * Shipping constructor.
+     * @param \PagSeguro\Domains\Shipping $shipping
      */
-    public function __construct($shipping)
+    public function __construct(private $shipping)
     {
-        $this->shipping = $shipping;
     }
 
     public function instance(ShippingType $type)

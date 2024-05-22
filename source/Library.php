@@ -38,7 +38,7 @@ class Library
     /**
      *
      */
-    const VERSION = '6.0.0';
+    public const VERSION = '6.0.0';
 
     /**
      * @var
@@ -53,7 +53,7 @@ class Library
     /**
      * @throws \Exception
      */
-    final public static function initialize()
+    final public static function initialize(): void
     {
         //Basic configuration
         defined('PS_BASEPATH') or define('PS_BASEPATH', __DIR__);

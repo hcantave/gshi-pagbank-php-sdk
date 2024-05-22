@@ -57,10 +57,9 @@ class Holder
     }
 
     /**
-     * @param mixed $birthDate
      * @return Holder
      */
-    public function setBirthDate($birthDate)
+    public function setBirthDate(mixed $birthDate)
     {
         $this->birthDate = $birthDate;
         return $this;
@@ -75,10 +74,9 @@ class Holder
     }
 
     /**
-     * @param mixed $documents
      * @return Holder
      */
-    public function setDocuments($documents)
+    public function setDocuments(mixed $documents)
     {
         $this->documents = $documents;
         return $this;
@@ -93,10 +91,9 @@ class Holder
     }
 
     /**
-     * @param mixed $name
      * @return Holder
      */
-    public function setName($name)
+    public function setName(mixed $name)
     {
         $this->name = $name;
         return $this;
@@ -111,10 +108,9 @@ class Holder
     }
 
     /**
-     * @param mixed $phone
      * @return Holder
      */
-    public function setPhone($phone)
+    public function setPhone(mixed $phone)
     {
         $this->phone = $phone;
         return $this;

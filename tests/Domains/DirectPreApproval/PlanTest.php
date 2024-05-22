@@ -14,12 +14,12 @@ class PlanTest extends TestCase
         $this->obj = new Plan();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(Plan::class, $this->obj);
     }
 
-    public function testRequiredParameters()
+    public function testRequiredParameters(): void
     {
         $this->assertObjectHasAttribute('redirectURL', $this->obj);
         $this->assertObjectHasAttribute('reference', $this->obj);

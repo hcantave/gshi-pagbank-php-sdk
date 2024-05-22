@@ -115,7 +115,7 @@ class PreApproval
     /**
      * @param $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
@@ -123,7 +123,7 @@ class PreApproval
     /**
      * @param $charge
      */
-    public function setCharge($charge)
+    public function setCharge($charge): void
     {
         $this->charge = $charge;
     }
@@ -131,7 +131,7 @@ class PreApproval
     /**
      * @param $period
      */
-    public function setPeriod($period)
+    public function setPeriod($period): void
     {
         $this->period = $period;
     }
@@ -139,7 +139,7 @@ class PreApproval
     /**
      * @param $amountPerPayment
      */
-    public function setAmountPerPayment($amountPerPayment)
+    public function setAmountPerPayment($amountPerPayment): void
     {
         $this->amountPerPayment = $amountPerPayment;
     }
@@ -147,7 +147,7 @@ class PreApproval
     /**
      * @param $membershipFee
      */
-    public function setMembershipFee($membershipFee)
+    public function setMembershipFee($membershipFee): void
     {
         $this->membershipFee = $membershipFee;
     }
@@ -155,7 +155,7 @@ class PreApproval
     /**
      * @param $trialPeriodDuration
      */
-    public function setTrialPeriodDuration($trialPeriodDuration)
+    public function setTrialPeriodDuration($trialPeriodDuration): void
     {
         $this->trialPeriodDuration = $trialPeriodDuration;
     }
@@ -171,7 +171,7 @@ class PreApproval
     /**
      * @param $details
      */
-    public function setDetails($details)
+    public function setDetails($details): void
     {
         $this->details = $details;
     }
@@ -179,7 +179,7 @@ class PreApproval
     /**
      * @param $maxAmountPerPeriod
      */
-    public function setMaxAmountPerPeriod($maxAmountPerPeriod)
+    public function setMaxAmountPerPeriod($maxAmountPerPeriod): void
     {
         $this->maxAmountPerPeriod = $maxAmountPerPeriod;
     }
@@ -187,7 +187,7 @@ class PreApproval
     /**
      * @param $maxAmountPerPayment
      */
-    public function setMaxAmountPerPayment($maxAmountPerPayment)
+    public function setMaxAmountPerPayment($maxAmountPerPayment): void
     {
         $this->maxAmountPerPayment = $maxAmountPerPayment;
     }
@@ -195,7 +195,7 @@ class PreApproval
     /**
      * @param $maxTotalAmount
      */
-    public function setMaxTotalAmount($maxTotalAmount)
+    public function setMaxTotalAmount($maxTotalAmount): void
     {
         $this->maxTotalAmount = $maxTotalAmount;
     }
@@ -203,7 +203,7 @@ class PreApproval
     /**
      * @param $maxPaymentsPerPeriod
      */
-    public function setMaxPaymentsPerPeriod($maxPaymentsPerPeriod)
+    public function setMaxPaymentsPerPeriod($maxPaymentsPerPeriod): void
     {
         $this->maxPaymentsPerPeriod = $maxPaymentsPerPeriod;
     }
@@ -211,7 +211,7 @@ class PreApproval
     /**
      * @param $initialDate
      */
-    public function setInitialDate($initialDate)
+    public function setInitialDate($initialDate): void
     {
         $this->initialDate = $initialDate;
     }
@@ -219,7 +219,7 @@ class PreApproval
     /**
      * @param $finalDate
      */
-    public function setFinalDate($finalDate)
+    public function setFinalDate($finalDate): void
     {
         $this->finalDate = $finalDate;
     }
@@ -227,7 +227,7 @@ class PreApproval
     /**
      * @param $dayOfYear
      */
-    public function setDayOfYear($dayOfYear)
+    public function setDayOfYear($dayOfYear): void
     {
         $this->dayOfYear = $dayOfYear;
     }
@@ -235,7 +235,7 @@ class PreApproval
     /**
      * @param $dayOfMonth
      */
-    public function setDayOfMonth($dayOfMonth)
+    public function setDayOfMonth($dayOfMonth): void
     {
         $this->dayOfMonth = $dayOfMonth;
     }
@@ -243,7 +243,7 @@ class PreApproval
     /**
      * @param $dayOfWeek
      */
-    public function setDayOfWeek($dayOfWeek)
+    public function setDayOfWeek($dayOfWeek): void
     {
         $this->dayOfWeek = $dayOfWeek;
     }
@@ -251,7 +251,7 @@ class PreApproval
     /**
      * @param $cancelURL
      */
-    public function setCancelURL($cancelURL)
+    public function setCancelURL($cancelURL): void
     {
         $this->cancelURL = $cancelURL;
     }

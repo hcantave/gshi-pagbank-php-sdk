@@ -33,25 +33,25 @@ class Group
     /**
      *
      */
-    const CREDIT_CARD = 'CREDIT_CARD';
+    public const CREDIT_CARD = 'CREDIT_CARD';
 
     /**
      *
      */
-    const BOLETO = 'BOLETO';
+    public const BOLETO = 'BOLETO';
 
     /**
      *
      */
-    const EFT = 'EFT';
+    public const EFT = 'EFT';
 
     /**
      *
      */
-    const BALANCE = 'BALANCE';
+    public const BALANCE = 'BALANCE';
 
     /**
      *
      */
-    const DEPOSIT = 'DEPOSIT';
+    public const DEPOSIT = 'DEPOSIT';
 }

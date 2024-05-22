@@ -34,17 +34,12 @@ class Phone
 {
 
     /**
-     * @var \PagSeguro\Domains\DirectPayment\CreditCard\Holder
-     */
-    private $holder;
-
-    /**
      * Phone constructor.
      * @param $holder
+     * @param \PagSeguro\Domains\DirectPayment\CreditCard\Holder $holder
      */
-    public function __construct($holder)
+    public function __construct(private $holder)
     {
-        $this->holder = $holder;
     }
 
     /**

@@ -48,10 +48,9 @@ trait Shipping
     }
 
     /**
-     * @param mixed $shipping
      * @return Response
      */
-    public function setShipping($shipping)
+    public function setShipping(mixed $shipping)
     {
         if (current($shipping) !== false) {
             $shippingClass = new \PagSeguro\Domains\Shipping();

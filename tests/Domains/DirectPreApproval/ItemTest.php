@@ -14,12 +14,12 @@ class ItemTest extends TestCase
         $this->obj = new Item();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(Item::class, $this->obj);
     }
 
-    public function testRequiredParameters()
+    public function testRequiredParameters(): void
     {
         $this->assertObjectHasAttribute('id', $this->obj);
         $this->assertObjectHasAttribute('description', $this->obj);
@@ -27,7 +27,7 @@ class ItemTest extends TestCase
         $this->assertObjectHasAttribute('amount', $this->obj);
     }
 
-    public function testParametersThatCanBeNull()
+    public function testParametersThatCanBeNull(): void
     {
         $this->assertNull($this->obj->weight);
         $this->assertNull($this->obj->shippingCost);

@@ -34,17 +34,12 @@ class AddressRequired
 {
 
     /**
-     * @var \PagSeguro\Domains\Shipping
-     */
-    private $shipping;
-
-    /**
      * AddressRequired constructor.
      * @param $shipping
+     * @param \PagSeguro\Domains\Shipping $shipping
      */
-    public function __construct($shipping)
+    public function __construct(private $shipping)
     {
-        $this->shipping = $shipping;
     }
 
     public function instance(ShippingAddressRequired $addressRequired)

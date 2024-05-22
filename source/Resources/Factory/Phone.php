@@ -57,7 +57,7 @@ class Phone
     /**
      * @param $array
      */
-    public function withArray($array)
+    public function withArray($array): void
     {
         $properties = new Current();
         $this->phone->setAreaCode($array[$properties::SENDER_PHONE_AREA_CODE])

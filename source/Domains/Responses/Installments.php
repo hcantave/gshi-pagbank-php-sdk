@@ -46,7 +46,7 @@ class Installments
     /**
      * @param  PagSeguro\Domains\Responses\Installment $installments
      */
-    public function setInstallments($installments)
+    public function setInstallments($installments): void
     {
         if ($installments) {
             if (is_object($installments)) {
@@ -62,7 +62,7 @@ class Installments
     /**
      * @param PagSeguro\Domains\Responses\Installment $installment
      */
-    private function addInstallment($installment)
+    private function addInstallment($installment): void
     {
         $response = new Installment;
         $response->setCardBrand(current($installment->cardBrand))

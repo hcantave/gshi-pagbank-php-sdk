@@ -47,10 +47,7 @@ class Holder
         return $this->holder->getBirthDate();
     }
 
-    /**
-     * @param mixed $birthdate
-     */
-    public function setBirthDate($birthdate)
+    public function setBirthDate(mixed $birthdate): void
     {
         $this->holder->setBirthDate($birthdate);
     }
@@ -63,10 +60,7 @@ class Holder
         return $this->holder->getName();
     }
 
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
+    public function setName(mixed $name): void
     {
         $this->holder->setName($name);
     }

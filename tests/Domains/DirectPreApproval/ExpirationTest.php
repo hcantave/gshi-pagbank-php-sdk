@@ -14,12 +14,12 @@ class ExpirationTest extends TestCase
         $this->obj = new Expiration();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(Expiration::class, $this->obj);
     }
 
-    public function testRequiredParameters()
+    public function testRequiredParameters(): void
     {
         $this->assertObjectHasAttribute('value', $this->obj);
         $this->assertObjectHasAttribute('unit', $this->obj);

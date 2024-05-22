@@ -43,7 +43,7 @@ trait Sender
      */
     public function setSender()
     {
-        $this->sender = InitializeObject::initialize($this->sender, '\PagSeguro\Domains\PreApproval\Sender');
+        $this->sender = InitializeObject::initialize($this->sender, \PagSeguro\Domains\PreApproval\Sender::class);
         return new \PagSeguro\Domains\Requests\Adapter\PreApproval\Sender($this->sender);
     }
 

@@ -47,15 +47,12 @@ class RetryPaymentOrderRequest
     /**
      * @param $preApprovalCode
      */
-    public function setPreApprovalCode($preApprovalCode)
+    public function setPreApprovalCode($preApprovalCode): void
     {
         $this->preApprovalCode = $preApprovalCode;
     }
 
-    /**
-     * @param mixed $paymentOrderCode
-     */
-    public function setPaymentOrderCode($paymentOrderCode)
+    public function setPaymentOrderCode(mixed $paymentOrderCode): void
     {
         $this->paymentOrderCode = $paymentOrderCode;
     }

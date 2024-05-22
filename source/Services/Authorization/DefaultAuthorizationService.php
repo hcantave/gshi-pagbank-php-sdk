@@ -35,10 +35,6 @@ use PagSeguro\Domains\Authorization\Company;
 class DefaultAuthorizationService
 {
     /**
-     * @var Company
-     */
-    private $authorization;
-    /**
      * @var \DOMDocument
      */
     private $dom;
@@ -48,9 +44,8 @@ class DefaultAuthorizationService
      *
      * @param Authorization $authorization
      */
-    public function __construct(Authorization $authorization)
+    public function __construct(private Authorization $authorization)
     {
-        $this->authorization = $authorization;
         $this->dom = new \DOMDocument('1.0', 'UTF-8');
         $this->dom->xmlStandalone = true;
         $this->makeAuthorizationNode();

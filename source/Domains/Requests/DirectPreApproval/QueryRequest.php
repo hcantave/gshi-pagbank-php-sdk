@@ -35,14 +35,6 @@ class QueryRequest
 {
     use ParserTrait;
     /**
-     * @var int
-     */
-    public $page;
-    /**
-     * @var int
-     */
-    public $maxPageResults;
-    /**
      * @var false|string
      */
     public $initialDate;
@@ -80,17 +72,15 @@ class QueryRequest
      * @param null $preApprovalCode
      */
     public function __construct(
-        $page = 1,
-        $maxPageResults = 50,
         $initialDate,
+        public $page = 1,
+        public $maxPageResults = 50,
         $finalDate = null,
         $status = null,
         $preApprovalRequest = null,
         $senderEmail = null,
         $preApprovalCode = null
     ) {
-        $this->page = $page;
-        $this->maxPageResults = $maxPageResults;
         $this->initialDate = gmdate('Y-m-d\TH:i:s.z\T\Z\D', strtotime($initialDate));
         $this->finalDate = gmdate('Y-m-d\TH:i:s.z\T\Z\D', strtotime($finalDate));
         $this->status = $status;

@@ -48,10 +48,9 @@ class Accepted
     }
 
     /**
-     * @param mixed $groups
      * @return Accepted
      */
-    public function setGroups($groups)
+    public function setGroups(mixed $groups)
     {
         $this->groups[] = $groups;
         return $this;
@@ -66,10 +65,9 @@ class Accepted
     }
 
     /**
-     * @param mixed $names
      * @return Accepted
      */
-    public function setNames($names)
+    public function setNames(mixed $names)
     {
         $this->names[] = $names;
         return $this;

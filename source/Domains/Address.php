@@ -32,39 +32,6 @@ namespace PagSeguro\Domains;
 class Address
 {
     /**
-     * @var
-     */
-    private $street;
-    /**
-     * @var
-     */
-    private $number;
-    /**
-     * @var
-     */
-    private $complement;
-    /**
-     * @var
-     */
-    private $district;
-    /**
-     * @var
-     */
-    private $postalCode;
-    /**
-     * @var
-     */
-    private $city;
-    /**
-     * @var
-     */
-    private $state;
-    /**
-     * @var
-     */
-    private $country;
-
-    /**
      * Address constructor.
      *
      * @param $street
@@ -77,23 +44,40 @@ class Address
      * @param $country
      */
     public function __construct(
-        $street = null,
-        $number = null,
-        $complement = null,
-        $district = null,
-        $postalCode = null,
-        $city = null,
-        $state = null,
-        $country = null
-    ) {
-        $this->street = $street;
-        $this->number = $number;
-        $this->complement = $complement;
-        $this->district = $district;
-        $this->postalCode = $postalCode;
-        $this->city = $city;
-        $this->state = $state;
-        $this->country = $country;
+        /**
+         * @var
+         */
+        private $street = null,
+        /**
+         * @var
+         */
+        private $number = null,
+        /**
+         * @var
+         */
+        private $complement = null,
+        /**
+         * @var
+         */
+        private $district = null,
+        /**
+         * @var
+         */
+        private $postalCode = null,
+        /**
+         * @var
+         */
+        private $city = null,
+        /**
+         * @var
+         */
+        private $state = null,
+        /**
+         * @var
+         */
+        private $country = null
+    )
+    {
     }
 
     /**

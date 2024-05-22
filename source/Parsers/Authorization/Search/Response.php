@@ -63,10 +63,9 @@ class Response
     }
 
     /**
-     * @param mixed $account
      * @return Response
      */
-    public function setAccount($account)
+    public function setAccount(mixed $account)
     {
         $this->account = new Account();
         $this->account->setPublicKey($account);
@@ -82,10 +81,9 @@ class Response
     }
 
     /**
-     * @param mixed $code
      * @return Response
      */
-    public function setCode($code)
+    public function setCode(mixed $code)
     {
         $this->code = $code;
         return $this;
@@ -100,10 +98,9 @@ class Response
     }
 
     /**
-     * @param mixed $creationDate
      * @return Response
      */
-    public function setCreationDate($creationDate)
+    public function setCreationDate(mixed $creationDate)
     {
         $this->creationDate = $creationDate;
         return $this;
@@ -118,10 +115,9 @@ class Response
     }
 
     /**
-     * @param mixed $permissions
      * @return Response
      */
-    public function setPermissions($permissions)
+    public function setPermissions(mixed $permissions)
     {
         if ($permissions) {
             if (is_object($permissions)) {
@@ -153,10 +149,9 @@ class Response
     }
 
     /**
-     * @param mixed $reference
      * @return Response
      */
-    public function setReference($reference)
+    public function setReference(mixed $reference)
     {
         $this->reference = $reference;
         return $this;

@@ -34,17 +34,12 @@ class Address
 {
 
     /**
-     * @var \PagSeguro\Domains\DirectPayment\CreditCard\Billing
-     */
-    private $billing;
-
-    /**
      * Shipping constructor.
      * @param $billing
+     * @param \PagSeguro\Domains\DirectPayment\CreditCard\Billing $billing
      */
-    public function __construct($billing)
+    public function __construct(private $billing)
     {
-        $this->billing = $billing;
     }
 
     /**

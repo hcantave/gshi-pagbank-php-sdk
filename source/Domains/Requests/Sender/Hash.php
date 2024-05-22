@@ -35,7 +35,6 @@ trait Hash
     }
 
     /**
-     * @param mixed $email
      * @return Customer
      */
     public function setHash($hash)

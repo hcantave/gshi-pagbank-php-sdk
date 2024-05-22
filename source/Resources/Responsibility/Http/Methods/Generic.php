@@ -53,7 +53,7 @@ class Generic implements Handler
      * @return mixed|void
      * @throws \ErrorException
      */
-    public function handler($http, $class)
+    public function handler($http, $class): void
     {
         unset($class);
         throw new \ErrorException($http->getResponse(), $http->getStatus());

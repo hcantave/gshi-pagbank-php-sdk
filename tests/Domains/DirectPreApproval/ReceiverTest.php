@@ -14,12 +14,12 @@ class ReceiverTest extends TestCase
         $this->obj = new Receiver();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(Receiver::class, $this->obj);
     }
 
-    public function testRequiredParameters()
+    public function testRequiredParameters(): void
     {
         $this->assertObjectHasAttribute('email', $this->obj);
     }

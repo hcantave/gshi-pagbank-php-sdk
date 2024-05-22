@@ -35,15 +35,15 @@ use PagSeguro\Enum\Enum;
  */
 class Format extends Enum
 {
-    const PASSENGER_CPF = '[0-9]{11}';
-    const PASSENGER_PASSPORT = '.+';
-    const ORIGIN_CITY = '.+';
-    const DESTINATION_CITY = '.+';
-    const ORIGIN_AIRPORT_CODE = '.+';
-    const DESTINATION_AIRPORT_CODE = '.+';
-    const GAME_NAME = '.+';
-    const PLAYER_ID = '.+';
-    const TIME_IN_GAME_DAYS = '[0-9]+';
-    const MOBILE_NUMBER = '([0-9]{2})?([0-9]{2})([0-9]{4,5}[0-9]{4})';
-    const PASSENGER_NAME = '.+';
+    public const PASSENGER_CPF = '[0-9]{11}';
+    public const PASSENGER_PASSPORT = '.+';
+    public const ORIGIN_CITY = '.+';
+    public const DESTINATION_CITY = '.+';
+    public const ORIGIN_AIRPORT_CODE = '.+';
+    public const DESTINATION_AIRPORT_CODE = '.+';
+    public const GAME_NAME = '.+';
+    public const PLAYER_ID = '.+';
+    public const TIME_IN_GAME_DAYS = '[0-9]+';
+    public const MOBILE_NUMBER = '([0-9]{2})?([0-9]{2})([0-9]{4,5}[0-9]{4})';
+    public const PASSENGER_NAME = '.+';
 }

@@ -47,7 +47,7 @@ class StatusRequest
     /**
      * @param $status
      */
-    public function setStatus($status)
+    public function setStatus($status): void
     {
         $this->status = $status;
     }
@@ -55,7 +55,7 @@ class StatusRequest
     /**
      * @param $preApprovalCode
      */
-    public function setPreApprovalCode($preApprovalCode)
+    public function setPreApprovalCode($preApprovalCode): void
     {
         $this->preApprovalCode = $preApprovalCode;
     }

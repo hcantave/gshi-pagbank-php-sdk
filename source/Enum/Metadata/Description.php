@@ -32,15 +32,15 @@ use PagSeguro\Enum\Enum;
  */
 class Description extends Enum
 {
-    const PASSENGER_CPF = 'CPF do passageiro';
-    const PASSENGER_PASSPORT = 'Passaporte do passageiro';
-    const ORIGIN_CITY = 'Cidade de origem';
-    const DESTINATION_CITY = 'Cidade de destino';
-    const ORIGIN_AIRPORT_CODE = 'Código do aeroporto de origem';
-    const DESTINATION_AIRPORT_CODE = 'Código do aeroporto de destino';
-    const GAME_NAME = 'Nome do jogo';
-    const PLAYER_ID = 'ID do jogador';
-    const TIME_IN_GAME_DAYS = 'Tempo no jogo em dias';
-    const MOBILE_NUMBER = 'Celular de recarga';
-    const PASSENGER_NAME = 'Nome do passageiro';
+    public const PASSENGER_CPF = 'CPF do passageiro';
+    public const PASSENGER_PASSPORT = 'Passaporte do passageiro';
+    public const ORIGIN_CITY = 'Cidade de origem';
+    public const DESTINATION_CITY = 'Cidade de destino';
+    public const ORIGIN_AIRPORT_CODE = 'Código do aeroporto de origem';
+    public const DESTINATION_AIRPORT_CODE = 'Código do aeroporto de destino';
+    public const GAME_NAME = 'Nome do jogo';
+    public const PLAYER_ID = 'ID do jogador';
+    public const TIME_IN_GAME_DAYS = 'Tempo no jogo em dias';
+    public const MOBILE_NUMBER = 'Celular de recarga';
+    public const PASSENGER_NAME = 'Nome do passageiro';
 }

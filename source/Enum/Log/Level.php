@@ -35,40 +35,40 @@ class Level extends Enum
     /**
      *
      */
-    const EMERGENCY = 'emergency';
+    public const EMERGENCY = 'emergency';
 
     /**
      *
      */
-    const ALERT = 'alert';
+    public const ALERT = 'alert';
 
     /**
      *
      */
-    const CRITICAL = 'critical';
+    public const CRITICAL = 'critical';
 
     /**
      *
      */
-    const ERROR = 'error';
+    public const ERROR = 'error';
 
     /**
      *
      */
-    const WARNING = 'warning';
+    public const WARNING = 'warning';
 
     /**
      *
      */
-    const NOTICE = 'notice';
+    public const NOTICE = 'notice';
 
     /**
      *
      */
-    const INFO = 'info';
+    public const INFO = 'info';
 
     /**
      *
      */
-    const DEBUG = 'debug';
+    public const DEBUG = 'debug';
 }

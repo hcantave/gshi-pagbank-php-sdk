@@ -49,7 +49,7 @@ class EditPlanRequest
     /**
     * @param $preApprovalRequestCode
     */
-    public function setPreApprovalRequestCode($preApprovalRequestCode)
+    public function setPreApprovalRequestCode($preApprovalRequestCode): void
     {
         $this->preApprovalRequestCode = $preApprovalRequestCode;
     }
@@ -57,7 +57,7 @@ class EditPlanRequest
     /**
      * @param $amountPerPayment
      */
-    public function setAmountPerPayment($amountPerPayment)
+    public function setAmountPerPayment($amountPerPayment): void
     {
         $this->amountPerPayment = $amountPerPayment;
     }
@@ -65,7 +65,7 @@ class EditPlanRequest
     /**
      * @param $updateSubscriptions
      */
-    public function setUpdateSubscriptions($updateSubscriptions)
+    public function setUpdateSubscriptions($updateSubscriptions): void
     {
         $this->updateSubscriptions = $updateSubscriptions;
     }

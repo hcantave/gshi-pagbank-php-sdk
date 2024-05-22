@@ -36,10 +36,6 @@ use PagSeguro\Domains\Phone;
 class PersonalService
 {
     /**
-     * @var Authorization
-     */
-    private $authorization;
-    /**
      * @var \DOMDocument
      */
     private $dom;
@@ -49,9 +45,8 @@ class PersonalService
      *
      * @param Authorization $authorization
      */
-    public function __construct(Authorization $authorization)
+    public function __construct(private Authorization $authorization)
     {
-        $this->authorization = $authorization;
         $this->dom = new \DOMDocument('1.0', 'UTF-8');
         $this->dom->xmlStandalone = true;
         $authorizationNode = $this->makeAuthorizationNode();
@@ -135,7 +130,7 @@ class PersonalService
     /**
      * @param \DOMNode $personDom
      */
-    private function makePhonesNode(\DOMNode $personDom)
+    private function makePhonesNode(\DOMNode $personDom): void
     {
         $phonesElement = $this->dom->createElement('phones');
         $phonesDom = $personDom->appendChild($phonesElement);
@@ -162,7 +157,7 @@ class PersonalService
     /**
      * @param \DOMNode $personDom
      */
-    private function makeDocumentsNode(\DOMNode $personDom)
+    private function makeDocumentsNode(\DOMNode $personDom): void
     {
         $documentsElement = $this->dom->createElement('documents');
         $documentsDom = $personDom->appendChild($documentsElement);
@@ -186,7 +181,7 @@ class PersonalService
     /**
      * @param \DOMNode $personDom
      */
-    private function makeAddressNode(\DOMNode $personDom)
+    private function makeAddressNode(\DOMNode $personDom): void
     {
         $addressElement = $this->dom->createElement('address');
         $addressDom = $personDom->appendChild($addressElement);

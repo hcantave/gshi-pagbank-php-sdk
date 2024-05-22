@@ -34,17 +34,12 @@ class Address
 {
 
     /**
-     * @var \PagSeguro\Domains\Shipping
-     */
-    private $shipping;
-
-    /**
      * Shipping constructor.
      * @param $shipping
+     * @param \PagSeguro\Domains\Shipping $shipping
      */
-    public function __construct($shipping)
+    public function __construct(private $shipping)
     {
-        $this->shipping = $shipping;
     }
 
     /**

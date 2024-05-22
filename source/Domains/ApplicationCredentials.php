@@ -109,10 +109,9 @@ class ApplicationCredentials implements Credentials
     }
 
     /**
-     * @param mixed $authorizationCode
      * @return ApplicationCredentials
      */
-    public function setAuthorizationCode($authorizationCode)
+    public function setAuthorizationCode(mixed $authorizationCode)
     {
         $this->authorizationCode = $authorizationCode;
         return $this;

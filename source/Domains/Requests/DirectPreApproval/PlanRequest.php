@@ -55,7 +55,7 @@ class PlanRequest
     /**
      * @param $redirectURL
      */
-    public function setRedirectURL($redirectURL)
+    public function setRedirectURL($redirectURL): void
     {
         $this->redirectURL = $redirectURL;
     }
@@ -63,7 +63,7 @@ class PlanRequest
     /**
      * @param $reference
      */
-    function setReference($reference)
+    function setReference($reference): void
     {
         $this->reference = $reference;
     }
@@ -79,7 +79,7 @@ class PlanRequest
     /**
      * @param $reviewURL
      */
-    public function setReviewURL($reviewURL)
+    public function setReviewURL($reviewURL): void
     {
         $this->reviewURL = $reviewURL;
     }
@@ -87,7 +87,7 @@ class PlanRequest
     /**
      * @param $maxUsers
      */
-    public function setMaxUses($maxUsers)
+    public function setMaxUses($maxUsers): void
     {
         $this->maxUses = $maxUsers;
     }

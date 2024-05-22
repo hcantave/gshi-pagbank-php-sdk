@@ -35,7 +35,7 @@ trait Review
         return $this->wUrl;
     }
 
-    public function setUrl($url)
+    public function setUrl($url): void
     {
         $this->wUrl = $url;
     }

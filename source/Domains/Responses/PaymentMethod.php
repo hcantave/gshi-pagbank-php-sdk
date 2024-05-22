@@ -48,10 +48,9 @@ class PaymentMethod
     }
 
     /**
-     * @param mixed $code
      * @return PaymentMethod
      */
-    public function setCode($code)
+    public function setCode(mixed $code)
     {
         $this->code = $code;
         return $this;
@@ -66,10 +65,9 @@ class PaymentMethod
     }
 
     /**
-     * @param mixed $type
      * @return PaymentMethod
      */
-    public function setType($type)
+    public function setType(mixed $type)
     {
         $this->type = $type;
         return $this;

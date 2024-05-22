@@ -32,7 +32,7 @@ use PagSeguro\Enum\Properties\Current;
  */
 class PaymentMethod
 {
-    private $paymentMethod = array();
+    private $paymentMethod = [];
 
     public function instance(\PagSeguro\Domains\PaymentMethod $paymentMethod)
     {

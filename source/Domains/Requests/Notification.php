@@ -33,7 +33,7 @@ trait Notification
         return $this->nUrl;
     }
 
-    public function setUrl($url)
+    public function setUrl($url): void
     {
         $this->nUrl = $url;
     }

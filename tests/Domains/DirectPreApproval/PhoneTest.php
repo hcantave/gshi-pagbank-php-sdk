@@ -14,12 +14,12 @@ class PhoneTest extends TestCase
         $this->obj = new Phone();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(Phone::class, $this->obj);
     }
 
-    public function testParameters()
+    public function testParameters(): void
     {
         $this->assertObjectHasAttribute('areaCode', $this->obj);
         $this->assertObjectHasAttribute('number', $this->obj);

@@ -35,7 +35,7 @@ class Enum extends BaseEnum
      */
     public static function getList()
     {
-        $reflection = new \ReflectionClass(get_called_class());
+        $reflection = new \ReflectionClass(static::class);
         return $reflection->getConstants();
     }
 

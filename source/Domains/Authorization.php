@@ -12,27 +12,6 @@ use PagSeguro\Domains\Authorization\Account;
 class Authorization
 {
     /**
-     * @var string
-     */
-    private $reference;
-    /**
-     * @var string
-     */
-    private $permissions;
-    /**
-     * @var string
-     */
-    private $redirectURL;
-    /**
-     * @var string
-     */
-    private $notificationURL;
-    /**
-     * @var Authorization\Account
-     */
-    private $account;
-
-    /**
      * Seller constructor.
      *
      * @param                       $reference
@@ -40,19 +19,13 @@ class Authorization
      * @param                       $redirectURL
      * @param                       $notificationURL
      * @param Account               $account
+     * @param string $reference
+     * @param string $permissions
+     * @param string $redirectURL
+     * @param string $notificationURL
      */
-    public function __construct(
-        $reference,
-        $permissions,
-        $redirectURL,
-        $notificationURL,
-        Account $account = null
-    ) {
-        $this->reference = $reference;
-        $this->permissions = $permissions;
-        $this->redirectURL = $redirectURL;
-        $this->notificationURL = $notificationURL;
-        $this->account = $account;
+    public function __construct(private $reference, private $permissions, private $redirectURL, private $notificationURL, private ?\PagSeguro\Domains\Authorization\Account $account = null)
+    {
     }
 
     /**

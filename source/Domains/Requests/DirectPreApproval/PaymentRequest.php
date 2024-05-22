@@ -52,7 +52,7 @@ class PaymentRequest
     /**
      * @param $preApprovalCode
      */
-    public function setPreApprovalCode($preApprovalCode)
+    public function setPreApprovalCode($preApprovalCode): void
     {
         $this->preApprovalCode = $preApprovalCode;
     }
@@ -60,7 +60,7 @@ class PaymentRequest
     /**
      * @param $reference
      */
-    public function setReference($reference)
+    public function setReference($reference): void
     {
         $this->reference = $reference;
     }
@@ -68,7 +68,7 @@ class PaymentRequest
     /**
      * @param $senderHash
      */
-    public function setSenderHash($senderHash)
+    public function setSenderHash($senderHash): void
     {
         $this->senderHash = $senderHash;
     }
@@ -76,7 +76,7 @@ class PaymentRequest
     /**
      * @param $senderIp
      */
-    public function setSenderIp($senderIp)
+    public function setSenderIp($senderIp): void
     {
         $this->senderIp = $senderIp;
     }

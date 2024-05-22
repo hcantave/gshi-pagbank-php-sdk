@@ -35,10 +35,9 @@ trait Customer
     }
 
     /**
-     * @param mixed $email
      * @return Customer
      */
-    public function setEmail($email)
+    public function setEmail(mixed $email)
     {
         $this->sender->setEmail($email);
         return $this;
@@ -53,10 +52,9 @@ trait Customer
     }
 
     /**
-     * @param mixed $name
      * @return Customer
      */
-    public function setName($name)
+    public function setName(mixed $name)
     {
         $this->sender->setName($name);
         return $this;

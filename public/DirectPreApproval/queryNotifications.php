@@ -40,7 +40,7 @@ require_once "../../vendor/autoload.php";
  * @param      $interval
  * @param null $notificationCode
  */
-$queryNotification = new \PagSeguro\Domains\Requests\DirectPreApproval\QueryNotification(null, null, 20, 'código da notificação');
+$queryNotification = new \PagSeguro\Domains\Requests\DirectPreApproval\QueryNotification(20, null, null, 'código da notificação');
 
 try {
     $response = $queryNotification->register(

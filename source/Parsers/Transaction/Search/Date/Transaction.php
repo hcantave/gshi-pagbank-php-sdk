@@ -57,10 +57,9 @@ class Transaction extends Transactions
     }
 
     /**
-     * @param mixed $cancellationSource
      * @return Transaction
      */
-    public function setCancellationSource($cancellationSource)
+    public function setCancellationSource(mixed $cancellationSource)
     {
         $this->cancellationSource = $cancellationSource;
         return $this;
@@ -75,10 +74,9 @@ class Transaction extends Transactions
     }
 
     /**
-     * @param mixed $lastEventDate
      * @return Transaction
      */
-    public function setLastEventDate($lastEventDate)
+    public function setLastEventDate(mixed $lastEventDate)
     {
         $this->lastEventDate = $lastEventDate;
         return $this;
@@ -93,10 +91,9 @@ class Transaction extends Transactions
     }
 
     /**
-     * @param mixed $status
      * @return Transaction
      */
-    public function setStatus($status)
+    public function setStatus(mixed $status)
     {
         $this->status = $status;
         return $this;

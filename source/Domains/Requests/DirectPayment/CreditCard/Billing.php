@@ -38,7 +38,7 @@ trait Billing
     {
         $this->billing = InitializeObject::initialize(
             $this->billing,
-            '\PagSeguro\Domains\DirectPayment\CreditCard\Billing'
+            \PagSeguro\Domains\DirectPayment\CreditCard\Billing::class
         );
         return new \PagSeguro\Domains\Requests\Adapter\DirectPayment\Billing($this->billing);
     }

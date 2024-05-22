@@ -70,7 +70,7 @@ class ChangePaymentRequest
     /**
      * @param $preApprovalCode
      */
-    public function setPreApprovalCode($preApprovalCode)
+    public function setPreApprovalCode($preApprovalCode): void
     {
         $this->preApprovalCode = $preApprovalCode;
     }

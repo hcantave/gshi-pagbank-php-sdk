@@ -14,12 +14,12 @@ class PreApprovalTest extends TestCase
         $this->obj = new PreApproval();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(PreApproval::class, $this->obj);
     }
 
-    public function testRequiredParameters()
+    public function testRequiredParameters(): void
     {
         $this->assertObjectHasAttribute('name', $this->obj);
         $this->assertObjectHasAttribute('charge', $this->obj);

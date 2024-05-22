@@ -42,7 +42,7 @@ class Charge extends Request
     /**
      * @param string $code
      */
-    public function setCode($code)
+    public function setCode($code): void
     {
         $this->code = $code;
     }

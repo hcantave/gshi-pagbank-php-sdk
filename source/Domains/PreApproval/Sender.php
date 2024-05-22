@@ -45,10 +45,9 @@ class Sender extends \PagSeguro\Domains\Sender
     }
 
     /**
-     * @param mixed $address
      * @return Sender
      */
-    public function setAddress($address)
+    public function setAddress(mixed $address)
     {
         $this->address = $address;
         return $this;

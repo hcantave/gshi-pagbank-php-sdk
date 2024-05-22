@@ -31,24 +31,22 @@ namespace PagSeguro\Domains;
 class Document
 {
     /**
-     * @var
-     */
-    private $type;
-    /**
-     * @var
-     */
-    private $identifier;
-
-    /**
      * Document constructor.
      *
      * @param $type
      * @param $identifier
      */
-    public function __construct($type = null, $identifier = null)
+    public function __construct(
+        /**
+         * @var
+         */
+        private $type = null,
+        /**
+         * @var
+         */
+        private $identifier = null
+    )
     {
-        $this->type = $type;
-        $this->identifier = $identifier;
     }
 
     /**
@@ -78,10 +76,9 @@ class Document
     }
 
     /**
-     * @param mixed $type
      * @return Document
      */
-    public function setType($type)
+    public function setType(mixed $type)
     {
         $this->type = strtoupper($type);
         return $this;

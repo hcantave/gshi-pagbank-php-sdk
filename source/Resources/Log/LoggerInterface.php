@@ -49,7 +49,7 @@ interface LoggerInterface
      *
      * @return null
      */
-    public static function emergency($message, array $context = array());
+    public static function emergency($message, array $context = []);
 
     /**
      * Action must be taken immediately.
@@ -62,7 +62,7 @@ interface LoggerInterface
      *
      * @return null
      */
-    public static function alert($message, array $context = array());
+    public static function alert($message, array $context = []);
 
     /**
      * Critical conditions.
@@ -74,7 +74,7 @@ interface LoggerInterface
      *
      * @return null
      */
-    public static function critical($message, array $context = array());
+    public static function critical($message, array $context = []);
 
     /**
      * Runtime errors that do not require immediate action but should typically
@@ -85,7 +85,7 @@ interface LoggerInterface
      *
      * @return null
      */
-    public static function error($message, array $context = array());
+    public static function error($message, array $context = []);
 
     /**
      * Exceptional occurrences that are not errors.
@@ -98,7 +98,7 @@ interface LoggerInterface
      *
      * @return null
      */
-    public static function warning($message, array $context = array());
+    public static function warning($message, array $context = []);
 
     /**
      * Normal but significant events.
@@ -108,7 +108,7 @@ interface LoggerInterface
      *
      * @return null
      */
-    public static function notice($message, array $context = array());
+    public static function notice($message, array $context = []);
 
     /**
      * Interesting events.
@@ -120,7 +120,7 @@ interface LoggerInterface
      *
      * @return null
      */
-    public static function info($message, array $context = array());
+    public static function info($message, array $context = []);
 
     /**
      * Detailed debug information.
@@ -130,16 +130,14 @@ interface LoggerInterface
      *
      * @return null
      */
-    public static function debug($message, array $context = array());
+    public static function debug($message, array $context = []);
 
     /**
      * Logs with an arbitrary level.
      *
-     * @param mixed $level
      * @param string $message
      * @param array $context
-     *
      * @return null
      */
-    public static function log($level, $message, array $context = array());
+    public static function log(mixed $level, $message, array $context = []);
 }

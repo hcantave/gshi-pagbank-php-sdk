@@ -53,7 +53,7 @@ class Instance implements Handler
      * @param $class
      * @return mixed|void
      */
-    public function handler($instance, $class)
+    public function handler($instance, $class): void
     {
         if ($instance instanceof $class) {
         }

@@ -51,7 +51,7 @@ class CreditCard
     /**
      * @param $token
      */
-    public function setToken($token)
+    public function setToken($token): void
     {
         $this->token = $token;
     }

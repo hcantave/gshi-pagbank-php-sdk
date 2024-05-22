@@ -63,7 +63,7 @@ class Configure
      * @param string $email
      * @param string $token
      */
-    public static function setAccountCredentials($email, $token)
+    public static function setAccountCredentials($email, $token): void
     {
         self::$accountCredentials = new AccountCredentials;
         self::$accountCredentials->setEmail($email)
@@ -90,7 +90,7 @@ class Configure
      * @param string $appId
      * @param string $appKey
      */
-    public static function setApplicationCredentials($appId, $appKey)
+    public static function setApplicationCredentials($appId, $appKey): void
     {
         self::$applicationCredentials = new ApplicationCredentials;
         self::$applicationCredentials->setAppId($appId)
@@ -112,7 +112,7 @@ class Configure
     /**
      * @param string $environment
      */
-    public static function setEnvironment($environment)
+    public static function setEnvironment($environment): void
     {
         self::$environment = new Environment;
         self::$environment->setEnvironment($environment);
@@ -133,7 +133,7 @@ class Configure
     /**
      * @param string $charset
      */
-    public static function setCharset($charset)
+    public static function setCharset($charset): void
     {
         self::$charset = new Charset;
         self::$charset->setEncoding($charset);
@@ -158,7 +158,7 @@ class Configure
      * @param boolean $active
      * @param string $location
      */
-    public static function setLog($active, $location)
+    public static function setLog($active, $location): void
     {
         self::$log = new Log;
         self::$log->setActive($active)

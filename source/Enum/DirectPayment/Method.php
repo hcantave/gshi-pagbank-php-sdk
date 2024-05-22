@@ -31,9 +31,9 @@ namespace PagSeguro\Enum\DirectPayment;
  */
 class Method
 {
-    const BOLETO = 'boleto';
+    public const BOLETO = 'boleto';
 
-    const CREDIT_CARD = 'creditCard';
+    public const CREDIT_CARD = 'creditCard';
 
-    const ONLINE_DEBIT = 'eft';
+    public const ONLINE_DEBIT = 'eft';
 }

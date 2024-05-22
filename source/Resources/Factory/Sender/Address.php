@@ -34,17 +34,12 @@ class Address
 {
 
     /**
-     * @var \PagSeguro\Domains\Shipping
-     */
-    private $sender;
-
-    /**
      * Address constructor.
      * @param $sender
+     * @param \PagSeguro\Domains\Shipping $sender
      */
-    public function __construct($sender)
+    public function __construct(private $sender)
     {
-        $this->sender = $sender;
     }
 
     /**

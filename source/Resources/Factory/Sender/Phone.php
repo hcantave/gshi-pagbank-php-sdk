@@ -34,17 +34,12 @@ class Phone
 {
 
     /**
-     * @var \PagSeguro\Domains\Sender
-     */
-    private $sender;
-
-    /**
      * Phone constructor.
      * @param $sender
+     * @param \PagSeguro\Domains\Sender $sender
      */
-    public function __construct($sender)
+    public function __construct(private $sender)
     {
-        $this->sender = $sender;
     }
 
     /**

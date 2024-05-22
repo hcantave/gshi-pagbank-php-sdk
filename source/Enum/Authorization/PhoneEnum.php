@@ -36,15 +36,15 @@ class PhoneEnum extends Enum
     /**
      *
      */
-    const HOME = 'HOME';
+    public const HOME = 'HOME';
 
     /**
      *
      */
-    const MOBILE = 'MOBILE';
+    public const MOBILE = 'MOBILE';
 
     /**
      *
      */
-    const BUSINESS = 'BUSINESS';
+    public const BUSINESS = 'BUSINESS';
 }

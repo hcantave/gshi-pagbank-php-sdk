@@ -14,12 +14,12 @@ class AddressTest extends TestCase
         $this->obj = new Address();
     }
 
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertInstanceOf(Address::class, $this->obj);
     }
 
-    public function testRequiredParameters()
+    public function testRequiredParameters(): void
     {
         $this->assertObjectHasAttribute('street', $this->obj);
         $this->assertObjectHasAttribute('number', $this->obj);
@@ -30,7 +30,7 @@ class AddressTest extends TestCase
         $this->assertObjectHasAttribute('country', $this->obj);
     }
 
-    public function testParametersThatCanBeNull()
+    public function testParametersThatCanBeNull(): void
     {
         $this->assertNull($this->obj->complement);
     }

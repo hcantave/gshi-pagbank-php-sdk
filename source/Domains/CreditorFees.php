@@ -60,10 +60,9 @@ class CreditorFees
     }
 
     /**
-     * @param mixed $intermediationFeeAmount
      * @return CreditorFees
      */
-    public function setIntermediationFeeAmount($intermediationFeeAmount)
+    public function setIntermediationFeeAmount(mixed $intermediationFeeAmount)
     {
         $this->intermediationFeeAmount = $intermediationFeeAmount;
         return $this;
@@ -78,10 +77,9 @@ class CreditorFees
     }
 
     /**
-     * @param mixed $intermediationRateAmount
      * @return CreditorFees
      */
-    public function setIntermediationRateAmount($intermediationRateAmount)
+    public function setIntermediationRateAmount(mixed $intermediationRateAmount)
     {
         $this->intermediationRateAmount = $intermediationRateAmount;
         return $this;
@@ -96,10 +94,9 @@ class CreditorFees
     }
 
     /**
-     * @param mixed $installmentFeeAmount
      * @return CreditorFees
      */
-    public function setInstallmentFeeAmount($installmentFeeAmount)
+    public function setInstallmentFeeAmount(mixed $installmentFeeAmount)
     {
         $this->installmentFeeAmount = $installmentFeeAmount;
         return $this;
@@ -114,10 +111,9 @@ class CreditorFees
     }
 
     /**
-     * @param mixed $operationalFeeAmount
      * @return CreditorFees
      */
-    public function setOperationalFeeAmount($operationalFeeAmount)
+    public function setOperationalFeeAmount(mixed $operationalFeeAmount)
     {
         $this->operationalFeeAmount = $operationalFeeAmount;
         return $this;
@@ -131,10 +127,9 @@ class CreditorFees
         return $this->commissionFeeAmount;
     }
     /**
-     * @param mixed $commissionFeeAmount
      * @return CreditorFees
      */
-    public function setCommissionFeeAmount($commissionFeeAmount)
+    public function setCommissionFeeAmount(mixed $commissionFeeAmount)
     {
         $this->commissionFeeAmount = $commissionFeeAmount;
         return $this;

@@ -77,7 +77,7 @@ class Http
     /**
      * @param $status
      */
-    public function setStatus($status)
+    public function setStatus($status): void
     {
         $this->status = $status;
     }
@@ -93,7 +93,7 @@ class Http
     /**
      * @param $response
      */
-    public function setResponse($response)
+    public function setResponse($response): void
     {
         $this->response = $response;
     }
