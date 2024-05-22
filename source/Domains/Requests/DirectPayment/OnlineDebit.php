@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Domains\Requests\DirectPayment;
 
+use Exception;
 use PagSeguro\Domains\Requests\DirectPayment\OnlineDebit\Request;
 
 /**
@@ -58,7 +59,7 @@ class OnlineDebit extends Request
     /**
      * @param $credentials
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public function register($credentials)
     {

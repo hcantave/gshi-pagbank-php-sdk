@@ -24,6 +24,10 @@
 
 namespace PagSeguro\Services\Transactions;
 
+use PagSeguro\Domains\Requests\Payment;
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Helpers\Crypto;
 use PagSeguro\Parsers\Transaction\Refund\Request;
@@ -40,17 +44,17 @@ class Refund
 {
 
     /**
-     * @param \PagSeguro\Domains\Account\Credentials $credentials
-     * @param \PagSeguro\Domains\Requests\Payment $payment
+     * @param Credentials $credentials
+     * @param Payment $payment
      * @param bool $onlyCode
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public static function create(Credentials $credentials, $code, $value = null)
     {
         Logger::info("Begin", ['service' => 'Refund']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'Refund']);
             Logger::info(
@@ -64,7 +68,7 @@ class Refund
                 self::request($connection),
                 Request::getData($code, $value),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
@@ -74,7 +78,7 @@ class Refund
 
             Logger::info(sprintf("Result: %s", current($response)), ['service' => 'Refund']);
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Refund']);
             throw $exception;
         }
@@ -84,7 +88,7 @@ class Refund
      * @param Connection\Data $connection
      * @return string
      */
-    private static function request(Connection\Data $connection)
+    private static function request(Data $connection)
     {
         return $connection->buildRefundRequestUrl() . "?" . $connection->buildCredentialsQuery();
     }

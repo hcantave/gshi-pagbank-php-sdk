@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources\Factory\Request\DirectPayment\CreditCard\Billing;
 
+use PagSeguro\Domains\DirectPayment\CreditCard\Billing;
 use PagSeguro\Enum\Properties\Current;
 
 /**
@@ -36,7 +37,7 @@ class Address
     /**
      * Shipping constructor.
      * @param $billing
-     * @param \PagSeguro\Domains\DirectPayment\CreditCard\Billing $billing
+     * @param Billing $billing
      */
     public function __construct(private $billing)
     {
@@ -44,7 +45,7 @@ class Address
 
     /**
      * @param \PagSeguro\Domains\Address $address
-     * @return \PagSeguro\Domains\DirectPayment\CreditCard\Billing
+     * @return Billing
      */
     public function instance(\PagSeguro\Domains\Address $address)
     {
@@ -54,7 +55,7 @@ class Address
 
     /**
      * @param $array
-     * @return \PagSeguro\Domains\DirectPayment\CreditCard\Billing
+     * @return Billing
      */
     public function withArray($array)
     {
@@ -81,7 +82,7 @@ class Address
      * @param $city
      * @param $state
      * @param $country
-     * @return \PagSeguro\Domains\DirectPayment\CreditCard\Billing
+     * @return Billing
      */
     public function withParameters(
         $street,

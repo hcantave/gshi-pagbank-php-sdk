@@ -25,7 +25,6 @@
 namespace PagSeguro\Domains\Requests\PreApproval;
 
 use PagSeguro\Domains\Requests\Currency;
-use PagSeguro\Domains\Requests\PaymentMethod;
 use PagSeguro\Domains\Requests\Requests;
 use PagSeguro\Domains\Requests\Review;
 use PagSeguro\Domains\Requests\Shipping;

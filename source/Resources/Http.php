@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources;
 
+use Exception;
 use PagSeguro\Library;
 
 /**
@@ -51,7 +52,7 @@ class Http
      *
      * @param null $accept
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct($contentType = null, $accept = null)
     {
@@ -62,7 +63,7 @@ class Http
             $this->accept = $accept;
         }
         if (!function_exists('curl_init')) {
-            throw new \Exception('PagSeguro Library: cURL library is required.');
+            throw new Exception('PagSeguro Library: cURL library is required.');
         }
     }
 
@@ -105,7 +106,7 @@ class Http
      * @param string $charset
      *
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function post($url, $data = null, $timeout = 20, $charset = 'ISO-8859-1')
     {
@@ -120,7 +121,7 @@ class Http
      * @param array|string $data
      *
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     private function curlConnection($method, $url, $timeout, $charset, $data = null)
     {
@@ -195,7 +196,7 @@ class Http
         $this->setStatus((int)$info['http_code']);
         $this->setResponse((String)$resp);
         if ($error) {
-            throw new \Exception("CURL can't connect: $errorMessage");
+            throw new Exception("CURL can't connect: $errorMessage");
         } else {
             return true;
         }
@@ -229,7 +230,7 @@ class Http
      * @param string $charset
      *
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function put($url, $data, $timeout = 20, $charset = 'ISO-8859-1')
     {
@@ -242,7 +243,7 @@ class Http
      * @param string $charset
      *
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function get($url, $timeout = 20, $charset = 'ISO-8859-1')
     {

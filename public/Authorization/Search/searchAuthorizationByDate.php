@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Services\Application\Search\Date;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,7 +27,7 @@
 
 require_once "../../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
+Library::initialize();
 
 $options = [
     'initial_date' => '2015-09-09T00:00',
@@ -34,8 +37,8 @@ $options = [
 ];
 
 try {
-    $response = \PagSeguro\Services\Application\Search\Date::search(
-        \PagSeguro\Configuration\Configure::getApplicationCredentials(),
+    $response = Date::search(
+        Configure::getApplicationCredentials(),
         $options
     );
 

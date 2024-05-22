@@ -24,6 +24,8 @@
 
 namespace PagSeguro\Resources\Log;
 
+use Exception;
+use DateTime;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Enum\Log\Level;
 
@@ -41,7 +43,7 @@ class Logger implements LoggerInterface
      * @param string $message
      * @param array $context
      * @return void|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function emergency($message, array $context = []): void
     {
@@ -49,9 +51,7 @@ class Logger implements LoggerInterface
     }
 
     /**
-
      */
-
     /**
      * Action must be taken immediately.
      *
@@ -61,7 +61,7 @@ class Logger implements LoggerInterface
      * @param string $message
      * @param array $context
      * @return void|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function alert($message, array $context = []): void
     {
@@ -103,7 +103,7 @@ class Logger implements LoggerInterface
      * @param string $message
      * @param array $context
      * @return void|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function notice($message, array $context = []): void
     {
@@ -117,7 +117,7 @@ class Logger implements LoggerInterface
      * @param string $message
      * @param array $context
      * @return void|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function info($message, array $context = []): void
     {
@@ -129,7 +129,7 @@ class Logger implements LoggerInterface
      * @param string $message
      * @param array $context
      * @return void|null
-     * @throws \Exception
+     * @throws Exception
      */
     public static function debug($message, array $context = []): void
     {
@@ -141,7 +141,7 @@ class Logger implements LoggerInterface
      * @param string $message
      * @param array $context
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public static function log($level, $message, array $context = [])
     {
@@ -152,7 +152,7 @@ class Logger implements LoggerInterface
 
         try {
             self::write(self::location(), self::message($level, $message, $context));
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             throw $exception;
         }
     }
@@ -163,12 +163,12 @@ class Logger implements LoggerInterface
      * @param $message
      * @param array $context
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     private static function message($level, $message, array $context = [])
     {
 
-        $dateTime = new \DateTime('NOW');
+        $dateTime = new DateTime('NOW');
         return sprintf(
             "\n%1s PagSeguro.%s[%1s]: %s", //"%1sPagSeguro.%2s[%3s]: %4s"
             $dateTime->format("d/m/Y H:i:s"),

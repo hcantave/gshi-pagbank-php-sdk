@@ -54,7 +54,7 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param \PagSeguro\Resources\Http $http
+     * @param Http $http
      * @return Response
      */
     public static function success(Http $http)
@@ -92,7 +92,7 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param \PagSeguro\Resources\Http $http
+     * @param Http $http
      * @return \PagSeguro\Domains\Error
      */
     public static function error(Http $http)

@@ -1,4 +1,8 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Domains\Requests\PreApproval;
+use PagSeguro\Enum\Shipping\Type;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,11 +28,11 @@
 
 require_once "../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
-$preApproval = new \PagSeguro\Domains\Requests\PreApproval();
+$preApproval = new PreApproval();
 
 // Set the currency
 $preApproval->setCurrency("BRL");
@@ -38,7 +42,7 @@ $preApproval->setCurrency("BRL");
 $preApproval->setReference("REF123");
 
 // Set shipping information for this payment request
-$preApproval->setShipping()->setType(\PagSeguro\Enum\Shipping\Type::SEDEX);
+$preApproval->setShipping()->setType(Type::SEDEX);
 $preApproval->setShipping()->setAddress()->withParameters(
     '01452002',
     'Av. Brig. Faria Lima',
@@ -94,7 +98,7 @@ try {
      *  ->setAuthorizationCode("FD3AF1B214EC40F0B0A6745D041BF50D")
      */
     $response = $preApproval->register(
-        \PagSeguro\Configuration\Configure::getAccountCredentials()
+        Configure::getAccountCredentials()
     );
 
     echo "<h2>Criando requisi&ccedil;&atilde;o de assinatura</h2>"

@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\DirectPreApproval;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\DirectPreApproval\Query;
 use PagSeguro\Parsers\DirectPreApproval\QueryParsers;
@@ -44,13 +47,13 @@ class QueryService
      * @param Query       $directPreApproval
      *
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function create(Credentials $credentials, Query $directPreApproval)
     {
         Logger::info("Begin", ['service' => 'DirectPreApproval']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
             Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'DirectPreApproval']);
             Logger::info(
@@ -63,7 +66,7 @@ class QueryService
             $http->get(
                 self::request($connection, QueryParsers::getData($directPreApproval), $directPreApproval->preApprovalCode),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
             $response = Responsibility::http(
                 $http,
@@ -75,7 +78,7 @@ class QueryService
             );
 
             return self::response($response);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'DirectPreApproval']);
             throw $exception;
         }
@@ -87,7 +90,7 @@ class QueryService
      *
      * @return string
      */
-    private static function request(Connection\Data $connection, $params = null, $preApprovalCode = null)
+    private static function request(Data $connection, $params = null, $preApprovalCode = null)
     {
         if ($preApprovalCode) {
             return $connection->buildDirectPreApprovalQueryRequestUrl() . '/' . $preApprovalCode . "?" . $connection->buildCredentialsQuery();

@@ -24,9 +24,11 @@
 
 namespace PagSeguro\Services;
 
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
+use Exception;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Parsers\Session\Request;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -42,13 +44,13 @@ class Session
         Logger::info("Begin", ['service' => 'Session']);
 
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'Session']);
             $http->post(self::request($connection),
                 null,
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding());
+                Configure::getCharset()->getEncoding());
 
             $response = Responsibility::http(
                 $http,
@@ -57,13 +59,13 @@ class Session
 
             Logger::info(sprintf("Session ID: %s", current($response)), ['service' => 'Session']);
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Session']);
             throw $exception;
         }
     }
 
-    private static function request(Connection\Data $connection)
+    private static function request(Data $connection)
     {
         return $connection->buildSessionRequestUrl() . "?" . $connection->buildCredentialsQuery();
     }

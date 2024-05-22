@@ -44,7 +44,7 @@ class Installments
     }
 
     /**
-     * @param  PagSeguro\Domains\Responses\Installment $installments
+     * @param Installment $installments
      */
     public function setInstallments($installments): void
     {
@@ -60,7 +60,7 @@ class Installments
     }
 
     /**
-     * @param PagSeguro\Domains\Responses\Installment $installment
+     * @param Installment $installment
      */
     private function addInstallment($installment): void
     {

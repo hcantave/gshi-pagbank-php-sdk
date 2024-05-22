@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\PreApproval\Search;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Parsers\PreApproval\Search\Date\Request;
 use PagSeguro\Resources\Connection;
@@ -38,17 +41,17 @@ use PagSeguro\Resources\Responsibility;
 class Interval
 {
     /**
-     * @param \PagSeguro\Domains\Account\Credentials $credentials
+     * @param Credentials $credentials
      * @param $code
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public static function search(Credentials $credentials, $days)
     {
         Logger::info("Begin", ['service' => 'PreApproval.Search.Interval']);
 
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(
                 sprintf("GET: %s", self::request($connection, $days)),
@@ -57,7 +60,7 @@ class Interval
             $http->get(
                 self::request($connection, $days),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
@@ -75,7 +78,7 @@ class Interval
                 ['service' => 'PreApproval.Search.Interval']
             );
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'PreApproval.Search.Interval']);
             throw $exception;
         }
@@ -86,7 +89,7 @@ class Interval
      * @param $days
      * @return string
      */
-    private static function request(Connection\Data $connection, $days)
+    private static function request(Data $connection, $days)
     {
         return sprintf(
             "%s/?%s&interval=%s",

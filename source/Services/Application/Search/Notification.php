@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\Application\Search;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Parsers\Authorization\Search\Code\Request;
 use PagSeguro\Resources\Connection;
@@ -39,16 +42,16 @@ class Notification
 {
 
     /**
-     * @param \PagSeguro\Domains\Account\Credentials $credentials
+     * @param Credentials $credentials
      * @param $code
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public static function search(Credentials $credentials, $code)
     {
         Logger::info("Begin", ['service' => 'Application.Search.Notification']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(
                 sprintf("GET: %s", self::request($connection, $code)),
@@ -57,7 +60,7 @@ class Notification
             $http->get(
                 self::request($connection, $code),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
@@ -73,7 +76,7 @@ class Notification
                 ['service' => 'Application.Search.Notification']
             );
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Application.Search.Notification']);
             throw $exception;
         }
@@ -83,7 +86,7 @@ class Notification
      * @param Connection\Data $connection
      * @return string
      */
-    private static function request(Connection\Data $connection, $code)
+    private static function request(Data $connection, $code)
     {
         return sprintf(
             "%s/%s/?%s",

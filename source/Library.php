@@ -24,6 +24,7 @@
 
 namespace PagSeguro;
 
+use Exception;
 use PagSeguro\Helpers\Validate;
 use PagSeguro\Resources\Framework\ContentManagementSystems;
 use PagSeguro\Resources\Framework\Language;
@@ -51,7 +52,7 @@ class Library
     private static $cms;
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     final public static function initialize(): void
     {
@@ -68,7 +69,7 @@ class Library
 
     /**
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     final public static function validate()
     {
@@ -76,8 +77,8 @@ class Library
             Validate::cUrl();
             Validate::simpleXml();
             return true;
-        } catch (\Exception $exception) {
-            throw new \Exception(
+        } catch (Exception $exception) {
+            throw new Exception(
                 'PagSeguro Library PHP component exception',
                 ['PSLE'],
                 $exception

@@ -24,8 +24,9 @@
 
 namespace PagSeguro\Services\Authorization;
 
+use DOMDocument;
+use DOMNode;
 use PagSeguro\Domains\Authorization;
-use PagSeguro\Domains\Authorization\Company;
 
 /**
  * Class CompanySeller
@@ -35,7 +36,7 @@ use PagSeguro\Domains\Authorization\Company;
 class DefaultAuthorizationService
 {
     /**
-     * @var \DOMDocument
+     * @var DOMDocument
      */
     private $dom;
 
@@ -46,13 +47,13 @@ class DefaultAuthorizationService
      */
     public function __construct(private Authorization $authorization)
     {
-        $this->dom = new \DOMDocument('1.0', 'UTF-8');
+        $this->dom = new DOMDocument('1.0', 'UTF-8');
         $this->dom->xmlStandalone = true;
         $this->makeAuthorizationNode();
     }
 
     /**
-     * @return \DOMNode
+     * @return DOMNode
      */
     private function makeAuthorizationNode()
     {

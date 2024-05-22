@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Parsers\Authorization;
 
+use PagSeguro\Domains\Authorization\Company;
+use PagSeguro\Domains\Authorization\Seller;
+use PagSeguro\Domains\Authorization\Personal;
 use PagSeguro\Domains\Authorization;
 use PagSeguro\Parsers\Basic;
 use PagSeguro\Parsers\Error;
@@ -58,11 +61,11 @@ class Request extends Error implements Parser
         if (!$authorization->getAccount()) {
             $xml = new DefaultAuthorizationService($authorization);
         } else {
-            if ($authorization->getAccount()->getCompany() instanceof Authorization\Company) {
+            if ($authorization->getAccount()->getCompany() instanceof Company) {
                 $xml = new CompanyService($authorization);
-            } elseif ($authorization->getAccount()->getSeller() instanceof Authorization\Seller) {
+            } elseif ($authorization->getAccount()->getSeller() instanceof Seller) {
                 $xml = new SellerService($authorization);
-            } elseif ($authorization->getAccount()->getPersonal() instanceof Authorization\Personal) {
+            } elseif ($authorization->getAccount()->getPersonal() instanceof Personal) {
                 $xml = new PersonalService($authorization);
             }
         }

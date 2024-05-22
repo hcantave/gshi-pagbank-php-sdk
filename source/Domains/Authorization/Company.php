@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Domains\Authorization;
 
+use InvalidArgumentException;
 use PagSeguro\Domains\Address;
 use PagSeguro\Domains\Document;
 use PagSeguro\Domains\Phone;
@@ -59,8 +60,8 @@ class Company
         private $websiteURL = null,
         Document $document = null,
         Phone $phone = null,
-        private ?\PagSeguro\Domains\Address $address = null,
-        private ?\PagSeguro\Domains\Authorization\Partner $partner = null
+        private ?Address $address = null,
+        private ?Partner $partner = null
     ) {
         if (isset($document)) {
             $this->addDocuments($document);
@@ -91,9 +92,9 @@ class Company
     {
         try {
             if (!$phone->getType()) {
-                throw new \InvalidArgumentException('Phone Type is required');
+                throw new InvalidArgumentException('Phone Type is required');
             };
-        } catch (\InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException $exception) {
             die($exception);
         }
         $this->phones[] = $phone;

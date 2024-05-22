@@ -24,8 +24,9 @@
 
 namespace PagSeguro\Services\Authorization;
 
+use DOMDocument;
+use DOMNode;
 use PagSeguro\Domains\Authorization;
-use PagSeguro\Domains\Authorization\Company;
 use PagSeguro\Domains\Document;
 use PagSeguro\Domains\Phone;
 
@@ -37,7 +38,7 @@ use PagSeguro\Domains\Phone;
 class CompanyService
 {
     /**
-     * @var \DOMDocument
+     * @var DOMDocument
      */
     private $dom;
 
@@ -48,7 +49,7 @@ class CompanyService
      */
     public function __construct(private Authorization $authorization)
     {
-        $this->dom = new \DOMDocument('1.0', 'UTF-8');
+        $this->dom = new DOMDocument('1.0', 'UTF-8');
         $this->dom->xmlStandalone = true;
         $authorizationNode = $this->makeAuthorizationNode();
         $accountNode = $this->makeAccountNode($authorizationNode);
@@ -60,7 +61,7 @@ class CompanyService
     }
 
     /**
-     * @return \DOMNode
+     * @return DOMNode
      */
     private function makeAuthorizationNode()
     {
@@ -94,11 +95,11 @@ class CompanyService
     }
 
     /**
-     * @param \DOMNode $accountDom
+     * @param DOMNode $accountDom
      *
-     * @return \DOMNode
+     * @return DOMNode
      */
-    private function makeAccountNode(\DOMNode $accountDom)
+    private function makeAccountNode(DOMNode $accountDom)
     {
         $emailElement = $this->dom->createElement('email', $this->authorization->getAccount()->getEmail());
         $accountDom->appendChild($emailElement);
@@ -110,11 +111,11 @@ class CompanyService
     }
 
     /**
-     * @param \DOMNode $accountDom
+     * @param DOMNode $accountDom
      *
-     * @return \DOMNode
+     * @return DOMNode
      */
-    private function makeCompanyNode(\DOMNode $accountDom)
+    private function makeCompanyNode(DOMNode $accountDom)
     {
         $companyElement = $this->dom->createElement('company');
         $companyDom = $accountDom->appendChild($companyElement);
@@ -131,9 +132,9 @@ class CompanyService
     }
 
     /**
-     * @param \DOMNode $companyDom
+     * @param DOMNode $companyDom
      */
-    private function makePartnerNode(\DOMNode $companyDom): void
+    private function makePartnerNode(DOMNode $companyDom): void
     {
         $partnerElement = $this->dom->createElement('partner');
         $partnerDom = $companyDom->appendChild($partnerElement);
@@ -151,9 +152,9 @@ class CompanyService
     }
 
     /**
-     * @param \DOMNode $companyDom
+     * @param DOMNode $companyDom
      */
-    private function makePartnersPhonesNode(\DOMNode $companyDom): void
+    private function makePartnersPhonesNode(DOMNode $companyDom): void
     {
         $phonesElement = $this->dom->createElement('phones');
         $phonesDom = $companyDom->appendChild($phonesElement);
@@ -178,9 +179,9 @@ class CompanyService
     }
 
     /**
-     * @param \DOMNode $companyDom
+     * @param DOMNode $companyDom
      */
-    private function makePartnerDocumentsNode(\DOMNode $companyDom): void
+    private function makePartnerDocumentsNode(DOMNode $companyDom): void
     {
         $documentsElement = $this->dom->createElement('documents');
         $documentsDom = $companyDom->appendChild($documentsElement);
@@ -202,9 +203,9 @@ class CompanyService
     }
 
     /**
-     * @param \DOMNode $companyDom
+     * @param DOMNode $companyDom
      */
-    private function makePhonesNode(\DOMNode $companyDom): void
+    private function makePhonesNode(DOMNode $companyDom): void
     {
         $phonesElement = $this->dom->createElement('phones');
         $phonesDom = $companyDom->appendChild($phonesElement);
@@ -229,9 +230,9 @@ class CompanyService
     }
 
     /**
-     * @param \DOMNode $companyDom
+     * @param DOMNode $companyDom
      */
-    private function makeDocumentsNode(\DOMNode $companyDom): void
+    private function makeDocumentsNode(DOMNode $companyDom): void
     {
         $documentsElement = $this->dom->createElement('documents');
         $documentsDom = $companyDom->appendChild($documentsElement);
@@ -253,9 +254,9 @@ class CompanyService
     }
 
     /**
-     * @param \DOMNode $companyDom
+     * @param DOMNode $companyDom
      */
-    private function makeAddressNode(\DOMNode $companyDom): void
+    private function makeAddressNode(DOMNode $companyDom): void
     {
         $addressElement = $this->dom->createElement('address');
         $addressDom = $companyDom->appendChild($addressElement);

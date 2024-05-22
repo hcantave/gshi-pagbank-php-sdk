@@ -24,8 +24,6 @@
 
 namespace PagSeguro\Resources\Connection\Base\DirectPreApproval;
 
-use PagSeguro\Resources\Builder;
-
 trait QueryNotification
 {
     public function buildDirectPreApprovalQueryNotificationRequestUrl($preApprovalCode = null)

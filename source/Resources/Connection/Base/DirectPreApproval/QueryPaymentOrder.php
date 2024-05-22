@@ -24,8 +24,6 @@
 
 namespace PagSeguro\Resources\Connection\Base\DirectPreApproval;
 
-use PagSeguro\Resources\Builder;
-
 trait QueryPaymentOrder
 {
     public function buildDirectPreApprovalQueryPaymentOrderRequestUrl($preApprovalCode)

@@ -24,11 +24,14 @@
 
 namespace PagSeguro\Services;
 
+use Pagseguro\Domains\Responses\Installments;
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Enum\Properties\Current;
 use PagSeguro\Helpers\Currency;
 use PagSeguro\Parsers\Installment\Request;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -41,19 +44,19 @@ class Installment
 {
     /**
      * @param Credentials $credentials
-     * @return Pagseguro\Domains\Responses\Installments
-     * @throws \Exception
+     * @return Installments
+     * @throws Exception
      */
     public static function create(Credentials $credentials, mixed $params)
     {
         Logger::info("Begin", ['service' => 'Installment']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(sprintf("GET: %s", self::request($connection, $params)), ['service' => 'Installment']);
             $http->get(self::request($connection, $params),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding());
+                Configure::getCharset()->getEncoding());
 
             $response = Responsibility::http(
                 $http,
@@ -61,7 +64,7 @@ class Installment
             );
 
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Installment']);
             throw $exception;
         }
@@ -69,10 +72,10 @@ class Installment
 
     /**
      * Build the service request url
-     * @param \PagSeguro\Resources\Connection\Data $connection
+     * @param Data $connection
      * @return string
      */
-    private static function request(Connection\Data $connection, mixed $params)
+    private static function request(Data $connection, mixed $params)
     {
         return sprintf(
             "%s?%s%s%s%s",

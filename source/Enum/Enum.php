@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Enum;
 
+use ReflectionClass;
 /**
  * Class Enum
  * @package PagSeguro\Enum
@@ -35,7 +36,7 @@ class Enum extends BaseEnum
      */
     public static function getList()
     {
-        $reflection = new \ReflectionClass(static::class);
+        $reflection = new ReflectionClass(static::class);
         return $reflection->getConstants();
     }
 

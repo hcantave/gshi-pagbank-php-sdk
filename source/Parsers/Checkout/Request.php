@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Parsers\Checkout;
 
+use PagSeguro\Domains\Requests\Payment;
 use PagSeguro\Enum\Properties\Current;
 use PagSeguro\Parsers\Accepted;
 use PagSeguro\Parsers\Basic;
@@ -59,10 +60,10 @@ class Request extends Error implements Parser
     use PaymentMethod;
 
     /**
-     * @param \PagSeguro\Domains\Requests\Payment $payment
+     * @param Payment $payment
      * @return array
      */
-    public static function getData(\PagSeguro\Domains\Requests\Payment $payment)
+    public static function getData(Payment $payment)
     {
         $data = [];
         $properties = new Current;

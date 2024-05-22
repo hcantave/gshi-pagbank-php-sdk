@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Parsers;
 
+use PagSeguro\Helpers\Currency;
 use PagSeguro\Domains\Requests\Requests;
 
 /**
@@ -54,7 +55,7 @@ trait PaymentMethod
                 }
                 if (!is_null($paymentMethod[$key]->getValue())) {
                     $data[sprintf($properties::PAYMENT_METHOD_CONFIG_VALUE, $count, 1)] =
-                        \PagSeguro\Helpers\Currency::toDecimal($paymentMethod[$key]->getValue());
+                        Currency::toDecimal($paymentMethod[$key]->getValue());
                 }
             }
         }

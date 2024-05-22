@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\PreApproval;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Parsers\Cancel\Request;
 use PagSeguro\Parsers\Cancel\Response;
@@ -43,13 +46,13 @@ class Cancel
      * @param Credentials $credentials
      * @param $code
      * @return Response
-     * @throws \Exception
+     * @throws Exception
      */
     public static function create(Credentials $credentials, $code)
     {
         Logger::info("Begin", ['service' => 'PreApproval.Cancel']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(sprintf("GET: %s", self::request($connection, $code)), ['service' => 'PreApproval.Cancel']);
             Logger::info(
@@ -59,7 +62,7 @@ class Cancel
 
             $http->get(self::request($connection, $code),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding());
+                Configure::getCharset()->getEncoding());
 
             $response = Responsibility::http(
                 $http,
@@ -68,7 +71,7 @@ class Cancel
 
             Logger::info(sprintf("Result: %s", current($response)), ['service' => 'PreApproval.Cancel']);
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'PreApproval.Cancel']);
             throw $exception;
         }
@@ -79,7 +82,7 @@ class Cancel
      * @param $code
      * @return string
      */
-    private static function request(Connection\Data $connection, $code)
+    private static function request(Data $connection, $code)
     {
         return sprintf(
             "%s/%s/?%s",

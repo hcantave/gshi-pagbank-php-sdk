@@ -24,6 +24,10 @@
 
 namespace PagSeguro\Services\PreApproval;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
+use PagSeguro\Parsers\PreApproval\Notification\Request;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
@@ -39,31 +43,31 @@ class Notification
     /**
      * @param Credentials $credentials
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function check(Credentials $credentials)
     {
         Logger::info("Begin", ['service' => 'PreApproval.Notification']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(sprintf("GET: %s", self::request($connection)), ['service' => 'PreApproval.Notification']);
             $http->get(
                 self::request($connection),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
                 $http,
-                new \PagSeguro\Parsers\PreApproval\Notification\Request
+                new Request
             );
             Logger::info(
                 sprintf("Date: %s, Code: %s", $response->getDate(), $response->getCode()),
                 ['service' => 'PreApproval.Notification']
             );
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'PreApproval.Notification']);
             throw $exception;
         }
@@ -73,7 +77,7 @@ class Notification
      * @param Connection\Data $connection
      * @return string
      */
-    private static function request(Connection\Data $connection)
+    private static function request(Data $connection)
     {
         return $connection->buildNotificationPreApprovalRequestUrl() . "/" .
             Responsibility::notifications() . "/?" . $connection->buildCredentialsQuery();

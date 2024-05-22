@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\DirectPreApproval;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\DirectPreApproval\QueryPaymentOrder;
 use PagSeguro\Parsers\DirectPreApproval\QueryPaymentOrderParsers;
@@ -44,13 +47,13 @@ class QueryPaymentOrderService
      * @param QueryPaymentOrder $queryPaymentOrder
      *
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function create(Credentials $credentials, QueryPaymentOrder $queryPaymentOrder)
     {
         Logger::info("Begin", ['service' => 'DirectPreApproval']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
             Logger::info(sprintf("POST: %s", self::request($connection, QueryPaymentOrderParsers::getPreApprovalCode($queryPaymentOrder))), ['service' => 'DirectPreApproval']);
             Logger::info(
@@ -63,7 +66,7 @@ class QueryPaymentOrderService
             $http->get(
                 self::request($connection, QueryPaymentOrderParsers::getPreApprovalCode($queryPaymentOrder), QueryPaymentOrderParsers::getData($queryPaymentOrder)),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
             $response = Responsibility::http(
                 $http,
@@ -75,7 +78,7 @@ class QueryPaymentOrderService
             );
 
             return self::response($response);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'DirectPreApproval']);
             throw $exception;
         }
@@ -88,7 +91,7 @@ class QueryPaymentOrderService
      *
      * @return string
      */
-    private static function request(Connection\Data $connection, $preApprovalCode , $params = null)
+    private static function request(Data $connection, $preApprovalCode , $params = null)
     {
         return $connection->buildDirectPreApprovalQueryPaymentOrderRequestUrl($preApprovalCode)."?".$connection->buildCredentialsQuery().($params ? '&'.$params : '');
     }

@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Services\PreApproval\Search\Interval;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,13 +27,13 @@
 
 require_once "../../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
+Library::initialize();
 
 $days = 20;
 
 try {
-    $response = \PagSeguro\Services\PreApproval\Search\Interval::search(
-        \PagSeguro\Configuration\Configure::getAccountCredentials(),
+    $response = Interval::search(
+        Configure::getAccountCredentials(),
         $days
     );
 

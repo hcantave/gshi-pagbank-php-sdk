@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\DirectPreApproval;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\DirectPreApproval\RetryPaymentOrder;
 use PagSeguro\Parsers\DirectPreApproval\RetryPaymentOrderParser;
@@ -44,13 +47,13 @@ class RetryPaymentOrderService
      * @param RetryPaymentOrder $retryPaymentOrder
      *
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public static function create(Credentials $credentials, RetryPaymentOrder $retryPaymentOrder)
     {
         Logger::info("Begin", ['service' => 'DirectPreApproval']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
             Logger::info(sprintf("POST: %s", self::request($connection,
                 RetryPaymentOrderParser::getData($retryPaymentOrder))), ['service' => 'DirectPreApproval']);
@@ -65,7 +68,7 @@ class RetryPaymentOrderService
                 self::request($connection, RetryPaymentOrderParser::getData($retryPaymentOrder)),
                 RetryPaymentOrderParser::getData($retryPaymentOrder),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
             $response = Responsibility::http(
                 $http,
@@ -77,7 +80,7 @@ class RetryPaymentOrderService
             );
 
             return self::response($response);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'DirectPreApproval']);
             throw $exception;
         }
@@ -90,7 +93,7 @@ class RetryPaymentOrderService
      *
      * @return string
      */
-    private static function request(Connection\Data $connection, $data)
+    private static function request(Data $connection, $data)
     {
         return $connection->buildDirectPreApprovalRetryPaymentOrderUrl(
             $data['preApprovalCode'], $data['paymentOrderCode']) . "?" . $connection->buildCredentialsQuery();

@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources\Factory\Sender;
 
+use PagSeguro\Domains\Shipping;
 use PagSeguro\Enum\Properties\Current;
 
 /**
@@ -36,7 +37,7 @@ class Address
     /**
      * Address constructor.
      * @param $sender
-     * @param \PagSeguro\Domains\Shipping $sender
+     * @param Shipping $sender
      */
     public function __construct(private $sender)
     {
@@ -44,7 +45,7 @@ class Address
 
     /**
      * @param \PagSeguro\Domains\Address $address
-     * @return \PagSeguro\Domains\Shipping
+     * @return Shipping
      */
     public function instance(\PagSeguro\Domains\Address $address)
     {
@@ -54,7 +55,7 @@ class Address
 
     /**
      * @param $array
-     * @return \PagSeguro\Domains\Shipping
+     * @return Shipping
      */
     public function withArray($array)
     {
@@ -81,7 +82,7 @@ class Address
      * @param $city
      * @param $state
      * @param $country
-     * @return \PagSeguro\Domains\Shipping
+     * @return Shipping
      */
     public function withParameters(
         $street,

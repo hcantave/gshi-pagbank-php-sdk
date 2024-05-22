@@ -26,7 +26,6 @@ namespace PagSeguro\Parsers;
 
 use PagSeguro\Domains\Requests\Requests;
 use PagSeguro\Helpers\Characters;
-use PagSeguro\Helpers\Mask;
 
 /**
  * Trait Sender

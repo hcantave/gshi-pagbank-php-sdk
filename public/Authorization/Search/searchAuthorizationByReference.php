@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Services\Application\Search\Reference;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,7 +27,7 @@
 
 require_once "../../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
+Library::initialize();
 
 $options = [
     'initial_date' => '2015-09-09T00:00',
@@ -36,8 +39,8 @@ $options = [
 $reference = "REF123";
 
 try {
-    $response = \PagSeguro\Services\Application\Search\Reference::search(
-        \PagSeguro\Configuration\Configure::getApplicationCredentials(),
+    $response = Reference::search(
+        Configure::getApplicationCredentials(),
         $reference,
         $options
     );

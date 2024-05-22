@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\Transactions;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Helpers\Crypto;
 use PagSeguro\Parsers\Cancel\Request;
@@ -44,13 +47,13 @@ class Cancel
      * @param Credentials $credentials
      * @param $code
      * @return Response
-     * @throws \Exception
+     * @throws Exception
      */
     public static function create(Credentials $credentials, $code)
     {
         Logger::info("Begin", ['service' => 'Cancel']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'Cancel']);
             Logger::info(
@@ -64,7 +67,7 @@ class Cancel
                 self::request($connection),
                 Request::getData($code),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
@@ -74,7 +77,7 @@ class Cancel
 
             Logger::info(sprintf("Result: %s", current($response)), ['service' => 'Cancel']);
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Cancel']);
             throw $exception;
         }
@@ -84,7 +87,7 @@ class Cancel
      * @param Connection\Data $connection
      * @return string
      */
-    private static function request(Connection\Data $connection)
+    private static function request(Data $connection)
     {
         return $connection->buildCancelRequestUrl() . "?" . $connection->buildCredentialsQuery();
     }

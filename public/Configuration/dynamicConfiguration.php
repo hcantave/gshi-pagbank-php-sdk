@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Configuration\Configure;
+use PagSeguro\Services\Session;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,9 +27,9 @@
 
 require_once "../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
 /*
  * To do a dynamic configuration of the library credentials you have to use the set methods
@@ -34,13 +37,13 @@ require_once "../../vendor/autoload.php";
  */
 
 //For example, to configure the library dynamically:
-\PagSeguro\Configuration\Configure::setEnvironment('production');//production or sandbox
-\PagSeguro\Configuration\Configure::setAccountCredentials(
-    'your_pagseguro_email',
-    'your_pagseguro_token'
+Configure::setEnvironment('sandbox');//production or sandbox
+Configure::setAccountCredentials(
+    'info@gshi.ca',
+    '$WOlmQR3026@p/keF539'
 );
-\PagSeguro\Configuration\Configure::setCharset('UTF-8');// UTF-8 or ISO-8859-1
-\PagSeguro\Configuration\Configure::setLog(true, '/logpath/logFilename.log');
+Configure::setCharset('UTF-8');// UTF-8 or ISO-8859-1
+Configure::setLog(true, '/logpath/logFilename.log');
 
 /**
  * @todo To set the application credentials instead of the account credentials use:
@@ -56,8 +59,8 @@ try {
      * \PagSeguro\Configuration\Configure::getApplicationCredentials()
      *  ->setAuthorizationCode("FD3AF1B214EC40F0B0A6745D041BFDDD")
      */
-    $sessionCode = \PagSeguro\Services\Session::create(
-        \PagSeguro\Configuration\Configure::getAccountCredentials()
+    $sessionCode = Session::create(
+        Configure::getAccountCredentials()
     );
 
     echo "<strong>ID de sess&atilde;o criado: </strong>{$sessionCode->getResult()}";

@@ -24,9 +24,12 @@
 
 namespace PagSeguro\Services\Checkout;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Parsers\Checkout\Request;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Helpers\Crypto;
-use PagSeguro\Helpers\Mask;
 use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
@@ -39,36 +42,36 @@ use PagSeguro\Resources\Responsibility;
 class Payment
 {
     /**
-     * @param \PagSeguro\Domains\Account\Credentials $credentials
+     * @param Credentials $credentials
      * @param \PagSeguro\Domains\Requests\Payment $payment
      * @param bool $onlyCode
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public static function checkout(Credentials $credentials, \PagSeguro\Domains\Requests\Payment $payment, $onlyCode)
     {
         Logger::info("Begin", ['service' => 'Checkout']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'Checkout']);
             Logger::info(
                 sprintf(
                     "Params: %s",
-                    json_encode(Crypto::encrypt(\PagSeguro\Parsers\Checkout\Request::getData($payment)))
+                    json_encode(Crypto::encrypt(Request::getData($payment)))
                 ),
                 ['service' => 'Checkout']
             );
             $http->post(
                 self::request($connection),
-                \PagSeguro\Parsers\Checkout\Request::getData($payment),
+                Request::getData($payment),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
                 $http,
-                new \PagSeguro\Parsers\Checkout\Request
+                new Request
             );
 
             if ($onlyCode) {
@@ -80,7 +83,7 @@ class Payment
                 ['service' => 'Checkout']
             );
             return self::response($connection, $response);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Session']);
             throw $exception;
         }
@@ -90,7 +93,7 @@ class Payment
      * @param Connection\Data $connection
      * @return string
      */
-    private static function request(Connection\Data $connection)
+    private static function request(Data $connection)
     {
         return $connection->buildPaymentRequestUrl() . "?" . $connection->buildCredentialsQuery();
     }
@@ -100,7 +103,7 @@ class Payment
      * @param $response
      * @return string
      */
-    private static function response(Connection\Data $connection, $response)
+    private static function response(Data $connection, $response)
     {
         return $connection->buildPaymentResponseUrl() . "?code=" . $response->getCode();
     }

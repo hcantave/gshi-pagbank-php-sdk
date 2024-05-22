@@ -28,7 +28,7 @@ namespace PagSeguro\Parsers\DirectPayment\OnlineDebit;
  * Request from the Online debit direct payment
  * @package PagSeguro\Parsers\DirectPayment\OnlineDebit
  */
-
+use PagSeguro\Domains\Requests\DirectPayment\OnlineDebit;
 use PagSeguro\Enum\Properties\Current;
 use PagSeguro\Parsers\Basic;
 use PagSeguro\Parsers\Currency;
@@ -61,10 +61,10 @@ class Request extends Error implements Parser
     use Shipping;
 
     /**
-     * @param \PagSeguro\Domains\Requests\DirectPayment\OnlineDebit $onlineDebit
+     * @param OnlineDebit $onlineDebit
      * @return array
      */
-    public static function getData(\PagSeguro\Domains\Requests\DirectPayment\OnlineDebit $onlineDebit)
+    public static function getData(OnlineDebit $onlineDebit)
     {
         $data = [];
         $properties = new Current();

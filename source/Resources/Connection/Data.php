@@ -24,6 +24,26 @@
 
 namespace PagSeguro\Resources\Connection;
 
+use PagSeguro\Resources\Connection\Base\Application\Authorization;
+use PagSeguro\Resources\Connection\Base\Application\Authorization\Search;
+use PagSeguro\Resources\Connection\Base\Checkout\Payment;
+use PagSeguro\Resources\Connection\Base\Installment;
+use PagSeguro\Resources\Connection\Base\Notification;
+use PagSeguro\Resources\Connection\Base\PreApproval\Cancel;
+use PagSeguro\Resources\Connection\Base\PreApproval\Charge;
+use PagSeguro\Resources\Connection\Base\Refund;
+use PagSeguro\Resources\Connection\Base\Session;
+use PagSeguro\Resources\Connection\Base\Transaction\Abandoned;
+use PagSeguro\Resources\Connection\Base\DirectPreApproval\Accession;
+use PagSeguro\Resources\Connection\Base\DirectPreApproval\Plan;
+use PagSeguro\Resources\Connection\Base\DirectPreApproval\EditPlan;
+use PagSeguro\Resources\Connection\Base\DirectPreApproval\Query;
+use PagSeguro\Resources\Connection\Base\DirectPreApproval\Status;
+use PagSeguro\Resources\Connection\Base\DirectPreApproval\Discount;
+use PagSeguro\Resources\Connection\Base\DirectPreApproval\ChangePayment;
+use PagSeguro\Resources\Connection\Base\DirectPreApproval\QueryPaymentOrder;
+use PagSeguro\Resources\Connection\Base\DirectPreApproval\QueryNotification;
+use PagSeguro\Resources\Connection\Base\DirectPreApproval\RetryPaymentOrder;
 use PagSeguro\Domains\Account\Credentials;
 
 /**
@@ -32,43 +52,43 @@ use PagSeguro\Domains\Account\Credentials;
  */
 class Data
 {
-    use Base\Application\Authorization;
-    use Base\Application\Authorization\Search {
-        Base\Application\Authorization\Search::buildSearchRequestUrl as buildAuthorizationSearchRequestUrl;
-        Base\Application\Authorization\Search::buildSearchRequestUrl insteadof Base\Transaction\Search;
+    use Authorization;
+    use Search {
+        Search::buildSearchRequestUrl as buildAuthorizationSearchRequestUrl;
+        Search::buildSearchRequestUrl insteadof Base\Transaction\Search;
     }
-    use Base\Checkout\Payment;
+    use Payment;
     use Base\Credentials;
     use Base\DirectPayment\Payment;
-    use Base\Installment;
-    use Base\Notification;
-    use Base\PreApproval\Cancel;
-    use Base\PreApproval\Charge;
+    use Installment;
+    use Notification;
+    use Cancel;
+    use Charge;
     use Base\PreApproval\Payment;
     use Base\PreApproval\Search {
         Base\PreApproval\Search::buildSearchRequestUrl as buildPreApprovalSearchRequestUrl;
-        Base\PreApproval\Search::buildSearchRequestUrl insteadof Base\Application\Authorization\Search;
+        Base\PreApproval\Search::buildSearchRequestUrl insteadof Search;
     }
-    use Base\Refund;
-    use Base\Session;
-    use Base\Transaction\Abandoned;
+    use Refund;
+    use Session;
+    use Abandoned;
     use Base\Transaction\Cancel;
     use Base\Transaction\Search {
         Base\Transaction\Search::buildSearchRequestUrl as buildTransactionSearchRequestUrl;
         Base\Transaction\Search::buildSearchRequestUrl insteadof Base\PreApproval\Search;
     }
-    use Base\DirectPreApproval\Accession;
-    use Base\DirectPreApproval\Plan;
-    use Base\DirectPreApproval\EditPlan;
-    use Base\DirectPreApproval\Query;
+    use Accession;
+    use Plan;
+    use EditPlan;
+    use Query;
     use Base\DirectPreApproval\Payment;
-    use Base\DirectPreApproval\Status;
+    use Status;
     use Base\DirectPreApproval\Cancel;
-    use Base\DirectPreApproval\Discount;
-    use Base\DirectPreApproval\ChangePayment;
-    use Base\DirectPreApproval\QueryPaymentOrder;
-    use Base\DirectPreApproval\QueryNotification;
-    use Base\DirectPreApproval\RetryPaymentOrder;
+    use Discount;
+    use ChangePayment;
+    use QueryPaymentOrder;
+    use QueryNotification;
+    use RetryPaymentOrder;
 
     /**
      * Data constructor.

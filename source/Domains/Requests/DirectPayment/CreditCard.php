@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Domains\Requests\DirectPayment;
 
+use Exception;
 use PagSeguro\Domains\Requests\DirectPayment\CreditCard\Request;
 
 /**
@@ -35,7 +36,7 @@ class CreditCard extends Request
     /**
      * @param $credentials
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public function register($credentials)
     {

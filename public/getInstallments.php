@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Services\Installment;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,9 +27,9 @@
 
 require_once "../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
 $options = [
     'amount' => 30.00, //Required
@@ -35,8 +38,8 @@ $options = [
 ];
 
 try {
-    $result = \PagSeguro\Services\Installment::create(
-        \PagSeguro\Configuration\Configure::getAccountCredentials(),
+    $result = Installment::create(
+        Configure::getAccountCredentials(),
         $options
     );
 

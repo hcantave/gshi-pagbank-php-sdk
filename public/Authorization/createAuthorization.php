@@ -1,4 +1,8 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Domains\Requests\Authorization;
+use PagSeguro\Enum\Authorization\Permissions;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -25,28 +29,28 @@
 require_once "../../vendor/autoload.php";
 
 try {
-    \PagSeguro\Library::initialize();
+    Library::initialize();
 } catch (Exception $e) {
     die($e);
 }
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
-$authorization = new \PagSeguro\Domains\Requests\Authorization();
+$authorization = new Authorization();
 
 $authorization->setReference("AUTH_LIB_PHP_0001");
 $authorization->setRedirectUrl("http://www.lojamodelo.com.br");
 $authorization->setNotificationUrl("http://www.lojamodelo.com.br/nofitication");
 
-$authorization->addPermission(\PagSeguro\Enum\Authorization\Permissions::CREATE_CHECKOUTS);
-$authorization->addPermission(\PagSeguro\Enum\Authorization\Permissions::SEARCH_TRANSACTIONS);
-$authorization->addPermission(\PagSeguro\Enum\Authorization\Permissions::RECEIVE_TRANSACTION_NOTIFICATIONS);
-$authorization->addPermission(\PagSeguro\Enum\Authorization\Permissions::MANAGE_PAYMENT_PRE_APPROVALS);
-$authorization->addPermission(\PagSeguro\Enum\Authorization\Permissions::DIRECT_PAYMENT);
+$authorization->addPermission(Permissions::CREATE_CHECKOUTS);
+$authorization->addPermission(Permissions::SEARCH_TRANSACTIONS);
+$authorization->addPermission(Permissions::RECEIVE_TRANSACTION_NOTIFICATIONS);
+$authorization->addPermission(Permissions::MANAGE_PAYMENT_PRE_APPROVALS);
+$authorization->addPermission(Permissions::DIRECT_PAYMENT);
 
 try {
     $response = $authorization->register(
-        \PagSeguro\Configuration\Configure::getApplicationCredentials()
+        Configure::getApplicationCredentials()
     );
     echo "<h2>Criando requisi&ccedil;&atilde;o de authorização</h2>"
         . "<p>URL do pagamento: <strong>$response</strong></p>"

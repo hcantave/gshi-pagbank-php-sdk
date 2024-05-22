@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Enum;
 
+use ReflectionClass;
 /**
  * Class BaseEnum
  * @package PagSeguro\Enum
@@ -46,7 +47,7 @@ abstract class BaseEnum
         }
         $calledClass = static::class;
         if (!array_key_exists($calledClass, self::$constCacheArray)) {
-            $reflect = new \ReflectionClass($calledClass);
+            $reflect = new ReflectionClass($calledClass);
             self::$constCacheArray[$calledClass] = $reflect->getConstants();
         }
         return self::$constCacheArray[$calledClass];

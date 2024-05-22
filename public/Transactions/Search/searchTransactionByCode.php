@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Services\Transactions\Search\Code;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,13 +27,13 @@
 
 require_once "../../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
+Library::initialize();
 
 $code = '0B64FD7B4F9641378E9C9462982A8B95';
 
 try {
-    $response = \PagSeguro\Services\Transactions\Search\Code::search(
-        \PagSeguro\Configuration\Configure::getAccountCredentials(),
+    $response = Code::search(
+        Configure::getAccountCredentials(),
         $code
     );
 

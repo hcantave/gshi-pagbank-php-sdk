@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources\Responsibility\Configuration;
 
+use ConfigWrapper;
 use PagSeguro\Resources\Responsibility\Handler;
 
 class Wrapper implements Handler
@@ -39,7 +40,7 @@ class Wrapper implements Handler
     public function handler($action, $class)
     {
         if (class_exists('ConfigWrapper')) {
-            $configWrapper = new \ConfigWrapper;
+            $configWrapper = new ConfigWrapper;
             return array_merge(
                 \PagSeguro\Helpers\Wrapper::environment($configWrapper),
                 \PagSeguro\Helpers\Wrapper::credentials($configWrapper),

@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources\Factory\Shipping;
 
+use PagSeguro\Domains\Shipping;
 use PagSeguro\Domains\ShippingType;
 
 /**
@@ -35,7 +36,7 @@ class Type
 
     /**
      * Shipping constructor.
-     * @param \PagSeguro\Domains\Shipping $shipping
+     * @param Shipping $shipping
      */
     public function __construct(private $shipping)
     {

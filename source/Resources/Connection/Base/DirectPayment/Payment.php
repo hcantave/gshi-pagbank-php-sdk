@@ -24,8 +24,6 @@
 
 namespace PagSeguro\Resources\Connection\Base\DirectPayment;
 
-use PagSeguro\Resources\Builder;
-
 /**
  * Class Payment
  * @package PagSeguro\Services\Connection\Base

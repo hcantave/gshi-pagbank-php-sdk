@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\Transactions\Search;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Enum\Properties\Current;
 use PagSeguro\Parsers\Transaction\Search\Date\Request;
@@ -39,10 +42,10 @@ use PagSeguro\Resources\Responsibility;
 class Date
 {
     /**
-     * @param \PagSeguro\Domains\Account\Credentials $credentials
+     * @param Credentials $credentials
      * @param $options
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public static function search(
         Credentials $credentials,
@@ -51,7 +54,7 @@ class Date
     {
         Logger::info("Begin", ['service' => 'Transactions.Search.Date']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(
                 sprintf(
@@ -63,7 +66,7 @@ class Date
             $http->get(
                 self::request($connection, $options),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
@@ -81,7 +84,7 @@ class Date
                 ['service' => 'Transactions.Search.Date']
             );
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Transactions.Search.Date']);
             throw $exception;
         }
@@ -92,7 +95,7 @@ class Date
      * @param $params
      * @return string
      */
-    private static function request(Connection\Data $connection, $params)
+    private static function request(Data $connection, $params)
     {
         return sprintf(
             "%s/?%s%s%s%s%s",

@@ -24,8 +24,6 @@
 
 namespace PagSeguro\Domains\Requests\PaymentMethod;
 
-use PagSeguro\Helpers\InitializeObject;
-
 trait Accepted
 {
     private $accept;

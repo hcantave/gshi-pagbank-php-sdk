@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Domains\Requests\DirectPreApproval\Plan;
+use PagSeguro\Domains\AccountCredentials;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,15 +27,15 @@
 
 require_once "../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 /**
  *  Para usa o ambiente de testes (sandbox) descomentar a linha abaixo
  */
 //\PagSeguro\Configuration\Configure::setEnvironment('sandbox');
 
-$plan = new \PagSeguro\Domains\Requests\DirectPreApproval\Plan();
+$plan = new Plan();
 $plan->setRedirectURL('http://meusite.com');
 $plan->setReference('http://meusite.com');
 $plan->setPreApproval()->setName('Plano XXXX');
@@ -49,7 +52,7 @@ $plan->setReceiver()->withParameters('exemplo@sandbox');
 
 try {
     $response = $plan->register(
-        new \PagSeguro\Domains\AccountCredentials('email vendedor', 'token vendedor') // credencias do vendedor no pagseguro
+        new AccountCredentials('email vendedor', 'token vendedor') // credencias do vendedor no pagseguro
     );
 
     echo '<pre>';

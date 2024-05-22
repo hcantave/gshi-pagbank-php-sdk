@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Parsers\Authorization;
 
+use DateTime;
 /**
  * Class Response
  * @package PagSeguro\Parsers\Authorization
@@ -60,7 +61,7 @@ class Response
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getDate()
     {
@@ -68,7 +69,7 @@ class Response
     }
 
     /**
-     * @param \DateTime $date
+     * @param DateTime $date
      * @return Response
      */
     public function setDate($date)

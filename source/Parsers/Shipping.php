@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Parsers;
 
+use PagSeguro\Helpers\Currency;
 use PagSeguro\Domains\Requests\Requests;
 
 /**
@@ -70,7 +71,7 @@ trait Shipping
     private static function cost($request, $properties)
     {
         $data = [];
-        $data[$properties::SHIPPING_COST] = \PagSeguro\Helpers\Currency::toDecimal(
+        $data[$properties::SHIPPING_COST] = Currency::toDecimal(
             $request->getShipping()->getCost()->getCost()
         );
         return $data;

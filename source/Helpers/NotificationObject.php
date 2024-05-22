@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Helpers;
 
+use PagSeguro\Domains\Notification;
 /**
  * Class NotificationObject
  * @package PagSeguro\Helpers
@@ -35,7 +36,7 @@ class NotificationObject
      */
     public static function initialize()
     {
-        $notification = new \PagSeguro\Domains\Notification();
+        $notification = new Notification();
         $notification->setCode(Xhr::getInputCode())
             ->setType(Xhr::getInputType());
         return $notification;

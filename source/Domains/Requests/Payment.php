@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Domains\Requests;
 
+use Exception;
 use PagSeguro\Domains\Requests\Checkout\Payment\Request;
 
 /**
@@ -36,7 +37,7 @@ class Payment extends Request
      * @param $credentials
      * @param bool $onlyCode
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public function register($credentials, $onlyCode = false)
     {

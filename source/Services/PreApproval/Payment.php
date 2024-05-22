@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\PreApproval;
 
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
+use Exception;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\PreApproval;
 use PagSeguro\Helpers\Crypto;
@@ -39,7 +42,7 @@ class Payment
     {
         Logger::info("Begin", ['service' => 'PreApproval']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'PreApproval']);
             Logger::info(
@@ -54,7 +57,7 @@ class Payment
                 self::request($connection),
                 Request::getData($preApproval),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
@@ -66,7 +69,7 @@ class Payment
                 ['service' => 'PreApproval']
             );
             return self::response($connection, $response);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'PreApproval']);
             throw $exception;
         }
@@ -76,7 +79,7 @@ class Payment
      * @param Connection\Data $connection
      * @return string
      */
-    private static function request(Connection\Data $connection)
+    private static function request(Data $connection)
     {
         return $connection->buildPreApprovalRequestUrl() . "?" . $connection->buildCredentialsQuery();
     }
@@ -86,7 +89,7 @@ class Payment
      * @param $response
      * @return string
      */
-    private static function response(Connection\Data $connection, $response)
+    private static function response(Data $connection, $response)
     {
         return $connection->buildPreApprovalResponseUrl() . "?code=" . $response->getCode();
     }

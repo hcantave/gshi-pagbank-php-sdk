@@ -24,12 +24,13 @@
 
 namespace PagSeguro\Helpers;
 
+use Exception;
 class Validate
 {
     final public static function cUrl(): void
     {
         if (!function_exists('curl_init')) {
-            throw new \Exception(
+            throw new Exception(
                 'PagSeguro Library cURL library is required.',
                 '[cURL]'
             );
@@ -39,7 +40,7 @@ class Validate
     final public static function simpleXml(): void
     {
         if (!extension_loaded('simplexml')) {
-            throw new \Exception(
+            throw new Exception(
                 'PagSeguro Library simple xml is required.',
                 '[SimpleXml]'
             );

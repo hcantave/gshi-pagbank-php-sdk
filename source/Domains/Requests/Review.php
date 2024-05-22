@@ -24,8 +24,6 @@
 
 namespace PagSeguro\Domains\Requests;
 
-use PagSeguro\Domains\Requests\Adapter\Url;
-
 trait Review
 {
     private $wUrl;

@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources\Responsibility\Http\Methods;
 
+use Exception;
 use PagSeguro\Enum\Http\Status;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Responsibility\Handler;
@@ -53,13 +54,13 @@ class Request implements Handler
      * @param Http $http
      * @param $class
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public function handler($http, $class)
     {
         if ($http->getStatus() == Status::BAD_REQUEST) {
             $error = $class::error($http);
-            throw new \Exception($error->getMessage(), $error->getCode());
+            throw new Exception($error->getMessage(), $error->getCode());
         }
         return $this->successor->handler($http, $class);
     }

@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources\Responsibility\Configuration;
 
+use InvalidArgumentException;
 use PagSeguro\Resources\Responsibility\Handler;
 
 class Extensible implements Handler
@@ -47,7 +48,7 @@ class Extensible implements Handler
                 $this->log()
             );
         }
-        throw new \InvalidArgumentException("Configuration not found.");
+        throw new InvalidArgumentException("Configuration not found.");
     }
 
     private function environment()

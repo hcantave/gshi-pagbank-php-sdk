@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources\Factory\Sender;
 
+use PagSeguro\Domains\Sender;
 use PagSeguro\Enum\Properties\Current;
 
 /**
@@ -36,7 +37,7 @@ class Phone
     /**
      * Phone constructor.
      * @param $sender
-     * @param \PagSeguro\Domains\Sender $sender
+     * @param Sender $sender
      */
     public function __construct(private $sender)
     {
@@ -44,7 +45,7 @@ class Phone
 
     /**
      * @param \PagSeguro\Domains\Phone $phone
-     * @return \PagSeguro\Domains\Sender
+     * @return Sender
      */
     public function instance(\PagSeguro\Domains\Phone $phone)
     {
@@ -54,7 +55,7 @@ class Phone
 
     /**
      * @param $array
-     * @return \PagSeguro\Domains\Sender
+     * @return Sender
      */
     public function withArray($array)
     {
@@ -70,7 +71,7 @@ class Phone
     /**
      * @param $areaCode
      * @param $number
-     * @return \PagSeguro\Domains\Sender
+     * @return Sender
      */
     public function withParameters($areaCode, $number)
     {

@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Domains\Requests\DirectPreApproval\QueryNotification;
+use PagSeguro\Domains\AccountCredentials;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,9 +27,9 @@
 
 require_once "../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 /**
  *  Para usa o ambiente de testes (sandbox) descomentar a linha abaixo
  */
@@ -40,11 +43,11 @@ require_once "../../vendor/autoload.php";
  * @param      $interval
  * @param null $notificationCode
  */
-$queryNotification = new \PagSeguro\Domains\Requests\DirectPreApproval\QueryNotification(20, null, null, 'código da notificação');
+$queryNotification = new QueryNotification(20, null, null, 'código da notificação');
 
 try {
     $response = $queryNotification->register(
-        new \PagSeguro\Domains\AccountCredentials('email vendedor', 'token vendedor') // credencias do vendedor no pagseguro
+        new AccountCredentials('email vendedor', 'token vendedor') // credencias do vendedor no pagseguro
     );
 
     echo '<pre>';

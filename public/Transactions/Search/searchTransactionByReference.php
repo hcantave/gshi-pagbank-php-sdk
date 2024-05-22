@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Services\Transactions\Search\Reference;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,7 +27,7 @@
 
 require_once "../../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
+Library::initialize();
 
 $options = [
     'initial_date' => '2016-04-01T14:55',
@@ -36,8 +39,8 @@ $options = [
 $reference = "LIBPHP000001";
 
 try {
-    $response = \PagSeguro\Services\Transactions\Search\Reference::search(
-        \PagSeguro\Configuration\Configure::getAccountCredentials(),
+    $response = Reference::search(
+        Configure::getAccountCredentials(),
         $reference,
         $options
     );

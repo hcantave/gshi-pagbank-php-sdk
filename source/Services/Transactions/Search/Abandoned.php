@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\Transactions\Search;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Enum\Properties\Current;
 use PagSeguro\Parsers\Transaction\Search\Abandoned\Request;
@@ -39,10 +42,10 @@ use PagSeguro\Resources\Responsibility;
 class Abandoned
 {
     /**
-     * @param \PagSeguro\Domains\Account\Credentials $credentials
+     * @param Credentials $credentials
      * @param $options
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public static function search(
         Credentials $credentials,
@@ -51,7 +54,7 @@ class Abandoned
     {
         Logger::info("Begin", ['service' => 'Transactions.Search.Abandoned']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(
                 sprintf(
@@ -63,7 +66,7 @@ class Abandoned
             $http->get(
                 self::request($connection, $options),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
@@ -81,7 +84,7 @@ class Abandoned
                 ['service' => 'Transactions.Search.Abandoned']
             );
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Transactions.Search.Abandoned']);
             throw $exception;
         }
@@ -92,7 +95,7 @@ class Abandoned
      * @param $params
      * @return string
      */
-    private static function request(Connection\Data $connection, $params)
+    private static function request(Data $connection, $params)
     {
         return sprintf(
             "%s/abandoned/?%s%s%s%s%s",

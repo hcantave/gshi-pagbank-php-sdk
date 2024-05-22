@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources\Factory\Shipping;
 
+use PagSeguro\Domains\Shipping;
 use PagSeguro\Domains\ShippingAddressRequired;
 
 /**
@@ -36,7 +37,7 @@ class AddressRequired
     /**
      * AddressRequired constructor.
      * @param $shipping
-     * @param \PagSeguro\Domains\Shipping $shipping
+     * @param Shipping $shipping
      */
     public function __construct(private $shipping)
     {

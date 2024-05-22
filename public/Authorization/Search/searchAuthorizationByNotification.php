@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Services\Application\Search\Notification;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,13 +27,13 @@
 
 require_once "../../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
+Library::initialize();
 
 $code = '7BD4A616E8C3E8C3F57BB440FFA9ABEAE6F2';
 
 try {
-    $response = \PagSeguro\Services\Application\Search\Notification::search(
-        \PagSeguro\Configuration\Configure::getApplicationCredentials(),
+    $response = Notification::search(
+        Configure::getApplicationCredentials(),
         $code
     );
 

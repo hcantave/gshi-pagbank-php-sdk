@@ -24,9 +24,6 @@
 
 namespace PagSeguro\Resources\Factory\Request;
 
-use PagSeguro\Domains\PaymentMethod\Groups;
-use PagSeguro\Domains\PaymentMethod\Names;
-
 /**
  * Class Metadata
  * @package PagSeguro\Resources\Factory\Request

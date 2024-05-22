@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\Application\Search;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Enum\Properties\Current;
 use PagSeguro\Parsers\Authorization\Search\Date\Request;
@@ -40,11 +43,11 @@ class Reference
 {
 
     /**
-     * @param \PagSeguro\Domains\Account\Credentials $credentials
+     * @param Credentials $credentials
      * @param $reference
      * @param $options
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public static function search(
         Credentials $credentials,
@@ -53,7 +56,7 @@ class Reference
     ) {
         Logger::info("Begin", ['service' => 'Application.Search.Reference']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(
                 sprintf(
@@ -65,7 +68,7 @@ class Reference
             $http->get(
                 self::request($connection, $reference, $options),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
@@ -82,7 +85,7 @@ class Reference
                 ['service' => 'Application.Search.Reference']
             );
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Application.Search.Reference']);
             throw $exception;
         }
@@ -94,7 +97,7 @@ class Reference
      * @param $params
      * @return string
      */
-    private static function request(Connection\Data $connection, $reference, $params)
+    private static function request(Data $connection, $reference, $params)
     {
         return sprintf(
             "%s/?%s&reference=%s%s%s%s%s",

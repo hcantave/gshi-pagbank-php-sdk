@@ -57,19 +57,19 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param \PagSeguro\Resources\Http $http
+     * @param Http $http
      * @return Response
      */
     public static function success(Http $http)
     {
         $xml = simplexml_load_string($http->getResponse());
-        $result = new \PagSeguro\Parsers\Transaction\Refund\Response();
+        $result = new Response();
         $result->setResult(current($xml));
         return $result;
     }
 
     /**
-     * @param \PagSeguro\Resources\Http $http
+     * @param Http $http
      * @return \PagSeguro\Domains\Error
      */
     public static function error(Http $http)

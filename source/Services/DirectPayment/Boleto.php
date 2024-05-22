@@ -24,9 +24,11 @@
 
 namespace PagSeguro\Services\DirectPayment;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Helpers\Crypto;
-use PagSeguro\Helpers\Mask;
 use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
@@ -40,10 +42,10 @@ use PagSeguro\Parsers\DirectPayment\Boleto\Request;
 class Boleto
 {
     /**
-     * @param \PagSeguro\Domains\Account\Credentials $credentials
+     * @param Credentials $credentials
      * @param \PagSeguro\Domains\Requests\DirectPayment\Boleto $payment
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public static function checkout(
         Credentials $credentials,
@@ -52,7 +54,7 @@ class Boleto
     {
         Logger::info("Begin", ['service' => 'DirectPayment.Boleto']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(
                 sprintf("POST: %s", self::request($connection)),
@@ -70,7 +72,7 @@ class Boleto
                 self::request($connection),
                 Request::getData($payment),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
@@ -84,7 +86,7 @@ class Boleto
             );
 
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Session']);
             throw $exception;
         }
@@ -94,7 +96,7 @@ class Boleto
      * @param Connection\Data $connection
      * @return string
      */
-    private static function request(Connection\Data $connection)
+    private static function request(Data $connection)
     {
         return $connection->buildDirectPaymentRequestUrl() . "?" . $connection->buildCredentialsQuery();
     }

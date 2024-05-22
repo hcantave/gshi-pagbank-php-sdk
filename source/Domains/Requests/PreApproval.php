@@ -24,6 +24,8 @@
 
 namespace PagSeguro\Domains\Requests;
 
+use Exception;
+use PagSeguro\Services\PreApproval\Payment;
 use PagSeguro\Domains\Requests\PreApproval\Request;
 
 class PreApproval extends Request
@@ -32,10 +34,10 @@ class PreApproval extends Request
     /**
      * @param $credentials
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public function register($credentials)
     {
-        return \PagSeguro\Services\PreApproval\Payment::create($credentials, $this);
+        return Payment::create($credentials, $this);
     }
 }

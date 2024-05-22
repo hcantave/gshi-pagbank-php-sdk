@@ -24,13 +24,16 @@
 
 namespace PagSeguro\Resources\Responsibility\Notifications;
 
+use PagSeguro\Enum\Notification;
+use PagSeguro\Helpers\NotificationObject;
+use InvalidArgumentException;
 use PagSeguro\Helpers\Xhr;
 
 /**
  * Class Application
  * @package PagSeguro\Resources\Responsibility\Notifications
  */
-class Application implements \PagSeguro\Resources\Responsibility\Notifications\Handler
+class Application implements Handler
 {
     /**
      * @var
@@ -54,10 +57,10 @@ class Application implements \PagSeguro\Resources\Responsibility\Notifications\H
     {
         if (!is_null(Xhr::getInputCode()) and
             !is_null(Xhr::getInputType()) and
-            Xhr::getInputType() == \PagSeguro\Enum\Notification::APPLICATION_AUTHORIZATION) {
-            $notification = \PagSeguro\Helpers\NotificationObject::initialize();
+            Xhr::getInputType() == Notification::APPLICATION_AUTHORIZATION) {
+            $notification = NotificationObject::initialize();
             return $notification->getCode();
         }
-        throw new \InvalidArgumentException("Invalid notification parameters.");
+        throw new InvalidArgumentException("Invalid notification parameters.");
     }
 }

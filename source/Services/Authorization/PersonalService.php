@@ -24,6 +24,8 @@
 
 namespace PagSeguro\Services\Authorization;
 
+use DOMDocument;
+use DOMNode;
 use PagSeguro\Domains\Authorization;
 use PagSeguro\Domains\Document;
 use PagSeguro\Domains\Phone;
@@ -36,7 +38,7 @@ use PagSeguro\Domains\Phone;
 class PersonalService
 {
     /**
-     * @var \DOMDocument
+     * @var DOMDocument
      */
     private $dom;
 
@@ -47,7 +49,7 @@ class PersonalService
      */
     public function __construct(private Authorization $authorization)
     {
-        $this->dom = new \DOMDocument('1.0', 'UTF-8');
+        $this->dom = new DOMDocument('1.0', 'UTF-8');
         $this->dom->xmlStandalone = true;
         $authorizationNode = $this->makeAuthorizationNode();
         $accountNode = $this->makeAccountNode($authorizationNode);
@@ -58,7 +60,7 @@ class PersonalService
     }
 
     /**
-     * @return \DOMNode
+     * @return DOMNode
      */
     private function makeAuthorizationNode()
     {
@@ -92,11 +94,11 @@ class PersonalService
     }
 
     /**
-     * @param \DOMNode $accountDom
+     * @param DOMNode $accountDom
      *
-     * @return \DOMNode
+     * @return DOMNode
      */
-    private function makeAccountNode(\DOMNode $accountDom)
+    private function makeAccountNode(DOMNode $accountDom)
     {
         $emailElement = $this->dom->createElement('email', $this->authorization->getAccount()->getEmail());
         $accountDom->appendChild($emailElement);
@@ -108,11 +110,11 @@ class PersonalService
     }
 
     /**
-     * @param \DOMNode $accountDom
+     * @param DOMNode $accountDom
      *
-     * @return \DOMNode
+     * @return DOMNode
      */
-    private function makePersonNode(\DOMNode $accountDom)
+    private function makePersonNode(DOMNode $accountDom)
     {
         $personElement = $this->dom->createElement('person');
         $personDom = $accountDom->appendChild($personElement);
@@ -128,9 +130,9 @@ class PersonalService
     }
 
     /**
-     * @param \DOMNode $personDom
+     * @param DOMNode $personDom
      */
-    private function makePhonesNode(\DOMNode $personDom): void
+    private function makePhonesNode(DOMNode $personDom): void
     {
         $phonesElement = $this->dom->createElement('phones');
         $phonesDom = $personDom->appendChild($phonesElement);
@@ -155,9 +157,9 @@ class PersonalService
     }
 
     /**
-     * @param \DOMNode $personDom
+     * @param DOMNode $personDom
      */
-    private function makeDocumentsNode(\DOMNode $personDom): void
+    private function makeDocumentsNode(DOMNode $personDom): void
     {
         $documentsElement = $this->dom->createElement('documents');
         $documentsDom = $personDom->appendChild($documentsElement);
@@ -179,9 +181,9 @@ class PersonalService
     }
 
     /**
-     * @param \DOMNode $personDom
+     * @param DOMNode $personDom
      */
-    private function makeAddressNode(\DOMNode $personDom): void
+    private function makeAddressNode(DOMNode $personDom): void
     {
         $addressElement = $this->dom->createElement('address');
         $addressDom = $personDom->appendChild($addressElement);

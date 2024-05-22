@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources\Responsibility\Http\Methods;
 
+use ErrorException;
 use PagSeguro\Resources\Responsibility\Handler;
 
 /**
@@ -51,11 +52,11 @@ class Generic implements Handler
      * @param $http
      * @param $class
      * @return mixed|void
-     * @throws \ErrorException
+     * @throws ErrorException
      */
     public function handler($http, $class): void
     {
         unset($class);
-        throw new \ErrorException($http->getResponse(), $http->getStatus());
+        throw new ErrorException($http->getResponse(), $http->getStatus());
     }
 }

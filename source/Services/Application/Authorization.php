@@ -24,6 +24,8 @@
 
 namespace PagSeguro\Services\Application;
 
+use PagSeguro\Resources\Connection\Data;
+use Exception;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Parsers\Authorization\Request;
@@ -38,7 +40,7 @@ class Authorization
     {
         Logger::info("Begin", ['service' => 'Authorization']);
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http('Content-Type: application/xml;');
             Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'Authorization']);
             Logger::info(
@@ -65,7 +67,7 @@ class Authorization
             );
 
             return self::response($connection, $response);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Authorization']);
             die($exception);
         }
@@ -76,7 +78,7 @@ class Authorization
      *
      * @return string
      */
-    private static function request(Connection\Data $connection)
+    private static function request(Data $connection)
     {
         return $connection->buildAuthorizationRequestUrl() . "?" . $connection->buildCredentialsQuery();
     }
@@ -87,7 +89,7 @@ class Authorization
      *
      * @return string
      */
-    private static function response(Connection\Data $connection, $response)
+    private static function response(Data $connection, $response)
     {
         return $connection->buildAuthorizationResponseUrl() . "?code=" . $response->getCode();
     }

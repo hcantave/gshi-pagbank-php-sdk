@@ -24,6 +24,8 @@
 
 namespace PagSeguro\Domains\Authorization;
 
+use DateTime;
+use InvalidArgumentException;
 use PagSeguro\Domains\Document;
 use PagSeguro\Domains\Phone;
 
@@ -35,7 +37,7 @@ use PagSeguro\Domains\Phone;
 class Partner
 {
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $birthDate;
     /**
@@ -51,13 +53,13 @@ class Partner
      * Partner constructor.
      *
      * @param string $name
-     * @param \DateTime $birthDate
+     * @param DateTime $birthDate
      * @param Document $document
      * @param Phone $phone
      */
     public function __construct(
         private $name = null,
-        \DateTime $birthDate = null,
+        DateTime $birthDate = null,
         Document $document = null,
         Phone $phone = null
     ) {
@@ -91,9 +93,9 @@ class Partner
     {
         try {
             if (!$phone->getType()) {
-                throw new \InvalidArgumentException('Phone Type is required');
+                throw new InvalidArgumentException('Phone Type is required');
             };
-        } catch (\InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException $exception) {
             die($exception);
         }
         $this->phones[] = $phone;

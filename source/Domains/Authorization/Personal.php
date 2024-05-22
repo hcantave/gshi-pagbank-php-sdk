@@ -24,6 +24,8 @@
 
 namespace PagSeguro\Domains\Authorization;
 
+use DateTime;
+use InvalidArgumentException;
 use PagSeguro\Domains\Address;
 use PagSeguro\Domains\Document;
 use PagSeguro\Domains\Phone;
@@ -36,7 +38,7 @@ use PagSeguro\Domains\Phone;
 class Personal
 {
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $birthDate;
     /**
@@ -52,17 +54,17 @@ class Personal
      * Person constructor.
      *
      * @param string $name
-     * @param \DateTime $birthDate
+     * @param DateTime $birthDate
      * @param Document $document
      * @param Phone $phone
      * @param Address $address
      */
     public function __construct(
         private $name = null,
-        \DateTime $birthDate = null,
+        DateTime $birthDate = null,
         Document $document = null,
         Phone $phone = null,
-        private ?\PagSeguro\Domains\Address $address = null
+        private ?Address $address = null
     ) {
         $this->birthDate = date('Y-m-d', $birthDate->getTimestamp());
         if (isset($document)) {
@@ -94,9 +96,9 @@ class Personal
     {
         try {
             if (!$phone->getType()) {
-                throw new \InvalidArgumentException('Phone Type is required');
+                throw new InvalidArgumentException('Phone Type is required');
             };
-        } catch (\InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException $exception) {
             die($exception);
         }
         $this->phones[] = $phone;

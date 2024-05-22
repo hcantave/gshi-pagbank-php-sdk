@@ -28,7 +28,7 @@ namespace PagSeguro\Parsers\DirectPayment\CreditCard;
  * Request from the Credit Card direct payment
  * @package PagSeguro\Parsers\DirectPayment\CreditCard
  */
-
+use PagSeguro\Domains\Requests\DirectPayment\CreditCard;
 use PagSeguro\Enum\Properties\Current;
 use PagSeguro\Parsers\Basic;
 use PagSeguro\Parsers\Currency;
@@ -62,10 +62,10 @@ class Request extends Error implements Parser
     use Shipping;
 
     /**
-     * @param \PagSeguro\Domains\Requests\DirectPayment\CreditCard $creditCard
+     * @param CreditCard $creditCard
      * @return array
      */
-    public static function getData(\PagSeguro\Domains\Requests\DirectPayment\CreditCard $creditCard)
+    public static function getData(CreditCard $creditCard)
     {
 
         $data = [];
@@ -89,7 +89,7 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param \PagSeguro\Resources\Http $http
+     * @param Http $http
      * @return Response
      */
     public static function success(Http $http)
@@ -121,7 +121,7 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param \PagSeguro\Resources\Http $http
+     * @param Http $http
      * @return \PagSeguro\Domains\Error
      */
     public static function error(Http $http)

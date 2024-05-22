@@ -24,6 +24,9 @@
 
 namespace PagSeguro\Services\PreApproval\Search;
 
+use Exception;
+use PagSeguro\Resources\Connection\Data;
+use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Parsers\PreApproval\Search\Code\Request;
 use PagSeguro\Resources\Connection;
@@ -39,10 +42,10 @@ class Code
 {
 
     /**
-     * @param \PagSeguro\Domains\Account\Credentials $credentials
+     * @param Credentials $credentials
      * @param $code
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public static function search(Credentials $credentials, $code)
     {
@@ -50,7 +53,7 @@ class Code
         Logger::info("Begin", ['service' => 'PreApproval.Search.Code']);
 
         try {
-            $connection = new Connection\Data($credentials);
+            $connection = new Data($credentials);
             $http = new Http();
             Logger::info(
                 sprintf("GET: %s", self::request($connection, $code)),
@@ -59,7 +62,7 @@ class Code
             $http->get(
                 self::request($connection, $code),
                 20,
-                \PagSeguro\Configuration\Configure::getCharset()->getEncoding()
+                Configure::getCharset()->getEncoding()
             );
 
             $response = Responsibility::http(
@@ -76,7 +79,7 @@ class Code
                 ['service' => 'PreApproval.Search.Code']
             );
             return $response;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'PreApproval.Search.Code']);
             throw $exception;
         }
@@ -86,7 +89,7 @@ class Code
      * @param Connection\Data $connection
      * @return string
      */
-    private static function request(Connection\Data $connection, $code)
+    private static function request(Data $connection, $code)
     {
         return sprintf(
             "%s/%s/?%s",

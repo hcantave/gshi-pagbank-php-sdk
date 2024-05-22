@@ -24,7 +24,6 @@
 
 namespace PagSeguro\Resources\Responsibility\Factory\Request;
 
-use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Responsibility\Handler;
 
 /**

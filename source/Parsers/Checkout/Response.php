@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Parsers\Checkout;
 
+use DateTime;
 /**
  * Class Response
  * @package PagSeguro\Parsers\Checkout
@@ -59,7 +60,7 @@ class Response
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getDate()
     {
@@ -67,7 +68,7 @@ class Response
     }
 
     /**
-     * @param \DateTime $date
+     * @param DateTime $date
      * @return Response
      */
     public function setDate($date)

@@ -1,4 +1,8 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Domains\Requests\Payment;
+use PagSeguro\Enum\Shipping\Type;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,11 +28,11 @@
 
 require_once "../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
-$payment = new \PagSeguro\Domains\Requests\Payment();
+$payment = new Payment();
 
 $payment->addItems()->withParameters(
     '0001',
@@ -75,7 +79,7 @@ $payment->setShipping()->setAddress()->withParameters(
 );
 
 $payment->setShipping()->setCost()->withParameters(20.00);
-$payment->setShipping()->setType()->withParameters(\PagSeguro\Enum\Shipping\Type::SEDEX);
+$payment->setShipping()->setType()->withParameters(Type::SEDEX);
 
 //Add metadata items
 $payment->addMetadata()->withParameters('PASSENGER_CPF', 'insira um numero de CPF valido');
@@ -117,7 +121,7 @@ try {
      *  ->setAuthorizationCode("FD3AF1B214EC40F0B0A6745D041BF50D")
      */
     $result = $payment->register(
-        \PagSeguro\Configuration\Configure::getAccountCredentials()
+        Configure::getAccountCredentials()
     );
 
     echo "<h2>Criando requisi&ccedil;&atilde;o de pagamento</h2>"

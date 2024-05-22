@@ -24,6 +24,8 @@
 
 namespace PagSeguro\Parsers\Transaction\Search\Date;
 
+use PagSeguro\Parsers\Response\Currency;
+use PagSeguro\Parsers\Response\PaymentMethod;
 use PagSeguro\Parsers\Transaction\Search\Transactions;
 
 /**
@@ -32,8 +34,8 @@ use PagSeguro\Parsers\Transaction\Search\Transactions;
  */
 class Transaction extends Transactions
 {
-    use \PagSeguro\Parsers\Response\Currency;
-    use \PagSeguro\Parsers\Response\PaymentMethod;
+    use Currency;
+    use PaymentMethod;
 
     /**
      * @var

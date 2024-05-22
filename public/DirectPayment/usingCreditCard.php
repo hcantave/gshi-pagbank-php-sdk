@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Domains\Requests\DirectPayment\CreditCard;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,12 +27,12 @@
 
 require_once "../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
 //Instantiate a new direct payment request, using Credit Card
-$creditCard = new \PagSeguro\Domains\Requests\DirectPayment\CreditCard();
+$creditCard = new CreditCard();
 
 /**
  * @todo Change the receiver Email
@@ -132,7 +135,7 @@ $creditCard->setMode('DEFAULT');
 try {
     //Get the crendentials and register the credit card payment
     $result = $creditCard->register(
-        \PagSeguro\Configuration\Configure::getAccountCredentials()
+        Configure::getAccountCredentials()
     );
     echo "<pre>";
     print_r($result);

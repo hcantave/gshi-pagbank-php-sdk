@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Domains\Requests\PreApproval;
 
+use Exception;
 use PagSeguro\Domains\Requests\PreApproval\Charge\Request;
 
 class Charge extends Request
@@ -50,7 +51,7 @@ class Charge extends Request
     /**
      * @param $credentials
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public function register($credentials)
     {

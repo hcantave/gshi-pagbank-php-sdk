@@ -1,4 +1,8 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Helpers\Xhr;
+use PagSeguro\Services\Transactions\Notification;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,17 +28,17 @@
 
 require_once "../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
 try {
-    if (\PagSeguro\Helpers\Xhr::hasPost()) {
-        $response = \PagSeguro\Services\Transactions\Notification::check(
-            \PagSeguro\Configuration\Configure::getAccountCredentials()
+    if (Xhr::hasPost()) {
+        $response = Notification::check(
+            Configure::getAccountCredentials()
         );
     } else {
-        throw new \InvalidArgumentException($_POST);
+        throw new InvalidArgumentException($_POST);
     }
 
     echo "<pre>";

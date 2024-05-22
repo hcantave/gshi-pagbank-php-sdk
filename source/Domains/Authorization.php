@@ -24,7 +24,7 @@ class Authorization
      * @param string $redirectURL
      * @param string $notificationURL
      */
-    public function __construct(private $reference, private $permissions, private $redirectURL, private $notificationURL, private ?\PagSeguro\Domains\Authorization\Account $account = null)
+    public function __construct(private $reference, private $permissions, private $redirectURL, private $notificationURL, private ?Account $account = null)
     {
     }
 

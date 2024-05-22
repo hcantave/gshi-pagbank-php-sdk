@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Services\PreApproval\Cancel;
+use PagSeguro\Configuration\Configure;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,9 +27,9 @@
 
 require_once "../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
 /**
  * @var string PreApproval code
@@ -34,8 +37,8 @@ require_once "../../vendor/autoload.php";
 $code = "DF7EB0AC9999333CC4379F82114239AB";
 
 try {
-    $response = \PagSeguro\Services\PreApproval\Cancel::create(
-        \PagSeguro\Configuration\Configure::getAccountCredentials(),
+    $response = Cancel::create(
+        Configure::getAccountCredentials(),
         $code
     );
 

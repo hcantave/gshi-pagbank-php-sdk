@@ -1,4 +1,7 @@
 <?php
+use PagSeguro\Library;
+use PagSeguro\Domains\Requests\DirectPreApproval\QueryPaymentOrder;
+use PagSeguro\Domains\AccountCredentials;
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,9 +27,9 @@
 
 require_once "../../vendor/autoload.php";
 
-\PagSeguro\Library::initialize();
-\PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-\PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 /**
  *  Para usa o ambiente de testes (sandbox) descomentar a linha abaixo
  */
@@ -38,11 +41,11 @@ require_once "../../vendor/autoload.php";
  * @param $page
  * @param $maxPageResults
  */
-$queryPreApproval = new \PagSeguro\Domains\Requests\DirectPreApproval\QueryPaymentOrder('código da assinatura', 3);
+$queryPreApproval = new QueryPaymentOrder('código da assinatura', 3);
 
 try {
     $response = $queryPreApproval->register(
-        new \PagSeguro\Domains\AccountCredentials('email vendedor', 'token vendedor') // credencias do vendedor no pagseguro
+        new AccountCredentials('email vendedor', 'token vendedor') // credencias do vendedor no pagseguro
     );
 
     echo '<pre>';

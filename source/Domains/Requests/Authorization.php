@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Domains\Requests;
 
+use Exception;
 use PagSeguro\Domains\Requests\Application\Authorization\Request;
 
 /**
@@ -37,7 +38,7 @@ class Authorization extends Request
      * @param $credentials
      *
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public function register($credentials)
     {

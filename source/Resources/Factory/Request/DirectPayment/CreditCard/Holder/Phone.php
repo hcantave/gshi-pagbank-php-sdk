@@ -24,6 +24,7 @@
 
 namespace PagSeguro\Resources\Factory\Request\DirectPayment\CreditCard\Holder;
 
+use PagSeguro\Domains\DirectPayment\CreditCard\Holder;
 use PagSeguro\Enum\Properties\Current;
 
 /**
@@ -36,7 +37,7 @@ class Phone
     /**
      * Phone constructor.
      * @param $holder
-     * @param \PagSeguro\Domains\DirectPayment\CreditCard\Holder $holder
+     * @param Holder $holder
      */
     public function __construct(private $holder)
     {
@@ -44,7 +45,7 @@ class Phone
 
     /**
      * @param \PagSeguro\Domains\Phone $phone
-     * @return \PagSeguro\Domains\DirectPayment\CreditCard\Holder
+     * @return Holder
      */
     public function instance(\PagSeguro\Domains\Phone $phone)
     {
@@ -54,7 +55,7 @@ class Phone
 
     /**
      * @param $array
-     * @return \PagSeguro\Domains\DirectPayment\CreditCard\Holder
+     * @return Holder
      */
     public function withArray($array)
     {
@@ -70,7 +71,7 @@ class Phone
     /**
      * @param $areaCode
      * @param $number
-     * @return \PagSeguro\Domains\DirectPayment\CreditCard\Holder
+     * @return Holder
      */
     public function withParameters($areaCode, $number)
     {
