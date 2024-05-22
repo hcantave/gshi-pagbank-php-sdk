@@ -19,4 +19,11 @@ return RectorConfig::configure()
         AddVoidReturnTypeWhereNoReturnRector::class,
     ]);
 
-    $rectorConfig->sets([LevelSetList::UP_TO_PHP_80]);
+    $rectorConfig->sets([
+    SetList::DEAD_CODE,
+    SetList::EARLY_RETURN,
+    SetList::TYPE_DECLARATION,
+    SetList::CODE_QUALITY,
+    SetList::CODING_STYLE,
+    LevelSetList::UP_TO_PHP_80
+]);

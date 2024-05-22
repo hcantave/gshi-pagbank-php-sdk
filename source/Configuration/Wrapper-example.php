@@ -26,7 +26,20 @@ namespace PagSeguro\Configuration;
 
 class Wrapper
 {
-    public const ENV = "production";
+    public const ENV = "sandbox";
+    public const EMAIL = "info@gshi.ca";
+    public const TOKEN_PRODUCTION = "$WOlmQR3026@p/keF539";
+    public const TOKEN_SANDBOX = "$WOlmQR3026@p/keF539";
+    public const APP_ID_PRODUCTION = "972";
+    public const APP_ID_SANDBOX = "972";
+    public const APP_KEY_PRODUCTION = "$WOlmQR3026@p/keF539";
+    public const APP_KEY_SANDBOX = "$WOlmQR3026@p/keF539";
+    public const CHARSET = "UTF-8";
+    public const LOG_ACTIVE = true;
+    public const LOG_LOCATION = "./log";
+}
+
+/*  public const ENV = "production";
     public const EMAIL = "your_pagseguro_email";
     public const TOKEN_PRODUCTION = "your_production_token";
     public const TOKEN_SANDBOX = "your_sandbox_token";
@@ -36,5 +49,4 @@ class Wrapper
     public const APP_KEY_SANDBOX = "your_sandbox_application_key";
     public const CHARSET = "UTF-8";
     public const LOG_ACTIVE = false;
-    public const LOG_LOCATION = "";
-}
+    public const LOG_LOCATION = "";*/

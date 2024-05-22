@@ -3,22 +3,22 @@
     <environment>production</environment><!-- sandbox or production -->
     <credentials>
         <account>
-            <email>info@gshi.ca</email>
+            <email>your_pagseguro_email</email>
             <production>
-                <token>$WOlmQR3026@p/keF539</token>
+                <token>your_production_token</token>
             </production>
             <sandbox>
-                <token>$WOlmQR3026@p/keF539</token>
+                <token>your_sandbox_token</token>
             </sandbox>
         </account>
         <application>
             <production>
-                <appId>972</appId>
-                <appKey>$WOlmQR3026@p/keF539</appKey>
+                <appId>your_production_application_id</appId>
+                <appKey>your_production_application_key</appKey>
             </production>
             <sandbox>
-                <appId>972</appId>
-                <appKey>$WOlmQR3026@p/keF539</appKey>
+                <appId>your_sandbox_application_id</appId>
+                <appKey>your_sandbox_application_key</appKey>
             </sandbox>
         </application>
     </credentials>
