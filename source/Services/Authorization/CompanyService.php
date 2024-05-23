@@ -67,8 +67,8 @@ class CompanyService
      */
     private function makeAuthorizationNode()
     {
-        $authorizationRequestElement = $this->domDocument->createElement('authorizationRequest');
-        $authorizationRequestDom = $this->domDocument->appendChild($authorizationRequestElement);
+        $domElement = $this->domDocument->createElement('authorizationRequest');
+        $authorizationRequestDom = $this->domDocument->appendChild($domElement);
 
         $referenceElement = $this->domDocument->createElement('reference', $this->authorization->getReference());
         $authorizationRequestDom->appendChild($referenceElement);
@@ -105,8 +105,8 @@ class CompanyService
      */
     private function makeAccountNode(DOMNode $domNode)
     {
-        $emailElement = $this->domDocument->createElement('email', $this->authorization->getAccount()->getEmail());
-        $domNode->appendChild($emailElement);
+        $domElement = $this->domDocument->createElement('email', $this->authorization->getAccount()->getEmail());
+        $domNode->appendChild($domElement);
 
         $typeElement = $this->domDocument->createElement('type', $this->authorization->getAccount()->getType());
         $domNode->appendChild($typeElement);
@@ -122,8 +122,8 @@ class CompanyService
      */
     private function makeCompanyNode(DOMNode $domNode)
     {
-        $companyElement = $this->domDocument->createElement('company');
-        $companyDom = $domNode->appendChild($companyElement);
+        $domElement = $this->domDocument->createElement('company');
+        $companyDom = $domNode->appendChild($domElement);
 
         $displayNameElement = $this->domDocument->createElement(
             'displayName',
@@ -163,8 +163,8 @@ class CompanyService
     
     private function makePartnersPhonesNode(DOMNode $domNode): void
     {
-        $phonesElement = $this->domDocument->createElement('phones');
-        $phonesDom = $domNode->appendChild($phonesElement);
+        $domElement = $this->domDocument->createElement('phones');
+        $phonesDom = $domNode->appendChild($domElement);
         $phones = $this->authorization->getAccount()->getCompany()->getPartner()->getPhones();
 
         $phoneElement = $this->domDocument->createElement('phone');
@@ -188,8 +188,8 @@ class CompanyService
     
     private function makePartnerDocumentsNode(DOMNode $domNode): void
     {
-        $documentsElement = $this->domDocument->createElement('documents');
-        $documentsDom = $domNode->appendChild($documentsElement);
+        $domElement = $this->domDocument->createElement('documents');
+        $documentsDom = $domNode->appendChild($domElement);
         $documents = $this->authorization->getAccount()->getCompany()->getPartner()->getDocuments();
 
         $documentElement = $this->domDocument->createElement('document');
@@ -210,8 +210,8 @@ class CompanyService
     
     private function makePhonesNode(DOMNode $domNode): void
     {
-        $phonesElement = $this->domDocument->createElement('phones');
-        $phonesDom = $domNode->appendChild($phonesElement);
+        $domElement = $this->domDocument->createElement('phones');
+        $phonesDom = $domNode->appendChild($domElement);
         $phones = $this->authorization->getAccount()->getCompany()->getPhones();
 
         $phoneElement = $this->domDocument->createElement('phone');
@@ -235,8 +235,8 @@ class CompanyService
     
     private function makeDocumentsNode(DOMNode $domNode): void
     {
-        $documentsElement = $this->domDocument->createElement('documents');
-        $documentsDom = $domNode->appendChild($documentsElement);
+        $domElement = $this->domDocument->createElement('documents');
+        $documentsDom = $domNode->appendChild($domElement);
         $documents = $this->authorization->getAccount()->getCompany()->getDocuments();
 
         /**
@@ -257,8 +257,8 @@ class CompanyService
     
     private function makeAddressNode(DOMNode $domNode): void
     {
-        $addressElement = $this->domDocument->createElement('address');
-        $addressDom = $domNode->appendChild($addressElement);
+        $domElement = $this->domDocument->createElement('address');
+        $addressDom = $domNode->appendChild($domElement);
 
         $postalCodeElement = $this->domDocument->createElement(
             'postalCode',

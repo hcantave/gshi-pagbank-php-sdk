@@ -66,8 +66,8 @@ class SellerService
      */
     private function makeAuthorizationNode()
     {
-        $authorizationRequestElement = $this->domDocument->createElement('authorizationRequest');
-        $authorizationRequestDom = $this->domDocument->appendChild($authorizationRequestElement);
+        $domElement = $this->domDocument->createElement('authorizationRequest');
+        $authorizationRequestDom = $this->domDocument->appendChild($domElement);
 
         $referenceElement = $this->domDocument->createElement('reference', $this->authorization->getReference());
         $authorizationRequestDom->appendChild($referenceElement);
@@ -104,8 +104,8 @@ class SellerService
      */
     private function makeAccountNode(DOMNode $domNode)
     {
-        $emailElement = $this->domDocument->createElement('email', $this->authorization->getAccount()->getEmail());
-        $domNode->appendChild($emailElement);
+        $domElement = $this->domDocument->createElement('email', $this->authorization->getAccount()->getEmail());
+        $domNode->appendChild($domElement);
 
         $typeElement = $this->domDocument->createElement('type', $this->authorization->getAccount()->getType());
         $domNode->appendChild($typeElement);
@@ -121,8 +121,8 @@ class SellerService
      */
     private function makePersonNode(DOMNode $domNode)
     {
-        $personElement = $this->domDocument->createElement('person');
-        $personDom = $domNode->appendChild($personElement);
+        $domElement = $this->domDocument->createElement('person');
+        $personDom = $domNode->appendChild($domElement);
 
         $nameElement = $this->domDocument->createElement('name', $this->authorization->getAccount()->getSeller()->getName());
         $personDom->appendChild($nameElement);
@@ -139,8 +139,8 @@ class SellerService
     
     private function makePhonesNode(DOMNode $domNode): void
     {
-        $phonesElement = $this->domDocument->createElement('phones');
-        $phonesDom = $domNode->appendChild($phonesElement);
+        $domElement = $this->domDocument->createElement('phones');
+        $phonesDom = $domNode->appendChild($domElement);
         $phones = $this->authorization->getAccount()->getSeller()->getPhones();
 
         $phoneElement = $this->domDocument->createElement('phone');
@@ -164,8 +164,8 @@ class SellerService
     
     private function makeDocumentsNode(DOMNode $domNode): void
     {
-        $documentsElement = $this->domDocument->createElement('documents');
-        $documentsDom = $domNode->appendChild($documentsElement);
+        $domElement = $this->domDocument->createElement('documents');
+        $documentsDom = $domNode->appendChild($domElement);
         $documents = $this->authorization->getAccount()->getSeller()->getDocuments();
 
         /**
@@ -186,8 +186,8 @@ class SellerService
     
     private function makeAddressNode(DOMNode $domNode): void
     {
-        $addressElement = $this->domDocument->createElement('address');
-        $addressDom = $domNode->appendChild($addressElement);
+        $domElement = $this->domDocument->createElement('address');
+        $addressDom = $domNode->appendChild($domElement);
 
         $postalCodeElement = $this->domDocument->createElement(
             'postalCode',

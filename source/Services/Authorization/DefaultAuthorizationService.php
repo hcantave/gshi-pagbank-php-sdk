@@ -59,8 +59,8 @@ class DefaultAuthorizationService
      */
     private function makeAuthorizationNode()
     {
-        $authorizationRequestElement = $this->domDocument->createElement('authorizationRequest');
-        $authorizationRequestDom = $this->domDocument->appendChild($authorizationRequestElement);
+        $domElement = $this->domDocument->createElement('authorizationRequest');
+        $authorizationRequestDom = $this->domDocument->appendChild($domElement);
 
         $referenceElement = $this->domDocument->createElement('reference', $this->authorization->getReference());
         $authorizationRequestDom->appendChild($referenceElement);
