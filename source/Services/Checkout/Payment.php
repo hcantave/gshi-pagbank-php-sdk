@@ -30,7 +30,6 @@ use PagSeguro\Parsers\Checkout\Request;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Helpers\Crypto;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -45,8 +44,6 @@ class Payment
     /**
      *
      *
-     * @param  Credentials                         $credentials
-     * @param  \PagSeguro\Domains\Requests\Payment $payment
      * @param  bool                                $onlyCode
      * @return string
      * @throws Exception
@@ -55,9 +52,9 @@ class Payment
     {
         Logger::info("Begin", ['service' => 'Checkout']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
-            Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'Checkout']);
+            Logger::info(sprintf("POST: %s", self::request($data)), ['service' => 'Checkout']);
             Logger::info(
                 sprintf(
                     "Params: %s",
@@ -66,7 +63,7 @@ class Payment
                 ['service' => 'Checkout']
             );
             $http->post(
-                self::request($connection),
+                self::request($data),
                 Request::getData($payment),
                 20,
                 Configure::getCharset()->getEncoding()
@@ -82,10 +79,10 @@ class Payment
                 return $response;
             }
             Logger::info(
-                sprintf("Checkout URL: %s", self::response($connection, $response)),
+                sprintf("Checkout URL: %s", self::response($data, $response)),
                 ['service' => 'Checkout']
             );
-            return self::response($connection, $response);
+            return self::response($data, $response);
         } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Session']);
             throw $exception;
@@ -93,21 +90,19 @@ class Payment
     }
 
     /**
-     * @param  Connection\Data $connection
      * @return string
      */
-    private static function request(Data $connection)
+    private static function request(Data $data)
     {
-        return $connection->buildPaymentRequestUrl() . "?" . $connection->buildCredentialsQuery();
+        return $data->buildPaymentRequestUrl() . "?" . $data->buildCredentialsQuery();
     }
 
     /**
-     * @param  Connection\Data $connection
      * @param  $response
      * @return string
      */
-    private static function response(Data $connection, $response)
+    private static function response(Data $data, $response)
     {
-        return $connection->buildPaymentResponseUrl() . "?code=" . $response->getCode();
+        return $data->buildPaymentResponseUrl() . "?code=" . $response->getCode();
     }
 }

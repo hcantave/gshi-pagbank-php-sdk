@@ -37,7 +37,6 @@ use PagSeguro\Resources\Http;
 class DiscountParser extends Error implements Parser
 {
     /**
-     * @param  Discount $discount
      * @return mixed
      */
     public static function getPreApprovalCode(Discount $discount)
@@ -49,7 +48,6 @@ class DiscountParser extends Error implements Parser
     }
 
     /**
-     * @param  Discount $discount
      * @return array|Discount
      */
     public static function getData(Discount $discount)
@@ -61,18 +59,14 @@ class DiscountParser extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

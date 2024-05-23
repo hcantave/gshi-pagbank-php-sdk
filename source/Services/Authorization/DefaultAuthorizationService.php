@@ -40,17 +40,15 @@ class DefaultAuthorizationService
      *
      * @var DOMDocument
      */
-    private $dom;
+    private $domDocument;
 
     /**
      * Seller constructor.
-     *
-     * @param Authorization $authorization
      */
     public function __construct(private Authorization $authorization)
     {
-        $this->dom = new DOMDocument('1.0', 'UTF-8');
-        $this->dom->xmlStandalone = true;
+        $this->domDocument = new DOMDocument('1.0', 'UTF-8');
+        $this->domDocument->xmlStandalone = true;
         $this->makeAuthorizationNode();
     }
 
@@ -61,26 +59,26 @@ class DefaultAuthorizationService
      */
     private function makeAuthorizationNode()
     {
-        $authorizationRequestElement = $this->dom->createElement('authorizationRequest');
-        $authorizationRequestDom = $this->dom->appendChild($authorizationRequestElement);
+        $authorizationRequestElement = $this->domDocument->createElement('authorizationRequest');
+        $authorizationRequestDom = $this->domDocument->appendChild($authorizationRequestElement);
 
-        $referenceElement = $this->dom->createElement('reference', $this->authorization->getReference());
+        $referenceElement = $this->domDocument->createElement('reference', $this->authorization->getReference());
         $authorizationRequestDom->appendChild($referenceElement);
 
-        $permissionsElement = $this->dom->createElement('permissions');
+        $permissionsElement = $this->domDocument->createElement('permissions');
         $permissionsDom = $authorizationRequestDom->appendChild($permissionsElement);
 
         $permissions = $this->authorization->getPermissions();
         $permissions = explode(',', $permissions);
 
         foreach ($permissions as $permission) {
-            $codeElement = $this->dom->createElement('code', $permission);
+            $codeElement = $this->domDocument->createElement('code', $permission);
             $permissionsDom->appendChild($codeElement);
         }
-        $redirectURLElement = $this->dom->createElement('redirectURL', $this->authorization->getRedirectURL());
+        $redirectURLElement = $this->domDocument->createElement('redirectURL', $this->authorization->getRedirectURL());
         $authorizationRequestDom->appendChild($redirectURLElement);
 
-        $notificationURLElement = $this->dom->createElement(
+        $notificationURLElement = $this->domDocument->createElement(
             'notificationURL',
             $this->authorization->getNotificationURL()
         );
@@ -94,6 +92,6 @@ class DefaultAuthorizationService
      */
     public function getAsXML()
     {
-        return $this->dom->saveXML();
+        return $this->domDocument->saveXML();
     }
 }

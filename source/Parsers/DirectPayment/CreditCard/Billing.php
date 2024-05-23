@@ -34,18 +34,15 @@ use PagSeguro\Domains\Requests\Requests;
 trait Billing
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
         // Billing data
-        if (!is_null($request->getBilling())) {
-            if (!is_null($request->getBilling()->getAddress())) {
-                $data = array_merge($data, self::address($request->getBilling()->getAddress(), $properties));
-            }
+        if (!is_null($requests->getBilling()) && !is_null($requests->getBilling()->getAddress())) {
+            $data = array_merge($data, self::address($requests->getBilling()->getAddress(), $properties));
         }
         return $data;
     }

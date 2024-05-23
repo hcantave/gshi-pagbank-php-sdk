@@ -30,7 +30,6 @@ use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\DirectPreApproval\Payment;
 use PagSeguro\Parsers\DirectPreApproval\PaymentParser;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -43,9 +42,6 @@ use PagSeguro\Resources\Responsibility;
 class PaymentService
 {
     /**
-     * @param Credentials $credentials
-     * @param Payment     $payment
-     *
      * @return mixed
      * @throws Exception
      */
@@ -53,9 +49,9 @@ class PaymentService
     {
         Logger::info("Begin", ['service' => 'DirectPreApproval']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
-            Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'DirectPreApproval']);
+            Logger::info(sprintf("POST: %s", self::request($data)), ['service' => 'DirectPreApproval']);
             Logger::info(
                 sprintf(
                     "Params: %s",
@@ -64,7 +60,7 @@ class PaymentService
                 ['service' => 'DirectPreApproval']
             );
             $http->post(
-                self::request($connection),
+                self::request($data),
                 PaymentParser::getData($payment),
                 20,
                 Configure::getCharset()->getEncoding()
@@ -86,13 +82,11 @@ class PaymentService
     }
 
     /**
-     * @param Connection\Data $connection
-     *
      * @return string
      */
-    private static function request(Data $connection)
+    private static function request(Data $data)
     {
-        return $connection->buildDirectPreApprovalPaymentRequestUrl() . "?" . $connection->buildCredentialsQuery();
+        return $data->buildDirectPreApprovalPaymentRequestUrl() . "?" . $data->buildCredentialsQuery();
     }
 
     /**

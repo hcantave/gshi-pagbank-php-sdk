@@ -45,8 +45,7 @@ class Environment implements Handler
     public function handler($action, $class)
     {
         if (
-            getenv(\PagSeguro\Enum\Configuration\Environment::ENV)
-            and getenv(\PagSeguro\Enum\Configuration\Environment::EMAIL)
+            getenv(\PagSeguro\Enum\Configuration\Environment::ENV) && getenv(\PagSeguro\Enum\Configuration\Environment::EMAIL)
         ) {
             return array_merge(
                 $this->environment(),

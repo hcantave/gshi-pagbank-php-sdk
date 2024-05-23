@@ -33,11 +33,11 @@ use PagSeguro\Domains\Requests\Requests;
  */
 trait Accepted
 {
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
-        if (!is_null($request->acceptedPaymentMethods())) {
-            $accepted = $request->acceptedPaymentMethods();
+        if (!is_null($requests->acceptedPaymentMethods())) {
+            $accepted = $requests->acceptedPaymentMethods();
             if (!is_null($accepted['accept'])) {
                 $data[$properties::ACCEPT_PAYMENT_METHOD_GROUP] =
                     implode(',', current($accepted['accept'])->getGroups());

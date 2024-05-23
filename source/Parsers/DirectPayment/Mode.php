@@ -34,17 +34,16 @@ use PagSeguro\Domains\Requests\Requests;
 trait Mode
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
 
         $data = [];
         // Payment mode
-        if (!is_null($request->getMode())) {
-            $data[$properties::DIRECT_PAYMENT_MODE] = $request->getMode();
+        if (!is_null($requests->getMode())) {
+            $data[$properties::DIRECT_PAYMENT_MODE] = $requests->getMode();
         }
         return $data;
     }

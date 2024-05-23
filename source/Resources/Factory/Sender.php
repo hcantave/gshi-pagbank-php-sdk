@@ -49,7 +49,6 @@ class Sender
     }
 
     /**
-     * @param  \PagSeguro\Domains\Sender $sender
      * @return \PagSeguro\Domains\Sender
      */
     public function instance(\PagSeguro\Domains\Sender $sender)
@@ -63,9 +62,9 @@ class Sender
      */
     public function withArray($array)
     {
-        $properties = new Current();
-        return $this->sender->setName($array[$properties::SENDER_NAME])
-            ->setEmail($array[$properties::SENDER_EMAIL])
+        $current = new Current();
+        return $this->sender->setName($array[$current::SENDER_NAME])
+            ->setEmail($array[$current::SENDER_EMAIL])
             ->setPhone($array["phone"])
             ->setDocuments($array["document"]);
     }

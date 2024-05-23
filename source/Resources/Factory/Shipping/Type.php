@@ -43,17 +43,17 @@ class Type
     {
     }
 
-    public function instance(ShippingType $type)
+    public function instance(ShippingType $shippingType)
     {
-        return $this->shipping->setType($type);
+        return $this->shipping->setType($shippingType);
     }
 
     public function withParameters($type)
     {
-        $shipping = new ShippingType();
-        $shipping->setType($type);
+        $shippingType = new ShippingType();
+        $shippingType->setType($type);
         $this->shipping->setType(
-            $shipping
+            $shippingType
         );
         return $this->shipping;
     }

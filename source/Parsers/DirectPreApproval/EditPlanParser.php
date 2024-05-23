@@ -37,7 +37,6 @@ use PagSeguro\Resources\Http;
 class EditPlanParser extends Error implements Parser
 {
     /**
-     * @param  EditPlan $editPlan
      * @return mixed
      */
     public static function getPreApprovalRequestCode(EditPlan $editPlan)
@@ -47,7 +46,6 @@ class EditPlanParser extends Error implements Parser
     }
 
     /**
-     * @param  EditPlan $editPlan
      * @return array|EditPlan
      */
     public static function getData(EditPlan $editPlan)
@@ -58,18 +56,14 @@ class EditPlanParser extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

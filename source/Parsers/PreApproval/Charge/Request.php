@@ -44,28 +44,26 @@ class Request extends Error implements Parser
     use Item;
 
     /**
-     * @param  Requests $request
      * @param  $request
      * @return array
      */
-    public static function getData(Requests $request)
+    public static function getData(Requests $requests)
     {
         $data = [];
-        $properties = new Current();
-        if (!is_null($request->getCode())) {
-            $data[$properties::PRE_APPROVAL_CODE] = $request->getCode();
+        $current = new Current();
+        if (!is_null($requests->getCode())) {
+            $data[$current::PRE_APPROVAL_CODE] = $requests->getCode();
         }
         return array_merge(
             $data,
-            Basic::getData($request, $properties),
-            Item::getData($request, $properties)
+            Basic::getData($requests, $current),
+            Item::getData($requests, $current)
         );
     }
 
     /**
      *
      *
-     * @param  Http $http
      * @return Response
      */
     public static function success(Http $http)
@@ -78,12 +76,10 @@ class Request extends Error implements Parser
     /**
      *
      *
-     * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */
     public static function error(Http $http)
     {
-        $error = parent::error($http);
-        return $error;
+        return parent::error($http);
     }
 }

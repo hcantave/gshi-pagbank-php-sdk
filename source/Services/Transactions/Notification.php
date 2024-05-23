@@ -29,7 +29,6 @@ use PagSeguro\Resources\Connection\Data;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Parsers\Transaction\Notification\Request;
 use PagSeguro\Domains\Account\Credentials;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -42,7 +41,6 @@ use PagSeguro\Resources\Responsibility;
 class Notification
 {
     /**
-     * @param  Credentials $credentials
      * @return mixed
      * @throws Exception
      */
@@ -50,11 +48,11 @@ class Notification
     {
         Logger::info("Begin", ['service' => 'Transactions.Notification']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
-            Logger::info(sprintf("GET: %s", self::request($connection)), ['service' => 'Transactions.Notification']);
+            Logger::info(sprintf("GET: %s", self::request($data)), ['service' => 'Transactions.Notification']);
             $http->get(
-                self::request($connection),
+                self::request($data),
                 20,
                 Configure::getCharset()->getEncoding()
             );
@@ -79,12 +77,11 @@ class Notification
     }
 
     /**
-     * @param  Connection\Data $connection
      * @return string
      */
-    private static function request(Data $connection)
+    private static function request(Data $data)
     {
-        return $connection->buildNotificationTransactionRequestUrl() . "/" .
-        Responsibility::notifications() . "?" . $connection->buildCredentialsQuery();
+        return $data->buildNotificationTransactionRequestUrl() . "/" .
+        Responsibility::notifications() . "?" . $data->buildCredentialsQuery();
     }
 }

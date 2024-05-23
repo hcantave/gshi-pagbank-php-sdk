@@ -63,31 +63,29 @@ class Request extends Error implements Parser
     /**
      *
      *
-     * @param  Payment $payment
      * @return array
      */
     public static function getData(Payment $payment)
     {
         $data = [];
-        $properties = new Current();
+        $current = new Current();
         return array_merge(
             $data,
-            Accepted::getData($payment, $properties),
-            Basic::getData($payment, $properties),
-            Currency::getData($payment, $properties),
-            Item::getData($payment, $properties),
-            PreApproval::getData($payment, $properties),
-            Sender::getData($payment, $properties),
-            Shipping::getData($payment, $properties),
-            Metadata::getData($payment, $properties),
+            Accepted::getData($payment, $current),
+            Basic::getData($payment, $current),
+            Currency::getData($payment, $current),
+            Item::getData($payment, $current),
+            PreApproval::getData($payment, $current),
+            Sender::getData($payment, $current),
+            Shipping::getData($payment, $current),
+            Metadata::getData($payment, $current),
             Parameter::getData($payment),
-            PaymentMethod::getData($payment, $properties),
-            ReceiverEmail::getData($payment, $properties)
+            PaymentMethod::getData($payment, $current),
+            ReceiverEmail::getData($payment, $current)
         );
     }
 
     /**
-     * @param  Http $http
      * @return mixed|Response
      */
     public static function success(Http $http)
@@ -98,7 +96,6 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

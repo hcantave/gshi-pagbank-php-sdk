@@ -39,13 +39,6 @@ class StatusRequest
     private $preApprovalCode;
 
     /**
-     * StatusRequest constructor.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * @param $status
      */
     public function setStatus($status): void

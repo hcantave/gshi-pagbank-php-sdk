@@ -35,15 +35,14 @@ use PagSeguro\Domains\Requests\Requests;
 trait PaymentMethod
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
-        $paymentMethod = $request->getPaymentMethod();
-        if ($request->paymentMethodLenght() > 0) {
+        $paymentMethod = $requests->getPaymentMethod();
+        if ($requests->paymentMethodLenght() > 0) {
             $count = 0;
 
             foreach ($paymentMethod as $key => $value) {

@@ -40,13 +40,6 @@ class EditPlanRequest
     public $updateSubscriptions;
 
     /**
-     * EditPlanRequest constructor.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * @param $preApprovalRequestCode
      */
     public function setPreApprovalRequestCode($preApprovalRequestCode): void

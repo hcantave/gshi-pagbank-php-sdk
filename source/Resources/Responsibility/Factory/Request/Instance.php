@@ -34,28 +34,19 @@ use PagSeguro\Resources\Responsibility\Handler;
 class Instance implements Handler
 {
     /**
-     * @var
-     */
-    private $successor;
-
-    /**
      * @param  $successor
      * @return $this
      */
     public function successor($successor)
     {
-        $this->successor = $successor;
         return $this;
     }
 
     /**
      * @param  $instance
      * @param  $class
-     * @return mixed|void
      */
     public function handler($instance, $class): void
     {
-        if ($instance instanceof $class) {
-        }
     }
 }

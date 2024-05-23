@@ -45,7 +45,6 @@ interface LoggerInterface
      * System is unusable.
      *
      * @param string $message
-     * @param array  $context
      *
      * @return null
      */
@@ -58,7 +57,6 @@ interface LoggerInterface
      * trigger the SMS alerts and wake you up.
      *
      * @param string $message
-     * @param array  $context
      *
      * @return null
      */
@@ -70,7 +68,6 @@ interface LoggerInterface
      * Example: Application component unavailable, unexpected exception.
      *
      * @param string $message
-     * @param array  $context
      *
      * @return null
      */
@@ -81,7 +78,6 @@ interface LoggerInterface
      * be logged and monitored.
      *
      * @param string $message
-     * @param array  $context
      *
      * @return null
      */
@@ -94,7 +90,6 @@ interface LoggerInterface
      * that are not necessarily wrong.
      *
      * @param string $message
-     * @param array  $context
      *
      * @return null
      */
@@ -104,7 +99,6 @@ interface LoggerInterface
      * Normal but significant events.
      *
      * @param string $message
-     * @param array  $context
      *
      * @return null
      */
@@ -116,7 +110,6 @@ interface LoggerInterface
      * Example: User logs in, SQL logs.
      *
      * @param string $message
-     * @param array  $context
      *
      * @return null
      */
@@ -126,7 +119,6 @@ interface LoggerInterface
      * Detailed debug information.
      *
      * @param string $message
-     * @param array  $context
      *
      * @return null
      */
@@ -136,7 +128,6 @@ interface LoggerInterface
      * Logs with an arbitrary level.
      *
      * @param  string $message
-     * @param  array  $context
      * @return null
      */
     public static function log(mixed $level, $message, array $context = []);

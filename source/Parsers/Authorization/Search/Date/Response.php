@@ -128,8 +128,8 @@ class Response
             if (is_object($authorizations)) {
                 self::addAuthorization($authorizations);
             } else {
-                foreach ($authorizations as $auth) {
-                    self::addAuthorization($auth);
+                foreach ($authorizations as $authorization) {
+                    self::addAuthorization($authorization);
                 }
             }
         }

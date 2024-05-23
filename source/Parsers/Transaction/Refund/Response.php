@@ -44,9 +44,6 @@ class Response
         return $this->result;
     }
 
-    /**
-     * @return Response
-     */
     public function setResult(mixed $result): void
     {
         $this->result = $result;

@@ -33,7 +33,6 @@ class Mask
 {
     /**
      * @param  $subject
-     * @param  array $options
      * @return bool|string
      */
     public static function cpf($subject, array $options)
@@ -41,11 +40,11 @@ class Mask
         if (self::isValidType($options['type'])) {
             return self::toHash(Characters::hasSpecialChars($subject), 3, "********", "###.###.###-##");
         }
+        return null;
     }
 
     /**
      * @param  $subject
-     * @param  array $options
      * @return bool|string
      */
     public static function rg($subject, array $options)
@@ -53,11 +52,11 @@ class Mask
         if (self::isValidType($options['type'])) {
             return self::toHash(Characters::hasSpecialChars($subject), 5, "*****", "##.###.###-##");
         }
+        return null;
     }
 
     /**
      * @param  $subject
-     * @param  array $options
      * @return bool|string
      */
     public static function birthDate($subject, array $options)
@@ -65,6 +64,7 @@ class Mask
         if (self::isValidType($options['type'])) {
             return self::toHash(Characters::hasSpecialChars($subject), 4, "****", "##/##/####");
         }
+        return null;
     }
 
     public static function phone($subject, array $options)
@@ -81,7 +81,6 @@ class Mask
 
     /**
      * @param  $subject
-     * @param  array $options
      * @return bool|string
      */
     public static function mobile($subject, array $options)
@@ -95,11 +94,11 @@ class Mask
                 ["prefix" => true, "length" => 11]
             );
         }
+        return null;
     }
 
     /**
      * @param  $subject
-     * @param  array $options
      * @return bool|string
      */
     private static function telephone($subject, array $options)
@@ -113,6 +112,7 @@ class Mask
                 ["prefix" => true, "length" => 10]
             );
         }
+        return null;
     }
 
     /**
@@ -121,14 +121,9 @@ class Mask
      */
     private static function isValidType($type)
     {
-        if (
-            \PagSeguro\Enum\Mask::isValidName(
-                \PagSeguro\Enum\Mask::getType($type)
-            )
-        ) {
-            return true;
-        }
-        return false;
+        return \PagSeguro\Enum\Mask::isValidName(
+            \PagSeguro\Enum\Mask::getType($type)
+        );
     }
 
     /**
@@ -165,10 +160,8 @@ class Mask
                 if (isset($value[$key])) {
                     $maskared .= $value[$key++];
                 }
-            } else {
-                if (isset($mask[$count])) {
-                    $maskared .= $mask[$count];
-                }
+            } elseif (isset($mask[$count])) {
+                $maskared .= $mask[$count];
             }
         }
         return $maskared;

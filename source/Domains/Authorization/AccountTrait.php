@@ -44,9 +44,6 @@ trait AccountTrait
         return $this->account;
     }
 
-    /**
-     * @param Account $account
-     */
     public function setAccount(Account $account): void
     {
         $this->account = $account;

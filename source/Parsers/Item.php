@@ -35,15 +35,14 @@ use PagSeguro\Domains\Requests\Requests;
 trait Item
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
-        $items = $request->getItems();
-        if ($request->itemLenght() > 0) {
+        $items = $requests->getItems();
+        if ($requests->itemLenght() > 0) {
             $count = 0;
 
             foreach ($items as $key => $value) {

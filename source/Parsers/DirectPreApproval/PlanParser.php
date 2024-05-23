@@ -37,26 +37,22 @@ use PagSeguro\Resources\Http;
 class PlanParser extends Error implements Parser
 {
     /**
-     * @param  Plan $data
      * @return array
      */
-    public static function getData(Plan $data)
+    public static function getData(Plan $plan)
     {
-        return $data->object_to_array($data);
+        return $plan->object_to_array($plan);
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

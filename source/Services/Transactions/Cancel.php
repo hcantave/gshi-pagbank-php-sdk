@@ -31,7 +31,6 @@ use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Helpers\Crypto;
 use PagSeguro\Parsers\Cancel\Request;
 use PagSeguro\Parsers\Cancel\Response;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -44,7 +43,6 @@ use PagSeguro\Resources\Responsibility;
 class Cancel
 {
     /**
-     * @param  Credentials $credentials
      * @param  $code
      * @return Response
      * @throws Exception
@@ -53,9 +51,9 @@ class Cancel
     {
         Logger::info("Begin", ['service' => 'Cancel']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
-            Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'Cancel']);
+            Logger::info(sprintf("POST: %s", self::request($data)), ['service' => 'Cancel']);
             Logger::info(
                 sprintf(
                     "Params: %s",
@@ -64,7 +62,7 @@ class Cancel
                 ['service' => 'Cancel']
             );
             $http->post(
-                self::request($connection),
+                self::request($data),
                 Request::getData($code),
                 20,
                 Configure::getCharset()->getEncoding()
@@ -84,11 +82,10 @@ class Cancel
     }
 
     /**
-     * @param  Connection\Data $connection
      * @return string
      */
-    private static function request(Data $connection)
+    private static function request(Data $data)
     {
-        return $connection->buildCancelRequestUrl() . "?" . $connection->buildCredentialsQuery();
+        return $data->buildCancelRequestUrl() . "?" . $data->buildCredentialsQuery();
     }
 }

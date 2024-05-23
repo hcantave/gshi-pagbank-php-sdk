@@ -36,18 +36,9 @@ class Item
     /**
      * @var array
      */
-    private $item;
+    private $item = [];
 
     /**
-     * Item constructor.
-     */
-    public function __construct()
-    {
-        $this->item = [];
-    }
-
-    /**
-     * @param  \PagSeguro\Domains\Item $item
      * @return \PagSeguro\Domains\Item
      */
     public function instance(\PagSeguro\Domains\Item $item)
@@ -61,17 +52,17 @@ class Item
      */
     public function withArray($array)
     {
-        $properties = new Current();
+        $current = new Current();
 
         $item = new \PagSeguro\Domains\Item();
-        $item->setId($array[$properties::ITEM_ID])
-            ->setAmount($array[$properties::ITEM_AMOUNT])
-            ->setDescription($array[$properties::ITEM_DESCRIPTION])
-            ->setQuantity($array[$properties::ITEM_QUANTITY])
-            ->setWeight($array[$properties::ITEM_WEIGHT])
-            ->setShippingCost($array[$properties::ITEM_SHIPPING_COST]);
+        $item->setId($array[$current::ITEM_ID])
+            ->setAmount($array[$current::ITEM_AMOUNT])
+            ->setDescription($array[$current::ITEM_DESCRIPTION])
+            ->setQuantity($array[$current::ITEM_QUANTITY])
+            ->setWeight($array[$current::ITEM_WEIGHT])
+            ->setShippingCost($array[$current::ITEM_SHIPPING_COST]);
 
-        array_push($this->item, $item);
+        $this->item[] = $item;
         return $this->item;
     }
 
@@ -99,7 +90,7 @@ class Item
             ->setQuantity($quantity)
             ->setWeight($weight)
             ->setShippingCost($shippingCost);
-        array_push($this->item, $item);
+        $this->item[] = $item;
         return $this->item;
     }
 }

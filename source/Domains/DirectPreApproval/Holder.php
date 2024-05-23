@@ -85,8 +85,6 @@ class Holder
     }
 
     /**
-     * @param Document $document
-     *
      * @return $this
      */
     public function setDocuments(Document $document)

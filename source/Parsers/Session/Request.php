@@ -38,26 +38,23 @@ class Request extends Error implements Parser
     /**
      *
      *
-     * @param  Http $http
      * @return Response
      */
     public static function success(Http $http)
     {
         $xml = simplexml_load_string($http->getResponse());
-        $result = new Response();
-        $result->setResult(current($xml));
-        return $result;
+        $response = new Response();
+        $response->setResult(current($xml));
+        return $response;
     }
 
     /**
      *
      *
-     * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */
     public static function error(Http $http)
     {
-        $error = parent::error($http);
-        return $error;
+        return parent::error($http);
     }
 }

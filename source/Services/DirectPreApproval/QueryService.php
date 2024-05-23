@@ -30,7 +30,6 @@ use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\DirectPreApproval\Query;
 use PagSeguro\Parsers\DirectPreApproval\QueryParsers;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -43,28 +42,25 @@ use PagSeguro\Resources\Responsibility;
 class QueryService
 {
     /**
-     * @param Credentials $credentials
-     * @param Query       $directPreApproval
-     *
      * @return mixed
      * @throws Exception
      */
-    public static function create(Credentials $credentials, Query $directPreApproval)
+    public static function create(Credentials $credentials, Query $query)
     {
         Logger::info("Begin", ['service' => 'DirectPreApproval']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
-            Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'DirectPreApproval']);
+            Logger::info(sprintf("POST: %s", self::request($data)), ['service' => 'DirectPreApproval']);
             Logger::info(
                 sprintf(
                     "Params: %s",
-                    json_encode(QueryParsers::getData($directPreApproval))
+                    json_encode(QueryParsers::getData($query))
                 ),
                 ['service' => 'DirectPreApproval']
             );
             $http->get(
-                self::request($connection, QueryParsers::getData($directPreApproval), $directPreApproval->preApprovalCode),
+                self::request($data, QueryParsers::getData($query), $query->preApprovalCode),
                 20,
                 Configure::getCharset()->getEncoding()
             );
@@ -85,18 +81,16 @@ class QueryService
     }
 
     /**
-     * @param Connection\Data $connection
      * @param null            $params
-     *
      * @return string
      */
-    private static function request(Data $connection, $params = null, $preApprovalCode = null)
+    private static function request(Data $data, $params = null, $preApprovalCode = null)
     {
         if ($preApprovalCode) {
-            return $connection->buildDirectPreApprovalQueryRequestUrl() . '/' . $preApprovalCode . "?" . $connection->buildCredentialsQuery();
+            return $data->buildDirectPreApprovalQueryRequestUrl() . '/' . $preApprovalCode . "?" . $data->buildCredentialsQuery();
         }
 
-        return $connection->buildDirectPreApprovalQueryRequestUrl() . "?" . $connection->buildCredentialsQuery() . ($params ? '&' . $params : '');
+        return $data->buildDirectPreApprovalQueryRequestUrl() . "?" . $data->buildCredentialsQuery() . ($params ? '&' . $params : '');
     }
 
     /**

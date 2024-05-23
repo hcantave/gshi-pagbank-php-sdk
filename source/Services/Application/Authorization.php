@@ -29,7 +29,6 @@ use Exception;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Parsers\Authorization\Request;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -40,9 +39,9 @@ class Authorization
     {
         Logger::info("Begin", ['service' => 'Authorization']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http('Content-Type: application/xml;');
-            Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'Authorization']);
+            Logger::info(sprintf("POST: %s", self::request($data)), ['service' => 'Authorization']);
             Logger::info(
                 sprintf(
                     "Params: %s",
@@ -51,7 +50,7 @@ class Authorization
                 ['service' => 'Checkout']
             );
             $http->post(
-                self::request($connection),
+                self::request($data),
                 Request::getData($authorization),
                 20,
                 Configure::getCharset()->getEncoding()
@@ -61,12 +60,12 @@ class Authorization
             Logger::info(
                 sprintf(
                     "Authorization URL: %s",
-                    self::response($connection, $response)
+                    self::response($data, $response)
                 ),
                 ['service' => 'Authorization']
             );
 
-            return self::response($connection, $response);
+            return self::response($data, $response);
         } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Authorization']);
             die($exception);
@@ -74,23 +73,19 @@ class Authorization
     }
 
     /**
-     * @param Connection\Data $connection
-     *
      * @return string
      */
-    private static function request(Data $connection)
+    private static function request(Data $data)
     {
-        return $connection->buildAuthorizationRequestUrl() . "?" . $connection->buildCredentialsQuery();
+        return $data->buildAuthorizationRequestUrl() . "?" . $data->buildCredentialsQuery();
     }
 
     /**
-     * @param Connection\Data $connection
      * @param $response
-     *
      * @return string
      */
-    private static function response(Data $connection, $response)
+    private static function response(Data $data, $response)
     {
-        return $connection->buildAuthorizationResponseUrl() . "?code=" . $response->getCode();
+        return $data->buildAuthorizationResponseUrl() . "?code=" . $response->getCode();
     }
 }

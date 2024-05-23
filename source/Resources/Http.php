@@ -165,30 +165,15 @@ class Http
             CURLOPT_CONNECTTIMEOUT => $timeout,
             //CURLOPT_TIMEOUT => $timeout
         ];
+        $options[CURLOPT_HTTPHEADER][] = sprintf('module-description: %s', Library::moduleVersion()->getName());
+        $options[CURLOPT_HTTPHEADER][] = sprintf('module-version: %s', Library::moduleVersion()->getRelease());
+        $options[CURLOPT_HTTPHEADER][] = sprintf(
+            'cms-description: %s :%s',
+            Library::cmsVersion()->getName(),
+            Library::cmsVersion()->getRelease()
+        );
 
-        if (!is_null(Library::moduleVersion()->getRelease())) {
-            array_push(
-                $options[CURLOPT_HTTPHEADER],
-                sprintf('module-description: %s', Library::moduleVersion()->getName())
-            );
-            array_push(
-                $options[CURLOPT_HTTPHEADER],
-                sprintf('module-version: %s', Library::moduleVersion()->getRelease())
-            );
-        }
-
-        if (!is_null(Library::cmsVersion()->getRelease())) {
-            array_push(
-                $options[CURLOPT_HTTPHEADER],
-                sprintf(
-                    'cms-description: %s :%s',
-                    Library::cmsVersion()->getName(),
-                    Library::cmsVersion()->getRelease()
-                )
-            );
-        }
-
-        $options = ($options + $methodOptions);
+        $options += $methodOptions;
         $curl = curl_init();
         curl_setopt_array($curl, $options);
         $resp = curl_exec($curl);
@@ -198,7 +183,7 @@ class Http
         curl_close($curl);
         $this->setStatus((int)$info['http_code']);
         $this->setResponse((string)$resp);
-        if ($error) {
+        if ($error !== 0) {
             throw new Exception("CURL can't connect: $errorMessage");
         } else {
             return true;

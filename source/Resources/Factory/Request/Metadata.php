@@ -33,12 +33,7 @@ use PagSeguro\Enum\Properties\Current;
  */
 class Metadata
 {
-    private $metadata;
-
-    public function __construct()
-    {
-        $this->metadata = [];
-    }
+    private $metadata = [];
 
     public function instance(\PagSeguro\Domains\Metadata $metadata)
     {
@@ -47,14 +42,14 @@ class Metadata
 
     public function withArray($array)
     {
-        $properties = new Current();
+        $current = new Current();
 
         $metadata = new \PagSeguro\Domains\Metadata();
-        $metadata->setKey($array[$properties::METADATA_ITEM_KEY])
-            ->setValue($array[$properties::METADATA_ITEM_VALUE])
-            ->setGroup($array[$properties::METADATA_ITEM_GROUP]);
+        $metadata->setKey($array[$current::METADATA_ITEM_KEY])
+            ->setValue($array[$current::METADATA_ITEM_VALUE])
+            ->setGroup($array[$current::METADATA_ITEM_GROUP]);
 
-        array_push($this->metadata, $metadata);
+        $this->metadata[] = $metadata;
         return $this->metadata;
     }
 
@@ -67,7 +62,7 @@ class Metadata
         $metadata->setKey($key)
             ->setValue($value)
             ->setGroup($group);
-        array_push($this->metadata, $metadata);
+        $this->metadata[] = $metadata;
         return $this->metadata;
     }
 }

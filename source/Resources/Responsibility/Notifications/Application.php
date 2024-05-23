@@ -37,17 +37,11 @@ use PagSeguro\Helpers\Xhr;
 class Application implements Handler
 {
     /**
-     * @var
-     */
-    private $successor;
-
-    /**
      * @param  $next
      * @return $this
      */
     public function successor($next)
     {
-        $this->successor = $next;
         return $this;
     }
 
@@ -57,9 +51,7 @@ class Application implements Handler
     public function handler()
     {
         if (
-            !is_null(Xhr::getInputCode())
-            and !is_null(Xhr::getInputType())
-            and Xhr::getInputType() == Notification::APPLICATION_AUTHORIZATION
+            !is_null(Xhr::getInputCode()) && !is_null(Xhr::getInputType()) && Xhr::getInputType() == Notification::APPLICATION_AUTHORIZATION
         ) {
             $notification = NotificationObject::initialize();
             return $notification->getCode();

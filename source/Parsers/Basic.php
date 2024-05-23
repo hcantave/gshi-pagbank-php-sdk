@@ -34,25 +34,24 @@ use PagSeguro\Domains\Requests\Requests;
 trait Basic
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
 
         // reference
-        if (!is_null($request->getReference())) {
-            $data[$properties::REFERENCE] = $request->getReference();
+        if (!is_null($requests->getReference())) {
+            $data[$properties::REFERENCE] = $requests->getReference();
         }
         // redirectURL
-        if (method_exists($request, 'getRedirectUrl') and !is_null($request->getRedirectUrl())) {
-            $data[$properties::REDIRECT_URL] = $request->getRedirectUrl();
+        if (method_exists($requests, 'getRedirectUrl') && !is_null($requests->getRedirectUrl())) {
+            $data[$properties::REDIRECT_URL] = $requests->getRedirectUrl();
         }
         // notificationURL
-        if (method_exists($request, 'getNotificationUrl') and !is_null($request->getNotificationUrl())) {
-            $data[$properties::NOTIFICATION_URL] = $request->getNotificationUrl();
+        if (method_exists($requests, 'getNotificationUrl') && !is_null($requests->getNotificationUrl())) {
+            $data[$properties::NOTIFICATION_URL] = $requests->getNotificationUrl();
         }
         return $data;
     }

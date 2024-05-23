@@ -37,7 +37,6 @@ use PagSeguro\Resources\Http;
 class StatusParser extends Error implements Parser
 {
     /**
-     * @param  Status $status
      * @return mixed
      */
     public static function getPreApprovalCode(Status $status)
@@ -47,7 +46,6 @@ class StatusParser extends Error implements Parser
     }
 
     /**
-     * @param  Status $status
      * @return array|Status
      */
     public static function getData(Status $status)
@@ -58,17 +56,14 @@ class StatusParser extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

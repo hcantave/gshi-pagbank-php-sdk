@@ -37,7 +37,6 @@ use PagSeguro\Resources\Http;
 class QueryPaymentOrderParsers extends Error implements Parser
 {
     /**
-     * @param  QueryPaymentOrder $queryPaymentOrder
      * @return mixed
      */
     public static function getPreApprovalCode(QueryPaymentOrder $queryPaymentOrder)
@@ -47,7 +46,6 @@ class QueryPaymentOrderParsers extends Error implements Parser
     }
 
     /**
-     * @param  QueryPaymentOrder $queryPaymentOrder
      * @return string
      */
     public static function getData(QueryPaymentOrder $queryPaymentOrder)
@@ -58,17 +56,14 @@ class QueryPaymentOrderParsers extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

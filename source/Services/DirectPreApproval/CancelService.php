@@ -30,7 +30,6 @@ use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\DirectPreApproval\Cancel;
 use PagSeguro\Parsers\DirectPreApproval\CancelParser;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -43,9 +42,6 @@ use PagSeguro\Resources\Responsibility;
 class CancelService
 {
     /**
-     * @param Credentials $credentials
-     * @param Cancel      $cancel
-     *
      * @return mixed
      * @throws Exception
      */
@@ -53,10 +49,10 @@ class CancelService
     {
         Logger::info("Begin", ['service' => 'DirectPreApproval']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
             Logger::info(
-                sprintf("POST: %s", self::request($connection, CancelParser::getPreApprovalCode($cancel))),
+                sprintf("POST: %s", self::request($data, CancelParser::getPreApprovalCode($cancel))),
                 ['service' => 'DirectPreApproval']
             );
             Logger::info(
@@ -67,7 +63,7 @@ class CancelService
                 ['service' => 'DirectPreApproval']
             );
             $http->put(
-                self::request($connection, CancelParser::getPreApprovalCode($cancel)),
+                self::request($data, CancelParser::getPreApprovalCode($cancel)),
                 CancelParser::getData($cancel),
                 20,
                 Configure::getCharset()->getEncoding()
@@ -89,14 +85,12 @@ class CancelService
     }
 
     /**
-     * @param Connection\Data $connection
      * @param $preApprovalCode
-     *
      * @return string
      */
-    private static function request(Data $connection, $preApprovalCode)
+    private static function request(Data $data, $preApprovalCode)
     {
-        return $connection->buildDirectPreApprovalCancelRequestUrl($preApprovalCode) . "?" . $connection->buildCredentialsQuery();
+        return $data->buildDirectPreApprovalCancelRequestUrl($preApprovalCode) . "?" . $data->buildCredentialsQuery();
     }
 
     /**

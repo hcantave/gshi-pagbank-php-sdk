@@ -34,7 +34,7 @@ trait Permissions
     /**
      * @var null
      */
-    private $permissions = null;
+    private $permissions;
 
     /**
      * @param  $permission
@@ -46,15 +46,10 @@ trait Permissions
         return $this;
     }
 
-    /**
-     * @param array $permissions
-     */
     public function setPermissions(array $permissions): void
     {
-        if (is_array($permissions)) {
-            foreach ($permissions as $key => $permission) {
-                $this->increment($permission);
-            }
+        foreach ($permissions as $permission) {
+            $this->increment($permission);
         }
     }
 

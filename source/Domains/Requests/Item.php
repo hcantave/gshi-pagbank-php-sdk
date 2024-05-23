@@ -47,10 +47,8 @@ trait Item
             foreach ($items as $key => $item) {
                 if ($item instanceof \PagSeguro\Domains\Item) {
                     $arr[$key] = $item;
-                } else {
-                    if (is_array($item)) {
-                        $arr[$key] = new \PagSeguro\Domains\Item($item);
-                    }
+                } elseif (is_array($item)) {
+                    $arr[$key] = new \PagSeguro\Domains\Item($item);
                 }
             }
             $this->items = $arr;

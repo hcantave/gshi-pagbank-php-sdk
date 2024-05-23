@@ -34,15 +34,14 @@ use PagSeguro\Domains\Requests\Requests;
 trait Parameter
 {
     /**
-     * @param  Requests $request
      * @return array
      */
-    public static function getData(Requests $request)
+    public static function getData(Requests $requests)
     {
         $data = [];
 
-        if ($request->parameterLenght() > 0) {
-            $parameter = $request->getParameter();
+        if ($requests->parameterLenght() > 0) {
+            $parameter = $requests->getParameter();
             foreach ($parameter as $key => $value) {
                 if (!is_null($parameter[$key]->getKey())) {
                     if (!is_null($parameter[$key]->getIndex())) {

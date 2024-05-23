@@ -56,16 +56,16 @@ class Address
      */
     public function withArray($array)
     {
-        $properties = new Current();
+        $current = new Current();
         $address = new \PagSeguro\Domains\Address();
-        $address->setPostalCode($array[$properties::SHIPPING_ADDRESS_POSTAL_CODE])
-            ->setStreet($array[$properties::SHIPPING_ADDRESS_STREET])
-            ->setNumber($array[$properties::SHIPPING_ADDRESS_NUMBER])
-            ->setComplement($array[$properties::SHIPPING_ADDRESS_COMPLEMENT])
-            ->setDistrict($array[$properties::SHIPPING_ADDRESS_DISTRICT])
-            ->setCity($array[$properties::SHIPPING_ADDRESS_NUMBER])
-            ->setState($array[$properties::SHIPPING_ADDRESS_STATE])
-            ->setCountry($array[$properties::SHIPPING_ADDRESS_COUNTRY]);
+        $address->setPostalCode($array[$current::SHIPPING_ADDRESS_POSTAL_CODE])
+            ->setStreet($array[$current::SHIPPING_ADDRESS_STREET])
+            ->setNumber($array[$current::SHIPPING_ADDRESS_NUMBER])
+            ->setComplement($array[$current::SHIPPING_ADDRESS_COMPLEMENT])
+            ->setDistrict($array[$current::SHIPPING_ADDRESS_DISTRICT])
+            ->setCity($array[$current::SHIPPING_ADDRESS_NUMBER])
+            ->setState($array[$current::SHIPPING_ADDRESS_STATE])
+            ->setCountry($array[$current::SHIPPING_ADDRESS_COUNTRY]);
         $this->billing->setAddress($address);
         return $this->billing;
     }

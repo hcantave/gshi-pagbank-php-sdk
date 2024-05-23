@@ -31,12 +31,7 @@ namespace PagSeguro\Resources\Factory\Request\DirectPayment\CreditCard;
  */
 class Installment
 {
-    private $installment;
-
-    public function __construct()
-    {
-        $this->installment = [];
-    }
+    private $installment = [];
 
     public function instance(\PagSeguro\Domains\DirectPayment\CreditCard\Installment $installment)
     {

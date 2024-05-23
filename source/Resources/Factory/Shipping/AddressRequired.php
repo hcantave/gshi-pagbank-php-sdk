@@ -42,17 +42,17 @@ class AddressRequired
     {
     }
 
-    public function instance(ShippingAddressRequired $addressRequired)
+    public function instance(ShippingAddressRequired $shippingAddressRequired)
     {
-        return $this->shipping->setAddressRequired($addressRequired);
+        return $this->shipping->setAddressRequired($shippingAddressRequired);
     }
 
     public function withParameters($addressRequired)
     {
-        $shipping = new ShippingAddressRequired();
-        $shipping->setAddressRequired($addressRequired);
+        $shippingAddressRequired = new ShippingAddressRequired();
+        $shippingAddressRequired->setAddressRequired($addressRequired);
         $this->shipping->setAddressRequired(
-            $shipping
+            $shippingAddressRequired
         );
         return $this->shipping;
     }

@@ -35,36 +35,35 @@ use PagSeguro\Helpers\Characters;
 trait Sender
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
         // sender
-        if (!is_null($request->getSender())) {
-            if (!is_null($request->getSender()->getName())) {
-                $data[$properties::SENDER_NAME] = $request->getSender()->getName();
+        if (!is_null($requests->getSender())) {
+            if (!is_null($requests->getSender()->getName())) {
+                $data[$properties::SENDER_NAME] = $requests->getSender()->getName();
             }
-            if (!is_null($request->getSender()->getEmail())) {
-                $data[$properties::SENDER_EMAIL] = $request->getSender()->getEmail();
+            if (!is_null($requests->getSender()->getEmail())) {
+                $data[$properties::SENDER_EMAIL] = $requests->getSender()->getEmail();
             }
             // phone
-            if (!is_null($request->getSender()->getPhone())) {
-                $data = array_merge($data, self::phone($request, $properties));
+            if (!is_null($requests->getSender()->getPhone())) {
+                $data = array_merge($data, self::phone($requests, $properties));
             }
             // documents
-            if (!is_null($request->getSender()->getDocuments())) {
-                $data = array_merge($data, self::documents($request, $properties));
+            if (!is_null($requests->getSender()->getDocuments())) {
+                $data = array_merge($data, self::documents($requests, $properties));
             }
             // ip (only used in direct payments)
-            if (method_exists($request->getSender(), 'getIp') && !is_null($request->getSender()->getIp())) {
-                $data[$properties::SENDER_IP] = $request->getSender()->getIp();
+            if (method_exists($requests->getSender(), 'getIp') && !is_null($requests->getSender()->getIp())) {
+                $data[$properties::SENDER_IP] = $requests->getSender()->getIp();
             }
             // hash (only used in direct payments)
-            if (method_exists($request->getSender(), 'getHash') && !is_null($request->getSender()->getHash())) {
-                $data[$properties::SENDER_HASH] = $request->getSender()->getHash();
+            if (method_exists($requests->getSender(), 'getHash') && !is_null($requests->getSender()->getHash())) {
+                $data[$properties::SENDER_HASH] = $requests->getSender()->getHash();
             }
         }
         return $data;

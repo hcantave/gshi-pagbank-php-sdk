@@ -43,7 +43,6 @@ class Document
     }
 
     /**
-     * @param  \PagSeguro\Domains\Document $document
      * @return \PagSeguro\Domains\Document
      */
     public function instance(\PagSeguro\Domains\Document $document)
@@ -58,10 +57,10 @@ class Document
      */
     public function withArray($array)
     {
-        $properties = new Current();
+        $current = new Current();
         $document = new \PagSeguro\Domains\Document();
-        $document->setType($array[$properties::DOCUMENT_TYPE])
-            ->setIdentifier($array[$properties::DOCUMENT_VALUE]);
+        $document->setType($array[$current::DOCUMENT_TYPE])
+            ->setIdentifier($array[$current::DOCUMENT_VALUE]);
         $this->sender->setDocuments($document);
         return $this->sender;
     }

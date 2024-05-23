@@ -36,7 +36,7 @@ abstract class BaseEnum
     /**
      * @var null
      */
-    private static $constCacheArray = null;
+    private static $constCacheArray;
 
     /**
      * @return array
@@ -48,8 +48,8 @@ abstract class BaseEnum
         }
         $calledClass = static::class;
         if (!array_key_exists($calledClass, self::$constCacheArray)) {
-            $reflect = new ReflectionClass($calledClass);
-            self::$constCacheArray[$calledClass] = $reflect->getConstants();
+            $reflectionClass = new ReflectionClass($calledClass);
+            self::$constCacheArray[$calledClass] = $reflectionClass->getConstants();
         }
         return self::$constCacheArray[$calledClass];
     }

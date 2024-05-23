@@ -35,14 +35,13 @@ use PagSeguro\Helpers\Currency;
 trait Installment
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
-        $installment = current($request->getInstallment());
+        $installment = current($requests->getInstallment());
 
         // quantity
         if (!is_null($installment->getQuantity())) {

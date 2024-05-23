@@ -37,27 +37,22 @@ use PagSeguro\Resources\Http;
 class PaymentParser extends Error implements Parser
 {
     /**
-     * @param  Payment $directPreApproval
      * @return array
      */
-    public static function getData(Payment $directPreApproval)
+    public static function getData(Payment $payment)
     {
-        return $directPreApproval->object_to_array($directPreApproval);
+        return $payment->object_to_array($payment);
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

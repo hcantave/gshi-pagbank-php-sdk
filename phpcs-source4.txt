@@ -1,0 +1,184 @@
+
+[1mFILE: D:\hugo-dev\packages\pagseguro-sdk-php\source\Domains\Authorization.php[0m
+-----------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE[0m
+-----------------------------------------------------------------------------
+ 23 | [33mWARNING[0m | Line exceeds 120 characters; contains 155 characters
+-----------------------------------------------------------------------------
+
+
+[1mFILE: ...o-dev\packages\pagseguro-sdk-php\source\Domains\DirectPreApproval\Plan.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 1 ERROR AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 79 | [31mERROR[0m | Visibility must be declared on method "setReference"
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...\pagseguro-sdk-php\source\Domains\DirectPreApproval\Traits\ParserTrait.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 2 ERRORS AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 39 | [31mERROR[0m | Method name "ParserTrait::object_to_array" is not in camel caps
+    |       | format
+ 39 | [31mERROR[0m | Visibility must be declared on method "object_to_array"
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...agseguro-sdk-php\source\Domains\Requests\DirectPreApproval\PlanRequest.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 1 ERROR AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 67 | [31mERROR[0m | Visibility must be declared on method "setReference"
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...\pagseguro-sdk-php\source\Parsers\DirectPayment\CreditCard\Installment.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 57 | [33mWARNING[0m | Line exceeds 120 characters; contains 134 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: D:\hugo-dev\packages\pagseguro-sdk-php\source\Parsers\Shipping.php[0m
+------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE[0m
+------------------------------------------------------------------------
+ 101 | [33mWARNING[0m | Line exceeds 120 characters; contains 124 characters
+------------------------------------------------------------------------
+
+
+[1mFILE: ...k-php\source\Resources\Connection\Base\DirectPreApproval\ChangePayment.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 31 | [33mWARNING[0m | Line exceeds 120 characters; contains 123 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...p\source\Resources\Connection\Base\DirectPreApproval\QueryNotification.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 31 | [33mWARNING[0m | Line exceeds 120 characters; contains 137 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...p\source\Resources\Connection\Base\DirectPreApproval\QueryPaymentOrder.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 31 | [33mWARNING[0m | Line exceeds 120 characters; contains 131 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...s\pagseguro-sdk-php\source\Services\DirectPreApproval\AccessionService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...ages\pagseguro-sdk-php\source\Services\DirectPreApproval\CancelService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES[0m
+--------------------------------------------------------------------------------
+ 57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+ 99 | [33mWARNING[0m | Line exceeds 120 characters; contains 130 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...gseguro-sdk-php\source\Services\DirectPreApproval\ChangePaymentService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES[0m
+--------------------------------------------------------------------------------
+  57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+ 102 | [33mWARNING[0m | Line exceeds 120 characters; contains 137 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...es\pagseguro-sdk-php\source\Services\DirectPreApproval\DiscountService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES[0m
+--------------------------------------------------------------------------------
+ 57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+ 99 | [33mWARNING[0m | Line exceeds 120 characters; contains 132 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...es\pagseguro-sdk-php\source\Services\DirectPreApproval\EditPlanService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES[0m
+--------------------------------------------------------------------------------
+  57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+ 106 | [33mWARNING[0m | Line exceeds 120 characters; contains 132 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...ges\pagseguro-sdk-php\source\Services\DirectPreApproval\PaymentService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...ckages\pagseguro-sdk-php\source\Services\DirectPreApproval\PlanService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 56 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...uro-sdk-php\source\Services\DirectPreApproval\QueryNotificationService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES[0m
+--------------------------------------------------------------------------------
+  57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+ 110 | [33mWARNING[0m | Line exceeds 120 characters; contains 174 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...uro-sdk-php\source\Services\DirectPreApproval\QueryPaymentOrderService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 4 WARNINGS AFFECTING 4 LINES[0m
+--------------------------------------------------------------------------------
+ 57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+ 58 | [33mWARNING[0m | Line exceeds 120 characters; contains 176 characters
+ 67 | [33mWARNING[0m | Line exceeds 120 characters; contains 164 characters
+ 96 | [33mWARNING[0m | Line exceeds 120 characters; contains 174 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...kages\pagseguro-sdk-php\source\Services\DirectPreApproval\QueryService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 4 WARNINGS AFFECTING 4 LINES[0m
+--------------------------------------------------------------------------------
+ 57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+ 67 | [33mWARNING[0m | Line exceeds 120 characters; contains 123 characters
+ 96 | [33mWARNING[0m | Line exceeds 120 characters; contains 142 characters
+ 99 | [33mWARNING[0m | Line exceeds 120 characters; contains 146 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...uro-sdk-php\source\Services\DirectPreApproval\RetryPaymentOrderService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------
+ 57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+--------------------------------------------------------------------------------
+
+
+[1mFILE: ...ages\pagseguro-sdk-php\source\Services\DirectPreApproval\StatusService.php[0m
+--------------------------------------------------------------------------------
+[1mFOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES[0m
+--------------------------------------------------------------------------------
+ 57 | [33mWARNING[0m | Line exceeds 120 characters; contains 135 characters
+ 99 | [33mWARNING[0m | Line exceeds 120 characters; contains 130 characters
+--------------------------------------------------------------------------------
+
+Time: 2.12 secs; Memory: 14MB
+

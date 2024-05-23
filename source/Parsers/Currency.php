@@ -35,20 +35,19 @@ use PagSeguro\Helpers;
 trait Currency
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
         // currency
-        if (!is_null($request->getCurrency())) {
-            $data[$properties::CURRENCY] = $request->getCurrency();
+        if (!is_null($requests->getCurrency())) {
+            $data[$properties::CURRENCY] = $requests->getCurrency();
         }
 
-        if (!is_null($request->getExtraAmount())) {
-            $data[$properties::CURRENCY_EXTRA_AMOUNT] = Helpers\Currency::toDecimal($request->getExtraAmount());
+        if (!is_null($requests->getExtraAmount())) {
+            $data[$properties::CURRENCY_EXTRA_AMOUNT] = Helpers\Currency::toDecimal($requests->getExtraAmount());
         }
 
         return $data;

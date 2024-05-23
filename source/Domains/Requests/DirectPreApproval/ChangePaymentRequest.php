@@ -37,7 +37,7 @@ class ChangePaymentRequest
 {
     use ParserTrait;
 
-    private $type;
+    private $type = 'CREDITCARD';
     private $creditCard;
     private $sender;
     private $preApprovalCode;
@@ -47,7 +47,6 @@ class ChangePaymentRequest
      */
     public function __construct()
     {
-        $this->type = 'CREDITCARD';
         $this->creditCard = new CreditCard();
         $this->sender = new ChangePlanSender();
     }

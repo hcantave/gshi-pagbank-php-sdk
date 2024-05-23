@@ -37,39 +37,34 @@ use PagSeguro\Resources\Http;
 class CancelParser extends Error implements Parser
 {
     /**
-     * @param  Cancel $status
      * @return mixed
      */
-    public static function getPreApprovalCode(Cancel $status)
+    public static function getPreApprovalCode(Cancel $cancel)
     {
-        $status = $status->object_to_array($status);
-        unset($status['status']);
-        return $status['preApprovalCode'];
+        $cancel = $cancel->object_to_array($cancel);
+        unset($cancel['status']);
+        return $cancel['preApprovalCode'];
     }
 
     /**
-     * @param  Cancel $status
      * @return array|Cancel
      */
-    public static function getData(Cancel $status)
+    public static function getData(Cancel $cancel)
     {
-        $status = $status->object_to_array($status);
-        unset($status['preApprovalCode']);
-        return $status;
+        $cancel = $cancel->object_to_array($cancel);
+        unset($cancel['preApprovalCode']);
+        return $cancel;
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

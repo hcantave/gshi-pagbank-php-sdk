@@ -37,26 +37,22 @@ use PagSeguro\Resources\Http;
 class QueryParsers extends Error implements Parser
 {
     /**
-     * @param  Query $directPreApproval
      * @return string
      */
-    public static function getData(Query $directPreApproval)
+    public static function getData(Query $query)
     {
-        return http_build_query($directPreApproval);
+        return http_build_query($query);
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

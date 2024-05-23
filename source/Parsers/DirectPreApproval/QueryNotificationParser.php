@@ -37,7 +37,6 @@ use PagSeguro\Resources\Http;
 class QueryNotificationParser extends Error implements Parser
 {
     /**
-     * @param  QueryNotification $queryNotification
      * @return mixed
      */
     public static function getNotificationCode(QueryNotification $queryNotification)
@@ -48,30 +47,25 @@ class QueryNotificationParser extends Error implements Parser
     }
 
     /**
-     * @param  QueryNotification $directPreApproval
      * @return string
      */
-    public static function getData(QueryNotification $directPreApproval)
+    public static function getData(QueryNotification $queryNotification)
     {
-        $directPreApproval = $directPreApproval->object_to_array($directPreApproval);
-        unset($directPreApproval['notificationCode']);
+        $queryNotification = $queryNotification->object_to_array($queryNotification);
+        unset($queryNotification['notificationCode']);
 
-        return http_build_query($directPreApproval);
+        return http_build_query($queryNotification);
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

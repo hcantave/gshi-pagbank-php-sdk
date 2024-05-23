@@ -34,16 +34,15 @@ use PagSeguro\Domains\Requests\Requests;
 trait ReceiverEmail
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
 
-        if (!is_null($request->getReceiverEmail())) {
-            $data[$properties::RECEIVER_EMAIL] = $request->getReceiverEmail();
+        if (!is_null($requests->getReceiverEmail())) {
+            $data[$properties::RECEIVER_EMAIL] = $requests->getReceiverEmail();
         }
         return $data;
     }

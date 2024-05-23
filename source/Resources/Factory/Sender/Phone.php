@@ -56,10 +56,10 @@ class Phone
      */
     public function withArray($array)
     {
-        $properties = new Current();
+        $current = new Current();
         $phone = new \PagSeguro\Domains\Phone();
-        $phone->setAreaCode($array[$properties::SENDER_PHONE_AREA_CODE])
-            ->setNumber($array[$properties::SENDER_PHONE_NUMBER]);
+        $phone->setAreaCode($array[$current::SENDER_PHONE_AREA_CODE])
+            ->setNumber($array[$current::SENDER_PHONE_NUMBER]);
         $this->sender->setPhone($phone);
         return $this->sender;
     }

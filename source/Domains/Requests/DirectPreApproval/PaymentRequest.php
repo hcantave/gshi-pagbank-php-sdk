@@ -40,15 +40,7 @@ class PaymentRequest
     private $reference;
     private $senderHash;
     private $senderIp;
-    private $items;
-
-    /**
-     * PaymentRequest constructor.
-     */
-    public function __construct()
-    {
-        $this->items = [];
-    }
+    private $items = [];
 
     /**
      * @param $preApprovalCode
@@ -83,8 +75,6 @@ class PaymentRequest
     }
 
     /**
-     * @param Item $item
-     *
      * @return array
      */
     public function addItems(Item $item)

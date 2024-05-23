@@ -29,12 +29,7 @@ namespace PagSeguro\Resources\Factory\Request;
  */
 class Parameter
 {
-    private $parameter;
-
-    public function __construct()
-    {
-        $this->parameter = [];
-    }
+    private $parameter = [];
 
     public function instance(\PagSeguro\Domains\Parameter $parameter)
     {
@@ -47,7 +42,7 @@ class Parameter
         $parameter->setKey($array[0])
             ->setValue($array[1]);
 
-        array_push($this->parameter, $parameter);
+        $this->parameter[] = $parameter;
 
         if (!empty($array[2])) {
             return $this->index($array[2]);
@@ -61,7 +56,7 @@ class Parameter
         $parameter = new \PagSeguro\Domains\Parameter();
         $parameter->setKey($key)
             ->setValue($value);
-        array_push($this->parameter, $parameter);
+        $this->parameter[] = $parameter;
         return $this;
     }
 

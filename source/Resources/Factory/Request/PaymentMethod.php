@@ -42,14 +42,14 @@ class PaymentMethod
 
     public function withArray($array)
     {
-        $properties = new Current();
+        $current = new Current();
 
         $paymentMethod = new \PagSeguro\Domains\PaymentMethod();
-        $paymentMethod->setKey($array[$properties::PAYMENT_METHOD_CONFIG_KEY])
-            ->setValue($array[$properties::PAYMENT_METHOD_CONFIG_VALUE])
-            ->setGroup($array[$properties::PAYMENT_METHOD_GROUP]);
+        $paymentMethod->setKey($array[$current::PAYMENT_METHOD_CONFIG_KEY])
+            ->setValue($array[$current::PAYMENT_METHOD_CONFIG_VALUE])
+            ->setGroup($array[$current::PAYMENT_METHOD_GROUP]);
 
-        array_push($this->paymentMethod, $paymentMethod);
+        $this->paymentMethod[] = $paymentMethod;
         return $this->paymentMethod;
     }
 
@@ -62,7 +62,7 @@ class PaymentMethod
         $paymentMethod->setKey($key)
             ->setValue($value)
             ->setGroup($group);
-        array_push($this->paymentMethod, $paymentMethod);
+        $this->paymentMethod[] = $paymentMethod;
         return $this->paymentMethod;
     }
 }

@@ -45,7 +45,6 @@ trait Credentials
     }
 
     /**
-     * @param  \PagSeguro\Domains\Account\Credentials $credentials
      * @return Credentials
      */
     public function setCredentials(\PagSeguro\Domains\Account\Credentials $credentials)

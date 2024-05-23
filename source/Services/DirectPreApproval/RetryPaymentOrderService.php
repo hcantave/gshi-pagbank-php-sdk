@@ -30,7 +30,6 @@ use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\DirectPreApproval\RetryPaymentOrder;
 use PagSeguro\Parsers\DirectPreApproval\RetryPaymentOrderParser;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -43,9 +42,6 @@ use PagSeguro\Resources\Responsibility;
 class RetryPaymentOrderService
 {
     /**
-     * @param Credentials       $credentials
-     * @param RetryPaymentOrder $retryPaymentOrder
-     *
      * @return mixed
      * @throws Exception
      */
@@ -53,13 +49,13 @@ class RetryPaymentOrderService
     {
         Logger::info("Begin", ['service' => 'DirectPreApproval']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
             Logger::info(
                 sprintf(
                     "POST: %s",
                     self::request(
-                        $connection,
+                        $data,
                         RetryPaymentOrderParser::getData($retryPaymentOrder)
                     )
                 ),
@@ -73,7 +69,7 @@ class RetryPaymentOrderService
                 ['service' => 'DirectPreApproval']
             );
             $http->post(
-                self::request($connection, RetryPaymentOrderParser::getData($retryPaymentOrder)),
+                self::request($data, RetryPaymentOrderParser::getData($retryPaymentOrder)),
                 RetryPaymentOrderParser::getData($retryPaymentOrder),
                 20,
                 Configure::getCharset()->getEncoding()
@@ -95,10 +91,8 @@ class RetryPaymentOrderService
     }
 
     /**
-     * @param Connection\Data $connection
      *
      * @param $data
-     *
      * @return string
      */
     private static function request(Data $connection, $data)

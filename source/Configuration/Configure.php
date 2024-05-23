@@ -148,7 +148,7 @@ class Configure
         if (!isset(self::$log)) {
             $configuration = Responsibility::configuration();
             self::setLog(
-                $configuration['log']['active'] === "false" ? false : true,
+                $configuration['log']['active'] !== "false",
                 $configuration['log']['location']
             );
         }

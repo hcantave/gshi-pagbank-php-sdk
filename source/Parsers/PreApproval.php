@@ -34,54 +34,53 @@ use PagSeguro\Domains\Requests\Requests;
 trait PreApproval
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
-        if (!is_null($request->getPreApproval())) {
-            if (!is_null($request->getPreApproval()->getCharge())) {
-                $data[$properties::PRE_APPROVAL_CHARGE] = $request->getPreApproval()->getCharge();
+        if (!is_null($requests->getPreApproval())) {
+            if (!is_null($requests->getPreApproval()->getCharge())) {
+                $data[$properties::PRE_APPROVAL_CHARGE] = $requests->getPreApproval()->getCharge();
             }
-            if (!is_null($request->getPreApproval()->getName())) {
-                $data[$properties::PRE_APPROVAL_NAME] = $request->getPreApproval()->getName();
+            if (!is_null($requests->getPreApproval()->getName())) {
+                $data[$properties::PRE_APPROVAL_NAME] = $requests->getPreApproval()->getName();
             }
-            if (!is_null($request->getPreApproval()->getDetails())) {
+            if (!is_null($requests->getPreApproval()->getDetails())) {
                 $data[$properties::PRE_APPROVAL_DETAILS] =
-                    $request->getPreApproval()->getDetails();
+                    $requests->getPreApproval()->getDetails();
             }
-            if (!is_null($request->getPreApproval()->getAmountPerPayment())) {
+            if (!is_null($requests->getPreApproval()->getAmountPerPayment())) {
                 $data[$properties::PRE_APPROVAL_AMOUNT_PER_PAYMENT] =
-                    $request->getPreApproval()->getAmountPerPayment();
+                    $requests->getPreApproval()->getAmountPerPayment();
             }
-            if (!is_null($request->getPreApproval()->getMaxAmountPerPayment())) {
+            if (!is_null($requests->getPreApproval()->getMaxAmountPerPayment())) {
                 $data[$properties::PRE_APPROVAL_MAX_AMOUNT_PER_PAYMENT] =
-                    $request->getPreApproval()->getMaxAmountPerPayment();
+                    $requests->getPreApproval()->getMaxAmountPerPayment();
             }
-            if (!is_null($request->getPreApproval()->getPeriod())) {
-                $data[$properties::PRE_APPROVAL_PERIOD] = $request->getPreApproval()->getPeriod();
+            if (!is_null($requests->getPreApproval()->getPeriod())) {
+                $data[$properties::PRE_APPROVAL_PERIOD] = $requests->getPreApproval()->getPeriod();
             }
-            if (!is_null($request->getPreApproval()->getMaxPaymentsPerPeriod())) {
+            if (!is_null($requests->getPreApproval()->getMaxPaymentsPerPeriod())) {
                 $data[$properties::PRE_APPROVAL_MAX_PAYMENTS_PER_PERIOD] =
-                    $request->getPreApproval()->getMaxPaymentsPerPeriod();
+                    $requests->getPreApproval()->getMaxPaymentsPerPeriod();
             }
-            if (!is_null($request->getPreApproval()->getMaxAmountPerPeriod())) {
+            if (!is_null($requests->getPreApproval()->getMaxAmountPerPeriod())) {
                 $data[$properties::PRE_APPROVAL_MAX_AMOUNT_PER_PERIOD] =
-                    $request->getPreApproval()->getMaxAmountPerPeriod();
+                    $requests->getPreApproval()->getMaxAmountPerPeriod();
             }
-            if (!is_null($request->getPreApproval()->getInitialDate())) {
+            if (!is_null($requests->getPreApproval()->getInitialDate())) {
                 $data[$properties::PRE_APPROVAL_INITIAL_DATE] =
-                    $request->getPreApproval()->getInitialDate();
+                    $requests->getPreApproval()->getInitialDate();
             }
-            if (!is_null($request->getPreApproval()->getFinalDate())) {
+            if (!is_null($requests->getPreApproval()->getFinalDate())) {
                 $data[$properties::PRE_APPROVAL_FINAL_DATE] =
-                    $request->getPreApproval()->getFinalDate();
+                    $requests->getPreApproval()->getFinalDate();
             }
-            if (!is_null($request->getPreApproval()->getMaxTotalAmount())) {
+            if (!is_null($requests->getPreApproval()->getMaxTotalAmount())) {
                 $data[$properties::PRE_APPROVAL_MAX_TOTAL_AMOUNT] =
-                    $request->getPreApproval()->getMaxTotalAmount();
+                    $requests->getPreApproval()->getMaxTotalAmount();
             }
         }
         return $data;

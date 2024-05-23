@@ -56,9 +56,7 @@ class PreApproval implements Handler
     public function handler()
     {
         if (
-            !is_null(Xhr::getInputCode())
-            and !is_null(Xhr::getInputType())
-            and Xhr::getInputType() == Notification::PRE_APPROVAL
+            !is_null(Xhr::getInputCode()) && !is_null(Xhr::getInputType()) && Xhr::getInputType() == Notification::PRE_APPROVAL
         ) {
             $notification = NotificationObject::initialize();
             return $notification->getCode();

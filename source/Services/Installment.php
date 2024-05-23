@@ -47,21 +47,19 @@ class Installment
     {
         Logger::info("Begin", ['service' => 'Installment']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
-            Logger::info(sprintf("GET: %s", self::request($connection, $params)), ['service' => 'Installment']);
+            Logger::info(sprintf("GET: %s", self::request($data, $params)), ['service' => 'Installment']);
             $http->get(
-                self::request($connection, $params),
+                self::request($data, $params),
                 20,
                 Configure::getCharset()->getEncoding()
             );
 
-            $response = Responsibility::http(
+            return Responsibility::http(
                 $http,
                 new Request()
             );
-
-            return $response;
         } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'Installment']);
             throw $exception;
@@ -71,15 +69,14 @@ class Installment
     /**
      * Build the service request url
      *
-     * @param  Data $connection
      * @return string
      */
-    private static function request(Data $connection, mixed $params)
+    private static function request(Data $data, mixed $params)
     {
         return sprintf(
             "%s?%s%s%s%s",
-            $connection->buildInstallmentRequestUrl(),
-            $connection->buildCredentialsQuery(),
+            $data->buildInstallmentRequestUrl(),
+            $data->buildCredentialsQuery(),
             sprintf(
                 "&%s=%s",
                 Current::INSTALLMENT_AMOUNT,

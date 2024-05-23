@@ -56,9 +56,7 @@ class Transaction implements Handler
     public function handler()
     {
         if (
-            !is_null(Xhr::getInputCode())
-            and !is_null(Xhr::getInputType())
-            and Xhr::getInputType() == Notification::TRANSACTION
+            !is_null(Xhr::getInputCode()) && !is_null(Xhr::getInputType()) && Xhr::getInputType() == Notification::TRANSACTION
         ) {
             $notification = NotificationObject::initialize();
             return $notification->getCode();

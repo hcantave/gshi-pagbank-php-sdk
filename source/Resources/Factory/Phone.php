@@ -47,7 +47,6 @@ class Phone
     }
 
     /**
-     * @param  \PagSeguro\Domains\Phone $phone
      * @return \PagSeguro\Domains\Phone
      */
     public function instance(\PagSeguro\Domains\Phone $phone)
@@ -60,9 +59,9 @@ class Phone
      */
     public function withArray($array): void
     {
-        $properties = new Current();
-        $this->phone->setAreaCode($array[$properties::SENDER_PHONE_AREA_CODE])
-            ->setNumber($array[$properties::SENDER_PHONE_NUMBER]);
+        $current = new Current();
+        $this->phone->setAreaCode($array[$current::SENDER_PHONE_AREA_CODE])
+            ->setNumber($array[$current::SENDER_PHONE_NUMBER]);
     }
 
     /**

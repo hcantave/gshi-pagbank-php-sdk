@@ -29,11 +29,8 @@ use PagSeguro\Resources\Responsibility\Handler;
 
 class Extensible implements Handler
 {
-    private $successor;
-
     public function successor($next)
     {
-        $this->successor = $next;
         return $this;
     }
 

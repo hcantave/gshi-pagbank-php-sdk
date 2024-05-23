@@ -42,7 +42,7 @@ class Seller
      *
      * @var DateTime
      */
-    private $birthDate = null;
+    private $dateTime;
     /**
      * @var array
      */
@@ -56,8 +56,6 @@ class Seller
      * Person constructor.
      *
      * @param string   $name     * @param DateTime $birthDate
-     * @param Document $document
-     * @param Phone    $phone
      * @param Address  $address
      */
     public function __construct(
@@ -67,7 +65,7 @@ class Seller
         Phone $phone = null,
         private ?Address $address = null
     ) {
-        $this->birthDate = date('Y-m-d', $birthDate->getTimestamp());
+        $this->dateTime = date('Y-m-d', $birthDate->getTimestamp());
         if (isset($document)) {
             $this->addDocuments($document);
         }
@@ -77,8 +75,6 @@ class Seller
     }
 
     /**
-     * @param Document $document
-     *
      * @return array
      */
     public function addDocuments(Document $document)
@@ -89,8 +85,6 @@ class Seller
     }
 
     /**
-     * @param Phone $phone
-     *
      * @return array
      */
     public function addPhones(Phone $phone)
@@ -101,7 +95,6 @@ class Seller
             };
         } catch (InvalidArgumentException $exception) {
             die($exception);
-            exit;
         }
         $this->phones[] = $phone;
 
@@ -145,6 +138,6 @@ class Seller
      */
     public function getBirthDate()
     {
-        return $this->birthDate;
+        return $this->dateTime;
     }
 }

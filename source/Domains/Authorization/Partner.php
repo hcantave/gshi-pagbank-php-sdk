@@ -41,7 +41,7 @@ class Partner
      *
      * @var DateTime
      */
-    private $birthDate;
+    private $dateTime;
     /**
      * @var array
      */
@@ -55,8 +55,6 @@ class Partner
      * Partner constructor.
      *
      * @param string   $name     * @param DateTime $birthDate
-     * @param Document $document
-     * @param Phone    $phone
      */
     public function __construct(
         private $name = null,
@@ -64,7 +62,7 @@ class Partner
         Document $document = null,
         Phone $phone = null
     ) {
-        $this->birthDate = date('Y-m-d', $birthDate->getTimestamp());
+        $this->dateTime = date('Y-m-d', $birthDate->getTimestamp());
         if (isset($document)) {
             $this->addDocuments($document);
         }
@@ -74,8 +72,6 @@ class Partner
     }
 
     /**
-     * @param Document $document
-     *
      * @return array
      */
     public function addDocuments(Document $document)
@@ -86,8 +82,6 @@ class Partner
     }
 
     /**
-     * @param Phone $phone
-     *
      * @return array
      */
     public function addPhones(Phone $phone)
@@ -125,7 +119,7 @@ class Partner
      */
     public function getBirthDate()
     {
-        return $this->birthDate;
+        return $this->dateTime;
     }
 
     /**

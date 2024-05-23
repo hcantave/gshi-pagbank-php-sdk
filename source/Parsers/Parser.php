@@ -34,13 +34,11 @@ use PagSeguro\Resources\Http;
 interface Parser
 {
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http);
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function error(Http $http);

@@ -42,8 +42,6 @@ class Logger implements LoggerInterface
      * System is unusable.
      *
      * @param  string $message
-     * @param  array  $context
-     * @return void|null
      * @throws Exception
      */
     public static function emergency($message, array $context = []): void
@@ -60,8 +58,6 @@ class Logger implements LoggerInterface
      * trigger the SMS alerts and wake you up.
      *
      * @param  string $message
-     * @param  array  $context
-     * @return void|null
      * @throws Exception
      */
     public static function alert($message, array $context = []): void
@@ -103,8 +99,6 @@ class Logger implements LoggerInterface
      * Normal but significant events.
      *
      * @param  string $message
-     * @param  array  $context
-     * @return void|null
      * @throws Exception
      */
     public static function notice($message, array $context = []): void
@@ -117,8 +111,6 @@ class Logger implements LoggerInterface
      * Example: User logs in, SQL logs.
      *
      * @param  string $message
-     * @param  array  $context
-     * @return void|null
      * @throws Exception
      */
     public static function info($message, array $context = []): void
@@ -130,8 +122,6 @@ class Logger implements LoggerInterface
      * Detailed debug information.
      *
      * @param  string $message
-     * @param  array  $context
-     * @return void|null
      * @throws Exception
      */
     public static function debug($message, array $context = []): void
@@ -142,7 +132,6 @@ class Logger implements LoggerInterface
     /**
      * @param  mixed  $level
      * @param  string $message
-     * @param  array  $context
      * @return bool
      * @throws Exception
      */
@@ -152,12 +141,8 @@ class Logger implements LoggerInterface
         if (!self::active()) {
             return false;
         }
-
-        try {
-            self::write(self::location(), self::message($level, $message, $context));
-        } catch (Exception $exception) {
-            throw $exception;
-        }
+        self::write(self::location(), self::message($level, $message, $context));
+        return null;
     }
 
     /**
@@ -165,7 +150,6 @@ class Logger implements LoggerInterface
      *
      * @param  $level
      * @param  $message
-     * @param  array $context
      * @return string
      * @throws Exception
      */
@@ -176,7 +160,7 @@ class Logger implements LoggerInterface
         return sprintf(
             "\n%1s PagSeguro.%s[%1s]: %s", //"%1sPagSeguro.%2s[%3s]: %4s"
             $dateTime->format("d/m/Y H:i:s"),
-            !array_key_exists("service", $context) ? '' : sprintf("%1s", $context['service']),
+            array_key_exists("service", $context) ? sprintf("%1s", $context['service']) : '',
             $level,
             $message
         );

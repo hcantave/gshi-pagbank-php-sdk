@@ -37,7 +37,6 @@ use PagSeguro\Resources\Http;
 class Request extends Error implements Parser
 {
     /**
-     * @param  Http $http
      * @return mixed|Response
      */
     public static function success(Http $http)
@@ -54,12 +53,10 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)
     {
-        $error = parent::error($http);
-        return $error;
+        return parent::error($http);
     }
 }

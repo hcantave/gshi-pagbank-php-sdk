@@ -30,7 +30,6 @@ use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Helpers\Crypto;
 use PagSeguro\Parsers\DirectPayment\OnlineDebit\Request;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -45,33 +44,31 @@ class OnlineDebit
     /**
      *
      *
-     * @param  Credentials                                           $credentials
-     * @param  \PagSeguro\Domains\Requests\DirectPayment\OnlineDebit $payment
      * @return string
      * @throws Exception
      */
     public static function checkout(
         Credentials $credentials,
-        \PagSeguro\Domains\Requests\DirectPayment\OnlineDebit $payment
+        \PagSeguro\Domains\Requests\DirectPayment\OnlineDebit $onlineDebit
     ) {
         Logger::info("Begin", ['service' => 'DirectPayment.OnlineDebit']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
             Logger::info(
-                sprintf("POST: %s", self::request($connection)),
+                sprintf("POST: %s", self::request($data)),
                 ['service' => 'DirectPayment.OnlineDebit']
             );
             Logger::info(
                 sprintf(
                     "Params: %s",
-                    json_encode(Crypto::encrypt(Request::getData($payment)))
+                    json_encode(Crypto::encrypt(Request::getData($onlineDebit)))
                 ),
                 ['service' => 'Checkout']
             );
             $http->post(
-                self::request($connection),
-                Request::getData($payment),
+                self::request($data),
+                Request::getData($onlineDebit),
                 20,
                 Configure::getCharset()->getEncoding()
             );
@@ -94,11 +91,10 @@ class OnlineDebit
     }
 
     /**
-     * @param  Connection\Data $connection
      * @return string
      */
-    private static function request(Data $connection)
+    private static function request(Data $data)
     {
-        return $connection->buildDirectPaymentRequestUrl() . "?" . $connection->buildCredentialsQuery();
+        return $data->buildDirectPaymentRequestUrl() . "?" . $data->buildCredentialsQuery();
     }
 }

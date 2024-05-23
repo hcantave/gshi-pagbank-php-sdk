@@ -65,30 +65,28 @@ class Request extends Error implements Parser
     /**
      *
      *
-     * @param  OnlineDebit $onlineDebit
      * @return array
      */
     public static function getData(OnlineDebit $onlineDebit)
     {
         $data = [];
-        $properties = new Current();
+        $current = new Current();
         return array_merge(
             $data,
-            BankName::getData($onlineDebit, $properties),
-            Basic::getData($onlineDebit, $properties),
-            Currency::getData($onlineDebit, $properties),
-            Item::getData($onlineDebit, $properties),
-            Method::getData($properties),
-            Mode::getData($onlineDebit, $properties),
+            BankName::getData($onlineDebit, $current),
+            Basic::getData($onlineDebit, $current),
+            Currency::getData($onlineDebit, $current),
+            Item::getData($onlineDebit, $current),
+            Method::getData($current),
+            Mode::getData($onlineDebit, $current),
             Parameter::getData($onlineDebit),
-            ReceiverEmail::getData($onlineDebit, $properties),
-            Sender::getData($onlineDebit, $properties),
-            Shipping::getData($onlineDebit, $properties)
+            ReceiverEmail::getData($onlineDebit, $current),
+            Sender::getData($onlineDebit, $current),
+            Shipping::getData($onlineDebit, $current)
         );
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
@@ -121,7 +119,6 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

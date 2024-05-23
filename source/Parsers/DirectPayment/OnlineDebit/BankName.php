@@ -34,16 +34,15 @@ use PagSeguro\Domains\Requests\Requests;
 trait BankName
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
 
-        if (!is_null($request->getBankName())) {
-            $data[$properties::ONLINE_DEBIT_BANK_NAME] = $request->getBankName();
+        if (!is_null($requests->getBankName())) {
+            $data[$properties::ONLINE_DEBIT_BANK_NAME] = $requests->getBankName();
         }
 
         return $data;

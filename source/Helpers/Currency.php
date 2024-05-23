@@ -44,6 +44,6 @@ class Currency
                 $value = floor($value * 100) / 100;
             }
         }
-        return (string)number_format($value, 2, '.', '');
+        return number_format($value, 2, '.', '');
     }
 }

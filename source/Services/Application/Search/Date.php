@@ -30,7 +30,6 @@ use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Enum\Properties\Current;
 use PagSeguro\Parsers\Authorization\Search\Date\Request;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -45,7 +44,6 @@ class Date
     /**
      *
      *
-     * @param  Credentials $credentials
      * @param  $options
      * @return string
      * @throws Exception
@@ -56,17 +54,17 @@ class Date
     ) {
         try {
             Logger::info("Begin", ['service' => 'Application.Search.Date']);
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
             Logger::info(
                 sprintf(
                     "GET: %s",
-                    self::request($connection, $options)
+                    self::request($data, $options)
                 ),
                 ['service' => 'Application.Search.Date']
             );
             $http->get(
-                self::request($connection, $options),
+                self::request($data, $options),
                 20,
                 Configure::getCharset()->getEncoding()
             );
@@ -93,21 +91,20 @@ class Date
     }
 
     /**
-     * @param  Connection\Data $connection
      * @param  $params
      * @return string
      */
-    private static function request(Data $connection, $params)
+    private static function request(Data $data, $params)
     {
         return sprintf(
             "%s/?%s&%s%s%s%s",
-            $connection->buildAuthorizationSearchRequestUrl(),
-            $connection->buildCredentialsQuery(),
+            $data->buildAuthorizationSearchRequestUrl(),
+            $data->buildCredentialsQuery(),
             sprintf("&%s=%s", Current::SEARCH_INITIAL_DATE, $params["initial_date"]),
-            !isset($params["final_date"]) ? '' : sprintf("&%s=%s", Current::SEARCH_FINAL_DATE, $params["final_date"]),
-            !isset($params["max_per_page"]) ? '' :
-            sprintf("&%s=%s", Current::SEARCH_MAX_RESULTS_PER_PAGE, $params["max_per_page"]),
-            !isset($params["page"]) ? '' : sprintf("&%s=%s", Current::SEARCH_PAGE, $params["page"])
+            isset($params["final_date"]) ? sprintf("&%s=%s", Current::SEARCH_FINAL_DATE, $params["final_date"]) : '',
+            isset($params["max_per_page"]) ? sprintf("&%s=%s", Current::SEARCH_MAX_RESULTS_PER_PAGE, $params["max_per_page"]) :
+            '',
+            isset($params["page"]) ? sprintf("&%s=%s", Current::SEARCH_PAGE, $params["page"]) : ''
         );
     }
 }

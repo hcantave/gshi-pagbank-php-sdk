@@ -43,16 +43,16 @@ class Cost
     {
     }
 
-    public function instance(ShippingCost $cost)
+    public function instance(ShippingCost $shippingCost)
     {
-        return $this->shipping->setCost($cost);
+        return $this->shipping->setCost($shippingCost);
     }
 
     public function withParameters($cost)
     {
-        $shipping = new ShippingCost();
+        $shippingCost = new ShippingCost();
         $this->shipping->setCost(
-            $shipping->setCost($cost)
+            $shippingCost->setCost($cost)
         );
         return $this->shipping;
     }

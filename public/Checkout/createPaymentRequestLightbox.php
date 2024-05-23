@@ -27,7 +27,7 @@ use PagSeguro\Enum\Shipping\Type;
  * @license   http://www.apache.org/licenses/LICENSE-2.0
  */
 
-require_once "../../vendor/autoload.php";
+require_once __DIR__ . "/../../vendor/autoload.php";
 
 Library::initialize();
 Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");

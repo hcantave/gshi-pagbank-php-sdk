@@ -29,7 +29,6 @@ use PagSeguro\Resources\Connection\Data;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Parsers\Authorization\Search\Code\Request;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -44,7 +43,6 @@ class Code
     /**
      *
      *
-     * @param  Credentials $credentials
      * @param  $code
      * @return string
      * @throws Exception
@@ -53,14 +51,14 @@ class Code
     {
         Logger::info("Begin", ['service' => 'Application.Search.Code']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
             Logger::info(
-                sprintf("GET: %s", self::request($connection, $code)),
+                sprintf("GET: %s", self::request($data, $code)),
                 ['service' => 'Application.Search.Code']
             );
             $http->get(
-                self::request($connection, $code),
+                self::request($data, $code),
                 20,
                 Configure::getCharset()->getEncoding()
             );
@@ -85,16 +83,15 @@ class Code
     }
 
     /**
-     * @param  Connection\Data $connection
      * @return string
      */
-    private static function request(Data $connection, $code)
+    private static function request(Data $data, $code)
     {
         return sprintf(
             "%s/%s/?%s",
-            $connection->buildAuthorizationSearchRequestUrl(),
+            $data->buildAuthorizationSearchRequestUrl(),
             $code,
-            $connection->buildCredentialsQuery()
+            $data->buildCredentialsQuery()
         );
     }
 }

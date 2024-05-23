@@ -30,7 +30,6 @@ use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\DirectPreApproval\ChangePayment;
 use PagSeguro\Parsers\DirectPreApproval\ChangePaymentParser;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -43,9 +42,6 @@ use PagSeguro\Resources\Responsibility;
 class ChangePaymentService
 {
     /**
-     * @param Credentials   $credentials
-     * @param ChangePayment $changePayment
-     *
      * @return mixed
      * @throws Exception
      */
@@ -53,12 +49,12 @@ class ChangePaymentService
     {
         Logger::info("Begin", ['service' => 'DirectPreApproval']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
             Logger::info(
                 sprintf(
                     "POST: %s",
-                    self::request($connection, ChangePaymentParser::getPreApprovalCode($changePayment))
+                    self::request($data, ChangePaymentParser::getPreApprovalCode($changePayment))
                 ),
                 ['service' => 'DirectPreApproval']
             );
@@ -70,7 +66,7 @@ class ChangePaymentService
                 ['service' => 'DirectPreApproval']
             );
             $http->put(
-                self::request($connection, ChangePaymentParser::getPreApprovalCode($changePayment)),
+                self::request($data, ChangePaymentParser::getPreApprovalCode($changePayment)),
                 ChangePaymentParser::getData($changePayment),
                 20,
                 Configure::getCharset()->getEncoding()
@@ -92,14 +88,12 @@ class ChangePaymentService
     }
 
     /**
-     * @param Connection\Data $connection
      * @param $preApprovalCode
-     *
      * @return string
      */
-    private static function request(Data $connection, $preApprovalCode)
+    private static function request(Data $data, $preApprovalCode)
     {
-        return $connection->buildDirectPreApprovalChangePaymentRequestUrl($preApprovalCode) . "?" . $connection->buildCredentialsQuery();
+        return $data->buildDirectPreApprovalChangePaymentRequestUrl($preApprovalCode) . "?" . $data->buildCredentialsQuery();
     }
 
     /**

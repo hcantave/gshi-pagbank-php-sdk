@@ -40,13 +40,6 @@ class DiscountRequest
     private $preApprovalCode;
 
     /**
-     * DiscountRequest constructor.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * @param $type
      */
     public function setType($type): void

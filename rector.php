@@ -14,8 +14,9 @@ return RectorConfig::configure()
         __DIR__ . '/tests',
     ])
     // uncomment to reach your current PHP version
-    ->withPhpSets(php81: true)
+    ->withPhpSets(php80: true)
     ->withImportNames(removeUnusedImports: true)
+    ->withPreparedSets(deadCode: true, codeQuality: true, naming: true)
     ->withRules([
         AddVoidReturnTypeWhereNoReturnRector::class,
     ]);
@@ -26,5 +27,5 @@ return RectorConfig::configure()
     SetList::TYPE_DECLARATION,
     SetList::CODE_QUALITY,
     SetList::CODING_STYLE,
-    LevelSetList::UP_TO_PHP_81
+    LevelSetList::UP_TO_PHP_80
 ]);

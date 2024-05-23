@@ -64,33 +64,31 @@ class Request extends Error implements Parser
     /**
      *
      *
-     * @param  Boleto $boleto
      * @return array
      */
     public static function getData(Boleto $boleto)
     {
         $data = [];
 
-        $properties = new Current();
+        $current = new Current();
 
         return array_merge(
             $data,
-            Basic::getData($boleto, $properties),
-            Currency::getData($boleto, $properties),
-            Item::getData($boleto, $properties),
-            Method::getData($properties),
-            Mode::getData($boleto, $properties),
+            Basic::getData($boleto, $current),
+            Currency::getData($boleto, $current),
+            Item::getData($boleto, $current),
+            Method::getData($current),
+            Mode::getData($boleto, $current),
             Parameter::getData($boleto),
-            ReceiverEmail::getData($boleto, $properties),
-            Sender::getData($boleto, $properties),
-            Shipping::getData($boleto, $properties)
+            ReceiverEmail::getData($boleto, $current),
+            Sender::getData($boleto, $current),
+            Shipping::getData($boleto, $current)
         );
     }
 
     /**
      *
      *
-     * @param  Http $http
      * @return Response
      */
     public static function success(Http $http)
@@ -124,7 +122,6 @@ class Request extends Error implements Parser
     /**
      *
      *
-     * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */
     public static function error(Http $http)

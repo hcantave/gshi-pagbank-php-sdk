@@ -46,24 +46,22 @@ class Request extends Error implements Parser
     use Sender;
 
     /**
-     * @param  Requests $request
      * @return array
      */
-    public static function getData(Requests $request)
+    public static function getData(Requests $requests)
     {
         $data = [];
-        $properties = new Current();
+        $current = new Current();
         return array_merge(
             $data,
-            Basic::getData($request, $properties),
-            Currency::getData($request, $properties),
-            PreApproval::getData($request, $properties),
-            Sender::getData($request, $properties)
+            Basic::getData($requests, $current),
+            Currency::getData($requests, $current),
+            PreApproval::getData($requests, $current),
+            Sender::getData($requests, $current)
         );
     }
 
     /**
-     * @param  Http $http
      * @return mixed|Response
      */
     public static function success(Http $http)
@@ -74,12 +72,10 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)
     {
-        $error = parent::error($http);
-        return $error;
+        return parent::error($http);
     }
 }

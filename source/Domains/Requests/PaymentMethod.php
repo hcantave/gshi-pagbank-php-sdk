@@ -47,10 +47,8 @@ trait PaymentMethod
             foreach ($paymentMethod as $key => $method) {
                 if ($method instanceof \PagSeguro\Domains\PaymentMethod) {
                     $arr[$key] = $method;
-                } else {
-                    if (is_array($paymentMethod)) {
-                        $arr[$key] = new \PagSeguro\Domains\PaymentMethod($method);
-                    }
+                } elseif (is_array($paymentMethod)) {
+                    $arr[$key] = new \PagSeguro\Domains\PaymentMethod($method);
                 }
             }
             $this->paymentMethod = $arr;

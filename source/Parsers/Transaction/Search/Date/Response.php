@@ -153,14 +153,13 @@ class Response
         //check if is an array of transactions if is just push to array
         if (is_array($transaction)) {
             foreach ($transaction as $item) {
-                array_push($this->transactions, $item);
+                $this->transactions[] = $item;
             }
             return;
         }
         //create a new transaction and push to array
         $response = $this->createTransaction($transaction);
         $this->transactions[] = $response;
-        return;
     }
 
     private function createTransaction($response)

@@ -38,8 +38,8 @@ class Enum extends BaseEnum
      */
     public static function getList()
     {
-        $reflection = new ReflectionClass(static::class);
-        return $reflection->getConstants();
+        $reflectionClass = new ReflectionClass(static::class);
+        return $reflectionClass->getConstants();
     }
 
     /**

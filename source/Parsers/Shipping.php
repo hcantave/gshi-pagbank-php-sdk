@@ -35,30 +35,29 @@ use PagSeguro\Domains\Requests\Requests;
 trait Shipping
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
         // shipping
-        if (!is_null($request->getShipping())) {
+        if (!is_null($requests->getShipping())) {
             // type
-            if (!is_null($request->getShipping()->getType())) {
-                $data = array_merge($data, self::type($request, $properties));
+            if (!is_null($requests->getShipping()->getType())) {
+                $data = array_merge($data, self::type($requests, $properties));
             }
             // address required
-            if (!is_null($request->getShipping()->getAddressRequired())) {
-                $data = array_merge($data, self::addressRequired($request, $properties));
+            if (!is_null($requests->getShipping()->getAddressRequired())) {
+                $data = array_merge($data, self::addressRequired($requests, $properties));
             }
             // cost
-            if (!is_null($request->getShipping()->getCost())) {
-                $data = array_merge($data, self::cost($request, $properties));
+            if (!is_null($requests->getShipping()->getCost())) {
+                $data = array_merge($data, self::cost($requests, $properties));
             }
             // address
-            if (!is_null($request->getShipping()->getAddress())) {
-                $data = array_merge($data, self::address($request, $properties));
+            if (!is_null($requests->getShipping()->getAddress())) {
+                $data = array_merge($data, self::address($requests, $properties));
             }
         }
         return $data;
@@ -71,11 +70,9 @@ trait Shipping
      */
     private static function cost($request, $properties)
     {
-        $data = [];
-        $data[$properties::SHIPPING_COST] = Currency::toDecimal(
+        return [$properties::SHIPPING_COST => Currency::toDecimal(
             $request->getShipping()->getCost()->getCost()
-        );
-        return $data;
+        )];
     }
 
     /**
@@ -85,9 +82,7 @@ trait Shipping
      */
     private static function type($request, $properties)
     {
-        $data = [];
-        $data[$properties::SHIPPING_TYPE] = $request->getShipping()->getType()->getType();
-        return $data;
+        return [$properties::SHIPPING_TYPE => $request->getShipping()->getType()->getType()];
     }
 
     /**
@@ -97,9 +92,7 @@ trait Shipping
      */
     private static function addressRequired($request, $properties)
     {
-        $data = [];
-        $data[$properties::SHIPPING_ADDRESS_REQUIRED] = $request->getShipping()->getAddressRequired()->getAddressRequired();
-        return $data;
+        return [$properties::SHIPPING_ADDRESS_REQUIRED => $request->getShipping()->getAddressRequired()->getAddressRequired()];
     }
 
     /**

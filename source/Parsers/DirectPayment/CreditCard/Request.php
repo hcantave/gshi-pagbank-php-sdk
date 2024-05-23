@@ -66,36 +66,34 @@ class Request extends Error implements Parser
     /**
      *
      *
-     * @param  CreditCard $creditCard
      * @return array
      */
     public static function getData(CreditCard $creditCard)
     {
 
         $data = [];
-        $properties = new Current();
+        $current = new Current();
         return array_merge(
             $data,
-            Basic::getData($creditCard, $properties),
-            Billing::getData($creditCard, $properties),
-            Currency::getData($creditCard, $properties),
-            Holder::getData($creditCard, $properties),
-            Installment::getData($creditCard, $properties),
-            Item::getData($creditCard, $properties),
-            Method::getData($properties),
-            Mode::getData($creditCard, $properties),
+            Basic::getData($creditCard, $current),
+            Billing::getData($creditCard, $current),
+            Currency::getData($creditCard, $current),
+            Holder::getData($creditCard, $current),
+            Installment::getData($creditCard, $current),
+            Item::getData($creditCard, $current),
+            Method::getData($current),
+            Mode::getData($creditCard, $current),
             Parameter::getData($creditCard),
-            ReceiverEmail::getData($creditCard, $properties),
-            Sender::getData($creditCard, $properties),
-            Shipping::getData($creditCard, $properties),
-            Token::getData($creditCard, $properties)
+            ReceiverEmail::getData($creditCard, $current),
+            Sender::getData($creditCard, $current),
+            Shipping::getData($creditCard, $current),
+            Token::getData($creditCard, $current)
         );
     }
 
     /**
      *
      *
-     * @param  Http $http
      * @return Response
      */
     public static function success(Http $http)
@@ -129,7 +127,6 @@ class Request extends Error implements Parser
     /**
      *
      *
-     * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */
     public static function error(Http $http)

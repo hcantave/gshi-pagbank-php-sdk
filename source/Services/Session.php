@@ -43,11 +43,11 @@ class Session
         Logger::info("Begin", ['service' => 'Session']);
 
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
-            Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'Session']);
+            Logger::info(sprintf("POST: %s", self::request($data)), ['service' => 'Session']);
             $http->post(
-                self::request($connection),
+                self::request($data),
                 null,
                 20,
                 Configure::getCharset()->getEncoding()
@@ -66,8 +66,8 @@ class Session
         }
     }
 
-    private static function request(Data $connection)
+    private static function request(Data $data)
     {
-        return $connection->buildSessionRequestUrl() . "?" . $connection->buildCredentialsQuery();
+        return $data->buildSessionRequestUrl() . "?" . $data->buildCredentialsQuery();
     }
 }

@@ -85,9 +85,6 @@ class Xhr
      */
     private static function validate($input)
     {
-        if (isset($input)) {
-            return true;
-        }
-        return false;
+        return isset($input);
     }
 }

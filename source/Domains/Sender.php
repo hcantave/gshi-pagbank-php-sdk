@@ -101,7 +101,6 @@ class Sender
     }
 
     /**
-     * @param  Phone $phone
      * @return Sender
      */
     public function setPhone(Phone $phone)
@@ -119,7 +118,6 @@ class Sender
     }
 
     /**
-     * @param  Document $document
      * @return $this
      */
     public function setDocuments(Document $document)
@@ -136,11 +134,9 @@ class Sender
      */
     public function addDocument($type, $value): void
     {
-        if ($type && $value) {
-            if (count($this->documents) == 0) {
-                $document = new Document($type, $value);
-                $this->documents[] = $document;
-            }
+        if ($type && $value && count($this->documents) == 0) {
+            $document = new Document($type, $value);
+            $this->documents[] = $document;
         }
     }
 }

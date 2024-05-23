@@ -47,7 +47,6 @@ class Request extends Error implements Parser
     use Basic;
 
     /**
-     * @param  \PagSeguro\Domains\Requests\Authorization $authorization
      * @return string
      */
     public static function getData(\PagSeguro\Domains\Requests\Authorization $authorization)
@@ -61,20 +60,17 @@ class Request extends Error implements Parser
         );
         if (!$authorization->getAccount()) {
             $xml = new DefaultAuthorizationService($authorization);
-        } else {
-            if ($authorization->getAccount()->getCompany() instanceof Company) {
-                $xml = new CompanyService($authorization);
-            } elseif ($authorization->getAccount()->getSeller() instanceof Seller) {
-                $xml = new SellerService($authorization);
-            } elseif ($authorization->getAccount()->getPersonal() instanceof Personal) {
-                $xml = new PersonalService($authorization);
-            }
+        } elseif ($authorization->getAccount()->getCompany() instanceof Company) {
+            $xml = new CompanyService($authorization);
+        } elseif ($authorization->getAccount()->getSeller() instanceof Seller) {
+            $xml = new SellerService($authorization);
+        } elseif ($authorization->getAccount()->getPersonal() instanceof Personal) {
+            $xml = new PersonalService($authorization);
         }
         return $xml->getAsXML();
     }
 
     /**
-     * @param  Http $http
      * @return mixed|Response
      */
     public static function success(Http $http)
@@ -85,12 +81,10 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)
     {
-        $error = parent::error($http);
-        return $error;
+        return parent::error($http);
     }
 }

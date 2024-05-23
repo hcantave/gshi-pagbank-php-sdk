@@ -29,7 +29,6 @@ use PagSeguro\Configuration\Configure;
 use Exception;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Helpers\Crypto;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Parsers\PreApproval\Charge\Request;
@@ -41,9 +40,9 @@ class Charge
     {
         Logger::info("Begin", ['service' => 'PreApproval.Charge']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
-            Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'PreApproval.Charge']);
+            Logger::info(sprintf("POST: %s", self::request($data)), ['service' => 'PreApproval.Charge']);
             Logger::info(
                 sprintf(
                     "Params: %s",
@@ -52,7 +51,7 @@ class Charge
                 ['service' => 'PreApproval.Charge']
             );
             $http->post(
-                self::request($connection),
+                self::request($data),
                 Request::getData($charge),
                 20,
                 Configure::getCharset()->getEncoding()
@@ -69,11 +68,10 @@ class Charge
     }
 
     /**
-     * @param  Connection\Data $connection
      * @return string
      */
-    private static function request(Data $connection)
+    private static function request(Data $data)
     {
-        return $connection->buildPreApprovalChargeRequestUrl() . "?" . $connection->buildCredentialsQuery();
+        return $data->buildPreApprovalChargeRequestUrl() . "?" . $data->buildCredentialsQuery();
     }
 }

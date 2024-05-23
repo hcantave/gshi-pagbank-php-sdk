@@ -34,16 +34,15 @@ use PagSeguro\Domains\Requests\Requests;
 trait Token
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
         // quantity
-        if (!is_null($request->getToken())) {
-            $data[$properties::CREDIT_CARD_TOKEN] = $request->getToken();
+        if (!is_null($requests->getToken())) {
+            $data[$properties::CREDIT_CARD_TOKEN] = $requests->getToken();
         }
 
         return $data;

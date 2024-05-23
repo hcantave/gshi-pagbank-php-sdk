@@ -50,8 +50,6 @@ class Company
      *
      * @param string   $displayName
      * @param string   $websiteURL
-     * @param Document $document
-     * @param Phone    $phone
      * @param Address  $address
      * @param Partner  $partner
      */
@@ -72,8 +70,6 @@ class Company
     }
 
     /**
-     * @param Document $document
-     *
      * @return array
      */
     public function addDocuments(Document $document)
@@ -84,8 +80,6 @@ class Company
     }
 
     /**
-     * @param Phone $phone
-     *
      * @return array
      */
     public function addPhones(Phone $phone)

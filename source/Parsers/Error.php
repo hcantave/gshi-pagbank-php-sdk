@@ -34,7 +34,6 @@ use PagSeguro\Resources\Http;
 class Error
 {
     /**
-     * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */
     protected static function error(Http $http)

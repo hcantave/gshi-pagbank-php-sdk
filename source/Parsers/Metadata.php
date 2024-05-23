@@ -36,16 +36,15 @@ use PagSeguro\Helpers\StringFormat;
 trait Metadata
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
 
-        if ($request->metadataLenght() > 0) {
-            $metadata = $request->getMetadata();
+        if ($requests->metadataLenght() > 0) {
+            $metadata = $requests->getMetadata();
             $count = 0;
 
             foreach ($metadata as $key => $value) {

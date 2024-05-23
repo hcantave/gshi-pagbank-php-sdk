@@ -50,10 +50,8 @@ trait Parameter
             foreach ($parameter as $key => $parameterItem) {
                 if ($parameterItem instanceof \PagSeguro\Domains\Parameter) {
                     $arr[$key] = $parameterItem;
-                } else {
-                    if (is_array($parameter)) {
-                        $arr[$key] = new \PagSeguro\Domains\Parameter($parameterItem);
-                    }
+                } elseif (is_array($parameter)) {
+                    $arr[$key] = new \PagSeguro\Domains\Parameter($parameterItem);
                 }
             }
             $this->parameter = $arr;
@@ -67,6 +65,6 @@ trait Parameter
 
     public function parameterLenght()
     {
-        return (! is_null($this->parameter)) ? count(current($this->parameter)) : 0;
+        return (is_null($this->parameter)) ? 0 : count(current($this->parameter));
     }
 }

@@ -30,7 +30,6 @@ use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\DirectPreApproval\QueryPaymentOrder;
 use PagSeguro\Parsers\DirectPreApproval\QueryPaymentOrderParsers;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -43,9 +42,6 @@ use PagSeguro\Resources\Responsibility;
 class QueryPaymentOrderService
 {
     /**
-     * @param Credentials       $credentials
-     * @param QueryPaymentOrder $queryPaymentOrder
-     *
      * @return mixed
      * @throws Exception
      */
@@ -53,9 +49,9 @@ class QueryPaymentOrderService
     {
         Logger::info("Begin", ['service' => 'DirectPreApproval']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
-            Logger::info(sprintf("POST: %s", self::request($connection, QueryPaymentOrderParsers::getPreApprovalCode($queryPaymentOrder))), ['service' => 'DirectPreApproval']);
+            Logger::info(sprintf("POST: %s", self::request($data, QueryPaymentOrderParsers::getPreApprovalCode($queryPaymentOrder))), ['service' => 'DirectPreApproval']);
             Logger::info(
                 sprintf(
                     "Params: %s",
@@ -64,7 +60,7 @@ class QueryPaymentOrderService
                 ['service' => 'DirectPreApproval']
             );
             $http->get(
-                self::request($connection, QueryPaymentOrderParsers::getPreApprovalCode($queryPaymentOrder), QueryPaymentOrderParsers::getData($queryPaymentOrder)),
+                self::request($data, QueryPaymentOrderParsers::getPreApprovalCode($queryPaymentOrder), QueryPaymentOrderParsers::getData($queryPaymentOrder)),
                 20,
                 Configure::getCharset()->getEncoding()
             );
@@ -85,15 +81,13 @@ class QueryPaymentOrderService
     }
 
     /**
-     * @param Connection\Data $connection
      * @param $preApprovalCode
      * @param null            $params
-     *
      * @return string
      */
-    private static function request(Data $connection, $preApprovalCode, $params = null)
+    private static function request(Data $data, $preApprovalCode, $params = null)
     {
-        return $connection->buildDirectPreApprovalQueryPaymentOrderRequestUrl($preApprovalCode) . "?" . $connection->buildCredentialsQuery() . ($params ? '&' . $params : '');
+        return $data->buildDirectPreApprovalQueryPaymentOrderRequestUrl($preApprovalCode) . "?" . $data->buildCredentialsQuery() . ($params ? '&' . $params : '');
     }
 
     /**

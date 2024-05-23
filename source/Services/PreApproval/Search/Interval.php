@@ -29,7 +29,6 @@ use PagSeguro\Resources\Connection\Data;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Parsers\PreApproval\Search\Date\Request;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -44,7 +43,6 @@ class Interval
     /**
      *
      *
-     * @param  Credentials $credentials
      * @param  $code
      * @return string
      * @throws Exception
@@ -54,14 +52,14 @@ class Interval
         Logger::info("Begin", ['service' => 'PreApproval.Search.Interval']);
 
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
             Logger::info(
-                sprintf("GET: %s", self::request($connection, $days)),
+                sprintf("GET: %s", self::request($data, $days)),
                 ['service' => 'PreApproval.Search.Interval']
             );
             $http->get(
-                self::request($connection, $days),
+                self::request($data, $days),
                 20,
                 Configure::getCharset()->getEncoding()
             );
@@ -88,16 +86,15 @@ class Interval
     }
 
     /**
-     * @param  Connection\Data $connection
      * @param  $days
      * @return string
      */
-    private static function request(Data $connection, $days)
+    private static function request(Data $data, $days)
     {
         return sprintf(
             "%s/?%s&interval=%s",
-            $connection->buildNotificationPreApprovalRequestUrl(),
-            $connection->buildCredentialsQuery(),
+            $data->buildNotificationPreApprovalRequestUrl(),
+            $data->buildCredentialsQuery(),
             $days
         );
     }

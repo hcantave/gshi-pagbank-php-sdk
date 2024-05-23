@@ -35,28 +35,27 @@ use PagSeguro\Helpers\Characters;
 trait Holder
 {
     /**
-     * @param  Requests $request
      * @param  $properties
      * @return array
      */
-    public static function getData(Requests $request, $properties)
+    public static function getData(Requests $requests, $properties)
     {
         $data = [];
         // sender
-        if (!is_null($request->getHolder())) {
-            if (!is_null($request->getHolder()->getName())) {
-                $data[$properties::CREDIT_CARD_HOLDER_NAME] = $request->getHolder()->getName();
+        if (!is_null($requests->getHolder())) {
+            if (!is_null($requests->getHolder()->getName())) {
+                $data[$properties::CREDIT_CARD_HOLDER_NAME] = $requests->getHolder()->getName();
             }
-            if (!is_null($request->getHolder()->getBirthDate())) {
-                $data[$properties::CREDIT_CARD_HOLDER_BIRTH_DATE] = $request->getHolder()->getBirthDate();
+            if (!is_null($requests->getHolder()->getBirthDate())) {
+                $data[$properties::CREDIT_CARD_HOLDER_BIRTH_DATE] = $requests->getHolder()->getBirthDate();
             }
             // phone
-            if (!is_null($request->getHolder()->getPhone())) {
-                $data = array_merge($data, self::holderPhone($request, $properties));
+            if (!is_null($requests->getHolder()->getPhone())) {
+                $data = array_merge($data, self::holderPhone($requests, $properties));
             }
             // documents
-            if (!is_null($request->getHolder()->getDocuments())) {
-                $data = array_merge($data, self::holderDocument($request, $properties));
+            if (!is_null($requests->getHolder()->getDocuments())) {
+                $data = array_merge($data, self::holderDocument($requests, $properties));
             }
         }
         return $data;

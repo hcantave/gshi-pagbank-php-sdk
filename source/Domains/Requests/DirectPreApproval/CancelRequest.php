@@ -38,13 +38,6 @@ class CancelRequest
     private $preApprovalCode;
 
     /**
-     * CancelRequest constructor.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * @param $preApprovalCode
      */
     public function setPreApprovalCode($preApprovalCode): void

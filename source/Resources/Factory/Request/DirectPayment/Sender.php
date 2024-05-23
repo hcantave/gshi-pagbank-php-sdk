@@ -49,7 +49,6 @@ class Sender
     }
 
     /**
-     * @param  \PagSeguro\Domains\DirectPayment\Sender $sender
      * @return \PagSeguro\Domains\DirectPayment\Sender
      */
     public function instance(\PagSeguro\Domains\DirectPayment\Sender $sender)
@@ -62,19 +61,17 @@ class Sender
      */
     public function withArray($array)
     {
-        $properties = new Current();
-        return $this->sender->setName($array[$properties::SENDER_NAME])
-            ->setEmail($array[$properties::SENDER_EMAIL])
+        $current = new Current();
+        return $this->sender->setName($array[$current::SENDER_NAME])
+            ->setEmail($array[$current::SENDER_EMAIL])
             ->setPhone($array["phone"])
             ->setDocuments($array["document"])
-            ->setIp($array[$properties::SENDER_IP]);
+            ->setIp($array[$current::SENDER_IP]);
     }
 
     /**
      * @param  $name
      * @param  $email
-     * @param  Phone    $phone
-     * @param  Document $document
      * @param  $ip
      * @return \PagSeguro\Domains\DirectPayment\Sender
      */

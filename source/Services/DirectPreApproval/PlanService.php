@@ -29,7 +29,6 @@ use PagSeguro\Resources\Connection\Data;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Parsers\DirectPreApproval\PlanParser;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -42,7 +41,6 @@ use PagSeguro\Resources\Responsibility;
 class PlanService
 {
     /**
-     * @param Credentials $credentials
      * @param $data
      *
      * @return mixed
@@ -85,13 +83,11 @@ class PlanService
     }
 
     /**
-     * @param Connection\Data $connection
-     *
      * @return string
      */
-    private static function request(Data $connection)
+    private static function request(Data $data)
     {
-        return $connection->buildDirectPreApprovalPlanRequestUrl() . "?" . $connection->buildCredentialsQuery();
+        return $data->buildDirectPreApprovalPlanRequestUrl() . "?" . $data->buildCredentialsQuery();
     }
 
     /**

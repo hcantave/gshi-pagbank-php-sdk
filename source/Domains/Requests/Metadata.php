@@ -47,10 +47,8 @@ trait Metadata
             foreach ($metadata as $key => $metadataItem) {
                 if ($metadataItem instanceof \PagSeguro\Domains\Metadata) {
                     $arr[$key] = $metadataItem;
-                } else {
-                    if (is_array($metadata)) {
-                        $arr[$key] = new \PagSeguro\Domains\Metadata($metadataItem);
-                    }
+                } elseif (is_array($metadata)) {
+                    $arr[$key] = new \PagSeguro\Domains\Metadata($metadataItem);
                 }
             }
             $this->metadata = $arr;
@@ -64,6 +62,6 @@ trait Metadata
 
     public function metadataLenght()
     {
-        return (! is_null($this->metadata)) ? count(current($this->metadata)) : 0;
+        return (is_null($this->metadata)) ? 0 : count(current($this->metadata));
     }
 }

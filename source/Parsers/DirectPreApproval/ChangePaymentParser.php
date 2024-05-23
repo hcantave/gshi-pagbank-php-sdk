@@ -37,7 +37,6 @@ use PagSeguro\Resources\Http;
 class ChangePaymentParser extends Error implements Parser
 {
     /**
-     * @param  ChangePayment $changePayment
      * @return mixed
      */
     public static function getPreApprovalCode(ChangePayment $changePayment)
@@ -48,7 +47,6 @@ class ChangePaymentParser extends Error implements Parser
     }
 
     /**
-     * @param  ChangePayment $changePayment
      * @return array|ChangePayment
      */
     public static function getData(ChangePayment $changePayment)
@@ -60,18 +58,14 @@ class ChangePaymentParser extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

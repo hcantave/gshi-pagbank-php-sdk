@@ -37,7 +37,6 @@ use PagSeguro\Resources\Http;
 class RetryPaymentOrderParser extends Error implements Parser
 {
     /**
-     * @param  RetryPaymentOrder $retryPaymentOrder
      * @return array
      */
     public static function getData(RetryPaymentOrder $retryPaymentOrder)
@@ -46,17 +45,14 @@ class RetryPaymentOrderParser extends Error implements Parser
     }
 
     /**
-     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
     {
-        $json = json_decode($http->getResponse());
-        return $json;
+        return json_decode($http->getResponse());
     }
 
     /**
-     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

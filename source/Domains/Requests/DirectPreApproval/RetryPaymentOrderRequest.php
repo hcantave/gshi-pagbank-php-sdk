@@ -39,13 +39,6 @@ class RetryPaymentOrderRequest
     private $paymentOrderCode;
 
     /**
-     * PaymentRequest constructor.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * @param $preApprovalCode
      */
     public function setPreApprovalCode($preApprovalCode): void

@@ -31,7 +31,6 @@ use PagSeguro\Domains\Account\Credentials;
 use PagSeguro\Domains\Requests\PreApproval;
 use PagSeguro\Helpers\Crypto;
 use PagSeguro\Parsers\PreApproval\Request;
-use PagSeguro\Resources\Connection;
 use PagSeguro\Resources\Http;
 use PagSeguro\Resources\Log\Logger;
 use PagSeguro\Resources\Responsibility;
@@ -42,9 +41,9 @@ class Payment
     {
         Logger::info("Begin", ['service' => 'PreApproval']);
         try {
-            $connection = new Data($credentials);
+            $data = new Data($credentials);
             $http = new Http();
-            Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'PreApproval']);
+            Logger::info(sprintf("POST: %s", self::request($data)), ['service' => 'PreApproval']);
             Logger::info(
                 sprintf(
                     "Params: %s",
@@ -54,7 +53,7 @@ class Payment
             );
 
             $http->post(
-                self::request($connection),
+                self::request($data),
                 Request::getData($preApproval),
                 20,
                 Configure::getCharset()->getEncoding()
@@ -65,10 +64,10 @@ class Payment
                 new Request()
             );
             Logger::info(
-                sprintf("PreApproval URL: %s", self::response($connection, $response)),
+                sprintf("PreApproval URL: %s", self::response($data, $response)),
                 ['service' => 'PreApproval']
             );
-            return self::response($connection, $response);
+            return self::response($data, $response);
         } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'PreApproval']);
             throw $exception;
@@ -76,21 +75,19 @@ class Payment
     }
 
     /**
-     * @param  Connection\Data $connection
      * @return string
      */
-    private static function request(Data $connection)
+    private static function request(Data $data)
     {
-        return $connection->buildPreApprovalRequestUrl() . "?" . $connection->buildCredentialsQuery();
+        return $data->buildPreApprovalRequestUrl() . "?" . $data->buildCredentialsQuery();
     }
 
     /**
-     * @param  Connection\Data $connection
      * @param  $response
      * @return string
      */
-    private static function response(Data $connection, $response)
+    private static function response(Data $data, $response)
     {
-        return $connection->buildPreApprovalResponseUrl() . "?code=" . $response->getCode();
+        return $data->buildPreApprovalResponseUrl() . "?code=" . $response->getCode();
     }
 }
