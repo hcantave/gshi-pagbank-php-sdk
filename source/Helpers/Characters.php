@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Helpers;
@@ -32,7 +31,7 @@ class Characters
     public const PATTERN = "/[^a-z0-9]/";
 
     /**
-     * @param $subject
+     * @param  $subject
      * @return bool|string
      */
     public static function hasSpecialChars($subject)
@@ -44,7 +43,7 @@ class Characters
     }
 
     /**
-     * @param $subject
+     * @param  $subject
      * @return string
      */
     public static function removeSpecialChars($subject)

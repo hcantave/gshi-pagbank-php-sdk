@@ -19,20 +19,19 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Helpers;
 
 /**
  * Class with helper functions to format strings
- *
  */
 class StringFormat
 {
     /***
      * Remove all non digit character from string
-     * @param string $value
+     *
+     * @param  string $value
      * @return string
      */
     public static function getOnlyNumbers($value)
@@ -42,9 +41,10 @@ class StringFormat
 
     /***
      * Return formatted string to send in PagSeguro request
-     * @param string $string
-     * @param int $limit
-     * @param mixed $endchars
+     *
+     * @param  string $string
+     * @param  int    $limit
+     * @param  mixed  $endchars
      * @return string
      */
     public static function formatString($string, $limit, $endchars = '...')
@@ -55,7 +55,8 @@ class StringFormat
 
     /***
      * Remove left, right and inside extra spaces in string
-     * @param string $string
+     *
+     * @param  string $string
      * @return string
      */
     public static function removeStringExtraSpaces($string)
@@ -65,9 +66,10 @@ class StringFormat
 
     /***
      * Perform truncate of string value
-     * @param string $string
-     * @param int $limit
-     * @param mixed $endchars
+     *
+     * @param  string $string
+     * @param  int    $limit
+     * @param  mixed  $endchars
      * @return string
      */
     public static function truncateValue($string, $limit, $endchars = '...')

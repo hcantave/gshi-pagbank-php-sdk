@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\PreApproval\Search;
@@ -36,14 +35,17 @@ use PagSeguro\Resources\Responsibility;
 
 /**
  * Class Payment
+ *
  * @package PagSeguro\Services\Checkout
  */
 class Code
 {
 
     /**
-     * @param Credentials $credentials
-     * @param $code
+     * 
+     * 
+     * @param  Credentials $credentials
+     * @param  $code
      * @return string
      * @throws Exception
      */
@@ -86,7 +88,7 @@ class Code
     }
 
     /**
-     * @param Connection\Data $connection
+     * @param  Connection\Data $connection
      * @return string
      */
     private static function request(Data $connection, $code)

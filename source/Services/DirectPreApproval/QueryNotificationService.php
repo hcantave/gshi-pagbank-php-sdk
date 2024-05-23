@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\DirectPreApproval;
@@ -55,8 +54,14 @@ class QueryNotificationService
         try {
             $connection = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
-            Logger::info(sprintf("GET: %s", self::request($connection, QueryNotificationParser::getData($queryNotification),
-                QueryNotificationParser::getNotificationCode($queryNotification))), ['service' => 'DirectPreApproval']);
+            Logger::info(
+                sprintf(
+                    "GET: %s", self::request(
+                        $connection, QueryNotificationParser::getData($queryNotification),
+                        QueryNotificationParser::getNotificationCode($queryNotification)
+                    )
+                ), ['service' => 'DirectPreApproval']
+            );
             Logger::info(
                 sprintf(
                     "Params: %s",
@@ -65,8 +70,10 @@ class QueryNotificationService
                 ['service' => 'DirectPreApproval']
             );
             $http->get(
-                self::request($connection, QueryNotificationParser::getData($queryNotification),
-                    QueryNotificationParser::getNotificationCode($queryNotification)),
+                self::request(
+                    $connection, QueryNotificationParser::getData($queryNotification),
+                    QueryNotificationParser::getNotificationCode($queryNotification)
+                ),
                 20,
                 Configure::getCharset()->getEncoding()
             );

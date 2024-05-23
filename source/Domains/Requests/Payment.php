@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\Requests;
@@ -29,13 +28,14 @@ use PagSeguro\Domains\Requests\Checkout\Payment\Request;
 
 /**
  * Class Payment
+ *
  * @package PagSeguro\Domains\Requests
  */
 class Payment extends Request
 {
     /**
-     * @param $credentials
-     * @param bool $onlyCode
+     * @param  $credentials
+     * @param  bool $onlyCode
      * @return string
      * @throws Exception
      */

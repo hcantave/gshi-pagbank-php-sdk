@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Factory\Request\DirectPayment\CreditCard\Billing;
@@ -29,6 +28,7 @@ use PagSeguro\Enum\Properties\Current;
 
 /**
  * Class Shipping
+ *
  * @package PagSeguro\Resources\Factory\Request
  */
 class Address
@@ -36,16 +36,16 @@ class Address
 
     /**
      * Shipping constructor.
-     * @param $billing
-     * @param Billing $billing
+     *
+     * @param $billing * @param Billing $billing
      */
     public function __construct(private $billing)
     {
+    
     }
 
     /**
-     * @param \PagSeguro\Domains\Address $address
-     * @return Billing
+     * @param \PagSeguro\Domains\Address $address * @return Billing
      */
     public function instance(\PagSeguro\Domains\Address $address)
     {
@@ -54,8 +54,7 @@ class Address
     }
 
     /**
-     * @param $array
-     * @return Billing
+     * @param $array * @return Billing
      */
     public function withArray($array)
     {
@@ -81,8 +80,7 @@ class Address
      * @param $postalCode
      * @param $city
      * @param $state
-     * @param $country
-     * @return Billing
+     * @param $country    * @return Billing
      */
     public function withParameters(
         $street,

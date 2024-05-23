@@ -19,21 +19,22 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Helpers;
 
 /**
  * Class InitializeObject
+ *
  * @package PagSeguro\Helpers
  */
 class InitializeObject
 {
     /**
      * Check if $attr is started, if not instatiate it
-     * @param object $attr
-     * @param class $instantiateClass
+     *
+     * @param  object $attr
+     * @param  class  $instantiateClass
      * @return object from $instantiateClass
      */
     public static function initialize($attr, $instantiateClass)

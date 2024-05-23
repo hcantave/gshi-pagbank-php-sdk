@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\DirectPreApproval;
@@ -65,13 +64,13 @@ class Address
     public $complement;
 
     /**
-     * @param      $street
-     * @param      $number
-     * @param      $district
-     * @param      $postalCode
-     * @param      $city
-     * @param      $state
-     * @param      $country
+     * @param $street
+     * @param $number
+     * @param $district
+     * @param $postalCode
+     * @param $city
+     * @param $state
+     * @param $country
      * @param null $complement
      *
      * @return $this

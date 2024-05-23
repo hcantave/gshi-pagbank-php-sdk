@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Responsibility\Factory\Request;
@@ -28,6 +27,7 @@ use PagSeguro\Resources\Responsibility\Handler;
 
 /**
  * Class Generic
+ *
  * @package PagSeguro\Services\Connection\HttpMethods
  */
 class Instance implements Handler
@@ -38,7 +38,7 @@ class Instance implements Handler
     private $successor;
 
     /**
-     * @param $successor
+     * @param  $successor
      * @return $this
      */
     public function successor($successor)
@@ -48,8 +48,8 @@ class Instance implements Handler
     }
 
     /**
-     * @param $instance
-     * @param $class
+     * @param  $instance
+     * @param  $class
      * @return mixed|void
      */
     public function handler($instance, $class): void

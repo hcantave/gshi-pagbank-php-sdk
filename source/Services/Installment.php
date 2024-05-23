@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services;
@@ -38,14 +37,11 @@ use PagSeguro\Resources\Responsibility;
 
 /**
  * Description of Installment
- *
  */
 class Installment
 {
     /**
-     * @param Credentials $credentials
-     * @return Installments
-     * @throws Exception
+     * @param Credentials $credentials * @return Installments
      */
     public static function create(Credentials $credentials, mixed $params)
     {
@@ -54,9 +50,11 @@ class Installment
             $connection = new Data($credentials);
             $http = new Http();
             Logger::info(sprintf("GET: %s", self::request($connection, $params)), ['service' => 'Installment']);
-            $http->get(self::request($connection, $params),
+            $http->get(
+                self::request($connection, $params),
                 20,
-                Configure::getCharset()->getEncoding());
+                Configure::getCharset()->getEncoding()
+            );
 
             $response = Responsibility::http(
                 $http,
@@ -72,7 +70,8 @@ class Installment
 
     /**
      * Build the service request url
-     * @param Data $connection
+     *
+     * @param  Data $connection
      * @return string
      */
     private static function request(Data $connection, mixed $params)

@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\DirectPreApproval;
@@ -44,7 +43,7 @@ class EditPlanService
 {
     /**
      * @param Credentials $credentials
-     * @param EditPlan $editPlan
+     * @param EditPlan    $editPlan
      *
      * @return mixed
      * @throws Exception
@@ -56,9 +55,13 @@ class EditPlanService
             $connection = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
 
-            Logger::info(sprintf("PUT: %s",
-                self::request($connection, EditPlanParser::getPreApprovalRequestCode($editPlan))),
-                ['service' => 'DirectPreApproval']);
+            Logger::info(
+                sprintf(
+                    "PUT: %s",
+                    self::request($connection, EditPlanParser::getPreApprovalRequestCode($editPlan))
+                ),
+                ['service' => 'DirectPreApproval']
+            );
             Logger::info(
                 sprintf(
                     "Params: %s",
@@ -93,7 +96,7 @@ class EditPlanService
 
     /**
      * @param Connection\Data $connection
-     * @param                 $preApprovalCode
+     * @param $preApprovalCode
      *
      * @return string
      */

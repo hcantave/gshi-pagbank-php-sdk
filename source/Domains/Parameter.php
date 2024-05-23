@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains;
@@ -45,12 +44,14 @@ class Parameter
 
     /***
      * Used for the index of values of parameter
+     *
      * @var mixed
      */
     private $index;
 
     /***
      * Gets the parameter item key
+     *
      * @return string
      */
     public function getKey()
@@ -59,7 +60,7 @@ class Parameter
     }
 
     /**
-     * @param $key
+     * @param  $key
      * @return $this
      */
     public function setKey($key)
@@ -70,6 +71,7 @@ class Parameter
 
     /***
      * Gets parameter item value
+     *
      * @return string
      */
     public function getValue()
@@ -78,7 +80,7 @@ class Parameter
     }
 
     /**
-     * @param $value
+     * @param  $value
      * @return $this
      */
     public function setValue($value)
@@ -98,7 +100,7 @@ class Parameter
     }
 
     /**
-     * @param $index
+     * @param  $index
      * @return $this
      */
     public function setIndex($index)

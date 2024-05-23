@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Factory\Shipping;
@@ -29,6 +28,7 @@ use PagSeguro\Domains\ShippingType;
 
 /**
  * Class Shipping
+ *
  * @package PagSeguro\Resources\Factory\Request
  */
 class Type
@@ -36,10 +36,12 @@ class Type
 
     /**
      * Shipping constructor.
+     *
      * @param Shipping $shipping
      */
     public function __construct(private $shipping)
     {
+    
     }
 
     public function instance(ShippingType $type)

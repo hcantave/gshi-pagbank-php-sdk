@@ -23,7 +23,6 @@ use PagSeguro\Configuration\Configure;
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 require_once "../../vendor/autoload.php";
@@ -78,8 +77,10 @@ $preApproval->setSender()->setAddress()->withParameters(
  */
 $preApproval->setPreApproval()->setCharge('manual');
 $preApproval->setPreApproval()->setName("Seguro contra roubo do Notebook Prata");
-$preApproval->setPreApproval()->setDetails("Todo dia 30 será cobrado o valor de R100,00 referente ao seguro contra
-            roubo do Notebook Prata.");
+$preApproval->setPreApproval()->setDetails(
+    "Todo dia 30 será cobrado o valor de R100,00 referente ao seguro contra
+            roubo do Notebook Prata."
+);
 $preApproval->setPreApproval()->setAmountPerPayment('100.00');
 $preApproval->setPreApproval()->setMaxAmountPerPeriod('200.00');
 $preApproval->setPreApproval()->setPeriod('Monthly');

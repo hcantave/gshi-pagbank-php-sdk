@@ -14,18 +14,15 @@ class Authorization
     /**
      * Seller constructor.
      *
-     * @param                       $reference
-     * @param                       $permissions
-     * @param                       $redirectURL
-     * @param                       $notificationURL
-     * @param Account               $account
-     * @param string $reference
-     * @param string $permissions
-     * @param string $redirectURL
-     * @param string $notificationURL
+     * @param $reference
+     * @param $permissions
+     * @param $redirectURL
+     * @param $notificationURL
+     * @param Account $account         * @param string $reference
      */
     public function __construct(private $reference, private $permissions, private $redirectURL, private $notificationURL, private ?Account $account = null)
     {
+    
     }
 
     /**

@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources;
@@ -28,6 +27,7 @@ use PagSeguro\Configuration\Configure;
 
 /**
  * Class Builder
+ *
  * @package PagSeguro\Resources
  */
 class Builder
@@ -72,8 +72,8 @@ class Builder
     }
 
     /**
-     * @param $resource
-     * @param null $protocol
+     * @param  $resource
+     * @param  null $protocol
      * @return string
      */
     protected static function getUrl($resource, $protocol = null)
@@ -92,8 +92,8 @@ class Builder
     }
 
     /**
-     * @param $url
-     * @param $service
+     * @param  $url
+     * @param  $service
      * @return string
      */
     protected static function getRequest($url, $service)
@@ -102,8 +102,8 @@ class Builder
     }
 
     /**
-     * @param $url
-     * @param $service
+     * @param  $url
+     * @param  $service
      * @return string
      */
     protected static function getResponse($url, $service)
@@ -112,9 +112,9 @@ class Builder
     }
 
     /**
-     * @param $url
-     * @param $service
-     * @param $http
+     * @param  $url
+     * @param  $service
+     * @param  $http
      * @return string
      */
     protected static function getService($url, $service, $http)
@@ -129,9 +129,9 @@ class Builder
     }
 
     /**
-     * @param $xml
-     * @param $service
-     * @param $http
+     * @param  $xml
+     * @param  $service
+     * @param  $http
      * @return mixed
      */
     private static function getProperties($xml, $service, $http)

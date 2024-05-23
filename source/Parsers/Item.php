@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers;
@@ -29,13 +28,14 @@ use PagSeguro\Domains\Requests\Requests;
 
 /**
  * Trait Item
+ *
  * @package PagSeguro\Parsers
  */
 trait Item
 {
     /**
-     * @param Requests $request
-     * @param $properties
+     * @param  Requests $request
+     * @param  $properties
      * @return array
      */
     public static function getData(Requests $request, $properties)

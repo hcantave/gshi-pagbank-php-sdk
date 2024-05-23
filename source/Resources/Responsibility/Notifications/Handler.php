@@ -19,19 +19,19 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Responsibility\Notifications;
 
 /**
  * Interface Handler
+ *
  * @package PagSeguro\Resources\Responsibility\Notifications
  */
 interface Handler
 {
     /**
-     * @param $next
+     * @param  $next
      * @return mixed
      */
     public function successor($next);

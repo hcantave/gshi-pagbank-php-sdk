@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains;
 
 /**
  * Class Item
+ *
  * @package PagSeguro\Domains
  */
 class Item
@@ -64,7 +64,7 @@ class Item
     }
 
     /**
-     * @param double $amount
+     * @param  double $amount
      * @return $this
      */
     public function setAmount($amount)
@@ -82,7 +82,7 @@ class Item
     }
 
     /**
-     * @param string $description
+     * @param  string $description
      * @return $this
      */
     public function setDescription($description)
@@ -100,7 +100,7 @@ class Item
     }
 
     /**
-     * @param string $id
+     * @param  string $id
      * @return $this
      */
     public function setId($id)
@@ -118,7 +118,7 @@ class Item
     }
 
     /**
-     * @param integer $quantity
+     * @param  integer $quantity
      * @return $this
      */
     public function setQuantity($quantity)
@@ -136,7 +136,7 @@ class Item
     }
 
     /**
-     * @param double $shippingCost
+     * @param  double $shippingCost
      * @return $this
      */
     public function setShippingCost($shippingCost)
@@ -154,7 +154,7 @@ class Item
     }
 
     /**
-     * @param float $weight
+     * @param  float $weight
      * @return $this
      */
     public function setWeight($weight)

@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers\Authorization;
@@ -39,6 +38,7 @@ use PagSeguro\Services\Authorization\SellerService;
 
 /**
  * Class Request
+ *
  * @package PagSeguro\Parsers\Authorization
  */
 class Request extends Error implements Parser
@@ -46,7 +46,7 @@ class Request extends Error implements Parser
     use Basic;
 
     /**
-     * @param \PagSeguro\Domains\Requests\Authorization $authorization
+     * @param  \PagSeguro\Domains\Requests\Authorization $authorization
      * @return string
      */
     public static function getData(\PagSeguro\Domains\Requests\Authorization $authorization)
@@ -73,7 +73,7 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed|Response
      */
     public static function success(Http $http)
@@ -84,7 +84,7 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

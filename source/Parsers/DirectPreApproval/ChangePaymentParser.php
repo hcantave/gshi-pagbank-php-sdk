@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers\DirectPreApproval;
@@ -31,12 +30,13 @@ use PagSeguro\Resources\Http;
 
 /**
  * Class ChangePaymentParser
+ *
  * @package PagSeguro\Parsers\DirectPreApproval
  */
 class ChangePaymentParser extends Error implements Parser
 {
     /**
-     * @param ChangePayment $changePayment
+     * @param  ChangePayment $changePayment
      * @return mixed
      */
     public static function getPreApprovalCode(ChangePayment $changePayment)
@@ -47,7 +47,7 @@ class ChangePaymentParser extends Error implements Parser
     }
 
     /**
-     * @param ChangePayment $changePayment
+     * @param  ChangePayment $changePayment
      * @return array|ChangePayment
      */
     public static function getData(ChangePayment $changePayment)
@@ -59,7 +59,7 @@ class ChangePaymentParser extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
@@ -70,7 +70,7 @@ class ChangePaymentParser extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

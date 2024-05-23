@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers\Authorization\Search\Code;
@@ -32,12 +31,13 @@ use PagSeguro\Resources\Http;
 
 /**
  * Class Request
+ *
  * @package PagSeguro\Parsers\Authorization\Search\Code
  */
 class Request extends Error implements Parser
 {
     /**
-     * @param $code
+     * @param  $code
      * @return array
      */
     public static function getData($code)
@@ -52,7 +52,9 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * 
+     * 
+     * @param  Http $http
      * @return Response
      */
     public static function success(Http $http)
@@ -68,7 +70,9 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * 
+     * 
+     * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */
     public static function error(Http $http)

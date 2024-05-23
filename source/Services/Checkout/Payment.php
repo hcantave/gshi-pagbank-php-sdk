@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\Checkout;
@@ -37,14 +36,17 @@ use PagSeguro\Resources\Responsibility;
 
 /**
  * Class Payment
+ *
  * @package PagSeguro\Services\Checkout
  */
 class Payment
 {
     /**
-     * @param Credentials $credentials
-     * @param \PagSeguro\Domains\Requests\Payment $payment
-     * @param bool $onlyCode
+     * 
+     * 
+     * @param  Credentials                         $credentials
+     * @param  \PagSeguro\Domains\Requests\Payment $payment
+     * @param  bool                                $onlyCode
      * @return string
      * @throws Exception
      */
@@ -90,7 +92,7 @@ class Payment
     }
 
     /**
-     * @param Connection\Data $connection
+     * @param  Connection\Data $connection
      * @return string
      */
     private static function request(Data $connection)
@@ -99,8 +101,8 @@ class Payment
     }
 
     /**
-     * @param Connection\Data $connection
-     * @param $response
+     * @param  Connection\Data $connection
+     * @param  $response
      * @return string
      */
     private static function response(Data $connection, $response)

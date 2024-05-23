@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Factory\Request;
 
 /**
  * Class Metadata
+ *
  * @package PagSeguro\Resources\Factory\Request
  */
 class Accepted
@@ -44,7 +44,7 @@ class Accepted
     }
 
     /**
-     * @param $group
+     * @param  $group
      * @return \PagSeguro\Domains\PaymentMethod\Accepted
      */
     public function group($group)
@@ -65,7 +65,7 @@ class Accepted
     }
 
     /**
-     * @param $name
+     * @param  $name
      * @return \PagSeguro\Domains\PaymentMethod\Accepted
      */
     public function name($name)

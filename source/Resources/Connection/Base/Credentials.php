@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Connection\Base;
 
 /**
  * Class Credentials
+ *
  * @package PagSeguro\Services\Connection\Base
  */
 trait Credentials
@@ -45,7 +45,7 @@ trait Credentials
     }
 
     /**
-     * @param \PagSeguro\Domains\Account\Credentials $credentials
+     * @param  \PagSeguro\Domains\Account\Credentials $credentials
      * @return Credentials
      */
     public function setCredentials(\PagSeguro\Domains\Account\Credentials $credentials)

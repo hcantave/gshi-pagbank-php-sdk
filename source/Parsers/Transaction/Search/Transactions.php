@@ -4,6 +4,7 @@ namespace PagSeguro\Parsers\Transaction\Search;
 
 /**
  * Class Transactions
+ *
  * @package PagSeguro\Parsers\Transaction\Search
  */
 abstract class Transactions

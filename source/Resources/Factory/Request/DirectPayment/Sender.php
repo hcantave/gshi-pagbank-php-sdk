@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Factory\Request\DirectPayment;
@@ -31,6 +30,7 @@ use PagSeguro\Enum\Properties\Current;
 
 /**
  * Class Sender from Direct Payment
+ *
  * @package PagSeguro\Resources\Factory\Request\DirectPayment
  */
 class Sender
@@ -50,7 +50,7 @@ class Sender
     }
 
     /**
-     * @param \PagSeguro\Domains\DirectPayment\Sender $sender
+     * @param  \PagSeguro\Domains\DirectPayment\Sender $sender
      * @return \PagSeguro\Domains\DirectPayment\Sender
      */
     public function instance(\PagSeguro\Domains\DirectPayment\Sender $sender)
@@ -59,8 +59,7 @@ class Sender
     }
 
     /**
-     * @param $array
-     * @return Shipping
+     * @param $array * @return Shipping
      */
     public function withArray($array)
     {
@@ -73,11 +72,11 @@ class Sender
     }
 
     /**
-     * @param $name
-     * @param $email
-     * @param Phone $phone
-     * @param Document $document
-     * @param $ip
+     * @param  $name
+     * @param  $email
+     * @param  Phone    $phone
+     * @param  Document $document
+     * @param  $ip
      * @return \PagSeguro\Domains\DirectPayment\Sender
      */
     public function withParameters(

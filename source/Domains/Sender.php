@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains;
 
 /**
  * Class Sender
+ *
  * @package PagSeguro\Domains
  */
 class Sender
@@ -65,7 +65,7 @@ class Sender
     }
 
     /**
-     * @param string $name
+     * @param  string $name
      * @return Sender
      */
     public function setName($name)
@@ -83,7 +83,7 @@ class Sender
     }
 
     /**
-     * @param string $email
+     * @param  string $email
      * @return Sender
      */
     public function setEmail($email)
@@ -101,7 +101,7 @@ class Sender
     }
 
     /**
-     * @param Phone $phone
+     * @param  Phone $phone
      * @return Sender
      */
     public function setPhone(Phone $phone)
@@ -119,7 +119,7 @@ class Sender
     }
 
     /**
-     * @param Document $document
+     * @param  Document $document
      * @return $this
      */
     public function setDocuments(Document $document)
@@ -130,6 +130,7 @@ class Sender
 
     /***
      * Add a document for Sender object
+     *
      * @param String $type
      * @param String $value
      */

@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains;
 
 /**
  * Class Notification
+ *
  * @package PagSeguro\Domains
  */
 class Notification
@@ -50,7 +50,7 @@ class Notification
 
 
     /**
-     * @param $code
+     * @param  $code
      * @return $this
      */
     public function setCode($code)
@@ -68,7 +68,7 @@ class Notification
     }
 
     /**
-     * @param $type
+     * @param  $type
      * @return $this
      */
     public function setType($type)

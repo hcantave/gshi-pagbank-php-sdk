@@ -19,19 +19,19 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Connection\Base\DirectPreApproval;
 
 /**
  * Class EditPlan
+ *
  * @package PagSeguro\Services\Connection\Base
  */
 trait EditPlan
 {
     /**
-     * @param $preApprovalRequestCode
+     * @param  $preApprovalRequestCode
      * @return string
      */
     public function buildDirectPreApprovalEditPlanRequestUrl($preApprovalRequestCode)

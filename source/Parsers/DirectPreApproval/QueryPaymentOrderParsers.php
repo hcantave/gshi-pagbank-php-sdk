@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers\DirectPreApproval;
@@ -31,12 +30,13 @@ use PagSeguro\Resources\Http;
 
 /**
  * Class QueryPaymentOrderParsers
+ *
  * @package PagSeguro\Parsers\DirectPreApproval
  */
 class QueryPaymentOrderParsers extends Error implements Parser
 {
     /**
-     * @param QueryPaymentOrder $queryPaymentOrder
+     * @param  QueryPaymentOrder $queryPaymentOrder
      * @return mixed
      */
     public static function getPreApprovalCode(QueryPaymentOrder $queryPaymentOrder)
@@ -46,7 +46,7 @@ class QueryPaymentOrderParsers extends Error implements Parser
     }
 
     /**
-     * @param QueryPaymentOrder $queryPaymentOrder
+     * @param  QueryPaymentOrder $queryPaymentOrder
      * @return string
      */
     public static function getData(QueryPaymentOrder $queryPaymentOrder)
@@ -57,7 +57,7 @@ class QueryPaymentOrderParsers extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
@@ -67,7 +67,7 @@ class QueryPaymentOrderParsers extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

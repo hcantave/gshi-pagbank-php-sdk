@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\Requests;
@@ -28,7 +27,6 @@ use PagSeguro\Helpers\InitializeObject;
 
 /**
  * Description of Parameter
- *
  */
 trait Parameter
 {

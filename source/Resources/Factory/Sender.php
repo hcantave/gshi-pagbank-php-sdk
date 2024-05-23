@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Factory;
@@ -30,6 +29,7 @@ use PagSeguro\Enum\Properties\Current;
 
 /**
  * Class Shipping
+ *
  * @package PagSeguro\Resources\Factory\Request
  */
 class Sender
@@ -49,7 +49,7 @@ class Sender
     }
 
     /**
-     * @param \PagSeguro\Domains\Sender $sender
+     * @param  \PagSeguro\Domains\Sender $sender
      * @return \PagSeguro\Domains\Sender
      */
     public function instance(\PagSeguro\Domains\Sender $sender)
@@ -58,7 +58,7 @@ class Sender
     }
 
     /**
-     * @param $array
+     * @param  $array
      * @return \PagSeguro\Domains\Sender
      */
     public function withArray($array)
@@ -71,10 +71,10 @@ class Sender
     }
 
     /**
-     * @param $name
-     * @param $email
-     * @param Phone $phone
-     * @param Document $document
+     * @param  $name
+     * @param  $email
+     * @param  Phone    $phone
+     * @param  Document $document
      * @return \PagSeguro\Domains\Sender
      */
     public function withParameters(

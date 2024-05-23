@@ -10,6 +10,7 @@ namespace PagSeguro\Parsers\Transaction\Search\Abandoned;
 
 /**
  * Class Response
+ *
  * @package PagSeguro\Parsers\Transaction\Search\Abandoned
  */
 class Response

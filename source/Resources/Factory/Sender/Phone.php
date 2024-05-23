@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Factory\Sender;
@@ -29,6 +28,7 @@ use PagSeguro\Enum\Properties\Current;
 
 /**
  * Class Document
+ *
  * @package PagSeguro\Resources\Factory
  */
 class Phone
@@ -36,16 +36,16 @@ class Phone
 
     /**
      * Phone constructor.
-     * @param $sender
-     * @param Sender $sender
+     *
+     * @param $sender * @param Sender $sender
      */
     public function __construct(private $sender)
     {
+    
     }
 
     /**
-     * @param \PagSeguro\Domains\Phone $phone
-     * @return Sender
+     * @param \PagSeguro\Domains\Phone $phone * @return Sender
      */
     public function instance(\PagSeguro\Domains\Phone $phone)
     {
@@ -54,8 +54,7 @@ class Phone
     }
 
     /**
-     * @param $array
-     * @return Sender
+     * @param $array * @return Sender
      */
     public function withArray($array)
     {
@@ -70,8 +69,7 @@ class Phone
 
     /**
      * @param $areaCode
-     * @param $number
-     * @return Sender
+     * @param $number   * @return Sender
      */
     public function withParameters($areaCode, $number)
     {

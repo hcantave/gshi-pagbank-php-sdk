@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Enum;
@@ -27,6 +26,7 @@ namespace PagSeguro\Enum;
 use ReflectionClass;
 /**
  * Class BaseEnum
+ *
  * @package PagSeguro\Enum
  */
 abstract class BaseEnum
@@ -54,8 +54,8 @@ abstract class BaseEnum
     }
 
     /**
-     * @param $name
-     * @param bool $strict
+     * @param  $name
+     * @param  bool $strict
      * @return bool
      */
     public static function isValidName($name, $strict = false)
@@ -71,8 +71,8 @@ abstract class BaseEnum
     }
 
     /**
-     * @param $value
-     * @param bool $strict
+     * @param  $value
+     * @param  bool $strict
      * @return bool
      */
     public static function isValidValue($value, $strict = true)

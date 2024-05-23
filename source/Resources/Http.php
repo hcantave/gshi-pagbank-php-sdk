@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources;
@@ -50,8 +49,8 @@ class Http
      *
      * @param string $contentType
      *
-     * @param null $accept
-     *
+     * @param null   $accept
+     * 
      * @throws Exception
      */
     public function __construct($contentType = null, $accept = null)
@@ -100,10 +99,10 @@ class Http
     }
 
     /**
-     * @param              $url
+     * @param $url
      * @param array|string $data
-     * @param int $timeout
-     * @param string $charset
+     * @param int          $timeout
+     * @param string       $charset
      *
      * @return bool
      * @throws Exception
@@ -114,10 +113,10 @@ class Http
     }
 
     /**
-     * @param              $method
-     * @param              $url
-     * @param              $timeout
-     * @param              $charset
+     * @param $method
+     * @param $url
+     * @param $timeout
+     * @param $charset
      * @param array|string $data
      *
      * @return bool
@@ -135,8 +134,8 @@ class Http
             }
             $contentLength = "Content-length: " . strlen($postFields);
             $methodOptions = [
-                CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => $postFields,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $postFields,
             ];
         } elseif (strtoupper($method) === 'PUT') {
             if ($this->contentType === 'Content-Type: application/json;') {
@@ -146,13 +145,13 @@ class Http
             }
             $contentLength = "Content-length: " . strlen($postFields);
             $methodOptions = [
-                CURLOPT_CUSTOMREQUEST => 'PUT',
-                CURLOPT_POSTFIELDS => $postFields,
+            CURLOPT_CUSTOMREQUEST => 'PUT',
+            CURLOPT_POSTFIELDS => $postFields,
             ];
         } else {
             $contentLength = null;
             $methodOptions = [
-                CURLOPT_HTTPGET => true,
+            CURLOPT_HTTPGET => true,
             ];
         }
 
@@ -180,8 +179,10 @@ class Http
         if (!is_null(Library::cmsVersion()->getRelease())) {
             array_push(
                 $options[CURLOPT_HTTPHEADER],
-                sprintf('cms-description: %s :%s', Library::cmsVersion()->getName(),
-                    Library::cmsVersion()->getRelease())
+                sprintf(
+                    'cms-description: %s :%s', Library::cmsVersion()->getName(),
+                    Library::cmsVersion()->getRelease()
+                )
             );
         }
 
@@ -211,10 +212,10 @@ class Http
     private function setHeader($charset, $contentLength)
     {
         $httpHeader = [
-            "$this->contentType charset= $charset",
-            $contentLength,
-            'lib-description: php:' . Library::libraryVersion(),
-            'language-engine-description: php:' . Library::phpVersion(),
+        "$this->contentType charset= $charset",
+        $contentLength,
+        'lib-description: php:' . Library::libraryVersion(),
+        'language-engine-description: php:' . Library::phpVersion(),
         ];
         if ($this->accept) {
             $httpHeader[] = $this->accept;
@@ -224,9 +225,9 @@ class Http
     }
 
     /**
-     * @param        $url
-     * @param        $data
-     * @param int $timeout
+     * @param $url
+     * @param $data
+     * @param int    $timeout
      * @param string $charset
      *
      * @return bool
@@ -238,8 +239,8 @@ class Http
     }
 
     /**
-     * @param        $url
-     * @param int $timeout
+     * @param $url
+     * @param int    $timeout
      * @param string $charset
      *
      * @return bool

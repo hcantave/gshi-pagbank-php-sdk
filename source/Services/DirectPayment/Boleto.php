@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\DirectPayment;
@@ -37,21 +36,23 @@ use PagSeguro\Parsers\DirectPayment\Boleto\Request;
 
 /**
  * Class Payment
+ *
  * @package PagSeguro\Services\DirectPayment
  */
 class Boleto
 {
     /**
-     * @param Credentials $credentials
-     * @param \PagSeguro\Domains\Requests\DirectPayment\Boleto $payment
+     * 
+     * 
+     * @param  Credentials                                      $credentials
+     * @param  \PagSeguro\Domains\Requests\DirectPayment\Boleto $payment
      * @return string
      * @throws Exception
      */
     public static function checkout(
         Credentials $credentials,
         \PagSeguro\Domains\Requests\DirectPayment\Boleto $payment
-    )
-    {
+    ) {
         Logger::info("Begin", ['service' => 'DirectPayment.Boleto']);
         try {
             $connection = new Data($credentials);
@@ -93,7 +94,7 @@ class Boleto
     }
 
     /**
-     * @param Connection\Data $connection
+     * @param  Connection\Data $connection
      * @return string
      */
     private static function request(Data $connection)

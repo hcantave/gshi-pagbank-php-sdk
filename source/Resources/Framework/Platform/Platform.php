@@ -19,19 +19,19 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Framework\Platform;
 
 /**
  * Interface Platform
+ *
  * @package PagSeguro\Resources\Framework\Platform
  */
 interface Platform
 {
     /**
-     * @param $name
+     * @param  $name
      * @return string
      */
     public function setName($name);
@@ -42,7 +42,7 @@ interface Platform
     public function getName();
 
     /**
-     * @param $release
+     * @param  $release
      * @return string
      */
     public function setRelease($release);

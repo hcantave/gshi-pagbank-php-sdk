@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Connection;
@@ -48,6 +47,7 @@ use PagSeguro\Domains\Account\Credentials;
 
 /**
  * Class Data
+ *
  * @package PagSeguro\Services\Connection
  */
 class Data
@@ -92,6 +92,7 @@ class Data
 
     /**
      * Data constructor.
+     *
      * @param Credentials $credentials
      */
     public function __construct(Credentials $credentials)
@@ -100,7 +101,7 @@ class Data
     }
 
     /**
-     * @param $data
+     * @param  $data
      * @return string
      */
     public function buildHttpUrl($data)

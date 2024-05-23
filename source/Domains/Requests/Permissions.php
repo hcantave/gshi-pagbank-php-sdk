@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\Requests;
 
 /**
  * Class Permissions
+ *
  * @package PagSeguro\Domains\Requests
  */
 trait Permissions
@@ -36,7 +36,7 @@ trait Permissions
     private $permissions = null;
 
     /**
-     * @param $permission
+     * @param  $permission
      * @return $this
      */
     public function addPermission($permission)

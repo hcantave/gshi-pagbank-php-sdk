@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Framework\Platform;
 
 /**
  * Class Factory
+ *
  * @package PagSeguro\Resources\Framework\Platform
  */
 class Factory
@@ -40,7 +40,7 @@ class Factory
     private $release;
 
     /**
-     * @param $name
+     * @param  $name
      * @return $this
      */
     public function setName($name)
@@ -58,7 +58,7 @@ class Factory
     }
 
     /**
-     * @param $release
+     * @param  $release
      * @return $this
      */
     public function setRelease($release)

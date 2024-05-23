@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Helpers;
 
 /**
  * Class Xhr
+ *
  * @package PagSeguro\Helpers
  */
 class Xhr
@@ -33,6 +33,7 @@ class Xhr
 
     /**
      * Validate if the request is a POST http method
+     *
      * @return bool
      */
     public static function hasPost()
@@ -44,6 +45,7 @@ class Xhr
 
     /**
      * Validate if the request is a GET http method
+     *
      * @return bool
      */
     public static function hasGet()
@@ -55,6 +57,7 @@ class Xhr
 
     /**
      * Get input code post value
+     *
      * @return integer|null
      */
     public static function getInputCode()
@@ -65,6 +68,7 @@ class Xhr
 
     /**
      * Get input type post value
+     *
      * @return string|null
      */
     public static function getInputType()
@@ -75,7 +79,8 @@ class Xhr
 
     /**
      * Validate if the input is set.
-     * @param $input
+     *
+     * @param  $input
      * @return bool
      */
     private static function validate($input)

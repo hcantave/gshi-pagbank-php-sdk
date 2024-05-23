@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Factory;
@@ -28,6 +27,7 @@ use PagSeguro\Enum\Properties\Current;
 
 /**
  * Class Phone
+ *
  * @package PagSeguro\Resources\Factory
  */
 class Phone
@@ -46,7 +46,7 @@ class Phone
     }
 
     /**
-     * @param \PagSeguro\Domains\Phone $phone
+     * @param  \PagSeguro\Domains\Phone $phone
      * @return \PagSeguro\Domains\Phone
      */
     public function instance(\PagSeguro\Domains\Phone $phone)
@@ -65,8 +65,8 @@ class Phone
     }
 
     /**
-     * @param $areaCode
-     * @param $number
+     * @param  $areaCode
+     * @param  $number
      * @return \PagSeguro\Domains\Phone
      */
     public function withParameters($areaCode, $number)

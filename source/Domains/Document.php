@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains;
 
 /**
  * Class Document
+ *
  * @package PagSeguro\Domains
  */
 class Document
@@ -45,8 +45,8 @@ class Document
          * @var
          */
         private $identifier = null
-    )
-    {
+    ) {
+    
     }
 
     /**
@@ -58,7 +58,7 @@ class Document
     }
 
     /**
-     * @param string $identifier
+     * @param  string $identifier
      * @return Document
      */
     public function setIdentifier($identifier)

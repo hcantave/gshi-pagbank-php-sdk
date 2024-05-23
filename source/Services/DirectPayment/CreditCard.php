@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\DirectPayment;
@@ -38,21 +37,23 @@ use PagSeguro\Resources\Responsibility;
 
 /**
  * Class Payment
+ *
  * @package PagSeguro\Services\DirectPayment
  */
 class CreditCard
 {
     /**
-     * @param Credentials $credentials
-     * @param OnlineDebit $payment
+     * 
+     * 
+     * @param  Credentials $credentials
+     * @param  OnlineDebit $payment
      * @return string
      * @throws Exception
      */
     public static function checkout(
         Credentials $credentials,
         \PagSeguro\Domains\Requests\DirectPayment\CreditCard $payment
-    )
-    {
+    ) {
         Logger::info("Begin", ['service' => 'DirectPayment.CreditCard']);
         try {
             $connection = new Data($credentials);
@@ -90,7 +91,7 @@ class CreditCard
     }
 
     /**
-     * @param Connection\Data $connection
+     * @param  Connection\Data $connection
      * @return string
      */
     private static function request(Data $connection)

@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers\Authorization\Notification;
@@ -31,12 +30,13 @@ use PagSeguro\Resources\Http;
 
 /**
  * Class Request
+ *
  * @package PagSeguro\Parsers\Authorization\Notification
  */
 class Request extends Error implements Parser
 {
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed|Response
      */
     public static function success(Http $http)
@@ -53,7 +53,7 @@ class Request extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

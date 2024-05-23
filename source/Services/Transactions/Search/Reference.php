@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\Transactions\Search;
@@ -37,17 +36,20 @@ use PagSeguro\Resources\Responsibility;
 
 /**
  * Class Payment
+ *
  * @package PagSeguro\Services\Checkout
  */
 class Reference
 {
     /**
-     * @param Credentials $credentials
-     * @param $reference
-     * @param $initial
-     * @param $final
-     * @param $max
-     * @param $page
+     * 
+     * 
+     * @param  Credentials $credentials
+     * @param  $reference
+     * @param  $initial
+     * @param  $final
+     * @param  $max
+     * @param  $page
      * @return string
      * @throws Exception
      */
@@ -55,8 +57,7 @@ class Reference
         Credentials $credentials,
         $reference,
         array $options
-    )
-    {
+    ) {
         Logger::info("Begin", ['service' => 'Transactions.Search.Reference']);
         try {
             $connection = new Data($credentials);
@@ -96,9 +97,9 @@ class Reference
     }
 
     /**
-     * @param Connection\Data $connection
-     * @param $reference
-     * @param $params
+     * @param  Connection\Data $connection
+     * @param  $reference
+     * @param  $params
      * @return string
      */
     private static function request(Data $connection, $reference, $params)
@@ -111,7 +112,7 @@ class Reference
             sprintf("&%s=%s", Current::SEARCH_INITIAL_DATE, $params["initial_date"]),
             !isset($params["final_date"]) ? '' : sprintf("&%s=%s", Current::SEARCH_FINAL_DATE, $params["final_date"]),
             !isset($params["max_per_page"]) ? '' :
-                sprintf("&%s=%s", Current::SEARCH_MAX_RESULTS_PER_PAGE, $params["max_per_page"]),
+            sprintf("&%s=%s", Current::SEARCH_MAX_RESULTS_PER_PAGE, $params["max_per_page"]),
             !isset($params["page"]) ? '' : sprintf("&%s=%s", Current::SEARCH_PAGE, $params["page"])
         );
     }

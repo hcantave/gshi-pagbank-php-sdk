@@ -19,19 +19,19 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers\DirectPayment\OnlineDebit;
 
 /**
  * Trait Method
+ *
  * @package PagSeguro\Parsers\DirectPayment\OnlineDebit
  */
 trait Method
 {
     /**
-     * @param $properties
+     * @param  $properties
      * @return array
      */
     public static function getData($properties)

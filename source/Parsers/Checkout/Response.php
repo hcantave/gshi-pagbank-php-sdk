@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers\Checkout;
@@ -27,6 +26,7 @@ namespace PagSeguro\Parsers\Checkout;
 use DateTime;
 /**
  * Class Response
+ *
  * @package PagSeguro\Parsers\Checkout
  */
 class Response
@@ -50,7 +50,7 @@ class Response
     }
 
     /**
-     * @param string $code
+     * @param  string $code
      * @return Response
      */
     public function setCode($code)
@@ -60,6 +60,8 @@ class Response
     }
 
     /**
+     * 
+     * 
      * @return DateTime
      */
     public function getDate()
@@ -68,7 +70,9 @@ class Response
     }
 
     /**
-     * @param DateTime $date
+     * 
+     * 
+     * @param  DateTime $date
      * @return Response
      */
     public function setDate($date)

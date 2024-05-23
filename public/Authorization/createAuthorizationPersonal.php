@@ -29,7 +29,6 @@ use PagSeguro\Configuration\Configure;
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 require_once "../../vendor/autoload.php";
@@ -59,14 +58,17 @@ $person = new Personal(
     new DateTime('10-10-1990'),
     new Document('CPF', '00000000000'),
     new Phone('00', '000000000', PhoneEnum::MOBILE),
-    new Address('Rua Um',
+    new Address(
+        'Rua Um',
         '1',
         'Sem complemento',
         'Bairro',
         '00000000',
         'Cidade',
         'UF',
-        'BRA'));
+        'BRA'
+    )
+);
 
 /**
  * Com o método a seguir é possível especificar outros telefones

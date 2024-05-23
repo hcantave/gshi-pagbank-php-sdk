@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers\DirectPreApproval;
@@ -31,12 +30,13 @@ use PagSeguro\Resources\Http;
 
 /**
  * Class QueryParsers
+ *
  * @package PagSeguro\Parsers\DirectPreApproval
  */
 class QueryParsers extends Error implements Parser
 {
     /**
-     * @param Query $directPreApproval
+     * @param  Query $directPreApproval
      * @return string
      */
     public static function getData(Query $directPreApproval)
@@ -45,7 +45,7 @@ class QueryParsers extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
@@ -55,7 +55,7 @@ class QueryParsers extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

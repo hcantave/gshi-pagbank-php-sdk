@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\Authorization;
@@ -38,6 +37,8 @@ use PagSeguro\Domains\Phone;
 class SellerService
 {
     /**
+     * 
+     * 
      * @var DOMDocument
      */
     private $dom;
@@ -60,6 +61,8 @@ class SellerService
     }
 
     /**
+     * 
+     * 
      * @return DOMNode
      */
     private function makeAuthorizationNode()
@@ -83,8 +86,10 @@ class SellerService
         $redirectURLElement = $this->dom->createElement('redirectURL', $this->authorization->getRedirectURL());
         $authorizationRequestDom->appendChild($redirectURLElement);
 
-        $notificationURLElement = $this->dom->createElement('notificationURL',
-            $this->authorization->getNotificationURL());
+        $notificationURLElement = $this->dom->createElement(
+            'notificationURL',
+            $this->authorization->getNotificationURL()
+        );
         $authorizationRequestDom->appendChild($notificationURLElement);
 
         $accountElement = $this->dom->createElement('account');
@@ -94,8 +99,10 @@ class SellerService
     }
 
     /**
+     * 
+     * 
      * @param DOMNode $accountDom
-     *
+     * 
      * @return DOMNode
      */
     private function makeAccountNode(DOMNode $accountDom)
@@ -110,8 +117,10 @@ class SellerService
     }
 
     /**
+     * 
+     * 
      * @param DOMNode $accountDom
-     *
+     * 
      * @return DOMNode
      */
     private function makePersonNode(DOMNode $accountDom)
@@ -122,14 +131,18 @@ class SellerService
         $nameElement = $this->dom->createElement('name', $this->authorization->getAccount()->getSeller()->getName());
         $personDom->appendChild($nameElement);
 
-        $birthDateElement = $this->dom->createElement('birthDate',
-            $this->authorization->getAccount()->getSeller()->getBirthDate());
+        $birthDateElement = $this->dom->createElement(
+            'birthDate',
+            $this->authorization->getAccount()->getSeller()->getBirthDate()
+        );
         $personDom->appendChild($birthDateElement);
 
         return $personDom;
     }
 
     /**
+     * 
+     * 
      * @param DOMNode $personDom
      */
     private function makePhonesNode(DOMNode $personDom): void
@@ -157,6 +170,8 @@ class SellerService
     }
 
     /**
+     * 
+     * 
      * @param DOMNode $personDom
      */
     private function makeDocumentsNode(DOMNode $personDom): void
@@ -181,6 +196,8 @@ class SellerService
     }
 
     /**
+     * 
+     * 
      * @param DOMNode $personDom
      */
     private function makeAddressNode(DOMNode $personDom): void
@@ -188,36 +205,52 @@ class SellerService
         $addressElement = $this->dom->createElement('address');
         $addressDom = $personDom->appendChild($addressElement);
 
-        $postalCodeElement = $this->dom->createElement('postalCode',
-            $this->authorization->getAccount()->getSeller()->getAddress()->getPostalCode());
+        $postalCodeElement = $this->dom->createElement(
+            'postalCode',
+            $this->authorization->getAccount()->getSeller()->getAddress()->getPostalCode()
+        );
         $addressDom->appendChild($postalCodeElement);
 
-        $streetElement = $this->dom->createElement('street',
-            $this->authorization->getAccount()->getSeller()->getAddress()->getStreet());
+        $streetElement = $this->dom->createElement(
+            'street',
+            $this->authorization->getAccount()->getSeller()->getAddress()->getStreet()
+        );
         $addressDom->appendChild($streetElement);
 
-        $numberElement = $this->dom->createElement('number',
-            $this->authorization->getAccount()->getSeller()->getAddress()->getNumber());
+        $numberElement = $this->dom->createElement(
+            'number',
+            $this->authorization->getAccount()->getSeller()->getAddress()->getNumber()
+        );
         $addressDom->appendChild($numberElement);
 
-        $complementElement = $this->dom->createElement('complement',
-            $this->authorization->getAccount()->getSeller()->getAddress()->getComplement());
+        $complementElement = $this->dom->createElement(
+            'complement',
+            $this->authorization->getAccount()->getSeller()->getAddress()->getComplement()
+        );
         $addressDom->appendChild($complementElement);
 
-        $districtElement = $this->dom->createElement('district',
-            $this->authorization->getAccount()->getSeller()->getAddress()->getDistrict());
+        $districtElement = $this->dom->createElement(
+            'district',
+            $this->authorization->getAccount()->getSeller()->getAddress()->getDistrict()
+        );
         $addressDom->appendChild($districtElement);
 
-        $cityElement = $this->dom->createElement('city',
-            $this->authorization->getAccount()->getSeller()->getAddress()->getCity());
+        $cityElement = $this->dom->createElement(
+            'city',
+            $this->authorization->getAccount()->getSeller()->getAddress()->getCity()
+        );
         $addressDom->appendChild($cityElement);
 
-        $stateElement = $this->dom->createElement('state',
-            $this->authorization->getAccount()->getSeller()->getAddress()->getState());
+        $stateElement = $this->dom->createElement(
+            'state',
+            $this->authorization->getAccount()->getSeller()->getAddress()->getState()
+        );
         $addressDom->appendChild($stateElement);
 
-        $countryElement = $this->dom->createElement('country',
-            $this->authorization->getAccount()->getSeller()->getAddress()->getCountry());
+        $countryElement = $this->dom->createElement(
+            'country',
+            $this->authorization->getAccount()->getSeller()->getAddress()->getCountry()
+        );
         $addressDom->appendChild($countryElement);
     }
 

@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Enum;
@@ -27,6 +26,7 @@ namespace PagSeguro\Enum;
 use ReflectionClass;
 /**
  * Class Enum
+ *
  * @package PagSeguro\Enum
  */
 class Enum extends BaseEnum
@@ -41,7 +41,7 @@ class Enum extends BaseEnum
     }
 
     /**
-     * @param $key
+     * @param  $key
      * @return string
      */
     public static function getType($key)
@@ -55,7 +55,7 @@ class Enum extends BaseEnum
     }
 
     /**
-     * @param $value
+     * @param  $value
      * @return bool
      */
     public static function getValue($value)

@@ -20,7 +20,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers;
@@ -31,13 +30,14 @@ use PagSeguro\Helpers\StringFormat;
 
 /**
  * Trait Metadata
+ *
  * @package PagSeguro\Parsers
  */
 trait Metadata
 {
     /**
-     * @param Requests $request
-     * @param $properties
+     * @param  Requests $request
+     * @param  $properties
      * @return array
      */
     public static function getData(Requests $request, $properties)
@@ -70,8 +70,9 @@ trait Metadata
     /**
      * Format the $value to fit the limit of 100 characters and according
      * with the $key value, if it needs an special format
-     * @param string $key
-     * @param string $value
+     *
+     * @param  string $key
+     * @param  string $value
      * @return string
      */
     private static function formatKeyValue($key, $value)
@@ -83,12 +84,14 @@ trait Metadata
             self::getKeyByDescription('Tempo no jogo em dias') => StringFormat::getOnlyNumbers($value),
             self::getKeyByDescription('Celular de recarga') => StringFormat::getOnlyNumbers($value),
             default => $value,
+        
         };
     }
 
     /**
      * Gets item key type by description
-     * @param string $itemDescription
+     *
+     * @param  string $itemDescription
      * @return string
      */
     public static function getKeyByDescription($itemDescription)

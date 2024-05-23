@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains;
@@ -29,11 +28,13 @@ class Shipping
 
     /***
      * Shipping address
+     *
      * @see Address
      */
     private $address;
     /***
      * Shipping type. See the ShippingType class for a list of known shipping types.
+     *
      * @see ShippingType
      */
     private $type;
@@ -55,7 +56,7 @@ class Shipping
     }
 
     /**
-     * @param Address $address
+     * @param  Address $address
      * @return Shipping
      */
     public function setAddress($address)
@@ -73,7 +74,7 @@ class Shipping
     }
 
     /**
-     * @param string $cost
+     * @param  string $cost
      * @return Shipping
      */
     public function setCost($cost)
@@ -91,7 +92,7 @@ class Shipping
     }
 
     /**
-     * @param ShippingType $type
+     * @param  ShippingType $type
      * @return Shipping
      */
     public function setType($type)
@@ -109,7 +110,7 @@ class Shipping
     }
 
     /**
-     * @param ShippingAddressRequired $addressRequired
+     * @param  ShippingAddressRequired $addressRequired
      * @return Shipping
      */
     public function setAddressRequired($addressRequired)

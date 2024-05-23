@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\Application\Search;
@@ -37,14 +36,17 @@ use PagSeguro\Resources\Responsibility;
 
 /**
  * Class Payment
+ *
  * @package PagSeguro\Services\Checkout
  */
 class Date
 {
 
     /**
-     * @param Credentials $credentials
-     * @param $options
+     * 
+     * 
+     * @param  Credentials $credentials
+     * @param  $options
      * @return string
      * @throws Exception
      */
@@ -91,8 +93,8 @@ class Date
     }
 
     /**
-     * @param Connection\Data $connection
-     * @param $params
+     * @param  Connection\Data $connection
+     * @param  $params
      * @return string
      */
     private static function request(Data $connection, $params)
@@ -104,7 +106,7 @@ class Date
             sprintf("&%s=%s", Current::SEARCH_INITIAL_DATE, $params["initial_date"]),
             !isset($params["final_date"]) ? '' : sprintf("&%s=%s", Current::SEARCH_FINAL_DATE, $params["final_date"]),
             !isset($params["max_per_page"]) ? '' :
-                sprintf("&%s=%s", Current::SEARCH_MAX_RESULTS_PER_PAGE, $params["max_per_page"]),
+            sprintf("&%s=%s", Current::SEARCH_MAX_RESULTS_PER_PAGE, $params["max_per_page"]),
             !isset($params["page"]) ? '' : sprintf("&%s=%s", Current::SEARCH_PAGE, $params["page"])
         );
     }

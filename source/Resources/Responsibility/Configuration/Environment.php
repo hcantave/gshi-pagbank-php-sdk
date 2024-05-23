@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Responsibility\Configuration;
@@ -44,8 +43,9 @@ class Environment implements Handler
      */
     public function handler($action, $class)
     {
-        if (getenv(\PagSeguro\Enum\Configuration\Environment::ENV) and
-            getenv(\PagSeguro\Enum\Configuration\Environment::EMAIL)) {
+        if (getenv(\PagSeguro\Enum\Configuration\Environment::ENV) 
+            and getenv(\PagSeguro\Enum\Configuration\Environment::EMAIL)
+        ) {
             return array_merge(
                 $this->environment(),
                 $this->credentials(),

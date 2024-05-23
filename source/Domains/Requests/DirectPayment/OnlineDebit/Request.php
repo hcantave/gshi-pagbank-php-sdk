@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\Requests\DirectPayment\OnlineDebit;
@@ -38,6 +37,7 @@ use PagSeguro\Domains\Requests\Shipping;
 
 /**
  * Class Request
+ *
  * @package PagSeguro\Domains\Requests\DirectPayment\OnlineDebit
  */
 class Request implements Requests

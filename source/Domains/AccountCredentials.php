@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains;
@@ -28,6 +27,7 @@ use PagSeguro\Domains\Account\Credentials;
 
 /**
  * Class AccountCredentials
+ *
  * @package PagSeguro\Domains
  */
 class AccountCredentials implements Credentials
@@ -44,6 +44,7 @@ class AccountCredentials implements Credentials
 
     /**
      * AccountCredentials constructor.
+     *
      * @param null|string $email
      * @param null|string $token
      */
@@ -68,7 +69,7 @@ class AccountCredentials implements Credentials
     }
 
     /**
-     * @param string $email
+     * @param  string $email
      * @return AccountCredentials
      */
     public function setEmail($email)
@@ -86,7 +87,7 @@ class AccountCredentials implements Credentials
     }
 
     /**
-     * @param string $token
+     * @param  string $token
      * @return AccountCredentials
      */
     public function setToken($token)

@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers;
@@ -29,13 +28,14 @@ use PagSeguro\Helpers\Characters;
 
 /**
  * Trait Sender
+ *
  * @package PagSeguro\Parsers
  */
 trait Sender
 {
     /**
-     * @param Requests $request
-     * @param $properties
+     * @param  Requests $request
+     * @param  $properties
      * @return array
      */
     public static function getData(Requests $request, $properties)
@@ -70,8 +70,8 @@ trait Sender
     }
 
     /**
-     * @param $request
-     * @param $properties
+     * @param  $request
+     * @param  $properties
      * @return array
      */
     private static function phone($request, $properties)
@@ -87,8 +87,8 @@ trait Sender
     }
 
     /**
-     * @param $payment
-     * @param $properties
+     * @param  $payment
+     * @param  $properties
      * @return array
      */
     private static function documents($payment, $properties)

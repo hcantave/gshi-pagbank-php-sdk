@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains;
@@ -28,6 +27,7 @@ use PagSeguro\Domains\Account\Credentials;
 
 /**
  * Class ApplicationCredentials
+ *
  * @package PagSeguro\Domains
  */
 class ApplicationCredentials implements Credentials
@@ -49,6 +49,7 @@ class ApplicationCredentials implements Credentials
 
     /**
      * ApplicationCredentials constructor.
+     *
      * @param null $appId
      * @param null $appKey
      */
@@ -73,7 +74,7 @@ class ApplicationCredentials implements Credentials
     }
 
     /**
-     * @param $appId
+     * @param  $appId
      * @return $this
      */
     public function setAppId($appId)
@@ -91,7 +92,7 @@ class ApplicationCredentials implements Credentials
     }
 
     /**
-     * @param $appKey
+     * @param  $appKey
      * @return $this
      */
     public function setAppKey($appKey)
@@ -123,9 +124,9 @@ class ApplicationCredentials implements Credentials
     public function getAttributesMap()
     {
         return [
-            'appId' => $this->getAppId(),
-            'appKey' => $this->getAppKey(),
-            'authorizationCode' => $this->getAuthorizationCode()
+        'appId' => $this->getAppId(),
+        'appKey' => $this->getAppKey(),
+        'authorizationCode' => $this->getAuthorizationCode()
         ];
     }
 

@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Log;
@@ -40,8 +39,9 @@ class Logger implements LoggerInterface
 
     /**
      * System is unusable.
-     * @param string $message
-     * @param array $context
+     *
+     * @param  string $message
+     * @param  array  $context
      * @return void|null
      * @throws Exception
      */
@@ -58,8 +58,8 @@ class Logger implements LoggerInterface
      * Example: Entire website down, database unavailable, etc. This should
      * trigger the SMS alerts and wake you up.
      *
-     * @param string $message
-     * @param array $context
+     * @param  string $message
+     * @param  array  $context
      * @return void|null
      * @throws Exception
      */
@@ -100,8 +100,9 @@ class Logger implements LoggerInterface
 
     /**
      * Normal but significant events.
-     * @param string $message
-     * @param array $context
+     *
+     * @param  string $message
+     * @param  array  $context
      * @return void|null
      * @throws Exception
      */
@@ -114,8 +115,8 @@ class Logger implements LoggerInterface
      * Interesting events.
      * Example: User logs in, SQL logs.
      *
-     * @param string $message
-     * @param array $context
+     * @param  string $message
+     * @param  array  $context
      * @return void|null
      * @throws Exception
      */
@@ -126,8 +127,9 @@ class Logger implements LoggerInterface
 
     /**
      * Detailed debug information.
-     * @param string $message
-     * @param array $context
+     *
+     * @param  string $message
+     * @param  array  $context
      * @return void|null
      * @throws Exception
      */
@@ -137,9 +139,9 @@ class Logger implements LoggerInterface
     }
 
     /**
-     * @param mixed $level
-     * @param string $message
-     * @param array $context
+     * @param  mixed  $level
+     * @param  string $message
+     * @param  array  $context
      * @return bool
      * @throws Exception
      */
@@ -159,9 +161,10 @@ class Logger implements LoggerInterface
 
     /**
      * Make a message
-     * @param $level
-     * @param $message
-     * @param array $context
+     *
+     * @param  $level
+     * @param  $message
+     * @param  array $context
      * @return string
      * @throws Exception
      */
@@ -180,6 +183,7 @@ class Logger implements LoggerInterface
 
     /**
      * Write in file
+     *
      * @param $file
      * @param $message
      */
@@ -191,6 +195,7 @@ class Logger implements LoggerInterface
 
     /**
      * Verify if the log option in configuration file is active
+     *
      * @return bool
      */
     private static function active()
@@ -200,6 +205,7 @@ class Logger implements LoggerInterface
 
     /**
      * Verify if has a location in configuration file
+     *
      * @return string
      */
     private static function location()

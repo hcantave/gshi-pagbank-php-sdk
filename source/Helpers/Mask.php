@@ -19,20 +19,20 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Helpers;
 
 /**
  * Class Mask
+ *
  * @package PagSeguro\Helpers
  */
 class Mask
 {
     /**
-     * @param $subject
-     * @param array $options
+     * @param  $subject
+     * @param  array $options
      * @return bool|string
      */
     public static function cpf($subject, array $options)
@@ -43,8 +43,8 @@ class Mask
     }
 
     /**
-     * @param $subject
-     * @param array $options
+     * @param  $subject
+     * @param  array $options
      * @return bool|string
      */
     public static function rg($subject, array $options)
@@ -55,8 +55,8 @@ class Mask
     }
 
     /**
-     * @param $subject
-     * @param array $options
+     * @param  $subject
+     * @param  array $options
      * @return bool|string
      */
     public static function birthDate($subject, array $options)
@@ -79,8 +79,8 @@ class Mask
     }
 
     /**
-     * @param $subject
-     * @param array $options
+     * @param  $subject
+     * @param  array $options
      * @return bool|string
      */
     public static function mobile($subject, array $options)
@@ -97,8 +97,8 @@ class Mask
     }
 
     /**
-     * @param $subject
-     * @param array $options
+     * @param  $subject
+     * @param  array $options
      * @return bool|string
      */
     private static function telephone($subject, array $options)
@@ -115,25 +115,26 @@ class Mask
     }
 
     /**
-     * @param $type
+     * @param  $type
      * @return bool
      */
     private static function isValidType($type)
     {
         if (\PagSeguro\Enum\Mask::isValidName(
             \PagSeguro\Enum\Mask::getType($type)
-        )) {
+        )
+        ) {
             return true;
         }
         return false;
     }
 
     /**
-     * @param $subject
-     * @param $rule
-     * @param $pattern
-     * @param $mask
-     * @param array $options
+     * @param  $subject
+     * @param  $rule
+     * @param  $pattern
+     * @param  $mask
+     * @param  array $options
      * @return bool|string
      */
     private static function toHash($subject, $rule, $pattern, $mask, $options = ["prefix" => false])
@@ -149,8 +150,8 @@ class Mask
     }
 
     /**
-     * @param $value
-     * @param $mask
+     * @param  $value
+     * @param  $mask
      * @return string
      */
     private static function mask($value, $mask)

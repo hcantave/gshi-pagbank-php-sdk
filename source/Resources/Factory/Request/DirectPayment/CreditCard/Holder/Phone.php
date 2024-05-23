@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Factory\Request\DirectPayment\CreditCard\Holder;
@@ -29,6 +28,7 @@ use PagSeguro\Enum\Properties\Current;
 
 /**
  * Class Document
+ *
  * @package PagSeguro\Resources\Factory
  */
 class Phone
@@ -36,16 +36,16 @@ class Phone
 
     /**
      * Phone constructor.
-     * @param $holder
-     * @param Holder $holder
+     *
+     * @param $holder * @param Holder $holder
      */
     public function __construct(private $holder)
     {
+    
     }
 
     /**
-     * @param \PagSeguro\Domains\Phone $phone
-     * @return Holder
+     * @param \PagSeguro\Domains\Phone $phone * @return Holder
      */
     public function instance(\PagSeguro\Domains\Phone $phone)
     {
@@ -54,8 +54,7 @@ class Phone
     }
 
     /**
-     * @param $array
-     * @return Holder
+     * @param $array * @return Holder
      */
     public function withArray($array)
     {
@@ -70,8 +69,7 @@ class Phone
 
     /**
      * @param $areaCode
-     * @param $number
-     * @return Holder
+     * @param $number   * @return Holder
      */
     public function withParameters($areaCode, $number)
     {

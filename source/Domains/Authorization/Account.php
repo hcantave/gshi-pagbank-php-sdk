@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\Authorization;
@@ -51,7 +50,7 @@ class Account
     /**
      * Account constructor.
      *
-     * @param string $email
+     * @param string                      $email
      * @param Seller | Company | Personal $type
      */
     public function __construct(private $email, $type)

@@ -19,20 +19,20 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\Http;
 
 /**
  * Class Status
+ *
  * @package PagSeguro\Domains\Http
  */
 class Status
 {
 
     /**
-     * @param $status
+     * @param  $status
      * @return integer
      */
     public function getStatus($status)
@@ -41,7 +41,7 @@ class Status
     }
 
     /**
-     * @param $type
+     * @param  $type
      * @return string
      */
     public function getType($type)

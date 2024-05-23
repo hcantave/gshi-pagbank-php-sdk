@@ -19,26 +19,26 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Responsibility;
 
 /**
  * interface Handler
+ *
  * @package PagSeguro\Services\Connection\Responsibility
  */
 interface Handler
 {
     /**
-     * @param $next
+     * @param  $next
      * @return mixed
      */
     public function successor($next);
 
     /**
-     * @param $action
-     * @param $class
+     * @param  $action
+     * @param  $class
      * @return mixed
      */
     public function handler($action, $class);

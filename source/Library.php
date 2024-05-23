@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro;
@@ -32,6 +31,7 @@ use PagSeguro\Resources\Framework\Module;
 
 /**
  * Class Library
+ *
  * @package PagSeguro
  */
 class Library
@@ -52,6 +52,8 @@ class Library
     private static $cms;
 
     /**
+* 
+* 
      * @throws Exception
      */
     final public static function initialize(): void

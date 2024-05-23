@@ -22,7 +22,6 @@ use PagSeguro\Configuration\Configure;
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 require_once "../../vendor/autoload.php";
@@ -37,7 +36,7 @@ Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 $code = "0B64FD7B4F9641378E9C9462982A8B95";
 
 /**
- * @var value to refund
+ * @var      value to refund
  * @optional true
  */
 $value = null;

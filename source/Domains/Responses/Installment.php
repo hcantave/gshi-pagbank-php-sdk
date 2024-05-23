@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\Responses;
@@ -56,6 +55,7 @@ class Installment
     
     /**
      * Get the cardBrand attribute
+     *
      * @return Installment
      */
     public function getCardBrand()
@@ -65,6 +65,7 @@ class Installment
 
     /**
      * Get the quantity attribute
+     *
      * @return Installment
      */
     public function getQuantity()
@@ -74,6 +75,7 @@ class Installment
 
     /**
      * Get the amount attribute
+     *
      * @return Installment
      */
     public function getAmount()
@@ -83,6 +85,7 @@ class Installment
 
     /**
      * Get the totalAmount attribute
+     *
      * @return Installment
      */
     public function getTotalAmount()
@@ -92,6 +95,7 @@ class Installment
 
     /**
      * Get the cardBrand attribute
+     *
      * @return Installment
      */
     public function getInterestFree()
@@ -101,6 +105,7 @@ class Installment
 
     /**
      * Get the cardBrand attribute
+     *
      * @return Installment
      */
     public function setCardBrand($cardBrand)
@@ -111,6 +116,7 @@ class Installment
 
     /**
      * Get the quantity attribute
+     *
      * @return Installment
      */
     public function setQuantity($quantity)
@@ -121,6 +127,7 @@ class Installment
 
     /**
      * Get the amount attribute
+     *
      * @return Installment
      */
     public function setAmount($amount)
@@ -131,6 +138,7 @@ class Installment
 
     /**
      * Get the totalAmount attribute
+     *
      * @return Installment
      */
     public function setTotalAmount($totalAmount)
@@ -141,6 +149,7 @@ class Installment
 
     /**
      * Get the setInterestFree attribute
+     *
      * @return Installment
      */
     public function setInterestFree($interestFree)

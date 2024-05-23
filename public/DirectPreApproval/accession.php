@@ -24,7 +24,6 @@ use PagSeguro\Domains\AccountCredentials;
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 require_once "../../vendor/autoload.php";
@@ -44,8 +43,10 @@ $preApproval->setReference('referência da assinatura');
 $preApproval->setSender()->setName('nome');//assinante
 $preApproval->setSender()->setEmail('email');//assinante
 $preApproval->setSender()->setIp('ip');//assinante
-$preApproval->setSender()->setAddress()->withParameters('logradouro', 'numero', 'bairro', 'cep', 'cidade', 'UF',
-    'BRA');//assinante
+$preApproval->setSender()->setAddress()->withParameters(
+    'logradouro', 'numero', 'bairro', 'cep', 'cidade', 'UF',
+    'BRA'
+);//assinante
 $document = new Document();
 $document->withParameters('CPF', 'cpf'); //assinante
 $preApproval->setSender()->setDocuments($document);
@@ -57,8 +58,10 @@ $document = new Document();
 $document->withParameters('CPF', 'cpf'); //cpf do titular do cartão de crédito
 $preApproval->setPaymentMethod()->setCreditCard()->setHolder()->setDocuments($document);
 $preApproval->setPaymentMethod()->setCreditCard()->setHolder()->setPhone()->withParameters('ddd', 'telefone'); //telefone do titular do cartão de crédito
-$preApproval->setPaymentMethod()->setCreditCard()->setHolder()->setBillingAddress()->withParameters('logradouro', 'numero',
-    'bairro', 'cep', 'cidade', 'UF', 'BRA'); //endereço do titular do cartão de crédito
+$preApproval->setPaymentMethod()->setCreditCard()->setHolder()->setBillingAddress()->withParameters(
+    'logradouro', 'numero',
+    'bairro', 'cep', 'cidade', 'UF', 'BRA'
+); //endereço do titular do cartão de crédito
 
 try {
     $response = $preApproval->register(

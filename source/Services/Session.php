@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services;
@@ -35,7 +34,6 @@ use PagSeguro\Resources\Responsibility;
 
 /**
  * The Session Service class
- *
  */
 class Session
 {
@@ -47,10 +45,12 @@ class Session
             $connection = new Data($credentials);
             $http = new Http();
             Logger::info(sprintf("POST: %s", self::request($connection)), ['service' => 'Session']);
-            $http->post(self::request($connection),
+            $http->post(
+                self::request($connection),
                 null,
                 20,
-                Configure::getCharset()->getEncoding());
+                Configure::getCharset()->getEncoding()
+            );
 
             $response = Responsibility::http(
                 $http,

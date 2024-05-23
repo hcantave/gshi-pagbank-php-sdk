@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains;
 
 /**
  * Class Error
+ *
  * @package PagSeguro\Domains
  */
 class Error
@@ -49,7 +49,7 @@ class Error
     }
 
     /**
-     * @param string $code
+     * @param  string $code
      * @return Error
      */
     public function setCode($code)
@@ -67,7 +67,7 @@ class Error
     }
 
     /**
-     * @param string $message
+     * @param  string $message
      * @return Error
      */
     public function setMessage($message)

@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\Authorization;
@@ -38,6 +37,8 @@ use PagSeguro\Domains\Phone;
 class Personal
 {
     /**
+     * 
+     * 
      * @var DateTime
      */
     private $birthDate;
@@ -53,11 +54,10 @@ class Personal
     /**
      * Person constructor.
      *
-     * @param string $name
-     * @param DateTime $birthDate
+     * @param string   $name     * @param DateTime $birthDate
      * @param Document $document
-     * @param Phone $phone
-     * @param Address $address
+     * @param Phone    $phone
+     * @param Address  $address
      */
     public function __construct(
         private $name = null,

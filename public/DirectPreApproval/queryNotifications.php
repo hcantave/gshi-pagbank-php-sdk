@@ -22,7 +22,6 @@ use PagSeguro\Domains\AccountCredentials;
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 require_once "../../vendor/autoload.php";
@@ -40,7 +39,7 @@ Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
  *
  * @param int $page
  * @param int $maxPageResults
- * @param      $interval
+ * @param $interval
  * @param null $notificationCode
  */
 $queryNotification = new QueryNotification(20, null, null, 'código da notificação');

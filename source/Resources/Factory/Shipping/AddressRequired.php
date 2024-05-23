@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Factory\Shipping;
@@ -29,6 +28,7 @@ use PagSeguro\Domains\ShippingAddressRequired;
 
 /**
  * Class Shipping
+ *
  * @package PagSeguro\Resources\Factory\Request
  */
 class AddressRequired
@@ -36,11 +36,12 @@ class AddressRequired
 
     /**
      * AddressRequired constructor.
-     * @param $shipping
-     * @param Shipping $shipping
+     *
+     * @param $shipping * @param Shipping $shipping
      */
     public function __construct(private $shipping)
     {
+    
     }
 
     public function instance(ShippingAddressRequired $addressRequired)

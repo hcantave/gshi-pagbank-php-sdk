@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\Requests;
@@ -32,7 +31,7 @@ class PreApproval extends Request
 {
 
     /**
-     * @param $credentials
+     * @param  $credentials
      * @return string
      * @throws Exception
      */

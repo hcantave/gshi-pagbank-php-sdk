@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Resources\Responsibility\Notifications;
@@ -31,6 +30,7 @@ use PagSeguro\Helpers\Xhr;
 
 /**
  * Class Application
+ *
  * @package PagSeguro\Resources\Responsibility\Notifications
  */
 class Application implements Handler
@@ -41,7 +41,7 @@ class Application implements Handler
     private $successor;
 
     /**
-     * @param $next
+     * @param  $next
      * @return $this
      */
     public function successor($next)
@@ -55,9 +55,10 @@ class Application implements Handler
      */
     public function handler()
     {
-        if (!is_null(Xhr::getInputCode()) and
-            !is_null(Xhr::getInputType()) and
-            Xhr::getInputType() == Notification::APPLICATION_AUTHORIZATION) {
+        if (!is_null(Xhr::getInputCode()) 
+            and !is_null(Xhr::getInputType()) 
+            and Xhr::getInputType() == Notification::APPLICATION_AUTHORIZATION
+        ) {
             $notification = NotificationObject::initialize();
             return $notification->getCode();
         }

@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\DirectPreApproval;
@@ -44,7 +43,7 @@ class DiscountService
 {
     /**
      * @param Credentials $credentials
-     * @param Discount $discount
+     * @param Discount    $discount
      *
      * @return mixed
      * @throws Exception
@@ -55,8 +54,10 @@ class DiscountService
         try {
             $connection = new Data($credentials);
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
-            Logger::info(sprintf("PUT: %s", self::request($connection, DiscountParser::getPreApprovalCode($discount))),
-                ['service' => 'DirectPreApproval']);
+            Logger::info(
+                sprintf("PUT: %s", self::request($connection, DiscountParser::getPreApprovalCode($discount))),
+                ['service' => 'DirectPreApproval']
+            );
             Logger::info(
                 sprintf(
                     "Params: %s",
@@ -88,7 +89,7 @@ class DiscountService
 
     /**
      * @param Connection\Data $connection
-     * @param                 $preApprovalCode
+     * @param $preApprovalCode
      *
      * @return string
      */

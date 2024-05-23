@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Services\Authorization;
@@ -36,6 +35,8 @@ use PagSeguro\Domains\Authorization;
 class DefaultAuthorizationService
 {
     /**
+     * 
+     * 
      * @var DOMDocument
      */
     private $dom;
@@ -53,6 +54,8 @@ class DefaultAuthorizationService
     }
 
     /**
+     * 
+     * 
      * @return DOMNode
      */
     private function makeAuthorizationNode()
@@ -76,8 +79,10 @@ class DefaultAuthorizationService
         $redirectURLElement = $this->dom->createElement('redirectURL', $this->authorization->getRedirectURL());
         $authorizationRequestDom->appendChild($redirectURLElement);
 
-        $notificationURLElement = $this->dom->createElement('notificationURL',
-            $this->authorization->getNotificationURL());
+        $notificationURLElement = $this->dom->createElement(
+            'notificationURL',
+            $this->authorization->getNotificationURL()
+        );
         $authorizationRequestDom->appendChild($notificationURLElement);
 
         return $authorizationRequestDom;

@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers\DirectPreApproval;
@@ -31,12 +30,13 @@ use PagSeguro\Resources\Http;
 
 /**
  * Class EditPlanParser
+ *
  * @package PagSeguro\Parsers\DirectPreApproval
  */
 class EditPlanParser extends Error implements Parser
 {
     /**
-     * @param EditPlan $editPlan
+     * @param  EditPlan $editPlan
      * @return mixed
      */
     public static function getPreApprovalRequestCode(EditPlan $editPlan)
@@ -46,7 +46,7 @@ class EditPlanParser extends Error implements Parser
     }
 
     /**
-     * @param EditPlan $editPlan
+     * @param  EditPlan $editPlan
      * @return array|EditPlan
      */
     public static function getData(EditPlan $editPlan)
@@ -57,7 +57,7 @@ class EditPlanParser extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed
      */
     public static function success(Http $http)
@@ -68,7 +68,7 @@ class EditPlanParser extends Error implements Parser
     }
 
     /**
-     * @param Http $http
+     * @param  Http $http
      * @return mixed|\PagSeguro\Domains\Error
      */
     public static function error(Http $http)

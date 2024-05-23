@@ -19,13 +19,13 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Parsers\Response;
 
 /**
  * Trait Currency
+ *
  * @package PagSeguro\Parsers\Response
  */
 trait Currency
@@ -64,7 +64,7 @@ trait Currency
     }
 
     /**
-     * @param $discountAmount
+     * @param  $discountAmount
      * @return $this
      */
     public function setDiscountAmount($discountAmount)
@@ -82,7 +82,7 @@ trait Currency
     }
 
     /**
-     * @param $escrowEndDate
+     * @param  $escrowEndDate
      * @return $this
      */
     public function setEscrowEndDate($escrowEndDate)
@@ -100,7 +100,7 @@ trait Currency
     }
 
     /**
-     * @param $extraAmount
+     * @param  $extraAmount
      * @return $this
      */
     public function setExtraAmount($extraAmount)
@@ -118,7 +118,7 @@ trait Currency
     }
 
     /**
-     * @param $extraAmount
+     * @param  $extraAmount
      * @return $this
      */
     public function setFeeAmount($feeAmount)
@@ -136,7 +136,7 @@ trait Currency
     }
 
     /**
-     * @param $grossAmount
+     * @param  $grossAmount
      * @return $this
      */
     public function setGrossAmount($grossAmount)
@@ -154,7 +154,7 @@ trait Currency
     }
 
     /**
-     * @param $netAmount
+     * @param  $netAmount
      * @return $this
      */
     public function setNetAmount($netAmount)

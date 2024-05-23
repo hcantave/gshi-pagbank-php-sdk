@@ -19,7 +19,6 @@
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
- *
  */
 
 namespace PagSeguro\Domains\Authorization;
@@ -48,12 +47,12 @@ class Company
     /**
      * Person constructor.
      *
-     * @param string $displayName
-     * @param string $websiteURL
+     * @param string   $displayName
+     * @param string   $websiteURL
      * @param Document $document
-     * @param Phone $phone
-     * @param Address $address
-     * @param Partner $partner
+     * @param Phone    $phone
+     * @param Address  $address
+     * @param Partner  $partner
      */
     public function __construct(
         private $displayName = null,

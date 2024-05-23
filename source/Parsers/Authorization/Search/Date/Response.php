@@ -10,6 +10,7 @@ namespace PagSeguro\Parsers\Authorization\Search\Date;
 
 /**
  * Class Response
+ *
  * @package PagSeguro\Parsers\Authorization\Search\Date
  */
 class Response
@@ -117,7 +118,7 @@ class Response
 
 
     /**
-     * @param $authorizations
+     * @param  $authorizations
      * @return $this
      */
     public function setAuthorizations($authorizations)
