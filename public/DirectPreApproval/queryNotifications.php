@@ -1,7 +1,9 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Domains\Requests\DirectPreApproval\QueryNotification;
 use PagSeguro\Domains\AccountCredentials;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -54,4 +56,3 @@ try {
 } catch (Exception $e) {
     die($e->getMessage());
 }
-

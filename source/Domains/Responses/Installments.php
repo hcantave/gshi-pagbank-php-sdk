@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -43,8 +44,8 @@ class Installments
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param Installment $installments
      */
     public function setInstallments($installments): void
@@ -61,13 +62,13 @@ class Installments
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param Installment $installment
      */
     private function addInstallment($installment): void
     {
-        $response = new Installment;
+        $response = new Installment();
         $response->setCardBrand(current($installment->cardBrand))
             ->setQuantity(current($installment->quantity))
             ->setAmount(current($installment->amount))

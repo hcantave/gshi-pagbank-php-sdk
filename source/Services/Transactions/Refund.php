@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -42,10 +43,9 @@ use PagSeguro\Resources\Responsibility;
  */
 class Refund
 {
-
     /**
-     * 
-     * 
+     *
+     *
      * @param  Credentials $credentials
      * @param  Payment     $payment
      * @param  bool        $onlyCode
@@ -75,7 +75,7 @@ class Refund
 
             $response = Responsibility::http(
                 $http,
-                new Request
+                new Request()
             );
 
             Logger::info(sprintf("Result: %s", current($response)), ['service' => 'Refund']);

@@ -84,7 +84,6 @@ trait Metadata
             self::getKeyByDescription('Tempo no jogo em dias') => StringFormat::getOnlyNumbers($value),
             self::getKeyByDescription('Celular de recarga') => StringFormat::getOnlyNumbers($value),
             default => $value,
-        
         };
     }
 

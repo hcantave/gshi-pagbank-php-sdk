@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -34,7 +35,6 @@ use PagSeguro\Enum\Properties\Current;
  */
 class Sender
 {
-
     /**
      * @var \PagSeguro\Domains\Sender
      */
@@ -63,7 +63,7 @@ class Sender
      */
     public function withArray($array)
     {
-        $properties = new Current;
+        $properties = new Current();
         return $this->sender->setName($array[$properties::SENDER_NAME])
             ->setEmail($array[$properties::SENDER_EMAIL])
             ->setPhone($array["phone"])

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -39,8 +40,8 @@ use PagSeguro\Resources\Http;
 class Request extends Error implements Parser
 {
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return Response
      */
@@ -58,13 +59,13 @@ class Request extends Error implements Parser
             ->setLastEventDate(current($xml->lastEventDate))
             ->setCharge(current($xml->charge))
             ->setSender(
-                (new Sender)->setName(current($xml->sender->name))
+                (new Sender())->setName(current($xml->sender->name))
                     ->setEmail(current($xml->sender->email))
                     ->setPhone(
-                        (new Phone)->setAreaCode(current($xml->sender->phone->areaCode))
+                        (new Phone())->setAreaCode(current($xml->sender->phone->areaCode))
                             ->setNumber(current($xml->sender->phone->areaCode))
                     )->setAddress(
-                        (new Address)->setStreet(current($xml->sender->address->street))
+                        (new Address())->setStreet(current($xml->sender->address->street))
                             ->setNumber(current($xml->sender->address->number))
                             ->setComplement(current($xml->sender->address->complement))
                             ->setDistrict(current($xml->sender->address->district))
@@ -80,8 +81,8 @@ class Request extends Error implements Parser
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -69,7 +70,7 @@ class QueryService
             );
             $response = Responsibility::http(
                 $http,
-                new QueryParsers
+                new QueryParsers()
             );
             Logger::info(
                 sprintf("DirectPreApproval URL: %s", json_encode(self::response($response))),

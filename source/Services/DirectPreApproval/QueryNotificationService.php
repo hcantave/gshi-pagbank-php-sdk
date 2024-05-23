@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -56,11 +57,14 @@ class QueryNotificationService
             $http = new Http('Content-Type: application/json;', 'Accept: application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1');
             Logger::info(
                 sprintf(
-                    "GET: %s", self::request(
-                        $connection, QueryNotificationParser::getData($queryNotification),
+                    "GET: %s",
+                    self::request(
+                        $connection,
+                        QueryNotificationParser::getData($queryNotification),
                         QueryNotificationParser::getNotificationCode($queryNotification)
                     )
-                ), ['service' => 'DirectPreApproval']
+                ),
+                ['service' => 'DirectPreApproval']
             );
             Logger::info(
                 sprintf(
@@ -71,7 +75,8 @@ class QueryNotificationService
             );
             $http->get(
                 self::request(
-                    $connection, QueryNotificationParser::getData($queryNotification),
+                    $connection,
+                    QueryNotificationParser::getData($queryNotification),
                     QueryNotificationParser::getNotificationCode($queryNotification)
                 ),
                 20,
@@ -79,7 +84,7 @@ class QueryNotificationService
             );
             $response = Responsibility::http(
                 $http,
-                new QueryNotificationParser
+                new QueryNotificationParser()
             );
             Logger::info(
                 sprintf("DirectPreApproval URL: %s", json_encode(self::response($response))),
@@ -102,7 +107,7 @@ class QueryNotificationService
      */
     private static function request(Data $connection, $params = null, $preApprovalCode = null)
     {
-        return $connection->buildDirectPreApprovalQueryNotificationRequestUrl($preApprovalCode)."?".$connection->buildCredentialsQuery().($params ? '&'.$params : '');
+        return $connection->buildDirectPreApprovalQueryNotificationRequestUrl($preApprovalCode) . "?" . $connection->buildCredentialsQuery() . ($params ? '&' . $params : '');
     }
 
     /**

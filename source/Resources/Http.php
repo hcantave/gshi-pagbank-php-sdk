@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -50,7 +51,7 @@ class Http
      * @param string $contentType
      *
      * @param null   $accept
-     * 
+     *
      * @throws Exception
      */
     public function __construct($contentType = null, $accept = null)
@@ -180,7 +181,8 @@ class Http
             array_push(
                 $options[CURLOPT_HTTPHEADER],
                 sprintf(
-                    'cms-description: %s :%s', Library::cmsVersion()->getName(),
+                    'cms-description: %s :%s',
+                    Library::cmsVersion()->getName(),
                     Library::cmsVersion()->getRelease()
                 )
             );
@@ -195,7 +197,7 @@ class Http
         $errorMessage = curl_error($curl);
         curl_close($curl);
         $this->setStatus((int)$info['http_code']);
-        $this->setResponse((String)$resp);
+        $this->setResponse((string)$resp);
         if ($error) {
             throw new Exception("CURL can't connect: $errorMessage");
         } else {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -59,7 +60,7 @@ class Charge
 
             return Responsibility::http(
                 $http,
-                new Request
+                new Request()
             );
         } catch (Exception $exception) {
             Logger::error($exception->getMessage(), ['service' => 'PreApproval.Charge']);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -37,8 +38,8 @@ use PagSeguro\Domains\Phone;
 class SellerService
 {
     /**
-     * 
-     * 
+     *
+     *
      * @var DOMDocument
      */
     private $dom;
@@ -61,8 +62,8 @@ class SellerService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @return DOMNode
      */
     private function makeAuthorizationNode()
@@ -99,10 +100,10 @@ class SellerService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $accountDom
-     * 
+     *
      * @return DOMNode
      */
     private function makeAccountNode(DOMNode $accountDom)
@@ -117,10 +118,10 @@ class SellerService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $accountDom
-     * 
+     *
      * @return DOMNode
      */
     private function makePersonNode(DOMNode $accountDom)
@@ -141,8 +142,8 @@ class SellerService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $personDom
      */
     private function makePhonesNode(DOMNode $personDom): void
@@ -170,8 +171,8 @@ class SellerService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $personDom
      */
     private function makeDocumentsNode(DOMNode $personDom): void
@@ -196,8 +197,8 @@ class SellerService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $personDom
      */
     private function makeAddressNode(DOMNode $personDom): void

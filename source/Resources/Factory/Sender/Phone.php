@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -33,7 +34,6 @@ use PagSeguro\Enum\Properties\Current;
  */
 class Phone
 {
-
     /**
      * Phone constructor.
      *
@@ -41,7 +41,6 @@ class Phone
      */
     public function __construct(private $sender)
     {
-    
     }
 
     /**
@@ -58,7 +57,7 @@ class Phone
      */
     public function withArray($array)
     {
-        $properties = new Current;
+        $properties = new Current();
         $phone = new \PagSeguro\Domains\Phone();
         $phone->setAreaCode($array[$properties::SENDER_PHONE_AREA_CODE])
             ->setNumber($array[$properties::SENDER_PHONE_NUMBER]);

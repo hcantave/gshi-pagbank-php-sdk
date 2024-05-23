@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -42,8 +43,8 @@ use PagSeguro\Resources\Responsibility;
 class Date
 {
     /**
-     * 
-     * 
+     *
+     *
      * @param  Credentials $credentials
      * @param  $options
      * @return string
@@ -69,7 +70,7 @@ class Date
 
             $response = Responsibility::http(
                 $http,
-                new Request
+                new Request()
             );
 
             Logger::info(

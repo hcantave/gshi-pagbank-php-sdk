@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -31,7 +32,7 @@ namespace PagSeguro\Domains\Requests\DirectPayment\CreditCard;
 trait Installment
 {
     private $installment;
-    
+
     public function getInstallment()
     {
         return $this->installment;

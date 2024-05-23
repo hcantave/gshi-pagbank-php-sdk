@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -73,7 +74,7 @@ class StatusService
             );
             $response = Responsibility::http(
                 $http,
-                new StatusParser
+                new StatusParser()
             );
             Logger::info(
                 sprintf("DirectPreApproval URL: %s", json_encode(self::response($response))),
@@ -95,7 +96,7 @@ class StatusService
      */
     private static function request(Data $connection, $preApprovalCode)
     {
-        return $connection->buildDirectPreApprovalStatusRequestUrl($preApprovalCode)."?".$connection->buildCredentialsQuery();
+        return $connection->buildDirectPreApprovalStatusRequestUrl($preApprovalCode) . "?" . $connection->buildCredentialsQuery();
     }
 
     /**

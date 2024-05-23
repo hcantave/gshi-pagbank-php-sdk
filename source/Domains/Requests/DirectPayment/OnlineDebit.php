@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -55,7 +56,7 @@ class OnlineDebit extends Request
         $this->bankName = $bankName;
         return $this;
     }
-    
+
     /**
      * @param  $credentials
      * @return string

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -42,7 +43,7 @@ class Request extends Error implements Parser
     public static function getData($code)
     {
         $data = [];
-        $properties = new Current;
+        $properties = new Current();
 
         if (!is_null($code)) {
             $data[$properties::TRANSACTION_CODE] = $code;
@@ -51,8 +52,8 @@ class Request extends Error implements Parser
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return Response
      */
@@ -65,8 +66,8 @@ class Request extends Error implements Parser
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */

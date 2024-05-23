@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -32,27 +33,27 @@ class Installment
      * @var
      */
     private $cardBrand;
-    
+
     /**
      * @var
      */
     private $quantity;
-    
+
     /**
      * @var
      */
     private $amount;
-    
+
     /**
      * @var
      */
     private $totalAmount;
-    
+
     /**
      * @var
      */
     private $interestFree;
-    
+
     /**
      * Get the cardBrand attribute
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -63,8 +64,8 @@ class Request extends Error implements Parser
     use Shipping;
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  CreditCard $creditCard
      * @return array
      */
@@ -92,8 +93,8 @@ class Request extends Error implements Parser
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return Response
      */
@@ -101,7 +102,7 @@ class Request extends Error implements Parser
     {
         $xml = simplexml_load_string($http->getResponse());
 
-        return (new Response)->setCancelationSource(current($xml->cancelationSource))
+        return (new Response())->setCancelationSource(current($xml->cancelationSource))
             ->setCode(current($xml->code))
             ->setDate(current($xml->date))
             ->setDiscountAmount(current($xml->discountAmount))
@@ -126,8 +127,8 @@ class Request extends Error implements Parser
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */

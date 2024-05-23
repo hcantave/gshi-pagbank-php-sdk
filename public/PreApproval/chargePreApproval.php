@@ -1,7 +1,9 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Domains\Requests\PreApproval\Charge;
 use PagSeguro\Configuration\Configure;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *

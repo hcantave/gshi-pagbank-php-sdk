@@ -1,7 +1,9 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Services\Session;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -32,7 +34,7 @@ Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
 /*
  * To do a dynamic configuration of the library credentials you have to use the set methods
- * from the static class \PagSeguro\Configuration\Configure. 
+ * from the static class \PagSeguro\Configuration\Configure.
  */
 
 //For example, to configure the library dynamically:

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -62,8 +63,8 @@ class Request extends Error implements Parser
     use Shipping;
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  OnlineDebit $onlineDebit
      * @return array
      */
@@ -94,7 +95,7 @@ class Request extends Error implements Parser
     {
         $xml = simplexml_load_string($http->getResponse());
 
-        return (new Response)->setDate(current($xml->date))
+        return (new Response())->setDate(current($xml->date))
             ->setCode(current($xml->code))
             ->setReference(current($xml->reference))
             ->setRecoveryCode(current($xml->recoveryCode))

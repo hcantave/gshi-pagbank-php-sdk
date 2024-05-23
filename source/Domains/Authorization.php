@@ -22,7 +22,6 @@ class Authorization
      */
     public function __construct(private $reference, private $permissions, private $redirectURL, private $notificationURL, private ?Account $account = null)
     {
-    
     }
 
     /**

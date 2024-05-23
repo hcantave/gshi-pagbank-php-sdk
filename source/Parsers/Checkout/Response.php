@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,6 +25,7 @@
 namespace PagSeguro\Parsers\Checkout;
 
 use DateTime;
+
 /**
  * Class Response
  *
@@ -31,7 +33,6 @@ use DateTime;
  */
 class Response
 {
-
     /**
      * @var
      */
@@ -60,8 +61,8 @@ class Response
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @return DateTime
      */
     public function getDate()
@@ -70,8 +71,8 @@ class Response
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  DateTime $date
      * @return Response
      */

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -73,7 +74,7 @@ class CancelService
             );
             $response = Responsibility::http(
                 $http,
-                new CancelParser
+                new CancelParser()
             );
             Logger::info(
                 sprintf("DirectPreApproval URL: %s", json_encode(self::response($response))),

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -28,14 +29,14 @@ use PagSeguro\Helpers\InitializeObject;
 trait Metadata
 {
     private $metadata;
-    
+
     public function addMetadata()
     {
         $this->metadata = InitializeObject::Initialize(
             $this->metadata,
             new \PagSeguro\Resources\Factory\Request\Metadata()
         );
-        
+
         return $this->metadata;
     }
 

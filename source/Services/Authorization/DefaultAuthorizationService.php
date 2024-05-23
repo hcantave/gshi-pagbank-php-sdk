@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -35,8 +36,8 @@ use PagSeguro\Domains\Authorization;
 class DefaultAuthorizationService
 {
     /**
-     * 
-     * 
+     *
+     *
      * @var DOMDocument
      */
     private $dom;
@@ -54,8 +55,8 @@ class DefaultAuthorizationService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @return DOMNode
      */
     private function makeAuthorizationNode()

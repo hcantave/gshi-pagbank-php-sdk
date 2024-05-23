@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -36,8 +37,8 @@ use PagSeguro\Domains\Phone;
 class Partner
 {
     /**
-     * 
-     * 
+     *
+     *
      * @var DateTime
      */
     private $birthDate;

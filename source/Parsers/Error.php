@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -38,7 +39,7 @@ class Error
      */
     protected static function error(Http $http)
     {
-        $error = new \PagSeguro\Domains\Error;
+        $error = new \PagSeguro\Domains\Error();
         $error->setCode($http->getStatus())
             ->setMessage($http->getResponse());
         return $error;

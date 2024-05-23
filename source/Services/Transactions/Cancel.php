@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -42,7 +43,6 @@ use PagSeguro\Resources\Responsibility;
  */
 class Cancel
 {
-
     /**
      * @param  Credentials $credentials
      * @param  $code
@@ -72,7 +72,7 @@ class Cancel
 
             $response = Responsibility::http(
                 $http,
-                new Request
+                new Request()
             );
 
             Logger::info(sprintf("Result: %s", current($response)), ['service' => 'Cancel']);

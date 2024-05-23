@@ -1,8 +1,10 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Requests\Payment;
 use PagSeguro\Enum\Shipping\Type;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *

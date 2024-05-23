@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -40,7 +41,7 @@ class InitializeObject
     public static function initialize($attr, $instantiateClass)
     {
         if (!isset($attr) || empty($attr) || is_null($attr)) {
-            $attr = new $instantiateClass;
+            $attr = new $instantiateClass();
         }
         return $attr;
     }

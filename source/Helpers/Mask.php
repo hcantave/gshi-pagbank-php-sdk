@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -120,9 +121,10 @@ class Mask
      */
     private static function isValidType($type)
     {
-        if (\PagSeguro\Enum\Mask::isValidName(
-            \PagSeguro\Enum\Mask::getType($type)
-        )
+        if (
+            \PagSeguro\Enum\Mask::isValidName(
+                \PagSeguro\Enum\Mask::getType($type)
+            )
         ) {
             return true;
         }

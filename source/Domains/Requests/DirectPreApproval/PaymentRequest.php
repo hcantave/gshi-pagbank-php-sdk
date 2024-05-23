@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -34,6 +35,7 @@ use PagSeguro\Domains\DirectPreApproval\Traits\ParserTrait;
 class PaymentRequest
 {
     use ParserTrait;
+
     private $preApprovalCode;
     private $reference;
     private $senderHash;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -65,7 +66,7 @@ class Configure
      */
     public static function setAccountCredentials($email, $token): void
     {
-        self::$accountCredentials = new AccountCredentials;
+        self::$accountCredentials = new AccountCredentials();
         self::$accountCredentials->setEmail($email)
             ->setToken($token);
     }
@@ -92,7 +93,7 @@ class Configure
      */
     public static function setApplicationCredentials($appId, $appKey): void
     {
-        self::$applicationCredentials = new ApplicationCredentials;
+        self::$applicationCredentials = new ApplicationCredentials();
         self::$applicationCredentials->setAppId($appId)
             ->setAppKey($appKey);
     }
@@ -114,7 +115,7 @@ class Configure
      */
     public static function setEnvironment($environment): void
     {
-        self::$environment = new Environment;
+        self::$environment = new Environment();
         self::$environment->setEnvironment($environment);
     }
 
@@ -135,7 +136,7 @@ class Configure
      */
     public static function setCharset($charset): void
     {
-        self::$charset = new Charset;
+        self::$charset = new Charset();
         self::$charset->setEncoding($charset);
     }
 
@@ -160,7 +161,7 @@ class Configure
      */
     public static function setLog($active, $location): void
     {
-        self::$log = new Log;
+        self::$log = new Log();
         self::$log->setActive($active)
             ->setLocation($location);
     }

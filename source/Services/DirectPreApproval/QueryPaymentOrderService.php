@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -69,7 +70,7 @@ class QueryPaymentOrderService
             );
             $response = Responsibility::http(
                 $http,
-                new QueryPaymentOrderParsers
+                new QueryPaymentOrderParsers()
             );
             Logger::info(
                 sprintf("DirectPreApproval URL: %s", json_encode(self::response($response))),
@@ -90,9 +91,9 @@ class QueryPaymentOrderService
      *
      * @return string
      */
-    private static function request(Data $connection, $preApprovalCode , $params = null)
+    private static function request(Data $connection, $preApprovalCode, $params = null)
     {
-        return $connection->buildDirectPreApprovalQueryPaymentOrderRequestUrl($preApprovalCode)."?".$connection->buildCredentialsQuery().($params ? '&'.$params : '');
+        return $connection->buildDirectPreApprovalQueryPaymentOrderRequestUrl($preApprovalCode) . "?" . $connection->buildCredentialsQuery() . ($params ? '&' . $params : '');
     }
 
     /**

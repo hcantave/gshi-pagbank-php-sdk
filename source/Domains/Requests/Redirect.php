@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -26,7 +27,7 @@ namespace PagSeguro\Domains\Requests;
 trait Redirect
 {
     private $rUrl;
-    
+
     public function getUrl()
     {
         return $this->rUrl;

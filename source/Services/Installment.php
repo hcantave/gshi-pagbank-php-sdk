@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -58,7 +59,7 @@ class Installment
 
             $response = Responsibility::http(
                 $http,
-                new Request
+                new Request()
             );
 
             return $response;
@@ -82,7 +83,8 @@ class Installment
             $connection->buildCredentialsQuery(),
             sprintf(
                 "&%s=%s",
-                Current::INSTALLMENT_AMOUNT, Currency::toDecimal($params['amount'])
+                Current::INSTALLMENT_AMOUNT,
+                Currency::toDecimal($params['amount'])
             ),
             !isset($params['card_brand']) || is_null($params['card_brand']) ? '' :
                 sprintf("&%s=%s", Current::INSTALLMENT_CARD_BRAND, $params['card_brand']),

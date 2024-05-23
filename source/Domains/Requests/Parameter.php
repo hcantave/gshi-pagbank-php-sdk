@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -31,14 +32,14 @@ use PagSeguro\Helpers\InitializeObject;
 trait Parameter
 {
     private $parameter;
-    
+
     public function addParameter()
     {
         $this->parameter = InitializeObject::Initialize(
             $this->parameter,
             new \PagSeguro\Resources\Factory\Request\Parameter()
         );
-        
+
         return $this->parameter;
     }
 

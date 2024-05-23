@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -60,7 +61,7 @@ class Item
      */
     public function withArray($array)
     {
-        $properties = new Current;
+        $properties = new Current();
 
         $item = new \PagSeguro\Domains\Item();
         $item->setId($array[$properties::ITEM_ID])

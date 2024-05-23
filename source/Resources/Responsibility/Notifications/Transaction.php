@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -54,8 +55,9 @@ class Transaction implements Handler
      */
     public function handler()
     {
-        if (!is_null(Xhr::getInputCode()) 
-            and !is_null(Xhr::getInputType()) 
+        if (
+            !is_null(Xhr::getInputCode())
+            and !is_null(Xhr::getInputType())
             and Xhr::getInputType() == Notification::TRANSACTION
         ) {
             $notification = NotificationObject::initialize();

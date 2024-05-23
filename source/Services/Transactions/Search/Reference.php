@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -42,8 +43,8 @@ use PagSeguro\Resources\Responsibility;
 class Reference
 {
     /**
-     * 
-     * 
+     *
+     *
      * @param  Credentials $credentials
      * @param  $reference
      * @param  $initial
@@ -77,7 +78,7 @@ class Reference
 
             $response = Responsibility::http(
                 $http,
-                new Request
+                new Request()
             );
 
             Logger::info(

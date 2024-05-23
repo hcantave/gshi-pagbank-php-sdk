@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -25,7 +26,6 @@ namespace PagSeguro\Domains\Requests\Shipping;
 
 trait Address
 {
-
     private $address;
 
     public function getAddress()

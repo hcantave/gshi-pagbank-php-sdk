@@ -1,4 +1,5 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Domains\Requests\Payment;
 use PagSeguro\Enum\Shipping\Type;
@@ -6,6 +7,7 @@ use PagSeguro\Enum\PaymentMethod\Group;
 use PagSeguro\Enum\PaymentMethod\Config\Keys;
 use PagSeguro\Enum\PaymentMethod\Name;
 use PagSeguro\Configuration\Configure;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *

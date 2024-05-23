@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -33,7 +34,6 @@ use PagSeguro\Domains\ShippingType;
  */
 class Type
 {
-
     /**
      * Shipping constructor.
      *
@@ -41,7 +41,6 @@ class Type
      */
     public function __construct(private $shipping)
     {
-    
     }
 
     public function instance(ShippingType $type)

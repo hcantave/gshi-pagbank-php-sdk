@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -46,7 +47,7 @@ class Metadata
 
     public function withArray($array)
     {
-        $properties = new Current;
+        $properties = new Current();
 
         $metadata = new \PagSeguro\Domains\Metadata();
         $metadata->setKey($array[$properties::METADATA_ITEM_KEY])

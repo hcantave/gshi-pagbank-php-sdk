@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -43,7 +44,8 @@ class Environment implements Handler
      */
     public function handler($action, $class)
     {
-        if (getenv(\PagSeguro\Enum\Configuration\Environment::ENV) 
+        if (
+            getenv(\PagSeguro\Enum\Configuration\Environment::ENV)
             and getenv(\PagSeguro\Enum\Configuration\Environment::EMAIL)
         ) {
             return array_merge(

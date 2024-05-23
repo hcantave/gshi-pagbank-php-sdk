@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -36,8 +37,8 @@ use PagSeguro\Resources\Http;
 class Request extends Error implements Parser
 {
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return Response
      */
@@ -68,8 +69,8 @@ class Request extends Error implements Parser
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */

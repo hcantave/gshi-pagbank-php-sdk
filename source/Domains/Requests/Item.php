@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -35,7 +36,7 @@ trait Item
             $this->items,
             new \PagSeguro\Resources\Factory\Item()
         );
-        
+
         return $this->items;
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -28,7 +29,6 @@ use PagSeguro\Domains\Requests\PreApproval\Charge\Request;
 
 class Charge extends Request
 {
-
     private $code;
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -44,6 +45,5 @@ class QueryPaymentOrderRequest
      */
     public function __construct(public $preApprovalCode, public $status, public $page = 1, public $maxPageResults = 50)
     {
-    
     }
 }

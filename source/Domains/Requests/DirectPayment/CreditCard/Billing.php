@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -41,7 +42,7 @@ trait Billing
         );
         return new \PagSeguro\Domains\Requests\Adapter\DirectPayment\Billing($this->billing);
     }
-    
+
     /**
      *
      * @return billing

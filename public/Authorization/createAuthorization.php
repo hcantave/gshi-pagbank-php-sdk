@@ -1,8 +1,10 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Domains\Requests\Authorization;
 use PagSeguro\Enum\Authorization\Permissions;
 use PagSeguro\Configuration\Configure;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *

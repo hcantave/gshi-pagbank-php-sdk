@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -51,7 +52,7 @@ class Request extends Error implements Parser
     public static function getData(Requests $request)
     {
         $data = [];
-        $properties = new Current;
+        $properties = new Current();
         return array_merge(
             $data,
             Basic::getData($request, $properties),
@@ -68,7 +69,7 @@ class Request extends Error implements Parser
     public static function success(Http $http)
     {
         $xml = simplexml_load_string($http->getResponse());
-        return (new Response)->setCode(current($xml->code))
+        return (new Response())->setCode(current($xml->code))
             ->setDate(current($xml->date));
     }
 

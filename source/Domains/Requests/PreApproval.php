@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -29,7 +30,6 @@ use PagSeguro\Domains\Requests\PreApproval\Request;
 
 class PreApproval extends Request
 {
-
     /**
      * @param  $credentials
      * @return string

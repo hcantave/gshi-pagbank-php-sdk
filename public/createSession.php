@@ -1,7 +1,9 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Services\Session;
 use PagSeguro\Configuration\Configure;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -23,6 +25,7 @@ use PagSeguro\Configuration\Configure;
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
  */
+
 require_once "../vendor/autoload.php";
 
 PagSeguro\Library::initialize();

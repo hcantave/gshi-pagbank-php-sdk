@@ -1,8 +1,10 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Helpers\Xhr;
 use PagSeguro\Services\Application\Notification;
 use PagSeguro\Configuration\Configure;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *

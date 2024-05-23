@@ -1,7 +1,9 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Services\PreApproval\Search\Notification;
 use PagSeguro\Configuration\Configure;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *

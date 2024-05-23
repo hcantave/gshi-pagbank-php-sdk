@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -42,7 +43,7 @@ trait CreditorFees
     {
         return $this->creditorFees;
     }
-    
+
     /**
      * @param  $creditorFees
      * @return $this

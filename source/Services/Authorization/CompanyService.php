@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -37,8 +38,8 @@ use PagSeguro\Domains\Phone;
 class CompanyService
 {
     /**
-     * 
-     * 
+     *
+     *
      * @var DOMDocument
      */
     private $dom;
@@ -62,8 +63,8 @@ class CompanyService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @return DOMNode
      */
     private function makeAuthorizationNode()
@@ -100,10 +101,10 @@ class CompanyService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $accountDom
-     * 
+     *
      * @return DOMNode
      */
     private function makeAccountNode(DOMNode $accountDom)
@@ -118,10 +119,10 @@ class CompanyService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $accountDom
-     * 
+     *
      * @return DOMNode
      */
     private function makeCompanyNode(DOMNode $accountDom)
@@ -145,8 +146,8 @@ class CompanyService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $companyDom
      */
     private function makePartnerNode(DOMNode $companyDom): void
@@ -169,8 +170,8 @@ class CompanyService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $companyDom
      */
     private function makePartnersPhonesNode(DOMNode $companyDom): void
@@ -198,8 +199,8 @@ class CompanyService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $companyDom
      */
     private function makePartnerDocumentsNode(DOMNode $companyDom): void
@@ -224,8 +225,8 @@ class CompanyService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $companyDom
      */
     private function makePhonesNode(DOMNode $companyDom): void
@@ -253,8 +254,8 @@ class CompanyService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $companyDom
      */
     private function makeDocumentsNode(DOMNode $companyDom): void
@@ -279,8 +280,8 @@ class CompanyService
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param DOMNode $companyDom
      */
     private function makeAddressNode(DOMNode $companyDom): void

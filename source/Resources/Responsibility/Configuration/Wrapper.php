@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -39,7 +40,7 @@ class Wrapper implements Handler
     public function handler($action, $class)
     {
         if (class_exists('ConfigWrapper')) {
-            $configWrapper = new ConfigWrapper;
+            $configWrapper = new ConfigWrapper();
             return array_merge(
                 \PagSeguro\Helpers\Wrapper::environment($configWrapper),
                 \PagSeguro\Helpers\Wrapper::credentials($configWrapper),

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: esilva
@@ -34,7 +35,7 @@ class Response
      * @var
      */
     private $currentPage;
-    
+
     /**
      * @var
      */

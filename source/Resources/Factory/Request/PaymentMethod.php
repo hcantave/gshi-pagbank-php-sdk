@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -41,7 +42,7 @@ class PaymentMethod
 
     public function withArray($array)
     {
-        $properties = new Current;
+        $properties = new Current();
 
         $paymentMethod = new \PagSeguro\Domains\PaymentMethod();
         $paymentMethod->setKey($array[$properties::PAYMENT_METHOD_CONFIG_KEY])

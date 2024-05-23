@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -42,8 +43,8 @@ use PagSeguro\Parsers\DirectPayment\Boleto\Request;
 class Boleto
 {
     /**
-     * 
-     * 
+     *
+     *
      * @param  Credentials                                      $credentials
      * @param  \PagSeguro\Domains\Requests\DirectPayment\Boleto $payment
      * @return string
@@ -78,7 +79,7 @@ class Boleto
 
             $response = Responsibility::http(
                 $http,
-                new Request
+                new Request()
             );
 
             Logger::info(

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -33,7 +34,6 @@ use PagSeguro\Enum\Properties\Current;
  */
 class Address
 {
-
     /**
      * Shipping constructor.
      *
@@ -41,7 +41,6 @@ class Address
      */
     public function __construct(private $billing)
     {
-    
     }
 
     /**
@@ -58,7 +57,7 @@ class Address
      */
     public function withArray($array)
     {
-        $properties = new Current;
+        $properties = new Current();
         $address = new \PagSeguro\Domains\Address();
         $address->setPostalCode($array[$properties::SHIPPING_ADDRESS_POSTAL_CODE])
             ->setStreet($array[$properties::SHIPPING_ADDRESS_STREET])

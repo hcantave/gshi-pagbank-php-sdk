@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -61,8 +62,8 @@ class Request extends Error implements Parser
     use Shipping;
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Boleto $boleto
      * @return array
      */
@@ -87,8 +88,8 @@ class Request extends Error implements Parser
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return Response
      */
@@ -96,7 +97,7 @@ class Request extends Error implements Parser
     {
         $xml = simplexml_load_string($http->getResponse());
 
-        return (new Response)->setDate(current($xml->date))
+        return (new Response())->setDate(current($xml->date))
             ->setCode(current($xml->code))
             ->setReference(current($xml->reference))
             ->setType(current($xml->type))
@@ -121,8 +122,8 @@ class Request extends Error implements Parser
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */

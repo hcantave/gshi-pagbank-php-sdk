@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -31,7 +32,7 @@ namespace PagSeguro\Domains\Requests\DirectPayment\CreditCard;
 trait Token
 {
     private $token;
-    
+
     public function getToken()
     {
         return $this->token;

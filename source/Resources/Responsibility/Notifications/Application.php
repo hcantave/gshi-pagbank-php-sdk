@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -55,8 +56,9 @@ class Application implements Handler
      */
     public function handler()
     {
-        if (!is_null(Xhr::getInputCode()) 
-            and !is_null(Xhr::getInputType()) 
+        if (
+            !is_null(Xhr::getInputCode())
+            and !is_null(Xhr::getInputType())
             and Xhr::getInputType() == Notification::APPLICATION_AUTHORIZATION
         ) {
             $notification = NotificationObject::initialize();

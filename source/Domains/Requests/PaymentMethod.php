@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -28,14 +29,14 @@ use PagSeguro\Helpers\InitializeObject;
 trait PaymentMethod
 {
     private $paymentMethod = [];
-    
+
     public function addPaymentMethod()
     {
         $this->paymentMethod = InitializeObject::Initialize(
             $this->paymentMethod,
             new \PagSeguro\Resources\Factory\Request\PaymentMethod()
         );
-        
+
         return $this->paymentMethod;
     }
 

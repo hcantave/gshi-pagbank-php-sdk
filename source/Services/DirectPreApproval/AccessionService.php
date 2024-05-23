@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -70,7 +71,7 @@ class AccessionService
             );
             $response = Responsibility::http(
                 $http,
-                new AccessionParser
+                new AccessionParser()
             );
             Logger::info(
                 sprintf("DirectPreApproval URL: %s", json_encode(self::response($response))),

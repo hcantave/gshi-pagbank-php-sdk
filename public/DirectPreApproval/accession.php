@@ -1,9 +1,11 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Configuration\Configure;
 use PagSeguro\Domains\Requests\DirectPreApproval\Accession;
 use PagSeguro\Domains\DirectPreApproval\Document;
 use PagSeguro\Domains\AccountCredentials;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -44,7 +46,12 @@ $preApproval->setSender()->setName('nome');//assinante
 $preApproval->setSender()->setEmail('email');//assinante
 $preApproval->setSender()->setIp('ip');//assinante
 $preApproval->setSender()->setAddress()->withParameters(
-    'logradouro', 'numero', 'bairro', 'cep', 'cidade', 'UF',
+    'logradouro',
+    'numero',
+    'bairro',
+    'cep',
+    'cidade',
+    'UF',
     'BRA'
 );//assinante
 $document = new Document();
@@ -59,8 +66,13 @@ $document->withParameters('CPF', 'cpf'); //cpf do titular do cartão de crédito
 $preApproval->setPaymentMethod()->setCreditCard()->setHolder()->setDocuments($document);
 $preApproval->setPaymentMethod()->setCreditCard()->setHolder()->setPhone()->withParameters('ddd', 'telefone'); //telefone do titular do cartão de crédito
 $preApproval->setPaymentMethod()->setCreditCard()->setHolder()->setBillingAddress()->withParameters(
-    'logradouro', 'numero',
-    'bairro', 'cep', 'cidade', 'UF', 'BRA'
+    'logradouro',
+    'numero',
+    'bairro',
+    'cep',
+    'cidade',
+    'UF',
+    'BRA'
 ); //endereço do titular do cartão de crédito
 
 try {
@@ -73,4 +85,3 @@ try {
 } catch (Exception $e) {
     die($e->getMessage());
 }
-

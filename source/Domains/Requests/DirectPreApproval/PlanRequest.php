@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -35,6 +36,7 @@ use PagSeguro\Domains\DirectPreApproval\Traits\ParserTrait;
 class PlanRequest
 {
     use ParserTrait;
+
     public $redirectURL;
     public $reference;
     public $preApproval;

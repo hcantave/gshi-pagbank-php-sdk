@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -70,7 +71,7 @@ class PaymentService
             );
             $response = Responsibility::http(
                 $http,
-                new PaymentParser
+                new PaymentParser()
             );
             Logger::info(
                 sprintf("DirectPreApproval URL: %s", json_encode(self::response($response))),

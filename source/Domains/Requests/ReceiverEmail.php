@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -29,7 +30,7 @@ namespace PagSeguro\Domains\Requests;
 trait ReceiverEmail
 {
     private $receiverEmail;
-    
+
     public function getReceiverEmail()
     {
         return $this->receiverEmail;

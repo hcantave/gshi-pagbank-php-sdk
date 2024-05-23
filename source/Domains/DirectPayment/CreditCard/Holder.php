@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -30,7 +31,6 @@ namespace PagSeguro\Domains\DirectPayment\CreditCard;
  */
 class Holder
 {
-
     /***
      * Credit card holder name
      */

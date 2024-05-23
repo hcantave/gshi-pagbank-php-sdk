@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -42,7 +43,7 @@ class Metadata
      * Metadata group
      */
     private $group;
-    
+
     public function getKey()
     {
         return $this->key;

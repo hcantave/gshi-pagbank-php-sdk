@@ -1,8 +1,10 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Domains\Requests\DirectPreApproval\ChangePayment;
 use PagSeguro\Domains\DirectPreApproval\Document;
 use PagSeguro\Domains\AccountCredentials;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -50,8 +52,13 @@ $document->withParameters('CPF', 'cpf');  //cpf do titular do cartão de crédit
 $changePayment->setCreditCard()->setHolder()->setDocuments($document);
 $changePayment->setCreditCard()->setHolder()->setPhone()->withParameters('ddd', 'telefone'); //telefone do titular do cartão de crédito
 $changePayment->setCreditCard()->setHolder()->setBillingAddress()->withParameters(
-    'logradouro', 'numero',
-    'bairro', 'cep', 'cidade', 'UF', 'BRA'
+    'logradouro',
+    'numero',
+    'bairro',
+    'cep',
+    'cidade',
+    'UF',
+    'BRA'
 ); //endereço do titular do cartão de crédito
 
 try {
@@ -64,4 +71,3 @@ try {
 } catch (Exception $e) {
     die($e->getMessage());
 }
-

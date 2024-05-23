@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -79,7 +80,7 @@ class EditPlanService
 
             $response = Responsibility::http(
                 $http,
-                new EditPlanParser
+                new EditPlanParser()
             );
 
             Logger::info(

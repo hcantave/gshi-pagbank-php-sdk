@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -50,7 +51,7 @@ class Request extends Error implements Parser
     public static function getData(Requests $request)
     {
         $data = [];
-        $properties = new Current;
+        $properties = new Current();
         if (!is_null($request->getCode())) {
             $data[$properties::PRE_APPROVAL_CODE] = $request->getCode();
         }
@@ -62,21 +63,21 @@ class Request extends Error implements Parser
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return Response
      */
     public static function success(Http $http)
     {
         $xml = simplexml_load_string($http->getResponse());
-        return (new Response)->setCode(current($xml->transactionCode))
+        return (new Response())->setCode(current($xml->transactionCode))
             ->setDate(current($xml->date));
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param  Http $http
      * @return \PagSeguro\Domains\Error
      */

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -56,7 +57,7 @@ class Authorization
                 Configure::getCharset()->getEncoding()
             );
 
-            $response = Responsibility::http($http, new Request);
+            $response = Responsibility::http($http, new Request());
             Logger::info(
                 sprintf(
                     "Authorization URL: %s",

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -33,6 +34,7 @@ use PagSeguro\Domains\DirectPreApproval\Traits\ParserTrait;
 class QueryNotificationRequest
 {
     use ParserTrait;
+
     /**
      * @var null
      */

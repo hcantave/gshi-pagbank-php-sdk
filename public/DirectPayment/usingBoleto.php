@@ -1,7 +1,9 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Domains\Requests\DirectPayment\Boleto;
 use PagSeguro\Configuration\Configure;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -39,7 +41,7 @@ $boleto->setMode('DEFAULT');
 /**
  * @todo Change the receiver Email
  */
-//$boleto->setReceiverEmail('vendedor@lojamodelo.com.br'); 
+//$boleto->setReceiverEmail('vendedor@lojamodelo.com.br');
 
 // Set the currency
 $boleto->setCurrency("BRL");

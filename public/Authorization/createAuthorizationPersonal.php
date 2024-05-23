@@ -1,4 +1,5 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Domains\Requests\Authorization;
 use PagSeguro\Enum\Authorization\Permissions;
@@ -9,6 +10,7 @@ use PagSeguro\Enum\Authorization\PhoneEnum;
 use PagSeguro\Domains\Address;
 use PagSeguro\Domains\Authorization\Account;
 use PagSeguro\Configuration\Configure;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *

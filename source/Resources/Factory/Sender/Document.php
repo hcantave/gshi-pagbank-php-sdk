@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -32,7 +33,6 @@ use PagSeguro\Enum\Properties\Current;
  */
 class Document
 {
-
     /**
      * Document constructor.
      *
@@ -40,7 +40,6 @@ class Document
      */
     public function __construct(private $sender)
     {
-    
     }
 
     /**
@@ -59,7 +58,7 @@ class Document
      */
     public function withArray($array)
     {
-        $properties = new Current;
+        $properties = new Current();
         $document = new \PagSeguro\Domains\Document();
         $document->setType($array[$properties::DOCUMENT_TYPE])
             ->setIdentifier($array[$properties::DOCUMENT_VALUE]);

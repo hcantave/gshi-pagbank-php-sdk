@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -37,8 +38,8 @@ use PagSeguro\Domains\Phone;
 class Seller
 {
     /**
-     * 
-     * 
+     *
+     *
      * @var DateTime
      */
     private $birthDate = null;

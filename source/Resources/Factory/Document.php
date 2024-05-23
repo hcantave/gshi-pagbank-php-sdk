@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -32,7 +33,6 @@ use PagSeguro\Enum\Properties\Current;
  */
 class Document
 {
-
     /**
      * @var \PagSeguro\Domains\Document
      */

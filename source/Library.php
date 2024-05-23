@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -52,8 +53,8 @@ class Library
     private static $cms;
 
     /**
-* 
-* 
+*
+*
      * @throws Exception
      */
     final public static function initialize(): void
@@ -101,7 +102,7 @@ class Library
      */
     final public static function phpVersion()
     {
-        return (new Language)->getRelease();
+        return (new Language())->getRelease();
     }
 
     /**

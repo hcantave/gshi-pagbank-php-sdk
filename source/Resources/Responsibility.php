@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -68,10 +69,10 @@ class Responsibility
 
     public static function configuration()
     {
-        $environment = new Environment;
-        $extensible = new Extensible;
-        $file = new File;
-        $wrapper = new Wrapper;
+        $environment = new Environment();
+        $extensible = new Extensible();
+        $file = new File();
+        $wrapper = new Wrapper();
 
         $wrapper->successor(
             $environment->successor(
