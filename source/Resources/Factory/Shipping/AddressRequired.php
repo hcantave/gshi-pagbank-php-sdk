@@ -24,7 +24,6 @@
 
 namespace PagSeguro\Resources\Factory\Shipping;
 
-use PagSeguro\Domains\Shipping;
 use PagSeguro\Domains\ShippingAddressRequired;
 
 /**

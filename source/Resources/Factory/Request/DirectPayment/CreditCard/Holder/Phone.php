@@ -24,7 +24,6 @@
 
 namespace PagSeguro\Resources\Factory\Request\DirectPayment\CreditCard\Holder;
 
-use PagSeguro\Domains\DirectPayment\CreditCard\Holder;
 use PagSeguro\Enum\Properties\Current;
 
 /**

@@ -28,9 +28,9 @@ use PagSeguro\Configuration\Configure;
 
 require_once "../vendor/autoload.php";
 
-PagSeguro\Library::initialize();
-PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+Library::initialize();
+Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
 try {
     $sessionCode = Session::create(

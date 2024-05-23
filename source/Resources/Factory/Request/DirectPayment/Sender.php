@@ -24,7 +24,6 @@
 
 namespace PagSeguro\Resources\Factory\Request\DirectPayment;
 
-use PagSeguro\Domains\Shipping;
 use PagSeguro\Domains\Document;
 use PagSeguro\Domains\Phone;
 use PagSeguro\Enum\Properties\Current;

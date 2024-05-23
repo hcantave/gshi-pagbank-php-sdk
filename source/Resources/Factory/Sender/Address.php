@@ -24,7 +24,6 @@
 
 namespace PagSeguro\Resources\Factory\Sender;
 
-use PagSeguro\Domains\Shipping;
 use PagSeguro\Enum\Properties\Current;
 
 /**

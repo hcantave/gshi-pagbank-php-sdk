@@ -24,7 +24,6 @@
 
 namespace PagSeguro\Services;
 
-use Pagseguro\Domains\Responses\Installments;
 use Exception;
 use PagSeguro\Resources\Connection\Data;
 use PagSeguro\Configuration\Configure;

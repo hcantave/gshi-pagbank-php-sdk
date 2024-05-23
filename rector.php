@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use Rector\Set\ValueObject\SetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector;
 
@@ -13,7 +14,7 @@ return RectorConfig::configure()
         __DIR__ . '/tests',
     ])
     // uncomment to reach your current PHP version
-    ->withPhpSets(php80: true)
+    ->withPhpSets(php81: true)
     ->withImportNames(removeUnusedImports: true)
     ->withRules([
         AddVoidReturnTypeWhereNoReturnRector::class,
@@ -25,5 +26,5 @@ return RectorConfig::configure()
     SetList::TYPE_DECLARATION,
     SetList::CODE_QUALITY,
     SetList::CODING_STYLE,
-    LevelSetList::UP_TO_PHP_82
+    LevelSetList::UP_TO_PHP_81
 ]);

@@ -24,7 +24,6 @@
 
 namespace PagSeguro\Resources\Factory\Request\DirectPayment\CreditCard\Billing;
 
-use PagSeguro\Domains\DirectPayment\CreditCard\Billing;
 use PagSeguro\Enum\Properties\Current;
 
 /**
