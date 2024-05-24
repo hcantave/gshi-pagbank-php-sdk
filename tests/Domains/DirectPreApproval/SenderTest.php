@@ -9,7 +9,7 @@ class SenderTest extends TestCase
 {
     private $obj;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->obj = new Sender();
     }
