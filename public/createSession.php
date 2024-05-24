@@ -1,9 +1,7 @@
 <?php
-
 use PagSeguro\Library;
 use PagSeguro\Services\Session;
 use PagSeguro\Configuration\Configure;
-
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,13 +22,13 @@ use PagSeguro\Configuration\Configure;
  * @author    PagSeguro Internet Ltda.
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
+ *
  */
+require_once "../vendor/autoload.php";
 
-require_once __DIR__ . "/../vendor/autoload.php";
-
-Library::initialize();
-Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
-Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
+PagSeguro\Library::initialize();
+PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
+PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
 
 try {
     $sessionCode = Session::create(

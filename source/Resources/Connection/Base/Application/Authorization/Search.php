@@ -23,7 +23,7 @@
  */
 
 namespace PagSeguro\Resources\Connection\Base\Application\Authorization;
-
+use PagSeguro\Resources\Builder;
 /**
  * Class Payment
  *

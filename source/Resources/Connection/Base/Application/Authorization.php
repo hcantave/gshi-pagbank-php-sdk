@@ -21,8 +21,9 @@
  * @copyright 2007-2016 PagSeguro Internet Ltda.
  * @license   http://www.apache.org/licenses/LICENSE-2.0
  */
-
 namespace PagSeguro\Resources\Connection\Base\Application;
+
+use PagSeguro\Resources\Builder;
 
 /**
  * Class Payment
