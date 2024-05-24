@@ -11,6 +11,8 @@ tmp/
 *.bak
 *.swp
 *~.nib
+phpcs-*.txt
+rector-*.txt
 local.properties
 .classpath
 .settings/
