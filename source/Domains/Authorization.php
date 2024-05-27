@@ -6,19 +6,13 @@ use PagSeguro\Domains\Authorization\Account;
 
 /**
  * Class Seller
- *
- * @package PagSeguro\Domains\Authorization
  */
 class Authorization
 {
     /**
      * Seller constructor.
      *
-     * @param $reference
-     * @param $permissions
-     * @param $redirectURL
-     * @param $notificationURL
-     * @param Account $account         * @param string $reference
+     * @param  Account  $account  * @param string $reference
      */
     public function __construct(private $reference, private $permissions, private $redirectURL, private $notificationURL, private ?Account $account = null)
     {

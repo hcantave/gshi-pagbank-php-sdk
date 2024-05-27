@@ -1,7 +1,9 @@
 <?php
+
 use PagSeguro\Library;
 use PagSeguro\Services\Session;
 use PagSeguro\Configuration\Configure;
+
 /**
  * 2007-2016 [PagSeguro Internet Ltda.]
  *
@@ -24,17 +26,13 @@ use PagSeguro\Configuration\Configure;
  * @license   http://www.apache.org/licenses/LICENSE-2.0
  *
  */
-require_once "../vendor/autoload.php";
 
+ require_once __DIR__ . '/vendor/autoload.php';
 PagSeguro\Library::initialize();
 PagSeguro\Library::cmsVersion()->setName("Nome")->setRelease("1.0.0");
 PagSeguro\Library::moduleVersion()->setName("Nome")->setRelease("1.0.0");
-
 try {
-    $sessionCode = Session::create(
-        Configure::getAccountCredentials()
-    );
-
+    $sessionCode = Session::create(Configure::getAccountCredentials());
     echo "<strong>ID de sess&atilde;o criado: </strong>{$sessionCode->getResult()}";
 } catch (Exception $e) {
     die($e->getMessage());
