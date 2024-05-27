@@ -1,5 +1,5 @@
 {
-  "name": "gshi-pagbank-php-sdk",
+  "name": "hcantave/gshi-pagbank-php-sdk",
   "description": "PagSeguro integration library",
   "license": "Apache-2.0",
   "authors": [
