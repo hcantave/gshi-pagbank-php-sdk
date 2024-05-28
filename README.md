@@ -55,7 +55,7 @@ Instalação
   ```composer.json
   {
       "require": {
-         "pagseguro/pagseguro-php-sdk" : "^6.0"
+         "hcantave/gshi-pagbank-php-sdkk" : "^6.0.1"
       }
   }
   ```
